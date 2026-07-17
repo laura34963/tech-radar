@@ -1,0 +1,298 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "category": "cloud",
+      "id": "b83031050e7274b2",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Amazon Cognito now supports importing users with password hashes in CSV user imports. Previously, users imported from a CSV file had to reset their passwords on first sign-in. Now, you can include password hashes in your CSV file so that imported users can sign in immediately with their existing credentials.  When creating a CSV import, you specify the password hashing algorithm used by your source system. Amazon Cognito imports these users and verifies their password against the imported hash o",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Cognito now supports importing users with password hashes",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cognito-password-hash-import/"
+    },
+    {
+      "category": "cloud",
+      "id": "89507ccd610b7255",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "AWS Graviton4-based R8g database instances are now generally available for Amazon Aurora (MySQL and PostgreSQL compatibility) and Amazon RDS for PostgreSQL, MySQL, and MariaDB in Asia Pacific (Hyderabad, Melbourne, Malaysia), Europe (London, Paris, Zurich), AWS GovCloud (US-East), South America (Sao Paulo), and Mexico (Central) regions. Additionally, M8g instances are now supported for Amazon RDS for PostgreSQL, MySQL, and MariaDB in US West (N. California), Asia Pacific (Mumbai, Sydney, Hong Ko",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS and Aurora now support R8g and M8g database instances in additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-rds-aurora-r8g-m8g-regions/"
+    },
+    {
+      "category": "cloud",
+      "id": "e6d4effead7ed663",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T15:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions, with support for Amazon DynamoDB, Salesforce, and SAP OData as sources. Customers operating in regulated environments can now replicate data from these sources into Amazon Redshift, Amazon S3, or other supported destinations without building or maintaining custom data pipelines.  The SAP OData connector allows you to extract data from SAP systems exposing OData s",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US) regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-sap-zero-etl-govcloud"
+    },
+    {
+      "category": "cloud",
+      "id": "21c037fe4414d8b5",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-17T17:23:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon OpenSearch Service now supports one-click migration from legacy OpenSearch Dashboards to OpenSearch UI, for both OpenSearch domains and serverless collections. OpenSearch UI is the new, zero-downtime, serverless interface for search and unified observability across multiple data sources. With this launch, the multiple tenants and thousands of saved objects you created in legacy OpenSearch Dashboards become reusable in your OpenSearch UI applications, reducing the operational complexity of",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon OpenSearch UI now supports one-click dashboard migration",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration"
+    },
+    {
+      "category": "cloud",
+      "id": "bd146752742f164a",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:56:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS Billing and Cost Management (BCM) announces support for Cost Efficiency widget in BCM Dashboards. You can now view cost efficiency trends alongside Cost Explorer, Budgets, and reports for Savings Plans and Reserved Instance coverage and utilization reports. This provides a unified view of your spending, commitments, and optimization performance in a single, tailored dashboard. \nThe Cost Efficiency widget displays your efficiency score over time, showing how your efficiency across your",
+      "tags": [
+        "rds"
+      ],
+      "title": "Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards"
+    },
+    {
+      "category": "cloud",
+      "id": "35b673a59aec5176",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:20:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 now surfaces the AWS Systems Manager (SSM) Parameter Store parameters associated with public AMIs directly in the AMI metadata. When you describe a public AMI, the response includes the associated public SSM parameter,&nbsp;making it easy to discover and reference in your configurations. \nPreviously, finding the SSM parameter associated with a public AMI required searching through SSM parameter namespaces manually. Now, when you describe a public AMI, the response includes the public ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 now surfaces the public SSM parameters associated with public AMIs",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters"
+    },
+    {
+      "category": "cloud",
+      "id": "4a9c5362f7894a03",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Event Notifications now include system-generated tags in events delivered to all destinations including Amazon EventBridge, Amazon SQS, Amazon SNS, and AWS Lambda. System-generated tags are metadata labels attached to your bucket by AWS services. You can use these tags to filter events from thousands of buckets with a single EventBridge rule, instead of listing each bucket name individually.  To get started, enable S3 Event Notifications on your general purpose buckets through the AWS ",
+      "tags": [
+        "s3",
+        "lambda"
+      ],
+      "title": "Amazon S3 Event Notifications now include system-generated tags",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/"
+    },
+    {
+      "category": "cloud",
+      "id": "009ce2f538ac0a72",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for PostgreSQL 19 Beta 2 is now available in the Amazon RDS Database Preview Environment, allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. You can deploy PostgreSQL 19 Beta 2 in the Amazon RDS Database Preview Environment that has the benefits of a fully managed database.  PostgreSQL 19 introduces parallel autovacuum with configurable worker limits, so routine maintenance no longer bottlenecks large databases. The new REPACK CONCURRENTLY command ",
+      "tags": [
+        "rds"
+      ],
+      "title": "PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/"
+    },
+    {
+      "category": "cloud",
+      "id": "6b3b969d4f1fcd64",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS&nbsp;Europe (Paris) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environment. U7i instances offer up to 45% better price performance over existing U-1 instances. \nU7in-24",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/"
+    },
+    {
+      "category": "cloud",
+      "id": "ca37daf64d7de84f",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "You can now transition objects to S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) as soon as the day they are created, without the previous 30-day minimum retention in S3 Standard. These storage classes offer up to 40% lower storage costs than S3 Standard while still providing millisecond access when needed, making them ideal for backups, log analytics, and compliance workloads where data becomes cold within hours or days.  To get started, create",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 removes 30-day minimum for transitions to S3 Standard-IA and S3 One Zone-IA",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-removes-30-day-transitions-standard-ia-one-zone-ia"
+    },
+    {
+      "category": "cloud",
+      "id": "57ffedf8403c23d6",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T18:04:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon&nbsp;Elastic Compute Cloud (Amazon EC2) G7e instances accelerated by NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs are now available in the AWS Europe (Frankfurt, Stockholm) and Asia Pacific (Mumbai) Regions. G7e instances offer up to 2.3x inference performance compared to G6e. \nCustomers can use G7e instances to deploy large language models (LLMs), agentic AI models, multimodal generative AI models, and physical AI models. G7e instances offer the highest performance f",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 G7e instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-g7e-additional-regions/"
+    },
+    {
+      "category": "cloud",
+      "id": "3225dfad3f052152",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (RDS) now supports R8gd database instances in 12 additional regions and and M8gd database instances in 6 additional Regions with Optimized Reads for Amazon Aurora PostgreSQL, RDS for PostgreSQL, RDS for MySQL, and RDS for MariaDB.  R8gd and M8gd instances deliver up to 165% better throughput and up to 120% better price-performance over R6g instances for Aurora PostgreSQL. Optimized Reads uses local NVMe-based SSD block storage to store ephemeral data such as te",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS and Aurora expand R8gd and M8gd to additional Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-aurora-r8gd-m8gd-regions/"
+    },
+    {
+      "category": "cloud",
+      "id": "83286f5cadd57677",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T16:15:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS now allows up to four storage modifications per database instance within a rolling 24-hour window. These modifications let you increase the size, change the type, and adjust the performance of your RDS storage volumes. You can start a new modification right after storage optimization for the previous modification is complete without having to wait for the six-hour cool-off period to complete. \nThis enhancement improves operational agility for scaling storage capacity or adjusting perf",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS now supports up to four storage modifications in 24 hours",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-upto-four-storage-modifications-24-hours"
+    },
+    {
+      "category": "cloud",
+      "id": "fa0bf2606750088f",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T07:39:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for Db2 is now available in the Asia Pacific (Thailand), Asia Pacific (Malaysia), Asia Pacific (Taipei), Mexico (Central), and Canada West (Calgary) Regions. Amazon RDS for Db2 makes it easy to set up, operate, and scale Db2 databases in the cloud. Customers can deploy a Db2 database in minutes with automatically configured parameters for optimal performance. For databases setup with Multi-AZ configuration, Amazon RDS performs synchronous replicati",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for Db2 is now available in additional AWS Commercial regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-db2-available-additional-aws-commercial-regions"
+    },
+    {
+      "category": "cloud",
+      "id": "b01fa991325e023c",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda now supports self-managed Amazon S3 buckets for code storage,&nbsp;enabling you to reference source code directly from your own S3 buckets without Lambda creating intermediate copies. This eliminates code storage limits and reduces function activation time after function creates and updates by removing the copy step. \nAWS Lambda is a serverless compute service that runs your code without requiring you to manage servers. Customers who deploy many functions and additional code as Lambda",
+      "tags": [
+        "s3",
+        "lambda"
+      ],
+      "title": "AWS Lambda announces self-managed code storage",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/lambda-self-managed-code-storage/"
+    }
+  ],
+  "meta": {
+    "date": "2026-07-17",
+    "enriched": {},
+    "rendered": {
+      "2026-07-17": "sha256:cd9a638567ddff16"
+    },
+    "schema_version": 1,
+    "sources": {
+      "hn": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 41,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "osv": {
+        "error": "Client error '400 Bad Request' for url 'https://api.osv.dev/v1/query'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+        "status": "failed"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      }
+    }
+  }
+}
