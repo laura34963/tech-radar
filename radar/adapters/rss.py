@@ -11,4 +11,4 @@ class RssAdapter:
     def fetch(self, source: dict, cfg, *, client: httpx.Client, now: datetime) -> list[Item]:
         resp = client.get(source["url"], timeout=20.0, follow_redirects=True)
         resp.raise_for_status()
-        return parse_feed(resp.text, source["category"], source_type="rss")
+        return parse_feed(resp.text, source["category"], source_type="rss", now=now)

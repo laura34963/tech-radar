@@ -1,7 +1,7 @@
 from __future__ import annotations
+import calendar
 import re
 from datetime import datetime, timezone
-from time import mktime
 import feedparser
 from radar.item import Item, item_id
 
@@ -13,15 +13,15 @@ def _clean(text: str, limit: int = 500) -> str:
     return text[:limit]
 
 
-def _published(entry) -> datetime:
+def _published(entry, now: datetime) -> datetime:
     parsed = entry.get("published_parsed") or entry.get("updated_parsed")
     if parsed:
-        return datetime.fromtimestamp(mktime(parsed), tz=timezone.utc)
-    return datetime.now(tz=timezone.utc)  # NOTE: only reached for undated entries
+        return datetime.fromtimestamp(calendar.timegm(parsed), tz=timezone.utc)
+    return now
 
 
 def parse_feed(content: str, category: str, *, source_type: str,
-               provider: str | None = None) -> list[Item]:
+               provider: str | None = None, now: datetime) -> list[Item]:
     feed = feedparser.parse(content)
     items: list[Item] = []
     for e in feed.entries:
@@ -33,7 +33,7 @@ def parse_feed(content: str, category: str, *, source_type: str,
             url=url,
             source_type=source_type,
             category=category,
-            published=_published(e),
+            published=_published(e, now),
             summary=_clean(e.get("summary", "")),
             provider=provider,
         ))
