@@ -1,0 +1,55 @@
+# NOTE: top-level `categories` MUST appear before the first [table] header,
+# otherwise TOML nests it under the preceding table (e.g. [stack]).
+categories = ["backend", "frontend", "devops", "cloud", "security"]
+
+[general]
+title = "Kdan Tech Radar"
+timezone = "Asia/Taipei"
+max_items_per_category = 15
+lookback_days = 7
+min_keep_importance = "medium"      # low | medium | high | critical
+min_display_importance = "high"
+
+[stack]
+languages  = ["ruby", "go", "javascript", "python"]
+frameworks = ["rails", "react"]
+packages   = ["rails", "sidekiq", "react", "axios"]
+ecosystems = ["rubygems", "npm", "pypi"]
+
+[[sources]]
+type = "cloud"
+category = "cloud"
+provider = "aws"
+url = "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+services = ["ec2", "s3", "lambda", "rds"]
+
+[[sources]]
+type = "cloud"
+category = "cloud"
+provider = "azure"
+url = "https://azure.microsoft.com/en-us/updates/feed/"
+
+[[sources]]
+type = "github"
+category = "backend"
+repo = "rails/rails"
+
+[[sources]]
+type = "security"
+category = "security"
+feed = "osv"
+
+[[sources]]
+type = "social"
+category = "frontend"
+source = "hn"
+query = "react OR frontend"
+min_points = 100
+
+[llm]
+enabled = true
+provider = "openai_compatible"       # openai_compatible | anthropic | ollama
+base_url = "https://api.openai.com/v1"
+model = "gpt-4o-mini"
+api_key_env = "RADAR_LLM_API_KEY"
+max_items_to_enrich = 40
