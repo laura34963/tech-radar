@@ -89,3 +89,73 @@ def test_run_fetch_isolates_failing_source_and_resumes(tmp_path):
     before = calls["n"]
     run_fetch(cfg, snap_path, now=datetime(2026, 7, 17, tzinfo=timezone.utc), client=client)
     assert calls["n"] == before + 1  # only the failed source hit again
+
+
+_DUP_FEED_TEMPLATE = """<?xml version="1.0"?>
+<rss version="2.0"><channel>
+  <title>Sample</title>
+  <item>
+    <title>Widget update</title>
+    <link>https://example.com/dup-item</link>
+    <description>{desc}</description>
+    <pubDate>Wed, 16 Jul 2026 10:00:00 GMT</pubDate>
+    <guid>https://example.com/dup-item</guid>
+  </item>
+</channel></rss>"""
+
+_SHORT_DESC = "short summary"
+_LONG_DESC = "a much longer and richer summary with considerably more detail in it"
+_FEED_SHORT = _DUP_FEED_TEMPLATE.format(desc=_SHORT_DESC)
+_FEED_LONG = _DUP_FEED_TEMPLATE.format(desc=_LONG_DESC)
+
+
+def test_run_fetch_merge_keeps_richest_duplicate_regardless_of_source_order(tmp_path):
+    def handler(req):
+        url = str(req.url)
+        if "short" in url:
+            return httpx.Response(200, text=_FEED_SHORT)
+        return httpx.Response(200, text=_FEED_LONG)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+
+    # order 1: short-summary source fetched first, long-summary source second
+    cfg1 = _cfg([
+        {"type": "rss", "category": "backend", "url": "https://short/feed"},
+        {"type": "rss", "category": "backend", "url": "https://long/feed"},
+    ])
+    snap1 = run_fetch(cfg1, tmp_path / "order1.json",
+                       now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                       client=client, fresh=True)
+    assert len(snap1["items"]) == 1
+    assert snap1["items"][0]["summary"] == _LONG_DESC
+
+    # order 2: long-summary source fetched first, short-summary source second —
+    # same winner regardless of fetch order
+    cfg2 = _cfg([
+        {"type": "rss", "category": "backend", "url": "https://long/feed"},
+        {"type": "rss", "category": "backend", "url": "https://short/feed"},
+    ])
+    snap2 = run_fetch(cfg2, tmp_path / "order2.json",
+                       now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                       client=client, fresh=True)
+    assert len(snap2["items"]) == 1
+    assert snap2["items"][0]["summary"] == _LONG_DESC
+
+
+def test_run_fetch_isolates_unknown_adapter_type(tmp_path):
+    def handler(req):
+        return httpx.Response(200, text=RSS)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    # Config built directly (bypassing load_config's type validation) so an
+    # unknown adapter type can reach run_fetch.
+    cfg = _cfg([
+        {"type": "rss", "category": "backend", "url": "https://good/feed"},
+        {"type": "nope", "category": "backend", "url": "https://mystery/feed"},
+    ])
+    snap_path = tmp_path / "unknown-type.json"
+    snap = run_fetch(cfg, snap_path, now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client, fresh=True)
+    assert snap["meta"]["sources"]["https://good/feed"]["status"] == "ok"
+    assert snap["meta"]["sources"]["https://mystery/feed"]["status"] == "failed"
+    assert len(snap["items"]) == 1  # only the good feed's item survived

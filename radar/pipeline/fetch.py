@@ -1,5 +1,6 @@
 from __future__ import annotations
 import logging
+from dataclasses import replace
 from datetime import datetime, timedelta
 from pathlib import Path
 from radar.item import Item, IMPORTANCE_ORDER
@@ -72,20 +73,21 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
         prev = snap["meta"]["sources"].get(name, {})
         if prev.get("status") == "ok" and not force:
             continue
-        adapter = ADAPTERS[source["type"]]
         try:
+            adapter = ADAPTERS[source["type"]]
             fetched = adapter.fetch(source, cfg, client=client, now=now)
             for it in fetched:
-                by_id[it.id] = it
+                cur = by_id.get(it.id)
+                if cur is None or len(it.summary) > len(cur.summary):
+                    by_id[it.id] = it
             snap["meta"]["sources"][name] = {"status": "ok", "count": len(fetched)}
-        except Exception as e:  # per-source isolation
+        except Exception as e:  # per-source isolation (includes unknown adapter type)
             log.warning("source %s failed: %s", name, e)
             snap["meta"]["sources"][name] = {"status": "failed", "error": str(e)[:200]}
         snap["items"] = [item_to_dict(it) for it in by_id.values()]
         atomic_write_json(snapshot_path, snap)  # checkpoint
 
     # finalize: importance, lookback, hard-cut, rank
-    from dataclasses import replace
     lookback = int(cfg.general.get("lookback_days", 7))
     min_keep = cfg.general.get("min_keep_importance", "medium")
     max_per = int(cfg.general.get("max_items_per_category", 15))
@@ -97,6 +99,9 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
         if within_lookback(it.published, now, lookback) and importance_ge(it.importance, min_keep):
             scored.append(it)
     dropped = len(by_id) - len(scored)
+    # by_id already merges richest-per-id across sources; dedupe() here is a
+    # defensive safety net (not dead code) in case future callers feed it items
+    # that weren't merged through the by_id path.
     final = rank_and_truncate(dedupe(scored), cfg.categories, max_per)
     snap["items"] = [item_to_dict(it) for it in final]
     atomic_write_json(snapshot_path, snap)
