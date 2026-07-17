@@ -31,7 +31,7 @@ def load_config(path: Path) -> Config:
     except (OSError, tomllib.TOMLDecodeError) as e:
         raise ConfigError(f"cannot read config {path}: {e}") from e
 
-    categories = raw.get("stack", {}).get("categories") or ["backend", "frontend", "devops", "cloud", "security"]
+    categories = raw.get("categories") or ["backend", "frontend", "devops", "cloud", "security"]
     sources = raw.get("sources", [])
     for i, s in enumerate(sources):
         label = f"sources[{i}]"

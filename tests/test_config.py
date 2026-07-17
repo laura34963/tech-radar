@@ -12,13 +12,13 @@ def _write(tmp_path: Path, body: str) -> Path:
 
 def test_loads_valid_config(tmp_path):
     cfg = load_config(_write(tmp_path, """
+        categories = ["backend", "security"]
         [general]
         title = "T"
         min_keep_importance = "medium"
         min_display_importance = "high"
         [stack]
         packages = ["rails"]
-        categories = ["backend", "security"]
         [[sources]]
         type = "rss"
         category = "backend"
