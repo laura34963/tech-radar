@@ -1,8 +1,5 @@
 from __future__ import annotations
-try:
-    import tomllib
-except ModuleNotFoundError:
-    import tomli as tomllib
+import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
