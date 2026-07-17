@@ -1,0 +1,14 @@
+from __future__ import annotations
+from datetime import datetime
+from typing import Protocol
+import httpx
+from radar.item import Item
+from radar.adapters.rss import RssAdapter
+
+
+class Adapter(Protocol):
+    type: str
+    def fetch(self, source: dict, cfg, *, client: httpx.Client, now: datetime) -> list[Item]: ...
+
+
+ADAPTERS: dict[str, Adapter] = {a.type: a for a in [RssAdapter()]}

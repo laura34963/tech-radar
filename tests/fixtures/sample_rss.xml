@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel>
+  <title>Sample</title>
+  <item>
+    <title>Widget 2.0 released</title>
+    <link>https://example.com/widget-2</link>
+    <description>New widget with &lt;b&gt;features&lt;/b&gt;.</description>
+    <pubDate>Wed, 16 Jul 2026 10:00:00 GMT</pubDate>
+    <guid>https://example.com/widget-2</guid>
+  </item>
+</channel></rss>
