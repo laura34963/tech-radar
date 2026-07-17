@@ -1,0 +1,9 @@
+body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+.nav { display: flex; gap: 1rem; margin-bottom: 1.5rem; font-size: .9rem; }
+.card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+.card .action { border-left: 4px solid #2b7; padding-left: .75rem; margin-top: .5rem; }
+.badge { background: #eef; border-radius: 4px; padding: .1rem .4rem; font-size: .75rem; }
+.sev-critical { color: #b00; font-weight: bold; }
+.sev-high { color: #d60; font-weight: bold; }
+.also-noted li { color: #555; }
+.category h2 { border-bottom: 2px solid #eee; }

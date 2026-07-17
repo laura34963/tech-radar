@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>{{ cfg.general.get('title', 'Tech Radar') }} — {{ snapshot.meta.date }}</title>
+<link rel="stylesheet" href="../styles.css"></head>
+<body>
+<nav class="nav">
+  <a href="../index.html">← Home</a>
+  {% if prev %}<a href="{{ prev }}.html">← {{ prev }}</a>{% endif %}
+  {% if next %}<a href="{{ next }}.html">{{ next }} →</a>{% endif %}
+</nav>
+<h1>{{ snapshot.meta.date }}</h1>
+{% if snapshot.digest_summary %}<p><em>{{ snapshot.digest_summary }}</em></p>{% endif %}
+{% for cat in cfg.categories %}
+  {% set cards = grouped[cat].cards %}
+  {% set noted = grouped[cat].also_noted %}
+  {% if cards or noted %}
+  <section class="category"><h2>{{ cat }}</h2>
+    {% for it in cards %}
+    <article class="card">
+      <h3><a href="{{ it.url }}">{{ it.title }}</a></h3>
+      <div>
+        {% if it.severity %}<span class="sev-{{ it.severity }}">{{ it.severity }}</span>{% endif %}
+        {% if it.provider %}<span class="badge">{{ it.provider }}</span>{% endif %}
+        {% if it.stack_match %}<span class="badge">stack: {{ it.stack_match|join(', ') }}</span>{% endif %}
+        <span>{{ it.published[:10] }}</span>
+      </div>
+      <p>{{ (it.llm.summary if it.llm else it.summary) }}</p>
+      <details><summary>Detail</summary>
+        <p>{{ (it.llm.detail if it.llm else it.summary) }}</p>
+        {% if it.llm and it.llm.why_it_matters %}<p><strong>Why it matters:</strong> {{ it.llm.why_it_matters }}</p>{% endif %}
+      </details>
+      {% if it.llm and it.llm.recommended_action %}
+      <div class="action"><strong>Recommended action:</strong> {{ it.llm.recommended_action }}</div>
+      {% endif %}
+    </article>
+    {% endfor %}
+    {% if noted %}
+    <details class="also-noted"><summary>Also noted ({{ noted|length }})</summary><ul>
+      {% for it in noted %}<li><a href="{{ it.url }}">{{ it.title }}</a> — {{ it.published[:10] }}</li>{% endfor %}
+    </ul></details>
+    {% endif %}
+  </section>
+  {% endif %}
+{% endfor %}
+</body></html>

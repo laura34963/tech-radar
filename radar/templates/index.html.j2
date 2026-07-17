@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>{{ cfg.general.get('title', 'Tech Radar') }}</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+<h1>{{ cfg.general.get('title', 'Tech Radar') }}</h1>
+{% if digests %}<p><a href="digests/{{ digests[0].date }}.html"><strong>Latest digest → {{ digests[0].date }}</strong></a></p>{% endif %}
+<input id="filter" placeholder="filter by text…" oninput="f()" style="width:100%;padding:.5rem;">
+<ul id="list">
+{% for d in digests %}
+  <li data-text="{{ d.date }} {{ d.cats|join(' ') }}">
+    <a href="digests/{{ d.date }}.html">{{ d.date }}</a> — {{ d.count }} items
+    {% if d.security %}<span class="sev-high">security: {{ d.security }}</span>{% endif %}
+  </li>
+{% endfor %}
+</ul>
+<script>
+function f(){var q=document.getElementById('filter').value.toLowerCase();
+document.querySelectorAll('#list li').forEach(function(li){
+li.style.display=li.dataset.text.toLowerCase().includes(q)?'':'none';});}
+</script>
+</body></html>
