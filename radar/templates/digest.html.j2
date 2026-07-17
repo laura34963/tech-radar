@@ -17,7 +17,7 @@
   <section class="category"><h2>{{ cat }}</h2>
     {% for it in cards %}
     <article class="card">
-      <h3><a href="{{ it.url }}">{{ it.title }}</a></h3>
+      <h3><a href="{{ it.url | safe_url }}">{{ it.title }}</a></h3>
       <div>
         {% if it.severity %}<span class="sev-{{ it.severity }}">{{ it.severity }}</span>{% endif %}
         {% if it.provider %}<span class="badge">{{ it.provider }}</span>{% endif %}
@@ -36,7 +36,7 @@
     {% endfor %}
     {% if noted %}
     <details class="also-noted"><summary>Also noted ({{ noted|length }})</summary><ul>
-      {% for it in noted %}<li><a href="{{ it.url }}">{{ it.title }}</a> — {{ it.published[:10] }}</li>{% endfor %}
+      {% for it in noted %}<li><a href="{{ it.url | safe_url }}">{{ it.title }}</a> — {{ it.published[:10] }}</li>{% endfor %}
     </ul></details>
     {% endif %}
   </section>

@@ -8,11 +8,21 @@ from radar.store import load_snapshot, atomic_write_text, atomic_write_json
 
 _TEMPLATES = Path(__file__).resolve().parent.parent / "templates"
 _SEV = {"critical": 3, "high": 2, "medium": 1, "low": 0, None: -1}
+_SAFE_SCHEMES = ("http://", "https://")
+
+
+def _safe_url(u: str) -> str:
+    """Allow-list http(s) URLs only; anything else (javascript:, data:, etc.) is defanged."""
+    if isinstance(u, str) and u.strip().lower().startswith(_SAFE_SCHEMES):
+        return u
+    return "#"
 
 
 def _env() -> Environment:
-    return Environment(loader=FileSystemLoader(str(_TEMPLATES)),
-                       autoescape=select_autoescape(["html", "j2"]))
+    env = Environment(loader=FileSystemLoader(str(_TEMPLATES)),
+                      autoescape=select_autoescape(["html", "j2"]))
+    env.filters["safe_url"] = _safe_url
+    return env
 
 
 def snapshot_hash(snapshot: dict) -> str:
@@ -59,27 +69,55 @@ def render_index(output_dir: Path, env: Environment, cfg) -> str:
     return env.get_template("index.html.j2").render(cfg=cfg, digests=digests)
 
 
-def run_render(cfg, snapshot_path: Path, output_dir: Path, *, force: bool = False) -> None:
-    snapshot = load_snapshot(snapshot_path)
-    date = snapshot["meta"]["date"]
+def _render_one(date: str, cfg, env: Environment, output_dir: Path,
+                dates: list[str], *, force: bool) -> None:
+    """Render (or skip, per the hash-gate) the digest for a single date, using
+    `dates` — the current full set of known dates — to compute its prev/next
+    neighbors. Reads/writes only output_dir/data/<date>.json."""
+    path = output_dir / "data" / f"{date}.json"
+    snapshot = load_snapshot(path)
+    if not snapshot:
+        return
     h = snapshot_hash(snapshot)
-    env = _env()
-    dates = sorted(p.stem for p in (output_dir / "data").glob("*.json"))
-    # ensure this snapshot is discoverable by the index
-    atomic_write_json(output_dir / "data" / f"{date}.json", snapshot)
-    if date not in dates:
-        dates = sorted(set(dates) | {date})
+    already = snapshot["meta"].get("rendered", {}).get(date)
+    if not force and already == h:
+        return
     idx = dates.index(date)
     prev = dates[idx - 1] if idx > 0 else None
     nxt = dates[idx + 1] if idx < len(dates) - 1 else None
+    html = render_digest(snapshot, cfg, env, prev=prev, next=nxt)
+    atomic_write_text(output_dir / "digests" / f"{date}.html", html)
+    snapshot["meta"].setdefault("rendered", {})[date] = h
+    atomic_write_json(path, snapshot)
 
-    already = snapshot["meta"].get("rendered", {}).get(date)
-    if force or already != h:
-        html = render_digest(snapshot, cfg, env, prev=prev, next=nxt)
-        atomic_write_text(output_dir / "digests" / f"{date}.html", html)
-        snapshot["meta"].setdefault("rendered", {})[date] = h
-        atomic_write_json(snapshot_path, snapshot)
-        atomic_write_json(output_dir / "data" / f"{date}.json", snapshot)
+
+def run_render(cfg, snapshot_path: Path, output_dir: Path, *, force: bool = False) -> None:
+    snapshot = load_snapshot(snapshot_path)
+    date = snapshot["meta"]["date"]
+    env = _env()
+    data_dir = output_dir / "data"
+
+    # ensure this snapshot is discoverable by the index and by _render_one
+    atomic_write_json(data_dir / f"{date}.json", snapshot)
+    dates = sorted(p.stem for p in data_dir.glob("*.json"))
+
+    _render_one(date, cfg, env, output_dir, dates, force=force)
+
+    # sync the (possibly updated) rendered-hash stamp back to the caller's
+    # snapshot file, so resumability holds across separate run_render calls
+    # even when snapshot_path lives outside output_dir/data.
+    atomic_write_json(snapshot_path, load_snapshot(data_dir / f"{date}.json"))
+
+    # A new date shifts the prev/next neighbors of its adjacent dates, whose
+    # own content hash is unchanged — force-refresh just those two so their
+    # nav links stay current (digests otherwise accrete daily and are never
+    # revisited).
+    idx = dates.index(date)
+    prev_date = dates[idx - 1] if idx > 0 else None
+    next_date = dates[idx + 1] if idx < len(dates) - 1 else None
+    for neighbor in (prev_date, next_date):
+        if neighbor:
+            _render_one(neighbor, cfg, env, output_dir, dates, force=True)
 
     # index is a pure function of existing data snapshots — always safe to rebuild
     atomic_write_text(output_dir / "index.html", render_index(output_dir, env, cfg))
