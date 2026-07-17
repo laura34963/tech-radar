@@ -2,8 +2,10 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import re
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup, escape
 from radar.item import IMPORTANCE_ORDER
 from radar.store import load_snapshot, atomic_write_text, atomic_write_json
 
@@ -20,10 +22,82 @@ def _safe_url(u: str) -> str:
     return "#"
 
 
+# --- minimal, safe markdown subset (LLM output is untrusted) -----------------
+# Strategy: HTML-escape the whole string FIRST (so any raw <script>/tags become
+# inert), THEN insert only a fixed whitelist of tags for a markdown subset. No
+# third-party markdown/sanitizer dependency, and safe by construction.
+_RE_CODE = re.compile(r"`([^`]+)`")
+_RE_LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
+_RE_BOLD = re.compile(r"\*\*([^*]+?)\*\*")
+_RE_ITALIC = re.compile(r"(?<![\*\w])\*([^*\n]+?)\*(?![\*\w])")
+_RE_BULLET = re.compile(r"^[ \t]*[-*+][ \t]+(.*)$")
+_RE_ORDERED = re.compile(r"^[ \t]*\d+\.[ \t]+(.*)$")
+_RE_HEADING = re.compile(r"^[ \t]*(#{1,6})[ \t]+(.*)$")
+
+
+def _md_inline(s: str) -> str:
+    """Inline formatting on an already-HTML-escaped string."""
+    s = _RE_CODE.sub(r"<code>\1</code>", s)
+    s = _RE_LINK.sub(lambda m: '<a href="%s">%s</a>' % (_safe_url(m.group(2)), m.group(1)), s)
+    s = _RE_BOLD.sub(r"<strong>\1</strong>", s)
+    s = _RE_ITALIC.sub(r"<em>\1</em>", s)
+    return s
+
+
+def _md(text: str | None) -> Markup:
+    """Render a small, safe markdown subset (paragraphs, lists, headings, bold,
+    italic, inline code, http(s) links) to HTML. Untrusted input is escaped first."""
+    if not text:
+        return Markup("")
+    esc = str(escape(text))
+    out: list[str] = []
+    para: list[str] = []
+    items: list[str] = []
+    list_tag: str | None = None
+
+    def flush_para() -> None:
+        if para:
+            out.append("<p>" + _md_inline(" ".join(para)) + "</p>")
+            para.clear()
+
+    def flush_list() -> None:
+        nonlocal list_tag
+        if items:
+            inner = "".join("<li>" + _md_inline(li) + "</li>" for li in items)
+            out.append("<%s>%s</%s>" % (list_tag, inner, list_tag))
+            items.clear()
+            list_tag = None
+
+    for line in esc.split("\n"):
+        if not line.strip():
+            flush_para()
+            flush_list()
+            continue
+        mh, mb, mo = _RE_HEADING.match(line), _RE_BULLET.match(line), _RE_ORDERED.match(line)
+        if mh:
+            flush_para()
+            flush_list()
+            level = min(len(mh.group(1)) + 3, 6)  # '#' -> <h4>
+            out.append("<h%d>%s</h%d>" % (level, _md_inline(mh.group(2).strip()), level))
+        elif mb or mo:
+            flush_para()
+            tag = "ul" if mb else "ol"
+            if list_tag and list_tag != tag:
+                flush_list()
+            list_tag = tag
+            items.append((mb or mo).group(1).strip())
+        else:
+            para.append(line.strip())
+    flush_para()
+    flush_list()
+    return Markup("".join(out))
+
+
 def _env() -> Environment:
     env = Environment(loader=FileSystemLoader(str(_TEMPLATES)),
                       autoescape=select_autoescape(["html", "j2"]))
     env.filters["safe_url"] = _safe_url
+    env.filters["md"] = _md
     return env
 
 

@@ -103,3 +103,33 @@ def test_render_sanitizes_dangerous_url_scheme(tmp_path):
     assert 'href="javascript:' not in digest
     assert 'href="#"' in digest
     assert 'href="https://good.example/x"' in digest
+
+
+# --- markdown filter (safe subset) -------------------------------------------
+from radar.pipeline.render import _md
+
+
+def test_md_renders_subset():
+    html = str(_md("Use **bold**, `code`, *em*, and [docs](https://ok.example)."))
+    assert "<strong>bold</strong>" in html
+    assert "<code>code</code>" in html
+    assert "<em>em</em>" in html
+    assert '<a href="https://ok.example">docs</a>' in html
+    assert html.startswith("<p>") and html.rstrip().endswith("</p>")
+
+
+def test_md_renders_lists():
+    html = str(_md("- one\n- two\n- three"))
+    assert html.count("<li>") == 3 and "<ul>" in html
+
+
+def test_md_escapes_html_and_blocks_bad_links():
+    html = str(_md("<script>alert(1)</script> see [x](javascript:alert(1))"))
+    assert "<script>" not in html          # raw tag neutralized
+    assert "&lt;script&gt;" in html         # escaped form present
+    assert 'href="javascript:' not in html  # dangerous scheme dropped
+    assert 'href="#"' in html
+
+
+def test_md_empty_is_blank():
+    assert str(_md(None)) == "" and str(_md("")) == ""
