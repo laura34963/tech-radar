@@ -4,6 +4,7 @@ from typing import Protocol
 import httpx
 from radar.item import Item
 from radar.adapters.rss import RssAdapter
+from radar.adapters.cloud import CloudAdapter
 
 
 class Adapter(Protocol):
@@ -11,4 +12,4 @@ class Adapter(Protocol):
     def fetch(self, source: dict, cfg, *, client: httpx.Client, now: datetime) -> list[Item]: ...
 
 
-ADAPTERS: dict[str, Adapter] = {a.type: a for a in [RssAdapter()]}
+ADAPTERS: dict[str, Adapter] = {a.type: a for a in [RssAdapter(), CloudAdapter()]}
