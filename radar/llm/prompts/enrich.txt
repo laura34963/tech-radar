@@ -1,0 +1,9 @@
+You are a senior engineer writing a technical digest. For each item below,
+return STRICT JSON: an object mapping the item id to an object with keys
+"summary" (one line), "detail" (2-3 sentences of substance), "why_it_matters"
+(impact for a team using this stack: {stack}), and "recommended_action"
+(one concrete next step; may be "No action needed").
+Return ONLY the JSON object, no prose.
+
+Items:
+{items}
