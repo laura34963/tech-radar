@@ -37,13 +37,17 @@ def main(argv: list[str] | None = None) -> int:
     output = Path(args.output)
     snap_path = _snapshot_path(output, now)
 
+    total_failure = False
     with httpx.Client() as client:
         if args.command in ("fetch", "run"):
-            run_fetch(cfg, snap_path, now=now, client=client,
-                      force=args.force, fresh=args.fresh)
+            snap = run_fetch(cfg, snap_path, now=now, client=client,
+                             force=args.force, fresh=args.fresh)
+            sources_status = snap.get("meta", {}).get("sources", {})
+            total_failure = bool(cfg.sources) and bool(sources_status) and all(
+                s.get("status") == "failed" for s in sources_status.values())
         if args.command in ("enrich", "run"):
             provider = make_provider(cfg.llm, client=client)
             run_enrich(cfg, snap_path, provider=provider, force=args.force)
         if args.command in ("render", "run"):
             run_render(cfg, snap_path, output, force=args.force)
-    return 0
+    return 1 if total_failure else 0

@@ -29,6 +29,9 @@ def parse_enrich_response(text: str) -> dict:
 
 def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> dict:
     snap = load_snapshot(snapshot_path)
+    if not snap or "meta" not in snap:
+        log.info("no snapshot at %s; run fetch first", snapshot_path)
+        return snap
     if provider is None:
         return snap
     cap = int(cfg.llm.get("max_items_to_enrich", 40))

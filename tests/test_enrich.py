@@ -68,6 +68,14 @@ def test_run_enrich_degrades_on_provider_error(tmp_path):
     assert saved["items"][0].get("llm") is None  # left unenriched, no crash
 
 
+def test_run_enrich_missing_snapshot_is_noop(tmp_path):
+    p = tmp_path / "does-not-exist.json"
+    fp = FakeProvider("")
+    out = run_enrich(_cfg(), p, provider=fp)
+    assert out == {}
+    assert fp.calls == 0  # returned before ever touching the provider
+
+
 def test_run_enrich_skips_already_enriched(tmp_path):
     p = tmp_path / "s.json"
     snap = _snap([_high("1")])

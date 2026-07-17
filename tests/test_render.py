@@ -84,6 +84,13 @@ def test_render_refreshes_neighbor_nav_on_new_date(tmp_path):
     assert "2026-07-18.html" in digest17  # earlier page's Next link was refreshed
 
 
+def test_run_render_missing_snapshot_is_noop(tmp_path):
+    out = tmp_path / "output"
+    missing = tmp_path / "data" / "does-not-exist.json"
+    run_render(_cfg(), missing, out)  # should not raise
+    assert not (out / "index.html").exists()  # clean no-op, nothing written
+
+
 def test_render_sanitizes_dangerous_url_scheme(tmp_path):
     out = tmp_path / "output"
     evil = Item(id="1", title="Evil", url="javascript:alert(1)", source_type="rss",

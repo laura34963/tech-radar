@@ -6,7 +6,7 @@ and renders permanent date-based HTML digests behind a central hub.
 
 ## Quick start
 ```bash
-python3.13 -m venv .venv && source .venv/bin/activate   # Python 3.11+ required
+python3.13 -m venv .venv && source .venv/bin/activate   # Python 3.11+ (3.13 recommended)
 pip install -r requirements-dev.txt
 cp config/radar.example.toml config/radar.toml   # then edit
 export RADAR_LLM_API_KEY=...                      # optional; omit for rule-based digest

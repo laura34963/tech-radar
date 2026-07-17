@@ -1,0 +1,10 @@
+{"vulns": [
+  {"id": "GHSA-bad", "summary": "malformed record: references entries lack url",
+   "references": [{"noturl": "nope"}],
+   "modified": "",
+   "database_specific": null},
+  {"id": "GHSA-good", "summary": "Good vuln",
+   "references": [{"url": "https://osv.dev/vulnerability/GHSA-good"}],
+   "modified": "2026-07-14T00:00:00Z",
+   "database_specific": {"cvss": {"score": 9.8}}}
+]}

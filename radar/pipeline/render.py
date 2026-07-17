@@ -1,11 +1,13 @@
 from __future__ import annotations
 import hashlib
 import json
+import logging
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from radar.item import IMPORTANCE_ORDER
 from radar.store import load_snapshot, atomic_write_text, atomic_write_json
 
+log = logging.getLogger("radar.render")
 _TEMPLATES = Path(__file__).resolve().parent.parent / "templates"
 _SEV = {"critical": 3, "high": 2, "medium": 1, "low": 0, None: -1}
 _SAFE_SCHEMES = ("http://", "https://")
@@ -93,6 +95,9 @@ def _render_one(date: str, cfg, env: Environment, output_dir: Path,
 
 def run_render(cfg, snapshot_path: Path, output_dir: Path, *, force: bool = False) -> None:
     snapshot = load_snapshot(snapshot_path)
+    if not snapshot or "meta" not in snapshot:
+        log.info("no snapshot at %s; run fetch first", snapshot_path)
+        return
     date = snapshot["meta"]["date"]
     env = _env()
     data_dir = output_dir / "data"

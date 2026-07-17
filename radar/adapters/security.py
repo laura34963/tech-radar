@@ -1,7 +1,18 @@
 from __future__ import annotations
+import logging
 from datetime import datetime, timezone
 import httpx
 from radar.item import Item, item_id
+
+log = logging.getLogger("radar.security")
+
+_LABEL_TO_SEVERITY = {
+    "CRITICAL": "critical",
+    "HIGH": "high",
+    "MODERATE": "medium",
+    "MEDIUM": "medium",
+    "LOW": "low",
+}
 
 
 def severity_from_score(score: float) -> str:
@@ -14,9 +25,28 @@ def severity_from_score(score: float) -> str:
     return "low"
 
 
-def _cvss_score(vuln: dict) -> float:
-    ds = vuln.get("database_specific", {}).get("cvss", {})
-    return float(ds.get("score", 0.0))
+def _severity(vuln: dict) -> str:
+    """Resolve an OSV record's severity. Most real-world OSV records lack a
+    numeric CVSS score, so this tries, in order: (1) database_specific.cvss.score,
+    (2) the database_specific.severity label, (3) a "medium" default so an
+    unparseable record still surfaces instead of being silently dropped as low.
+
+    # TODO(v2): compute a precise CVSS base score by parsing the CVSS vector
+    # string found in vuln["severity"][*]["score"] (e.g. "CVSS:3.1/AV:N/AC:L/...")
+    # instead of relying on database_specific.
+    """
+    ds = vuln.get("database_specific") or {}
+    cvss = ds.get("cvss") or {}
+    score = cvss.get("score")
+    if score is not None:
+        try:
+            return severity_from_score(float(score))
+        except (TypeError, ValueError):
+            pass
+    label = ds.get("severity")
+    if isinstance(label, str) and label.upper() in _LABEL_TO_SEVERITY:
+        return _LABEL_TO_SEVERITY[label.upper()]
+    return "medium"
 
 
 class SecurityAdapter:
@@ -32,18 +62,26 @@ class SecurityAdapter:
                                json={"package": {"name": pkg}}, timeout=20.0)
             resp.raise_for_status()
             for v in resp.json().get("vulns", []):
-                refs = v.get("references", [])
-                url = refs[0]["url"] if refs else f"https://osv.dev/vulnerability/{v.get('id')}"
-                modified = v.get("modified", now.isoformat()).replace("Z", "+00:00")
-                items.append(Item(
-                    id=item_id(v.get("id") or url),
-                    title=f"{v.get('id', 'advisory')}: {pkg}",
-                    url=url,
-                    source_type="security",
-                    category=source["category"],
-                    published=datetime.fromisoformat(modified),
-                    summary=(v.get("summary") or v.get("details") or "")[:500],
-                    severity=severity_from_score(_cvss_score(v)),
-                    stack_match=[pkg],
-                ))
+                try:
+                    refs = v.get("references", [])
+                    url = refs[0]["url"] if refs else f"https://osv.dev/vulnerability/{v.get('id')}"
+                    raw = v.get("modified") or now.isoformat()
+                    try:
+                        published = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+                    except ValueError:
+                        published = now
+                    items.append(Item(
+                        id=item_id(v.get("id") or url),
+                        title=f"{v.get('id', 'advisory')}: {pkg}",
+                        url=url,
+                        source_type="security",
+                        category=source["category"],
+                        published=published,
+                        summary=(v.get("summary") or v.get("details") or "")[:500],
+                        severity=_severity(v),
+                        stack_match=[pkg],
+                    ))
+                except Exception as e:  # per-record isolation: one bad OSV record must not kill the fetch
+                    log.warning("skipping malformed OSV record for %s: %s", pkg, e)
+                    continue
         return items
