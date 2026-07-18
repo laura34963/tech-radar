@@ -33,3 +33,19 @@ def test_github_sends_token_when_present(monkeypatch):
     GithubAdapter().fetch({"repo": "r/r", "category": "backend"}, None,
                           client=_client(cap), now=NOW)
     assert cap["auth"] == "Bearer tok123"
+
+
+def test_github_follows_redirect(monkeypatch):
+    # GitHub 301s /repos/owner/name/releases to the canonical /repositories/{id}/… form
+    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
+
+    def handler(req):
+        if "/repos/facebook/react/" in str(req.url):
+            return httpx.Response(301, headers={
+                "Location": "https://api.github.com/repositories/10270250/releases?per_page=10"})
+        return httpx.Response(200, text=FIX)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    items = GithubAdapter().fetch({"repo": "facebook/react", "category": "frontend"},
+                                  None, client=client, now=NOW)
+    assert len(items) == 2   # followed the redirect and parsed the releases

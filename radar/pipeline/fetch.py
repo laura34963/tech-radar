@@ -67,12 +67,16 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
     items = [item_from_dict(d) for d in snap["items"]]
     by_id = {it.id: it for it in items}
 
+    total = len(cfg.sources)
+    log.info("fetch: %d source(s)", total)
     for i, source in enumerate(cfg.sources):
         name = source.get("repo") or source.get("url") or source.get("feed") or \
             source.get("source") or f"source{i}"
         prev = snap["meta"]["sources"].get(name, {})
         if prev.get("status") == "ok" and not force:
+            log.info("  [%d/%d] %s (%s): cached, skipping", i + 1, total, name, source["type"])
             continue
+        log.info("  [%d/%d] %s (%s): fetching…", i + 1, total, name, source["type"])
         try:
             adapter = ADAPTERS[source["type"]]
             fetched = adapter.fetch(source, cfg, client=client, now=now)
@@ -81,8 +85,9 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
                 if cur is None or len(it.summary) > len(cur.summary):
                     by_id[it.id] = it
             snap["meta"]["sources"][name] = {"status": "ok", "count": len(fetched)}
+            log.info("  [%d/%d] %s: %d item(s)", i + 1, total, name, len(fetched))
         except Exception as e:  # per-source isolation (includes unknown adapter type)
-            log.warning("source %s failed: %s", name, e)
+            log.warning("  [%d/%d] %s: FAILED — %s", i + 1, total, name, e)
             snap["meta"]["sources"][name] = {"status": "failed", "error": str(e)[:200]}
         snap["items"] = [item_to_dict(it) for it in by_id.values()]
         atomic_write_json(snapshot_path, snap)  # checkpoint

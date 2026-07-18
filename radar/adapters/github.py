@@ -15,7 +15,8 @@ class GithubAdapter:
         if token:
             headers["Authorization"] = f"Bearer {token}"
         resp = client.get(f"https://api.github.com/repos/{repo}/releases",
-                          params={"per_page": 10}, headers=headers, timeout=20.0)
+                          params={"per_page": 10}, headers=headers, timeout=20.0,
+                          follow_redirects=True)  # GitHub 301s renamed/canonical repo paths
         resp.raise_for_status()
         items: list[Item] = []
         for rel in resp.json():

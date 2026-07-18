@@ -45,7 +45,7 @@ content are recorded for display only and are **never re-fetched** (SSRF guardra
 | GitHub Releases | `adapters/github.py` | HTTPS GET | `api.github.com/repos/{repo}/releases` | Release/tag news for stack repos | optional `GITHUB_TOKEN` (Bearer) | timeout 20s; isolated |
 | OSV vulnerability DB | `adapters/security.py` | HTTPS POST | `api.osv.dev/v1/query` | CVEs for configured `packages` | none (keyless) | timeout 20s; isolated |
 | Hacker News (Algolia) | `adapters/social.py` | HTTPS GET | `hn.algolia.com/api/v1/search_by_date` | Curated stories over `min_points` | none | timeout 20s; isolated |
-| LLM provider | `llm/provider.py` | HTTPS POST | configured `base_url` (`/chat/completions`, `/v1/messages`, or `/api/chat`) | Enrich items (summary/detail/why/action) | `RADAR_LLM_API_KEY` (or none for ollama) | timeout 60–120s; item keeps rule-based fields on failure |
+| LLM provider | `llm/provider.py` | HTTPS POST | configured `base_url` (`/chat/completions`, `/v1/messages`, `:generateContent`, or `/api/chat`) | Enrich items (summary/detail/why/action) | `RADAR_LLM_API_KEY` (or none for ollama) | timeout 60–120s; item keeps rule-based fields on failure |
 
 **LLM provider dialects** (all in `llm/provider.py`, plain `httpx` — no vendor SDKs):
 
@@ -53,7 +53,11 @@ content are recorded for display only and are **never re-fetched** (SSRF guardra
 |---|---|---|
 | `openai_compatible` | `/chat/completions` | `Authorization: Bearer <key>` |
 | `anthropic` | `/v1/messages` | `x-api-key: <key>` + `anthropic-version` |
+| `gemini` | `/v1beta/models/{model}:generateContent` | `x-goog-api-key: <key>` |
 | `ollama` | `/api/chat` | none (local) |
+| `cli` | local subprocess — runs a configured CLI (`claude -p`, `gemini`, …), prompt on stdin, result from stdout | none (the CLI handles its own auth) |
+
+The `cli` provider is not an HTTP call: it runs an operator-configured command as an argv list (no shell → no injection), passing the prompt on stdin (or into a `{prompt}` argument token). Use it to route enrichment through a locally-authenticated CLI such as Claude Code (`claude -p`) or the Gemini CLI.
 
 ---
 

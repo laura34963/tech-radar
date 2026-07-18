@@ -17,15 +17,16 @@
   </header>
 
   {% if digests %}
-  <a class="latest" href="digests/{{ digests[0].date }}.html">Latest digest → {{ digests[0].date }}</a>
+  <a class="latest" href="digests/{{ digests[0].date }}.html">Latest → Week {{ digests[0].period.week }} ({{ digests[0].period.start }} ~ {{ digests[0].period.end }})</a>
   {% endif %}
 
-  <input id="filter" class="search" placeholder="Filter digests by date or category…" oninput="f()" aria-label="Filter digests">
+  <input id="filter" class="search" placeholder="Filter digests by week, date or category…" oninput="f()" aria-label="Filter digests">
 
   <ul id="list" class="digest-list">
   {% for d in digests %}
-    <li class="digest-row" data-text="{{ d.date }} {{ d.cats|join(' ') }}">
-      <a class="d-date" href="digests/{{ d.date }}.html">{{ d.date }}</a>
+    <li class="digest-row" data-text="week {{ d.period.week }} {{ d.period.start }} {{ d.period.end }} {{ d.cats|join(' ') }}">
+      <a class="d-week" href="digests/{{ d.date }}.html">Week {{ d.period.week }}</a>
+      <span class="d-range">{{ d.period.start }} ~ {{ d.period.end }}</span>
       <span class="d-count">{{ d.count }} items</span>
       <span class="d-cats">
         {% if d.security %}<span class="sev sev-high">security {{ d.security }}</span>{% endif %}

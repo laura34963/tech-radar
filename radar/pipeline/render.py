@@ -3,6 +3,7 @@ import hashlib
 import json
 import logging
 import re
+from datetime import date as _date, timedelta
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup, escape
@@ -101,6 +102,16 @@ def _env() -> Environment:
     return env
 
 
+def _period(date_str: str, lookback: int) -> dict:
+    """The window a digest covers: [run-date − lookback, run-date], plus the ISO
+    week number. Derived from the snapshot date (not the clock), so deterministic."""
+    end = _date.fromisoformat(date_str)
+    start = end - timedelta(days=lookback)
+    iso = end.isocalendar()
+    return {"start": start.isoformat(), "end": end.isoformat(),
+            "week": iso[1], "year": iso[0]}
+
+
 def snapshot_hash(snapshot: dict) -> str:
     payload = json.dumps({"items": snapshot["items"],
                           "digest_summary": snapshot.get("digest_summary")},
@@ -125,18 +136,23 @@ def _group(snapshot: dict, cfg) -> dict:
 
 def render_digest(snapshot: dict, cfg, env: Environment,
                   prev: str | None = None, next: str | None = None) -> str:
+    lookback = int(cfg.general.get("lookback_days", 7))
+    period = _period(snapshot["meta"]["date"], lookback)
     return env.get_template("digest.html.j2").render(
-        snapshot=snapshot, cfg=cfg, grouped=_group(snapshot, cfg), prev=prev, next=next)
+        snapshot=snapshot, cfg=cfg, grouped=_group(snapshot, cfg),
+        period=period, prev=prev, next=next)
 
 
 def render_index(output_dir: Path, env: Environment, cfg) -> str:
     data_dir = output_dir / "data"
+    lookback = int(cfg.general.get("lookback_days", 7))
     digests = []
     for f in sorted(data_dir.glob("*.json"), reverse=True):
         snap = load_snapshot(f)
         items = snap.get("items", [])
         digests.append({
             "date": snap["meta"]["date"],
+            "period": _period(snap["meta"]["date"], lookback),
             "count": len(items),
             "cats": sorted({it["category"] for it in items}),
             "security": sum(1 for it in items
@@ -162,6 +178,7 @@ def _render_one(date: str, cfg, env: Environment, output_dir: Path,
     prev = dates[idx - 1] if idx > 0 else None
     nxt = dates[idx + 1] if idx < len(dates) - 1 else None
     html = render_digest(snapshot, cfg, env, prev=prev, next=nxt)
+    log.info("render: digest %s (%d item(s))", date, len(snapshot.get("items", [])))
     atomic_write_text(output_dir / "digests" / f"{date}.html", html)
     snapshot["meta"].setdefault("rendered", {})[date] = h
     atomic_write_json(path, snapshot)
@@ -201,3 +218,4 @@ def run_render(cfg, snapshot_path: Path, output_dir: Path, *, force: bool = Fals
     # index is a pure function of existing data snapshots — always safe to rebuild
     atomic_write_text(output_dir / "index.html", render_index(output_dir, env, cfg))
     atomic_write_text(output_dir / "styles.css", (_TEMPLATES / "styles.css").read_text())
+    log.info("render: hub index rebuilt → %s/index.html", output_dir)

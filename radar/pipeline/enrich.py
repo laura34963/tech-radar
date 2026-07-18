@@ -41,13 +41,17 @@ def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> di
     eligible = [it for it in items if importance_ge(it["importance"], "high")
                 and (force or not it.get("llm"))][:cap]
     if not eligible:
+        log.info("enrich: nothing to do (no high/critical items pending)")
         return snap
 
     by_cat: dict[str, list[dict]] = {}
     for it in eligible:
         by_cat.setdefault(it["category"], []).append(it)
 
-    for cat, cat_items in by_cat.items():
+    log.info("enrich: %d item(s) across %d categor(ies) via LLM",
+             len(eligible), len(by_cat))
+    for n, (cat, cat_items) in enumerate(by_cat.items(), 1):
+        log.info("  [%d/%d] %s (%d item(s))…", n, len(by_cat), cat, len(cat_items))
         system, user = build_batch_prompt(cat, cat_items, cfg.stack)
         try:
             result = parse_enrich_response(provider.complete(system, user))
@@ -60,7 +64,8 @@ def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> di
                         "recommended_action": fields.get("recommended_action", ""),
                     }
             snap["meta"].setdefault("enriched", {})[cat] = True
+            log.info("  [%d/%d] %s: enriched", n, len(by_cat), cat)
         except Exception as e:
-            log.warning("enrich failed for category %s: %s", cat, e)
+            log.warning("  [%d/%d] %s: enrich failed (kept rule-based) — %s", n, len(by_cat), cat, e)
         atomic_write_json(snapshot_path, snap)  # checkpoint per category
     return snap

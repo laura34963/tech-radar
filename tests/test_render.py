@@ -133,3 +133,19 @@ def test_md_escapes_html_and_blocks_bad_links():
 
 def test_md_empty_is_blank():
     assert str(_md(None)) == "" and str(_md("")) == ""
+
+
+def test_render_title_shows_week_and_range(tmp_path):
+    from radar.pipeline.render import _env, render_digest
+    from radar.store import new_snapshot
+    from radar.item import Item
+    cfg = Config(general={"title": "Radar", "lookback_days": 7,
+                          "min_display_importance": "high"},
+                 stack={}, categories=["backend"], sources=[], llm={})
+    snap = new_snapshot("2026-07-18")
+    snap["items"] = [Item(id="1", title="X", url="https://x", source_type="rss",
+                          category="backend", published=NOW, summary="s",
+                          importance="high").__dict__ | {"published": "2026-07-18T00:00:00+00:00"}]
+    html = render_digest(snap, cfg, _env())
+    assert "Week 29" in html
+    assert "2026-07-11 ~ 2026-07-18" in html      # end − 7 days

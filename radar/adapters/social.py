@@ -13,7 +13,7 @@ class SocialAdapter:
             raise NotImplementedError(f"social source {src!r} not implemented in v1 (hn only)")
         resp = client.get("https://hn.algolia.com/api/v1/search_by_date",
                           params={"query": source.get("query", ""), "tags": "story"},
-                          timeout=20.0)
+                          timeout=20.0, follow_redirects=True)
         resp.raise_for_status()
         min_points = source.get("min_points", 0)
         items: list[Item] = []

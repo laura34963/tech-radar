@@ -1,7 +1,7 @@
 name: tech-radar
 on:
   schedule:
-    - cron: "0 22 * * *"   # ~06:00 Asia/Taipei
+    - cron: "0 22 * * 0"   # weekly — Sun 22:00 UTC ≈ Mon 06:00 Asia/Taipei
   workflow_dispatch:
 concurrency:
   group: tech-radar
@@ -32,7 +32,7 @@ jobs:
           git config user.name "tech-radar-bot"
           git config user.email "bot@users.noreply.github.com"
           git add output
-          git diff --cached --quiet || git commit -m "chore: digest $(date -u +%F)"
+          git diff --cached --quiet || git commit -m "chore: weekly digest $(date -u +%F)"
           git push
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

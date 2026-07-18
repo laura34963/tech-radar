@@ -25,7 +25,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--fresh", action="store_true")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, stream=sys.stderr,
-                        format="%(levelname)s %(name)s: %(message)s")
+                        format="%(levelname)s %(message)s")
+    log = logging.getLogger("radar")
 
     try:
         cfg = load_config(Path(args.config))
@@ -36,18 +37,32 @@ def main(argv: list[str] | None = None) -> int:
     now = datetime.now(tz=timezone.utc)
     output = Path(args.output)
     snap_path = _snapshot_path(output, now)
+    log.info("tech-radar: command=%s  date=%s  output=%s",
+             args.command, now.date().isoformat(), output)
 
     total_failure = False
     with httpx.Client() as client:
         if args.command in ("fetch", "run"):
+            log.info("── fetch ──")
             snap = run_fetch(cfg, snap_path, now=now, client=client,
                              force=args.force, fresh=args.fresh)
             sources_status = snap.get("meta", {}).get("sources", {})
             total_failure = bool(cfg.sources) and bool(sources_status) and all(
                 s.get("status") == "failed" for s in sources_status.values())
         if args.command in ("enrich", "run"):
+            log.info("── enrich ──")
             provider = make_provider(cfg.llm, client=client)
+            if provider is None:
+                log.info("llm: disabled or no credentials → rule-based digest")
+            else:
+                log.info("llm: provider=%s", cfg.llm.get("provider", "?"))
             run_enrich(cfg, snap_path, provider=provider, force=args.force)
         if args.command in ("render", "run"):
+            log.info("── render ──")
             run_render(cfg, snap_path, output, force=args.force)
-    return 1 if total_failure else 0
+
+    if total_failure:
+        log.error("all sources failed — digest is empty (exit 1)")
+        return 1
+    log.info("done → open %s/index.html", output)
+    return 0
