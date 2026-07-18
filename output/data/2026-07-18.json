@@ -1,0 +1,830 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "category": "frontend",
+      "id": "a123a04740d81cf7",
+      "importance": "high",
+      "llm": {
+        "detail": "This canary stops SSRing pages that are only reached via soft (client-side) navigation, cleans up Turbopack's server chunking context, and fixes the Nav Inspector's back/forward pending state. It also fixes Rust doctests and packages the skills directory as a Claude Code plugin.",
+        "recommended_action": "No action needed; note the soft-nav SSR change if you evaluate 16.3 canaries.",
+        "summary": "Next.js 16.3.0-canary.89: Turbopack cleanup and a soft-navigation SSR fix.",
+        "why_it_matters": "For a team on the stable `next` release these are pre-release Turbopack/App Router internals with no direct impact yet, but the soft-nav SSR change signals rendering behavior that could shift in 16.3."
+      },
+      "provider": null,
+      "published": "2026-07-17T23:55:15+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js",
+        "docker"
+      ],
+      "summary": "### Misc Changes\n\n- Fix Rust doctest failures: #95909\n- [turbopack] Clean up `server_chunking_context`: #95908\n- [turbopack] Don't SSR on pages only navigated to through a soft nav: #95539\n- Package skills/ as a Claude Code plugin: #95907\n- [ci] Avoid apt-get in the next-stats-action Docker image: #95847\n- Back/forward set the Nav Inspector back to pending: #95865\n- fix(agent-rules): pad managed AGENTS.md block with blank lines: #95892\n- Revert \"Run more test suites under cacheComponents flag\": ",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.89",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.89"
+    },
+    {
+      "category": "frontend",
+      "id": "b5ff994a664e7c9e",
+      "importance": "high",
+      "llm": {
+        "detail": "The appShells flag is merged into Partial Prefetching and Request Insights span collection is fixed. Turbopack now ships only pages-router routes in the client chunk-group bootstrap manifest and inlines the bootstrap, and a same-document traversal replay change was reverted.",
+        "recommended_action": "No action needed.",
+        "summary": "Next.js 16.3.0-canary.88: appShells unified with Partial Prefetching, Turbopack chunk tuning.",
+        "why_it_matters": "These are App Router prefetching and Turbopack bundling internals on the canary channel; a `next` production team sees no change until 16.3 ships stable."
+      },
+      "provider": null,
+      "published": "2026-07-16T23:54:40+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- Run more test suites under cacheComponents flag: #95878\n- Unify appShells flag with Partial Prefetching: #95415\n- Fix Request Insights span collection: #95818\n- Revert \"Replay same-document traversals that happen before hydration\": #95853\n- [ci] Allow running all deploy tests with builds from a private registry: #95784\n- [turbopack] Only ship pages-router routes in the client chunk-group bootstrap manifest: #94671\n- [turbopack] Inline the chunk group bootstrap in Next.js to d",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.88",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.88"
+    },
+    {
+      "category": "frontend",
+      "id": "04d782a039875eda",
+      "importance": "high",
+      "llm": {
+        "detail": "Turbopack generates component chunks for each merged group to improve cache reuse, and app shells now exclude entries stale for under five minutes. The release also removes a stale build warning and updates docs, including dropping the experimental @next/routing note.",
+        "recommended_action": "No action needed.",
+        "summary": "Next.js 16.3.0-canary.87: Turbopack per-group component chunks to raise cache hits.",
+        "why_it_matters": "Build-cache and app-shell staleness tuning affects Turbopack build/dev performance, but only on the canary channel — no effect on the stable `next` your stack pins."
+      },
+      "provider": null,
+      "published": "2026-07-15T23:59:48+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- [turbopack] Generate component chunks for each merged group to increase cache hits: #95261\n- Exclude stale under 5 minutes from app shells: #95833\n- docs: remove experimental @next/routing note: #94903\n- [turbopack] Tell agents not to mention next.config.js options: #95825\n- chore: Remove stale build warning: #95813\n- Replay same-document traversals that happen before hydration: #95682\n- docs: cssChunking graph option: #95693\n- [Bench] Extend bench app to have realistic clien",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.87",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.87"
+    },
+    {
+      "category": "frontend",
+      "id": "1bb73786ae1d371e",
+      "importance": "high",
+      "llm": {
+        "detail": "Bundles a newer React build (5123b063-20260708 → 7023f501-20260714) and ships the final part (5/5) of the Request Insights DevTools request panel. Adds a React sync development skill and several docs updates around Partial Prefetching and revalidateTag.",
+        "recommended_action": "No action needed; track the bundled React version before adopting 16.3.",
+        "summary": "Next.js 16.3.0-canary.86: bundled React bumped and DevTools request panel completed.",
+        "why_it_matters": "The bundled React bump matters because your stack ships `react`/`react-dom`; Next pins its own copy on canary, so watch for the corresponding React version when 16.3 stabilizes."
+      },
+      "provider": null,
+      "published": "2026-07-14T23:59:06+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "next",
+        "react",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- Better support the CLI spinner when running the TSC CLI: #95753\n- Upgrade React from `5123b063-20260708` to `7023f501-20260714`: #95782\n- docs: add route-side URL data audit to the Partial Prefetching adoption guide: #95389\n- docs: revalidateTag with expire zero, for route handlers: #95760\n- request insights: add DevTools request panel (5/5): #93978\n- docs: Improve immutable static docs: #95752\n- Add React sync development skill: #95620\n- docs: useSearchParams example stray l",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.86",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.86"
+    },
+    {
+      "category": "frontend",
+      "id": "b441184ff7923a85",
+      "importance": "high",
+      "llm": {
+        "detail": "Turbopack switches make_production_chunks to float-based sizing and orders CSS modules by chunk-group co-occurrence during linearize. Also fixes process termination handling and forks the navigation-testing-lock module.",
+        "recommended_action": "No action needed.",
+        "summary": "Next.js 16.3.0-canary.85: Turbopack chunk sizing via floats and CSS module ordering.",
+        "why_it_matters": "Pure Turbopack bundling and CSS-ordering internals on canary; no impact on a team consuming stable `next`."
+      },
+      "provider": null,
+      "published": "2026-07-13T23:54:18+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- [turbopack] Switch `make_production_chunks` to use floats: #95749\n- Fix termination handling: #95692\n- Restore canary version 16.3.0-canary.84 after v16.3.0-preview.6 preview release\n- Turbopack: order CSS modules by chunk-group co-occurrence in linearize: #95579\n- [test] Disable i18n-api-support deploy test for Turbopack with adapters: #95739\n- Fork navigation-testing-lock module: #95611\n- docs: runtime prefetching update: #95564\n- request insights: add agent diagnosis acces",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.85",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.85"
+    },
+    {
+      "category": "frontend",
+      "id": "c8c8d51ebe789248",
+      "importance": "high",
+      "llm": {
+        "detail": "The one core change enhances the ESLint rule `no-location-assign-relative-destination`, tightening lint coverage for unsafe relative navigation destinations. The rest are the same Turbopack CSS-ordering and Adapter/Pages-router fixes carried in the surrounding canaries.",
+        "recommended_action": "No action needed now; expect possible new lint findings when upgrading to 16.3.",
+        "summary": "Next.js 16.3.0-preview.6: enhanced ESLint rule for relative location assignment.",
+        "why_it_matters": "The stricter ESLint rule could surface new lint errors in React/Next code when you upgrade, since your stack uses `next` with its lint config."
+      },
+      "provider": null,
+      "published": "2026-07-13T20:20:31+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Core Changes\n\n- Enhance ESLint rule `no-location-assign-relative-destination`: #93057\n\n### Misc Changes\n\n- Turbopack: order CSS modules by chunk-group co-occurrence in linearize: #95579\n- [test] Disable i18n-api-support deploy test for Turbopack with adapters: #95739\n- Fork navigation-testing-lock module: #95611\n- docs: runtime prefetching update: #95564\n- request insights: add agent diagnosis access (4/5): #93977\n- Fix Pages router 404 runtime rendering with Adapter: #95264\n- Fix duplicate ",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-preview.6",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.6"
+    },
+    {
+      "category": "frontend",
+      "id": "bbe0733cb86de224",
+      "importance": "high",
+      "llm": {
+        "detail": "Vercel announced a structured security release process for Next.js, coupled with an upcoming patch release. This formalizes how vulnerabilities are disclosed, versioned, and patched going forward.",
+        "recommended_action": "Watch for the announced patch release and Next.js security advisories, and plan to bump `next` promptly when it lands.",
+        "summary": "Next.js is adopting a formal security release process ahead of its next patch.",
+        "why_it_matters": "Directly relevant: your stack ships `next`, so a formal security cadence means CVE-driven patch releases you must track and apply, unlike the canary noise above."
+      },
+      "provider": null,
+      "published": "2026-07-13T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js is moving to a formal security release process",
+      "tags": [],
+      "title": "Next.js Security Release and Our Next Patch Release",
+      "url": "https://nextjs.org/blog/next-security-release-program"
+    },
+    {
+      "category": "frontend",
+      "id": "fd304cb7b945bb4e",
+      "importance": "high",
+      "llm": {
+        "detail": "Lands the first three parts of Request Insights: recording local framework spans, deriving request history and fetch data, and exposing dev snapshots to tools and HMR. This is groundwork for the DevTools request panel completed in later canaries.",
+        "recommended_action": "No action needed.",
+        "summary": "Next.js 16.3.0-canary.84: foundational Request Insights instrumentation (parts 1–3).",
+        "why_it_matters": "A new dev-time request-tracing capability that could improve debugging of data fetching in React/Next apps, but it is canary-only with no effect on stable `next`."
+      },
+      "provider": null,
+      "published": "2026-07-12T23:57:33+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- request insights: expose dev snapshots to tools and HMR (3/5): #93976\n- request insights: derive request history and fetch data (2/5): #93975\n- request insights: record local framework spans (1/5): #93974\n\n### Credits \n\nHuge thanks to @feedthejim for helping!",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.84",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.84"
+    },
+    {
+      "category": "devops",
+      "id": "cb0e519b308a0b25",
+      "importance": "high",
+      "llm": {
+        "detail": "A profile/interview piece featuring a software engineer, author, and public speaker sharing career perspective and opinions. It is editorial/community content with no technical release, API change, or advisory attached.",
+        "recommended_action": "No action needed.",
+        "summary": "Interview with engineer Mohammad-Ali A'râbi in the 'From the Captain's Chair' series.",
+        "why_it_matters": "No direct impact on a Ruby/Go/TypeScript stack running Rails, React, and Kubernetes; purely community reading with no code or dependency implications."
+      },
+      "provider": null,
+      "published": "2026-07-16T17:15:44+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "In this edition of From the Captain’s Chair, we’re interviewing Mohammad-Ali A'râbi, author, public speaker, and software engineer.",
+      "tags": [],
+      "title": "From the Captain’s Chair: Mohammad-Ali A’râbi",
+      "url": "https://www.docker.com/blog/from-the-captains-chair-mohammad-ali-arabi/"
+    },
+    {
+      "category": "devops",
+      "id": "603004eb6bb86ca6",
+      "importance": "high",
+      "llm": {
+        "detail": "This Moby/Docker release ships fixes for several CVEs affecting Docker Engine, notably CVE-2026-15793 where a Git source checkout from a bundle file could be abused during builds. It is a patch release folding in docker/cli and moby/moby milestone fixes rather than new features.",
+        "recommended_action": "Upgrade Docker Engine to 29.6.2 on all build/CI hosts and cluster nodes, then confirm the CVE-2026-15793 fix is present via `docker version`.",
+        "summary": "Docker Engine 29.6.2 patches multiple security vulnerabilities, including CVE-2026-15793 in Git bundle checkout.",
+        "why_it_matters": "Your stack builds and ships containers (docker, k8s) as a core dependency, so a vulnerable Docker Engine on CI runners, build hosts, or nodes is a real supply-chain and host-compromise vector — especially if builds pull Git-bundle sources."
+      },
+      "provider": null,
+      "published": "2026-07-16T16:55:29+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "## 29.6.2\n\nFor a full list of pull requests and changes in this release, refer to the relevant GitHub milestones:\n\n- [docker/cli, 29.6.2 milestone](https://github.com/docker/cli/issues?q=is%3Aclosed+milestone%3A29.6.2)\n- [moby/moby, 29.6.2 milestone](https://github.com/moby/moby/issues?q=is%3Aclosed+milestone%3A29.6.2)\n\n### Security\n\nThis release includes fixes for multiple security vulnerabilities affecting Docker Engine.\n\n- **CVE-2026-15793**: Git source checkout from a bundle file could lead ",
+      "tags": [],
+      "title": "moby/moby docker-v29.6.2",
+      "url": "https://github.com/moby/moby/releases/tag/docker-v29.6.2"
+    },
+    {
+      "category": "devops",
+      "id": "1decf3903f6bfc44",
+      "importance": "high",
+      "llm": {
+        "detail": "An educational overview of AI agent architecture, operation, and production safety considerations. It is conceptual guidance rather than a tool, library, or advisory.",
+        "recommended_action": "No action needed.",
+        "summary": "Explainer on what AI agents are and how to build and run them safely in production.",
+        "why_it_matters": "Informational only for a team not currently shipping agent-based features; useful background if agent workloads are on the roadmap, but no immediate action for the current Rails/React/K8s stack."
+      },
+      "provider": null,
+      "published": "2026-07-16T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Learn what AI agents are, how they work, and what it takes to build and run them safely in production.",
+      "tags": [],
+      "title": "AI Agents Explained: How to Build with Them Safely",
+      "url": "https://www.docker.com/blog/what-are-ai-agents/"
+    },
+    {
+      "category": "devops",
+      "id": "4ecd26a942326ecf",
+      "importance": "high",
+      "llm": {
+        "detail": "A promotional/event piece about Docker's conference sponsorship and commentary on how AI agents are reshaping developer roles and events. No technical content or release.",
+        "recommended_action": "No action needed.",
+        "summary": "Docker marketing post on co-hosting WeAreDevelopers World Congress and AI's effect on developer communities.",
+        "why_it_matters": "No engineering impact on the stack; event and community marketing with nothing actionable for developers."
+      },
+      "provider": null,
+      "published": "2026-07-16T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Discover why Docker is co-hosting WeAreDevelopers World Congress North America and how AI agents are transforming software development and developer communities.",
+      "tags": [],
+      "title": "The Developer Has Changed. So Should Developer Conferences",
+      "url": "https://www.docker.com/blog/docker-wearedevelopers-world-congress-north-america-2026/"
+    },
+    {
+      "category": "devops",
+      "id": "695b8d5359717af8",
+      "importance": "high",
+      "llm": {
+        "detail": "Walks through writing a custom metrics exporter (queue depth, job duration, active connections), packaging it as a container, and wiring it into a cluster with Prometheus. It targets scaling signals that live outside built-in CPU/memory metrics.",
+        "recommended_action": "If current autoscaling relies only on CPU/memory, evaluate exporting a queue-depth or latency metric (e.g. Sidekiq backlog) to Prometheus for more accurate scaling.",
+        "summary": "Tutorial on building a custom Kubernetes metrics exporter from scratch for Prometheus-driven scaling.",
+        "why_it_matters": "Directly relevant to your Kubernetes stack: workloads like Sidekiq queue depth or WebSocket connection counts are exactly the custom signals that enable smarter HPA/KEDA autoscaling beyond CPU/memory."
+      },
+      "provider": null,
+      "published": "2026-07-14T18:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "Kubernetes ships with built-in awareness of CPU and memory, but most\nreal-world scaling decisions depend on signals that live entirely outside\nthat narrow window: how many messages are waiting in a queue, how long\nthe last batch job took, how many active WebSocket connections a pod is\nholding. When the built-in metrics are not enough, a metrics exporter\nbridges that gap.\nThis post walks through writing one from scratch, packaging it as a\ncontainer, and wiring it into a cluster so that Prometheus",
+      "tags": [],
+      "title": "Building a Custom Metrics Exporter for Kubernetes",
+      "url": "https://kubernetes.io/blog/2026/07/14/custom-metrics-exporter-kubernetes/"
+    },
+    {
+      "category": "devops",
+      "id": "8afa05f299fca666",
+      "importance": "high",
+      "llm": {
+        "detail": "A conference field report arguing that the runtime — not the model — is where trust in AI agents is established, summarizing themes for teams building agentic systems. Opinion/trend content with no release or advisory.",
+        "recommended_action": "No action needed.",
+        "summary": "Recap of AI Engineer World's Fair 2026 focused on agent trust at the runtime layer.",
+        "why_it_matters": "No impact on the current stack; relevant only as strategic reading if the team plans to build agent runtimes, otherwise informational."
+      },
+      "provider": null,
+      "published": "2026-07-14T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "We spent the week at AI Engineer World's Fair in San Francisco, on stage and on the floor. Here's what we heard, and where we think it lands for anyone building with agents.",
+      "tags": [],
+      "title": "AI Engineer World’s Fair 2026: The Runtime Is Where Agent Trust Is Won",
+      "url": "https://www.docker.com/blog/ai-engineer-worlds-fair-2026-the-runtime-is-where-agent-trust-is-won/"
+    },
+    {
+      "category": "devops",
+      "id": "3bec5ca69d709adf",
+      "importance": "high",
+      "llm": {
+        "detail": "Explains running Kubeflow (notebooks, training jobs, hyperparameter tuning, ML pipelines) on Kubernetes, where each capability is a CRD, and introduces a Headlamp plugin to observe those workloads. It is tooling for ML-heavy clusters.",
+        "recommended_action": "No action needed unless the team runs Kubeflow on Kubernetes.",
+        "summary": "Guide to operating AI/ML workloads on Kubernetes via a Headlamp plugin for Kubeflow.",
+        "why_it_matters": "Marginal relevance unless your Kubernetes clusters host Kubeflow/ML workloads; for a Rails/React service stack there is no ML pipeline to operate, so this is low priority."
+      },
+      "provider": null,
+      "published": "2026-07-13T20:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "Kubernetes has quietly become the default platform for AI and machine learning. Whether you run notebook servers for data scientists, schedule distributed training jobs, tune hyperparameters, or orchestrate multi-step ML pipelines, those workloads increasingly land on a Kubernetes cluster. Kubeflow is one of the most popular ways to assemble that stack, and it does so the Kubernetes-native way: every capability is exposed as a Custom Resource Definition (CRD).\nThat design is a gift to cluster op",
+      "tags": [],
+      "title": "Operating AI/ML Workloads on Kubernetes: A Headlamp Plugin for Kubeflow",
+      "url": "https://kubernetes.io/blog/2026/07/13/introducing-headlamp-plugin-for-kubeflow/"
+    },
+    {
+      "category": "devops",
+      "id": "839722f95294e987",
+      "importance": "high",
+      "llm": {
+        "detail": "Compares Kubernetes Dashboard and Headlamp: Headlamp can run on the desktop using your kubeconfig or in-cluster via a ServiceAccount with RBAC, while Dashboard only runs in-cluster on service-account tokens. It provides a practical migration path plus plugin extensibility.",
+        "recommended_action": "If Kubernetes Dashboard is in use, trial Headlamp (desktop mode with existing kubeconfig) as a more RBAC-aligned replacement for cluster inspection.",
+        "summary": "Step-by-step guide migrating from Kubernetes Dashboard to Headlamp, covering RBAC and access model differences.",
+        "why_it_matters": "Relevant if your team uses Kubernetes Dashboard for cluster visibility; Headlamp's desktop-kubeconfig mode and RBAC-aware access can tighten who holds in-cluster tokens, improving the security posture of cluster tooling."
+      },
+      "provider": null,
+      "published": "2026-07-13T18:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "1. Before you start: know what is changingKubernetes Dashboard and Headlamp both show what is running in a cluster, but they work differently. When Headlamp runs on the desktop, it uses your existing kubeconfig to connect to one or more clusters and can be extended with plugins. When Headlamp runs inside a cluster, it uses a Kubernetes ServiceAccount to access the API and follow RBAC rules. Kubernetes Dashboard, in contrast, only runs in-cluster and always relies on service account tokens. Under",
+      "tags": [],
+      "title": "Kubernetes Dashboard to Headlamp: A Step-by-Step Guide",
+      "url": "https://kubernetes.io/blog/2026/07/13/kubernetes-dashboard-to-headlamp/"
+    },
+    {
+      "category": "cloud",
+      "id": "bfa0e2a08ebcdda4",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-17T17:29:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon GameLift Streams now supports assigning an IAM role to a stream session, enabling your application to securely access resources in your AWS account, such as Amazon S3 buckets and DynamoDB tables. With this launch, you can pass a RoleArn parameter when starting a stream session, and your application automatically receives short-lived, auto-refreshing AWS credentials through the standard AWS SDK credential resolution chain — no application code changes required. \nPreviously, customers who n",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon GameLift Streams now supports IAM role credentials for stream sessions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-iam/"
+    },
+    {
+      "category": "cloud",
+      "id": "21c037fe4414d8b5",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-17T17:23:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon OpenSearch Service now supports one-click migration from legacy OpenSearch Dashboards to OpenSearch UI, for both OpenSearch domains and serverless collections. OpenSearch UI is the new, zero-downtime, serverless interface for search and unified observability across multiple data sources. With this launch, the multiple tenants and thousands of saved objects you created in legacy OpenSearch Dashboards become reusable in your OpenSearch UI applications, reducing the operational complexity of",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon OpenSearch UI now supports one-click dashboard migration",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration"
+    },
+    {
+      "category": "cloud",
+      "id": "bd146752742f164a",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:56:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS Billing and Cost Management (BCM) announces support for Cost Efficiency widget in BCM Dashboards. You can now view cost efficiency trends alongside Cost Explorer, Budgets, and reports for Savings Plans and Reserved Instance coverage and utilization reports. This provides a unified view of your spending, commitments, and optimization performance in a single, tailored dashboard. \nThe Cost Efficiency widget displays your efficiency score over time, showing how your efficiency across your",
+      "tags": [
+        "rds"
+      ],
+      "title": "Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards"
+    },
+    {
+      "category": "cloud",
+      "id": "35b673a59aec5176",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:20:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 now surfaces the AWS Systems Manager (SSM) Parameter Store parameters associated with public AMIs directly in the AMI metadata. When you describe a public AMI, the response includes the associated public SSM parameter,&nbsp;making it easy to discover and reference in your configurations. \nPreviously, finding the SSM parameter associated with a public AMI required searching through SSM parameter namespaces manually. Now, when you describe a public AMI, the response includes the public ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 now surfaces the public SSM parameters associated with public AMIs",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters"
+    },
+    {
+      "category": "cloud",
+      "id": "4a9c5362f7894a03",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Event Notifications now include system-generated tags in events delivered to all destinations including Amazon EventBridge, Amazon SQS, Amazon SNS, and AWS Lambda. System-generated tags are metadata labels attached to your bucket by AWS services. You can use these tags to filter events from thousands of buckets with a single EventBridge rule, instead of listing each bucket name individually.  To get started, enable S3 Event Notifications on your general purpose buckets through the AWS ",
+      "tags": [
+        "lambda",
+        "s3"
+      ],
+      "title": "Amazon S3 Event Notifications now include system-generated tags",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/"
+    },
+    {
+      "category": "cloud",
+      "id": "009ce2f538ac0a72",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for PostgreSQL 19 Beta 2 is now available in the Amazon RDS Database Preview Environment, allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL. You can deploy PostgreSQL 19 Beta 2 in the Amazon RDS Database Preview Environment that has the benefits of a fully managed database.  PostgreSQL 19 introduces parallel autovacuum with configurable worker limits, so routine maintenance no longer bottlenecks large databases. The new REPACK CONCURRENTLY command ",
+      "tags": [
+        "rds"
+      ],
+      "title": "PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/"
+    },
+    {
+      "category": "cloud",
+      "id": "6b3b969d4f1fcd64",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS&nbsp;Europe (Paris) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environment. U7i instances offer up to 45% better price performance over existing U-1 instances. \nU7in-24",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/"
+    },
+    {
+      "category": "cloud",
+      "id": "ca37daf64d7de84f",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "You can now transition objects to S3 Standard-Infrequent Access (S3 Standard-IA) and S3 One Zone-Infrequent Access (S3 One Zone-IA) as soon as the day they are created, without the previous 30-day minimum retention in S3 Standard. These storage classes offer up to 40% lower storage costs than S3 Standard while still providing millisecond access when needed, making them ideal for backups, log analytics, and compliance workloads where data becomes cold within hours or days.  To get started, create",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 removes 30-day minimum for transitions to S3 Standard-IA and S3 One Zone-IA",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/s3-removes-30-day-transitions-standard-ia-one-zone-ia"
+    },
+    {
+      "category": "cloud",
+      "id": "635e7a77d6c5dd70",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-16T00:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Aurora DSQL is now in scope for FedRAMP Moderate in the US East (Ohio), US East (N. Virginia), and US West (Oregon) Regions. You can now use Aurora DSQL to build applications and run workloads that are subject to FedRAMP Moderate compliance requirements.  The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring for cloud products and services. Amazo",
+      "tags": [
+        "aurora"
+      ],
+      "title": "Amazon Aurora DSQL is now in scope for FedRAMP Moderate",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-now-in-scope-for-fedramp-moderate/"
+    },
+    {
+      "category": "cloud",
+      "id": "57ffedf8403c23d6",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T18:04:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon&nbsp;Elastic Compute Cloud (Amazon EC2) G7e instances accelerated by NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs are now available in the AWS Europe (Frankfurt, Stockholm) and Asia Pacific (Mumbai) Regions. G7e instances offer up to 2.3x inference performance compared to G6e. \nCustomers can use G7e instances to deploy large language models (LLMs), agentic AI models, multimodal generative AI models, and physical AI models. G7e instances offer the highest performance f",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 G7e instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-g7e-additional-regions/"
+    },
+    {
+      "category": "cloud",
+      "id": "89507ccd610b7255",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Graviton4-based R8g database instances are now generally available for Amazon Aurora (MySQL and PostgreSQL compatibility) and Amazon RDS for PostgreSQL, MySQL, and MariaDB in Asia Pacific (Hyderabad, Melbourne, Malaysia), Europe (London, Paris, Zurich), AWS GovCloud (US-East), South America (Sao Paulo), and Mexico (Central) regions. Additionally, M8g instances are now supported for Amazon RDS for PostgreSQL, MySQL, and MariaDB in US West (N. California), Asia Pacific (Mumbai, Sydney, Hong Ko",
+      "tags": [
+        "rds",
+        "aurora"
+      ],
+      "title": "Amazon RDS and Aurora now support R8g and M8g database instances in additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-rds-aurora-r8g-m8g-regions/"
+    },
+    {
+      "category": "cloud",
+      "id": "3225dfad3f052152",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (RDS) now supports R8gd database instances in 12 additional regions and and M8gd database instances in 6 additional Regions with Optimized Reads for Amazon Aurora PostgreSQL, RDS for PostgreSQL, RDS for MySQL, and RDS for MariaDB.  R8gd and M8gd instances deliver up to 165% better throughput and up to 120% better price-performance over R6g instances for Aurora PostgreSQL. Optimized Reads uses local NVMe-based SSD block storage to store ephemeral data such as te",
+      "tags": [
+        "rds",
+        "aurora"
+      ],
+      "title": "Amazon RDS and Aurora expand R8gd and M8gd to additional Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-aurora-r8gd-m8gd-regions/"
+    },
+    {
+      "category": "cloud",
+      "id": "b83031050e7274b2",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Cognito now supports importing users with password hashes in CSV user imports. Previously, users imported from a CSV file had to reset their passwords on first sign-in. Now, you can include password hashes in your CSV file so that imported users can sign in immediately with their existing credentials.  When creating a CSV import, you specify the password hashing algorithm used by your source system. Amazon Cognito imports these users and verifies their password against the imported hash o",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Cognito now supports importing users with password hashes",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cognito-password-hash-import/"
+    },
+    {
+      "category": "cloud",
+      "id": "83286f5cadd57677",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T16:15:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS now allows up to four storage modifications per database instance within a rolling 24-hour window. These modifications let you increase the size, change the type, and adjust the performance of your RDS storage volumes. You can start a new modification right after storage optimization for the previous modification is complete without having to wait for the six-hour cool-off period to complete. \nThis enhancement improves operational agility for scaling storage capacity or adjusting perf",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS now supports up to four storage modifications in 24 hours",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-upto-four-storage-modifications-24-hours"
+    },
+    {
+      "category": "cloud",
+      "id": "e6d4effead7ed663",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T15:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions, with support for Amazon DynamoDB, Salesforce, and SAP OData as sources. Customers operating in regulated environments can now replicate data from these sources into Amazon Redshift, Amazon S3, or other supported destinations without building or maintaining custom data pipelines.  The SAP OData connector allows you to extract data from SAP systems exposing OData s",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US) regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-sap-zero-etl-govcloud"
+    },
+    {
+      "category": "cloud",
+      "id": "fa0bf2606750088f",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T07:39:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for Db2 is now available in the Asia Pacific (Thailand), Asia Pacific (Malaysia), Asia Pacific (Taipei), Mexico (Central), and Canada West (Calgary) Regions. Amazon RDS for Db2 makes it easy to set up, operate, and scale Db2 databases in the cloud. Customers can deploy a Db2 database in minutes with automatically configured parameters for optimal performance. For databases setup with Multi-AZ configuration, Amazon RDS performs synchronous replicati",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for Db2 is now available in additional AWS Commercial regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-db2-available-additional-aws-commercial-regions"
+    },
+    {
+      "category": "cloud",
+      "id": "b01fa991325e023c",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-15T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda now supports self-managed Amazon S3 buckets for code storage,&nbsp;enabling you to reference source code directly from your own S3 buckets without Lambda creating intermediate copies. This eliminates code storage limits and reduces function activation time after function creates and updates by removing the copy step. \nAWS Lambda is a serverless compute service that runs your code without requiring you to manage servers. Customers who deploy many functions and additional code as Lambda",
+      "tags": [
+        "lambda",
+        "s3"
+      ],
+      "title": "AWS Lambda announces self-managed code storage",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/lambda-self-managed-code-storage/"
+    },
+    {
+      "category": "cloud",
+      "id": "96589949f4b4965e",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-14T22:05:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Elastic Disaster Recovery (AWS DRS) now recovers your AWS-based workloads faster. For source servers running on Amazon EC2, DRS can now skip preparation steps that these workloads no longer need, reducing recovery time by up to 65% for Windows and up to 40% for Linux. \nDuring a disaster or a drill, every minute matters. Because workloads already running on AWS come with AWS-compatible drivers and configuration, DRS can launch them with fewer steps — helping you bring applications back online",
+      "tags": [
+        "ec2"
+      ],
+      "title": "AWS Elastic Disaster Recovery reduces recovery time for AWS-to-AWS workloads",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-recovery/"
+    },
+    {
+      "category": "cloud",
+      "id": "cc8ef684d51b5b21",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-14T22:00:56+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Elastic Disaster Recovery (AWS DRS) now supports the Amazon EBS volume initialization rate, helping recovered volumes reach full performance faster during drills and recoveries. When DRS restores EBS volumes from snapshots, the data loads from Amazon S3 in the background, and I/O to blocks that haven't loaded yet can be slower until initialization finishes. With this launch, you can set a volume initialization rate on your DRS-managed EC2 launch template, and DRS applies it automatically whe",
+      "tags": [
+        "ec2",
+        "s3"
+      ],
+      "title": "AWS Elastic Disaster Recovery now supports Amazon EBS volume initialization rate",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-hydration/"
+    },
+    {
+      "category": "cloud",
+      "id": "e9e7cf07b9c8c1a0",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-14T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M8in, M8idn network optimized, and M8ib, M8idb EBS optimized instances are available in the AWS US East (Ohio), Europe (Ireland), and Asia Pacific (Tokyo) regions. The new instances are powered by custom sixth generation Intel Xeon Scalable processors available only on AWS and deliver up to 43% higher performance compared to previous generation instances. These instances also feature the latest sixth generation AWS Nitro cards. \nM8in, M8i",
+      "tags": [
+        "ec2",
+        "rds"
+      ],
+      "title": "Amazon EC2 M8in, M8idn, M8ib, M8idb instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/m8in-m8idn-m8ib-m8idb-new-regions"
+    },
+    {
+      "category": "security",
+      "id": "184da473e29c7dad",
+      "importance": "high",
+      "llm": {
+        "detail": "axios's shouldBypassProxy fails to normalize IPv4-mapped IPv6 addresses (e.g. ::ffff:127.0.0.1) when matching hosts against NO_PROXY, so a host meant to bypass the proxy is still routed through it. This is an incomplete fix for CVE-2025-62718, where the original patch did not cover the IPv4-mapped IPv6 representation. The result is that proxy-bypass policy can be silently defeated for affected address forms.",
+        "recommended_action": "Upgrade axios to the version that patches GHSA-pjwm-pj3p-43mv (the follow-up to CVE-2025-62718) and run `npm audit` to confirm the advisory is cleared across the lockfile.",
+        "summary": "axios NO_PROXY bypass via unrecognized IPv4-mapped IPv6 addresses (incomplete fix for CVE-2025-62718).",
+        "why_it_matters": "This stack depends directly on axios in the npm ecosystem, so any service or frontend/next.js code issuing outbound HTTP through axios is exposed. NO_PROXY misrouting can leak internal traffic through an untrusted proxy or undermine egress controls, which is a meaningful risk for server-side requests in Rails/Next.js backends that call internal hosts."
+      },
+      "provider": null,
+      "published": "2026-07-17T15:46:06.986530+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "axios's shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718)",
+      "tags": [],
+      "title": "GHSA-pjwm-pj3p-43mv: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-pjwm-pj3p-43mv"
+    },
+    {
+      "category": "security",
+      "id": "35990fa324ad7cc5",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-13T07:26:53.150769+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Unexpected server crash in Next.js",
+      "tags": [],
+      "title": "GHSA-wff4-fpwg-qqv3: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-wff4-fpwg-qqv3"
+    }
+  ],
+  "meta": {
+    "date": "2026-07-18",
+    "enriched": {
+      "backend": true,
+      "cloud": true,
+      "devops": true,
+      "frontend": true,
+      "security": true
+    },
+    "rendered": {
+      "2026-07-18": "sha256:87667106ea00867f"
+    },
+    "schema_version": 1,
+    "sources": {
+      "facebook/react": {
+        "count": 10,
+        "status": "ok"
+      },
+      "golang/go": {
+        "count": 0,
+        "status": "ok"
+      },
+      "hn": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://blog.nginx.org/feed": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://go.dev/blog/feed.atom": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://kubernetes.io/feed.xml": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://nextjs.org/feed.xml": {
+        "count": 68,
+        "status": "ok"
+      },
+      "https://rubyonrails.org/feed.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://www.docker.com/blog/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "kubernetes/kubernetes": {
+        "count": 10,
+        "status": "ok"
+      },
+      "moby/moby": {
+        "count": 10,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 186,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "vercel/next.js": {
+        "count": 10,
+        "status": "ok"
+      }
+    }
+  }
+}
