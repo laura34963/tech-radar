@@ -7,7 +7,7 @@ concurrency:
   group: tech-radar
   cancel-in-progress: false
 permissions:
-  contents: write      # commit output/ back to main
+  contents: write      # push generated output/ to the `public` branch
   pages: write         # deploy to Pages
   id-token: write      # Pages OIDC
 jobs:
@@ -23,17 +23,39 @@ jobs:
           python-version: "3.13"
       - run: pip install -r requirements.txt
       - run: cp config/radar.example.toml config/radar.toml
+
+      # The generated site lives on the `public` branch, not on main. It is a
+      # persistent state store: render_index globs every prior output/data/*.json,
+      # so accumulated history must be restored before this run generates on top.
+      - name: Restore output/ from the public branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          url="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          git clone --branch public --single-branch "$url" output || {
+            mkdir -p output
+            git -C output init -q -b public
+            git -C output remote add origin "$url"
+          }
+
       - run: python radar.py run
         env:
           RADAR_LLM_API_KEY: ${{ secrets.RADAR_LLM_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Commit output
+
+      - name: Publish output/ to the public branch
+        working-directory: output
         run: |
           git config user.name "tech-radar-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add output
-          git diff --cached --quiet || git commit -m "chore: weekly digest $(date -u +%F)"
-          git push
+          git add -A
+          git diff --cached --quiet && { echo "no output changes"; exit 0; }
+          git commit -m "chore: weekly digest $(date -u +%F)"
+          git push origin HEAD:public
+
+      # Pages deploys from the freshly generated files, not from the branch.
+      # Drop the nested .git so it is not bundled into the artifact.
+      - run: rm -rf output/.git
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
