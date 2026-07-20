@@ -26,13 +26,13 @@
         <span class="count-chip"><strong>1</strong> backend</span>
       
         
-        <span class="count-chip"><strong>7</strong> frontend</span>
+        <span class="count-chip"><strong>6</strong> frontend</span>
       
         
-        <span class="count-chip"><strong>8</strong> devops</span>
+        <span class="count-chip"><strong>1</strong> devops</span>
       
         
-        <span class="count-chip"><strong>20</strong> cloud</span>
+        <span class="count-chip"><strong>15</strong> cloud</span>
       
         
         <span class="count-chip"><strong>2</strong> security</span>
@@ -79,7 +79,7 @@
     
     
     <details class="category">
-      <summary class="cat-head">frontend<span class="cat-count">7</span></summary>
+      <summary class="cat-head">frontend<span class="cat-count">6</span></summary>
       <div class="cards">
       
       
@@ -87,73 +87,7 @@
         <span class="level level--high">high</span>
         <div class="meta">
           
-          <span class="pill pill--stack">stack: next, next.js, docker</span>
-          <span class="when">2026-07-17</span>
-        </div>
-        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.89">vercel/next.js v16.3.0-canary.89</a></h3>
-        <div class="summary"><p>Next.js 16.3.0-canary.89 ships Turbopack cleanups, soft-nav SSR fix, and agent-tooling tweaks.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>This canary stops SSR on pages only reached through soft navigation, cleans up Turbopack&#39;s server_chunking_context, and pads managed AGENTS.md blocks. It also packages Claude Code skills as a plugin and reverts an earlier change that ran more test suites under the cacheComponents flag.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>For a team on next.js and react, canary churn in Turbopack and navigation internals signals the shape of the upcoming 16.3 stable; the soft-nav SSR change can alter rendering behavior you rely on. None of it is production-ready, so it&#39;s tracking-only for now.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed; stay on the stable Next.js release and watch 16.3.0 for the finalized soft-nav/Turbopack behavior.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: next, next.js</span>
-          <span class="when">2026-07-16</span>
-        </div>
-        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.88">vercel/next.js v16.3.0-canary.88</a></h3>
-        <div class="summary"><p>Canary.88 unifies appShells with Partial Prefetching and trims client chunk manifests.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>This build merges the appShells flag into Partial Prefetching, fixes Request Insights span collection, and reverts the same-document traversal replay before hydration. Turbopack now only ships pages-router routes in the client chunk-group bootstrap manifest and inlines the bootstrap.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Partial Prefetching and chunk-group manifest changes directly affect bundle size and navigation latency for react/next.js apps, so these are the performance levers worth watching before 16.3 lands. As a canary it carries no immediate action.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed; note the appShells→Partial Prefetching unification for when you evaluate 16.3 prefetching.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: next, next.js</span>
-          <span class="when">2026-07-15</span>
-        </div>
-        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.87">vercel/next.js v16.3.0-canary.87</a></h3>
-        <div class="summary"><p>Canary.87 improves Turbopack chunk cache hits and removes an experimental routing doc.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>Turbopack now generates component chunks per merged group to raise cache hits, and app shells exclude entries stale under 5 minutes. It re-lands replaying same-document traversals before hydration and removes the experimental @next/routing docs note plus a stale build warning.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Better Turbopack chunk cache hits mean faster incremental builds for large next.js codebases, and the pre-hydration traversal replay affects perceived navigation correctness. Canary only, so no upgrade pressure.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed; monitor Turbopack build-cache changes if your CI build times matter.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: react, next, react, next.js</span>
+          <span class="pill pill--stack">stack: react, react</span>
           <span class="when">2026-07-14</span>
         </div>
         <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.86">vercel/next.js v16.3.0-canary.86</a></h3>
@@ -170,73 +104,14 @@
         
       </article>
       
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: next, next.js</span>
-          <span class="when">2026-07-13</span>
-        </div>
-        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.85">vercel/next.js v16.3.0-canary.85</a></h3>
-        <div class="summary"><p>Canary.85 tunes Turbopack CSS/chunk ordering and fixes process termination handling.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>Turbopack switches make_production_chunks to floats and orders CSS modules by chunk-group co-occurrence during linearize, improving CSS grouping. It also fixes termination handling and forks the navigation-testing-lock module.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>CSS module ordering affects style cascade correctness and cacheability in next.js production builds, and termination-handling fixes matter for clean process shutdown in docker/kubernetes deployments. Canary-only, no action.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed; verify CSS ordering assumptions when a stable release adopts this change.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: next, next.js</span>
-          <span class="when">2026-07-13</span>
-        </div>
-        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.6">vercel/next.js v16.3.0-preview.6</a></h3>
-        <div class="summary"><p>Next.js 16.3.0-preview.6 enhances an ESLint rule and fixes Pages Router 404 rendering with adapters.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>This preview enhances the no-location-assign-relative-destination ESLint rule (a real core change) and orders CSS modules by chunk-group co-occurrence. It fixes Pages Router 404 runtime rendering with the Adapter and adds agent diagnosis access to Request Insights.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Preview releases are closer to stable than canaries, and the ESLint rule plus Pages Router 404 adapter fix could affect linting and error-page behavior for react/next.js teams. It remains a pre-release channel, not for production.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed; when 16.3 stabilizes, re-run lint to catch the enhanced no-location-assign rule.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: next, next.js</span>
-          <span class="when">2026-07-13</span>
-        </div>
-        <h3><a href="https://nextjs.org/blog/next-security-release-program">Next.js Security Release and Our Next Patch Release</a></h3>
-        <div class="summary"><p>Next.js announces a formal security release process and an upcoming patch release.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>Vercel is formalizing how Next.js ships security fixes, moving to a defined security-release process with a coordinated patch release to follow. This signals clearer advisories, CVE handling, and predictable patch cadence for the framework.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>For a team running next.js in docker/kubernetes, a formal security process means faster, clearer signals when a patch is required — directly relevant to your dependency-patching and vuln-scan workflow. A patch release is imminent, so this warrants attention rather than dismissal.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>Subscribe to Next.js security advisories and plan to apply the announced patch release promptly once it ships; check your current <code>next</code> version against it.</p></div>
-        
-      </article>
-      
       </div>
+      
+      <details class="also-noted">
+        <summary>Also noted (5)</summary>
+        <ul>
+          <li><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.89">vercel/next.js v16.3.0-canary.89</a> <span class="when">— 2026-07-17</span></li><li><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.88">vercel/next.js v16.3.0-canary.88</a> <span class="when">— 2026-07-16</span></li><li><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.87">vercel/next.js v16.3.0-canary.87</a> <span class="when">— 2026-07-15</span></li><li><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.85">vercel/next.js v16.3.0-canary.85</a> <span class="when">— 2026-07-13</span></li><li><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.6">vercel/next.js v16.3.0-preview.6</a> <span class="when">— 2026-07-13</span></li>
+        </ul>
+      </details>
       
     </details>
     
@@ -245,203 +120,106 @@
     
     
     <details class="category">
-      <summary class="cat-head">devops<span class="cat-count">8</span></summary>
-      <div class="cards">
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: docker</span>
-          <span class="when">2026-07-16</span>
-        </div>
-        <h3><a href="https://www.docker.com/blog/from-the-captains-chair-mohammad-ali-arabi/">From the Captain’s Chair: Mohammad-Ali A’râbi</a></h3>
-        <div class="summary"><p>Docker community interview with engineer/author Mohammad-Ali A&#39;râbi on the Captain&#39;s Chair series.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>A community/culture piece profiling a software engineer and public speaker, part of Docker&#39;s ongoing interview series. It carries no technical release, API change, or security content. The value is community insight and career/engineering perspective rather than actionable tooling changes.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>No direct impact on a Rails/React/Next.js stack running on Docker and Kubernetes; it is editorial content, not a technical advisory.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: docker</span>
-          <span class="when">2026-07-16</span>
-        </div>
-        <h3><a href="https://github.com/moby/moby/releases/tag/docker-v29.6.2">moby/moby docker-v29.6.2</a></h3>
-        <div class="summary"><p>Docker Engine 29.6.2 patch release fixing multiple security vulnerabilities, including CVE-2026-15793.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>This moby/moby release bundles security fixes for Docker Engine, notably CVE-2026-15793 where a Git source checkout from a bundle file could be exploited during builds. It is a patch-level release, so changes are focused on bug and security fixes rather than new features. The relevant docker/cli and moby/moby 29.6.2 milestones list the full set of closed PRs.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Your stack builds and ships Ruby/Go/TypeScript services as Docker images and runs them on Kubernetes, so a Docker Engine CVE in the build/checkout path directly affects your CI/CD build hosts and any node running an outdated engine.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>Upgrade Docker Engine to 29.6.2 on build/CI hosts and cluster nodes, and confirm CVE-2026-15793 is addressed for any pipeline using Git bundle sources.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: docker</span>
-          <span class="when">2026-07-16</span>
-        </div>
-        <h3><a href="https://www.docker.com/blog/what-are-ai-agents/">AI Agents Explained: How to Build with Them Safely</a></h3>
-        <div class="summary"><p>Introductory guide to what AI agents are and how to run them safely in production.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>An educational overview covering agent fundamentals, how they operate, and the operational guardrails needed to deploy them safely. It is conceptual/best-practices content rather than a specific tool, release, or CVE. Useful as onboarding material for teams considering agentic workloads.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Only relevant if your team is planning to build or host AI agents; it has no bearing on the current Rails/React/Next.js/Kubernetes runtime otherwise.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed unless evaluating AI agent adoption; if so, skim for the production safety checklist.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: docker</span>
-          <span class="when">2026-07-16</span>
-        </div>
-        <h3><a href="https://www.docker.com/blog/docker-wearedevelopers-world-congress-north-america-2026/">The Developer Has Changed. So Should Developer Conferences</a></h3>
-        <div class="summary"><p>Docker marketing/opinion piece on evolving developer conferences and co-hosting WeAreDevelopers World Congress NA.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>An editorial about how AI agents are reshaping developer workflows and communities, tied to Docker&#39;s event sponsorship. It contains no technical release, configuration guidance, or security information. The content is promotional and forward-looking rather than actionable.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>No technical impact on your stack; purely event and community promotion.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: kubernetes</span>
-          <span class="when">2026-07-14</span>
-        </div>
-        <h3><a href="https://kubernetes.io/blog/2026/07/14/custom-metrics-exporter-kubernetes/">Building a Custom Metrics Exporter for Kubernetes</a></h3>
-        <div class="summary"><p>Hands-on tutorial: build a custom Kubernetes metrics exporter, containerize it, and scrape it with Prometheus.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>Walks through writing a metrics exporter from scratch to surface signals beyond CPU/memory — queue depth, batch job duration, active WebSocket connections — then packaging it as a container and wiring it into a cluster. These custom metrics are the foundation for smarter autoscaling (e.g., HPA on external/custom metrics) than the default resource metrics allow. It is practical, implementation-level guidance.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Directly applicable: your Sidekiq queues, Puma request load, and any WebSocket-holding pods are exactly the kind of signals that resource-based autoscaling misses, so a custom exporter could improve scaling accuracy on your Kubernetes cluster.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>If autoscaling on Sidekiq queue depth or request latency is a goal, prototype a small exporter following this pattern and evaluate HPA on the custom metric.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: docker</span>
-          <span class="when">2026-07-14</span>
-        </div>
-        <h3><a href="https://www.docker.com/blog/ai-engineer-worlds-fair-2026-the-runtime-is-where-agent-trust-is-won/">AI Engineer World’s Fair 2026: The Runtime Is Where Agent Trust Is Won</a></h3>
-        <div class="summary"><p>Field report from AI Engineer World&#39;s Fair 2026 arguing the runtime layer is where agent trust is established.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>A conference recap summarizing industry sentiment on building trustworthy AI agents, emphasizing runtime isolation and control as the trust boundary. It is analysis and opinion rather than a product release or technical spec. Insight-oriented content for teams tracking the agent tooling landscape.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>No immediate impact on your current stack; relevant only as strategic context if you plan to run agents and care about sandboxing/runtime isolation (an area where Docker/Kubernetes are natural fits).</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: kubernetes</span>
-          <span class="when">2026-07-13</span>
-        </div>
-        <h3><a href="https://kubernetes.io/blog/2026/07/13/introducing-headlamp-plugin-for-kubeflow/">Operating AI/ML Workloads on Kubernetes: A Headlamp Plugin for Kubeflow</a></h3>
-        <div class="summary"><p>Guide to operating AI/ML workloads on Kubernetes via a Headlamp plugin for Kubeflow.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>Explains how Kubeflow exposes ML capabilities (notebooks, training jobs, HPO, pipelines) as Kubernetes CRDs and how a Headlamp plugin gives cluster operators native visibility into them. It targets teams running data science and ML workloads on Kubernetes who want better observability of custom resources. The content is operational tooling guidance, not a security advisory.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Only relevant if your team runs ML/Kubeflow workloads on Kubernetes; it does not affect your Rails/React/Next.js services otherwise.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>No action needed unless you operate Kubeflow; if so, evaluate the Headlamp plugin for CRD visibility.</p></div>
-        
-      </article>
-      
-      
-      <article class="card card--high">
-        <span class="level level--high">high</span>
-        <div class="meta">
-          
-          <span class="pill pill--stack">stack: kubernetes</span>
-          <span class="when">2026-07-13</span>
-        </div>
-        <h3><a href="https://kubernetes.io/blog/2026/07/13/kubernetes-dashboard-to-headlamp/">Kubernetes Dashboard to Headlamp: A Step-by-Step Guide</a></h3>
-        <div class="summary"><p>Step-by-step migration guide from Kubernetes Dashboard to Headlamp, covering desktop vs in-cluster auth models.</p></div>
-        <details class="detail">
-          <summary>Read more</summary>
-          <div class="detail-body"><p>Contrasts the two UIs: Headlamp can run on the desktop using your local kubeconfig or in-cluster via a ServiceAccount with RBAC, while Kubernetes Dashboard only runs in-cluster with service-account tokens. It walks through what changes during migration, particularly around authentication and access control. Practical operational guidance for cluster admins choosing a dashboard.</p></div>
-          
-          <div class="why"><span class="label">Why it matters</span><p>Relevant if your team uses Kubernetes Dashboard — the historically token-based, security-sensitive dashboard — since Headlamp&#39;s kubeconfig/RBAC model can tighten access control on your clusters.</p></div>
-          
-        </details>
-        
-        <div class="action"><span class="label">Recommended action</span><p>If you currently run Kubernetes Dashboard, evaluate migrating to Headlamp and review the RBAC/auth differences against your access-control requirements.</p></div>
-        
-      </article>
-      
-      </div>
-      
-    </details>
-    
-  
-    
-    
-    
-    <details class="category">
-      <summary class="cat-head">cloud<span class="cat-count">20</span></summary>
+      <summary class="cat-head">devops<span class="cat-count">1</span></summary>
       <div class="cards">
       
       </div>
       
       <details class="also-noted">
-        <summary>Also noted (20)</summary>
+        <summary>Also noted (1)</summary>
         <ul>
-          <li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-iam/">Amazon GameLift Streams now supports IAM role credentials for stream sessions</a> <span class="when">— 2026-07-17</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration">Amazon OpenSearch UI now supports one-click dashboard migration</a> <span class="when">— 2026-07-17</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards">Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters">Amazon EC2 now surfaces the public SSM parameters associated with public AMIs</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/">Amazon S3 Event Notifications now include system-generated tags</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/">PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/">Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/s3-removes-30-day-transitions-standard-ia-one-zone-ia">Amazon S3 removes 30-day minimum for transitions to S3 Standard-IA and S3 One Zone-IA</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-now-in-scope-for-fedramp-moderate/">Amazon Aurora DSQL is now in scope for FedRAMP Moderate</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-g7e-additional-regions/">Amazon EC2 G7e instances now available in additional regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-aurora-r8gd-m8gd-regions/">Amazon RDS and Aurora expand R8gd and M8gd to additional Regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cognito-password-hash-import/">Amazon Cognito now supports importing users with password hashes</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-rds-aurora-r8g-m8g-regions/">Amazon RDS and Aurora now support R8g and M8g database instances in additional AWS Regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-upto-four-storage-modifications-24-hours">Amazon RDS now supports up to four storage modifications in 24 hours</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-sap-zero-etl-govcloud">AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US) regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-db2-available-additional-aws-commercial-regions">Amazon RDS for Db2 is now available in additional AWS Commercial regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/lambda-self-managed-code-storage/">AWS Lambda announces self-managed code storage</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-recovery/">AWS Elastic Disaster Recovery reduces recovery time for AWS-to-AWS workloads</a> <span class="when">— 2026-07-14</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-drs-fast-hydration/">AWS Elastic Disaster Recovery now supports Amazon EBS volume initialization rate</a> <span class="when">— 2026-07-14</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/m8in-m8idn-m8ib-m8idb-new-regions">Amazon EC2 M8in, M8idn, M8ib, M8idb instances are now available in additional regions</a> <span class="when">— 2026-07-14</span></li>
+          <li><a href="https://github.com/moby/moby/releases/tag/docker-v29.6.2">moby/moby docker-v29.6.2</a> <span class="when">— 2026-07-16</span></li>
+        </ul>
+      </details>
+      
+    </details>
+    
+  
+    
+    
+    
+    <details class="category">
+      <summary class="cat-head">cloud<span class="cat-count">15</span></summary>
+      <div class="cards">
+      
+      
+      <article class="card card--high">
+        <span class="level level--high">high</span>
+        <div class="meta">
+          <span class="pill pill--provider">aws</span>
+          <span class="pill pill--stack">stack: go</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-aurora-dsql-now-in-scope-for-fedramp-moderate/">Amazon Aurora DSQL is now in scope for FedRAMP Moderate</a></h3>
+        <div class="summary"><p>Amazon Aurora DSQL is now in scope for FedRAMP Moderate in the US East (Ohio), US East (N. Virginia), and US West (Oregon) Regions. You can now use Aurora DSQL to build applications and run workloads that are subject to FedRAMP Moderate compliance requirements.  The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring for cloud products and services. Amazo</p></div>
+        <details class="detail">
+          <summary>Read more</summary>
+          <div class="detail-body"><p>Amazon Aurora DSQL is now in scope for FedRAMP Moderate in the US East (Ohio), US East (N. Virginia), and US West (Oregon) Regions. You can now use Aurora DSQL to build applications and run workloads that are subject to FedRAMP Moderate compliance requirements.  The Federal Risk and Authorization Management Program (FedRAMP) is a US government-wide program that delivers a standard approach to the security assessment, authorization, and continuous monitoring for cloud products and services. Amazo</p></div>
+          
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--high">
+        <span class="level level--high">high</span>
+        <div class="meta">
+          <span class="pill pill--provider">aws</span>
+          <span class="pill pill--stack">stack: go</span>
+          <span class="when">2026-07-15</span>
+        </div>
+        <h3><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cognito-password-hash-import/">Amazon Cognito now supports importing users with password hashes</a></h3>
+        <div class="summary"><p>Amazon Cognito now supports importing users with password hashes in CSV user imports. Previously, users imported from a CSV file had to reset their passwords on first sign-in. Now, you can include password hashes in your CSV file so that imported users can sign in immediately with their existing credentials.  When creating a CSV import, you specify the password hashing algorithm used by your source system. Amazon Cognito imports these users and verifies their password against the imported hash o</p></div>
+        <details class="detail">
+          <summary>Read more</summary>
+          <div class="detail-body"><p>Amazon Cognito now supports importing users with password hashes in CSV user imports. Previously, users imported from a CSV file had to reset their passwords on first sign-in. Now, you can include password hashes in your CSV file so that imported users can sign in immediately with their existing credentials.  When creating a CSV import, you specify the password hashing algorithm used by your source system. Amazon Cognito imports these users and verifies their password against the imported hash o</p></div>
+          
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--high">
+        <span class="level level--high">high</span>
+        <div class="meta">
+          <span class="pill pill--provider">aws</span>
+          <span class="pill pill--stack">stack: go</span>
+          <span class="when">2026-07-15</span>
+        </div>
+        <h3><a href="https://aws.amazon.com/about-aws/whats-new/2026/7/amazon-rds-aurora-r8g-m8g-regions/">Amazon RDS and Aurora now support R8g and M8g database instances in additional AWS Regions</a></h3>
+        <div class="summary"><p>AWS Graviton4-based R8g database instances are now generally available for Amazon Aurora (MySQL and PostgreSQL compatibility) and Amazon RDS for PostgreSQL, MySQL, and MariaDB in Asia Pacific (Hyderabad, Melbourne, Malaysia), Europe (London, Paris, Zurich), AWS GovCloud (US-East), South America (Sao Paulo), and Mexico (Central) regions. Additionally, M8g instances are now supported for Amazon RDS for PostgreSQL, MySQL, and MariaDB in US West (N. California), Asia Pacific (Mumbai, Sydney, Hong Ko</p></div>
+        <details class="detail">
+          <summary>Read more</summary>
+          <div class="detail-body"><p>AWS Graviton4-based R8g database instances are now generally available for Amazon Aurora (MySQL and PostgreSQL compatibility) and Amazon RDS for PostgreSQL, MySQL, and MariaDB in Asia Pacific (Hyderabad, Melbourne, Malaysia), Europe (London, Paris, Zurich), AWS GovCloud (US-East), South America (Sao Paulo), and Mexico (Central) regions. Additionally, M8g instances are now supported for Amazon RDS for PostgreSQL, MySQL, and MariaDB in US West (N. California), Asia Pacific (Mumbai, Sydney, Hong Ko</p></div>
+          
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--high">
+        <span class="level level--high">high</span>
+        <div class="meta">
+          <span class="pill pill--provider">aws</span>
+          <span class="pill pill--stack">stack: go</span>
+          <span class="when">2026-07-15</span>
+        </div>
+        <h3><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-glue-sap-zero-etl-govcloud">AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US) regions</a></h3>
+        <div class="summary"><p>AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions, with support for Amazon DynamoDB, Salesforce, and SAP OData as sources. Customers operating in regulated environments can now replicate data from these sources into Amazon Redshift, Amazon S3, or other supported destinations without building or maintaining custom data pipelines.  The SAP OData connector allows you to extract data from SAP systems exposing OData s</p></div>
+        <details class="detail">
+          <summary>Read more</summary>
+          <div class="detail-body"><p>AWS Glue SAP OData connector and zero-ETL integrations are now available in AWS GovCloud (US-West) and AWS GovCloud (US-East) Regions, with support for Amazon DynamoDB, Salesforce, and SAP OData as sources. Customers operating in regulated environments can now replicate data from these sources into Amazon Redshift, Amazon S3, or other supported destinations without building or maintaining custom data pipelines.  The SAP OData connector allows you to extract data from SAP systems exposing OData s</p></div>
+          
+        </details>
+        
+      </article>
+      
+      </div>
+      
+      <details class="also-noted">
+        <summary>Also noted (11)</summary>
+        <ul>
+          <li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-iam/">Amazon GameLift Streams now supports IAM role credentials for stream sessions</a> <span class="when">— 2026-07-17</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration">Amazon OpenSearch UI now supports one-click dashboard migration</a> <span class="when">— 2026-07-17</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards">Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters">Amazon EC2 now surfaces the public SSM parameters associated with public AMIs</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/">Amazon S3 Event Notifications now include system-generated tags</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/">PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/">Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/s3-removes-30-day-transitions-standard-ia-one-zone-ia">Amazon S3 removes 30-day minimum for transitions to S3 Standard-IA and S3 One Zone-IA</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-g7e-additional-regions/">Amazon EC2 G7e instances now available in additional regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-aurora-r8gd-m8gd-regions/">Amazon RDS and Aurora expand R8gd and M8gd to additional Regions</a> <span class="when">— 2026-07-15</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-upto-four-storage-modifications-24-hours">Amazon RDS now supports up to four storage modifications in 24 hours</a> <span class="when">— 2026-07-15</span></li>
         </ul>
       </details>
       
