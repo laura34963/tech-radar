@@ -43,8 +43,10 @@ content are recorded for display only and are **never re-fetched** (SSRF guardra
 | RSS/Atom feeds (blogs, newsletters, HN-RSS) | `adapters/rss.py` → `_feed.parse_feed` | HTTPS GET | configured `url` | Generic awareness items | none | timeout 20s; source marked `failed`, skipped |
 | Cloud "What's New" (AWS/GCP/Azure) | `adapters/cloud.py` → `_feed.parse_feed` | HTTPS GET | configured `url` | Cloud updates, filtered by `services` | none | timeout 20s; isolated |
 | GitHub Releases | `adapters/github.py` | HTTPS GET | `api.github.com/repos/{repo}/releases` | Release/tag news for stack repos | optional `GITHUB_TOKEN` (Bearer) | timeout 20s; isolated |
-| OSV vulnerability DB | `adapters/security.py` | HTTPS POST | `api.osv.dev/v1/query` | CVEs for configured `packages` | none (keyless) | timeout 20s; isolated |
-| Hacker News (Algolia) | `adapters/social.py` | HTTPS GET | `hn.algolia.com/api/v1/search_by_date` | Curated stories over `min_points` | none | timeout 20s; isolated |
+| OSV vulnerability DB | `adapters/security.py` (`feed = "osv"`) | HTTPS POST | `api.osv.dev/v1/query` | CVEs for configured `packages` | none (keyless) | timeout 20s; isolated |
+| GitHub Security Advisories | `adapters/security.py` (`feed = "ghsa"`) | HTTPS GET | `api.github.com/advisories?ecosystem=&affects=` | Advisories for configured `packages` | optional `GITHUB_TOKEN` (Bearer) | timeout 20s; per-ecosystem isolated |
+| Hacker News (Algolia) | `adapters/social.py` (`source = "hn"`) | HTTPS GET | `hn.algolia.com/api/v1/search_by_date` | Curated stories over `min_points` | none | timeout 20s; isolated |
+| Reddit | `adapters/social.py` (`source = "reddit"`) | HTTPS GET | `reddit.com/r/{sub}/new.json` or `/search.json` | Subreddit posts over `min_points` | none (descriptive User-Agent) | timeout 20s; isolated |
 | Package registries (npm / PyPI / RubyGems) | `adapters/registry.py` | HTTPS GET | `registry.npmjs.org/{pkg}`, `pypi.org/pypi/{pkg}/json`, `rubygems.org/api/v1/versions/{gem}.json` | Recent releases for configured `packages` | none | timeout 20s; per-package isolated |
 | LLM provider | `llm/provider.py` | HTTPS POST | configured `base_url` (`/chat/completions`, `/v1/messages`, `:generateContent`, or `/api/chat`) | Enrich items (summary/detail/why/action) | `RADAR_LLM_API_KEY` (or none for ollama) | timeout 60–120s; item keeps rule-based fields on failure |
 
@@ -110,10 +112,9 @@ or simply omits them, by design:
 
 | Integration | Status | Notes |
 |---|---|---|
-| GHSA / NVD security feeds | Deferred | `security` adapter supports only `feed = "osv"` in v1; `NVD_API_KEY` reserved for later |
-| Reddit JSON | Deferred | `social` adapter supports only `source = "hn"` in v1 |
+| NVD security feed | Deferred | `security` adapter supports `feed = "osv"` and `feed = "ghsa"`; NVD's keyword search is not ecosystem/package-aware and returns heavy noise that OSV+GHSA already cover precisely. `NVD_API_KEY` reserved if it's ever added. |
 
-Package registries (npm / PyPI / RubyGems) are **now implemented** — see the
-`registry` row in [§2](#2-downstream).
+**Now implemented** (previously deferred): GHSA advisories (`feed = "ghsa"`),
+Reddit (`source = "reddit"`), and package registries (`registry` adapter) — see [§2](#2-downstream).
 
 When adding any remaining deferral, extend the relevant adapter and update [§2](#2-downstream).

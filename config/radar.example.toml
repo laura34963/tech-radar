@@ -40,11 +40,24 @@ category = "security"
 feed = "osv"
 
 [[sources]]
+type = "security"           # GitHub Security Advisories; uses [stack].packages + ecosystems
+category = "security"
+feed = "ghsa"               # optional GITHUB_TOKEN raises the rate limit
+
+[[sources]]
 type = "social"
 category = "frontend"
 source = "hn"
 query = "react OR frontend"
 min_points = 100
+
+[[sources]]
+type = "social"
+category = "frontend"
+source = "reddit"
+subreddit = "reactjs"
+query = ""                  # optional; empty -> newest posts, set -> search within the subreddit
+min_points = 50
 
 [[sources]]
 type = "registry"           # package-registry release news; complements github releases

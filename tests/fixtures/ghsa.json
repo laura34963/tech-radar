@@ -1,0 +1,28 @@
+[
+  {
+    "ghsa_id": "GHSA-aaaa-bbbb-cccc",
+    "cve_id": "CVE-2026-0001",
+    "summary": "SQL injection in widget",
+    "description": "Longer details about the widget flaw.",
+    "severity": "high",
+    "html_url": "https://github.com/advisories/GHSA-aaaa-bbbb-cccc",
+    "published_at": "2026-07-15T12:00:00Z",
+    "updated_at": "2026-07-15T12:00:00Z",
+    "vulnerabilities": [
+      {"package": {"ecosystem": "npm", "name": "widget"}, "vulnerable_version_range": "< 1.2.3"}
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-dddd-eeee-ffff",
+    "cve_id": null,
+    "summary": "XSS in gadget",
+    "description": null,
+    "severity": "unknown",
+    "html_url": "https://github.com/advisories/GHSA-dddd-eeee-ffff",
+    "published_at": "2026-07-10T00:00:00Z",
+    "updated_at": "2026-07-10T00:00:00Z",
+    "vulnerabilities": [
+      {"package": {"ecosystem": "npm", "name": "gadget"}}
+    ]
+  }
+]

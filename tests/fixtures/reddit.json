@@ -1,0 +1,25 @@
+{
+  "kind": "Listing",
+  "data": {
+    "children": [
+      {"kind": "t3", "data": {
+        "id": "abc1",
+        "title": "React 20 is out",
+        "url": "https://react.dev/blog/react-20",
+        "permalink": "/r/reactjs/comments/abc1/react_20_is_out/",
+        "score": 350,
+        "created_utc": 1784188800,
+        "subreddit": "reactjs"
+      }},
+      {"kind": "t3", "data": {
+        "id": "abc2",
+        "title": "minor question about hooks",
+        "url": "https://www.reddit.com/r/reactjs/comments/abc2/minor_question/",
+        "permalink": "/r/reactjs/comments/abc2/minor_question/",
+        "score": 3,
+        "created_utc": 1784192400,
+        "subreddit": "reactjs"
+      }}
+    ]
+  }
+}
