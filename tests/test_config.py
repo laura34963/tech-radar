@@ -50,3 +50,27 @@ def test_missing_required_field_raises(tmp_path):
             type = "rss"
             category = "backend"
         """))
+
+
+def test_registry_source_loads(tmp_path):
+    cfg = load_config(_write(tmp_path, """
+        categories = ["frontend"]
+        [[sources]]
+        type = "registry"
+        category = "frontend"
+        registry = "npm"
+        packages = ["react", "axios"]
+    """))
+    assert cfg.sources[0]["registry"] == "npm"
+    assert cfg.sources[0]["packages"] == ["react", "axios"]
+
+
+def test_registry_missing_packages_raises(tmp_path):
+    with pytest.raises(ConfigError, match="registry.*requires 'packages'"):
+        load_config(_write(tmp_path, """
+            categories = ["frontend"]
+            [[sources]]
+            type = "registry"
+            category = "frontend"
+            registry = "npm"
+        """))

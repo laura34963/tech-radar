@@ -6,6 +6,7 @@ from pathlib import Path
 _REQUIRED = {
     "rss": ["url"], "cloud": ["url"], "github": ["repo"],
     "security": ["feed"], "social": ["source"],
+    "registry": ["registry", "packages"],
 }
 
 

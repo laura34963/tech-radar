@@ -2,7 +2,7 @@
 
 > **Type:** Reference
 > **Audience:** Developers, AI assistants, and any tooling that needs project context
-> **Last updated:** 2026-07-17
+> **Last updated:** 2026-07-20
 >
 > The external services tech-radar depends on (downstream), and the contract/failure
 > behavior on each link.
@@ -45,6 +45,7 @@ content are recorded for display only and are **never re-fetched** (SSRF guardra
 | GitHub Releases | `adapters/github.py` | HTTPS GET | `api.github.com/repos/{repo}/releases` | Release/tag news for stack repos | optional `GITHUB_TOKEN` (Bearer) | timeout 20s; isolated |
 | OSV vulnerability DB | `adapters/security.py` | HTTPS POST | `api.osv.dev/v1/query` | CVEs for configured `packages` | none (keyless) | timeout 20s; isolated |
 | Hacker News (Algolia) | `adapters/social.py` | HTTPS GET | `hn.algolia.com/api/v1/search_by_date` | Curated stories over `min_points` | none | timeout 20s; isolated |
+| Package registries (npm / PyPI / RubyGems) | `adapters/registry.py` | HTTPS GET | `registry.npmjs.org/{pkg}`, `pypi.org/pypi/{pkg}/json`, `rubygems.org/api/v1/versions/{gem}.json` | Recent releases for configured `packages` | none | timeout 20s; per-package isolated |
 | LLM provider | `llm/provider.py` | HTTPS POST | configured `base_url` (`/chat/completions`, `/v1/messages`, `:generateContent`, or `/api/chat`) | Enrich items (summary/detail/why/action) | `RADAR_LLM_API_KEY` (or none for ollama) | timeout 60–120s; item keeps rule-based fields on failure |
 
 **LLM provider dialects** (all in `llm/provider.py`, plain `httpx` — no vendor SDKs):
@@ -111,6 +112,8 @@ or simply omits them, by design:
 |---|---|---|
 | GHSA / NVD security feeds | Deferred | `security` adapter supports only `feed = "osv"` in v1; `NVD_API_KEY` reserved for later |
 | Reddit JSON | Deferred | `social` adapter supports only `source = "hn"` in v1 |
-| Package registries (npm / PyPI / RubyGems) | Deferred to v2 | Complements GitHub releases; not a v1 adapter |
 
-When adding any of these, extend the relevant adapter and update [§2](#2-downstream).
+Package registries (npm / PyPI / RubyGems) are **now implemented** — see the
+`registry` row in [§2](#2-downstream).
+
+When adding any remaining deferral, extend the relevant adapter and update [§2](#2-downstream).

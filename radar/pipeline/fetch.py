@@ -30,7 +30,7 @@ def score_importance(it: Item, stack: dict) -> str:
         return it.severity
     if stack_matches(it, stack):
         return "high"
-    if it.source_type in ("github", "cloud", "social"):
+    if it.source_type in ("github", "cloud", "social", "registry"):
         return "medium"
     return "low"
 
@@ -71,7 +71,7 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
     log.info("fetch: %d source(s)", total)
     for i, source in enumerate(cfg.sources):
         name = source.get("repo") or source.get("url") or source.get("feed") or \
-            source.get("source") or f"source{i}"
+            source.get("source") or source.get("registry") or f"source{i}"
         prev = snap["meta"]["sources"].get(name, {})
         if prev.get("status") == "ok" and not force:
             log.info("  [%d/%d] %s (%s): cached, skipping", i + 1, total, name, source["type"])

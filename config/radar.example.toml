@@ -46,6 +46,18 @@ source = "hn"
 query = "react OR frontend"
 min_points = 100
 
+[[sources]]
+type = "registry"           # package-registry release news; complements github releases
+category = "frontend"
+registry = "npm"            # npm | pypi | rubygems
+packages = ["react", "axios"]
+
+[[sources]]
+type = "registry"
+category = "backend"
+registry = "rubygems"
+packages = ["rails", "sidekiq"]
+
 [llm]
 enabled = true
 provider = "openai_compatible"       # openai_compatible | anthropic | gemini | ollama | cli
