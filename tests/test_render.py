@@ -166,3 +166,48 @@ def test_render_title_shows_week_and_range(tmp_path):
     html = render_digest(snap, cfg, _env())
     assert "Week 29" in html
     assert "2026-07-11 ~ 2026-07-18" in html      # end − 7 days
+
+
+# --- tally and priority helpers ---
+
+from radar.pipeline.render import _tally, _priority, _group
+
+
+def _grouped_from(cfg, items):
+    return _group(_snap_with(items), cfg)
+
+
+def test_tally_counts_cards_by_effective_level():
+    cfg = _cfg()
+    crit = Item(id="1", title="c", url="https://x/1", source_type="security",
+                category="backend", published=NOW, summary="s",
+                importance="critical", severity="critical")
+    high = Item(id="2", title="h", url="https://x/2", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    med = Item(id="3", title="m", url="https://x/3", source_type="rss",
+               category="backend", published=NOW, summary="s", importance="medium")
+    t = _tally(_grouped_from(cfg, [crit, high, med]))
+    # medium is below min_display_importance="high" -> "also noted", not a card
+    assert t == {"total": 2, "critical": 1, "high": 1, "medium": 0, "low": 0}
+
+
+def test_priority_is_critical_and_high_sorted():
+    cfg = _cfg()
+    high = Item(id="1", title="H", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    crit = Item(id="2", title="C", url="https://x/2", source_type="security",
+                category="backend", published=NOW, summary="s",
+                importance="critical", severity="critical")
+    pri = _priority(_grouped_from(cfg, [high, crit]))
+    assert [p["title"] for p in pri] == ["C", "H"]      # critical before high
+    assert all(p["category"] == "backend" for p in pri)
+
+
+def test_priority_empty_when_no_high_or_critical():
+    cfg = _cfg()
+    high = Item(id="1", title="H", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    # only cards at/above threshold reach grouped["cards"]; drop the high one
+    med_only = Item(id="2", title="M", url="https://x/2", source_type="rss",
+                    category="backend", published=NOW, summary="s", importance="medium")
+    assert _priority(_grouped_from(cfg, [med_only])) == []

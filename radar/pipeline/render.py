@@ -162,12 +162,43 @@ def _group(snapshot: dict, cfg) -> dict:
     return grouped
 
 
+def _level(it: dict) -> str:
+    """Effective display level: explicit severity wins, else importance."""
+    return it.get("severity") or it.get("importance")
+
+
+def _tally(grouped: dict) -> dict:
+    """Count displayed cards (not 'also noted') by effective level."""
+    t = {"total": 0, "critical": 0, "high": 0, "medium": 0, "low": 0}
+    for bucket in grouped.values():
+        for it in bucket["cards"]:
+            t["total"] += 1
+            lvl = _level(it)
+            if lvl in t:
+                t[lvl] += 1
+    return t
+
+
+def _priority(grouped: dict) -> list[dict]:
+    """Critical + high displayed cards across all categories, worst first.
+    Each returned dict carries its 'category' so the priority row can label it."""
+    out = []
+    for cat, bucket in grouped.items():
+        for it in bucket["cards"]:
+            if _level(it) in ("critical", "high"):
+                out.append({**it, "category": cat})
+    out.sort(key=lambda it: _SEV.get(_level(it), -1), reverse=True)
+    return out
+
+
 def render_digest(snapshot: dict, cfg, env: Environment,
                   prev: str | None = None, next: str | None = None) -> str:
     lookback = int(cfg.general.get("lookback_days", 7))
     period = _period(snapshot["meta"]["date"], lookback)
+    grouped = _group(snapshot, cfg)
     return env.get_template("digest.html.j2").render(
-        snapshot=snapshot, cfg=cfg, grouped=_group(snapshot, cfg),
+        snapshot=snapshot, cfg=cfg, grouped=grouped,
+        tally=_tally(grouped), priority=_priority(grouped),
         period=period, prev=prev, next=next)
 
 
