@@ -148,6 +148,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--radius); padding: .6rem .9rem; box-shadow: var(--shadow);
 }
 .priority-row--critical { border-left-color: var(--sev-critical); background: color-mix(in srgb, var(--sev-critical) 6%, var(--surface)); }
+.priority-row--high { border-left-color: var(--sev-high); }
 .priority-title { font-weight: 600; color: var(--text); flex: 1 1 auto; }
 .priority-title:hover { color: var(--accent); }
 .priority-row .when { color: var(--muted); font-size: .78rem; }

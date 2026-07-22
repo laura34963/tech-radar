@@ -272,7 +272,7 @@ def test_stylesheet_drops_serif_and_styles_new_hooks(tmp_path):
     # magazine serif display font is gone (spec: sans everywhere)
     assert "Iowan Old Style" not in css and "Palatino" not in css
     # new structural hooks are styled
-    for hook in (".kpi-row", ".kpi--critical", ".priority-row", ".section-head",
+    for hook in (".kpi-row", ".kpi--critical", ".priority-row", ".priority-row--high", ".section-head",
                  ".latest-card"):
         assert hook in css
     # dark theme retained
