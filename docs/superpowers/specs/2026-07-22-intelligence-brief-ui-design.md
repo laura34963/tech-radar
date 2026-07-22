@@ -1,7 +1,19 @@
 # 資訊情資中心 (Intelligence Brief) UI redesign
 
 **Date:** 2026-07-22
-**Status:** Approved for planning
+**Status:** Implemented
+
+> **Revision (during implementation):** the "level" that drives the KPI tiles,
+> Priority block, and card colour was redefined from *severity-or-importance* to
+> an **urgency tier**. Real data showed that with `min_display_importance = "high"`
+> every displayed card is importance `high`, so the original scheme collapsed the
+> whole digest into one tier (priority listed all 28 cards; every card rendered as
+> one urgent colour). The tier is now: `critical` if security severity is critical
+> or the ranking is critical; `high`/`medium` from security severity; otherwise
+> `normal`. The fifth KPI tile is therefore **NORMAL**, not LOW, and only genuine
+> alerts (security-flagged or critical) enter the Priority block and show a level
+> badge. A shared `level` Jinja filter keeps the template and Python tiering
+> identical. This supersedes the "severity or importance" description below.
 
 ## Problem
 

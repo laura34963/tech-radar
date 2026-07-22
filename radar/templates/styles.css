@@ -191,7 +191,6 @@ summary.cat-head::after { content: ""; flex: 1; height: 1px; background: var(--b
 .level--critical { background: var(--sev-critical); }
 .level--high     { background: var(--sev-high); }
 .level--medium   { background: var(--sev-medium); }
-.level--normal   { background: var(--sev-low); }
 
 .card h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.28rem; line-height: 1.25; margin: 0 0 .5rem; letter-spacing: -.01em; }
 .card h3 a { color: var(--text); }
