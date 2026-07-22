@@ -40,6 +40,23 @@ def test_render_produces_digest_and_index(tmp_path):
     assert "2026-07-17" in (out / "index.html").read_text()
 
 
+def test_render_dedupes_same_story_across_sources(tmp_path):
+    out = tmp_path / "output"
+    # same headline from two sources; the critical copy should win and show once
+    osv = Item(id="1", title="CVE-2026-1 in rails", url="https://osv/1",
+               source_type="security", category="backend", published=NOW,
+               summary="from osv", importance="critical", severity="critical")
+    ghsa = Item(id="2", title="CVE-2026-1 in rails", url="https://ghsa/2",
+                source_type="security", category="backend", published=NOW,
+                summary="from ghsa", importance="high", severity="high")
+    snap_path = _write_snap(tmp_path, _snap_with([ghsa, osv]))
+    run_render(_cfg(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert digest.count("CVE-2026-1 in rails") == 1   # shown once, not twice
+    assert "https://osv/1" in digest                  # critical copy kept
+    assert "https://ghsa/2" not in digest             # duplicate dropped
+
+
 def test_render_escapes_html_in_title(tmp_path):
     out = tmp_path / "output"
     evil = Item(id="1", title="<script>alert(1)</script>", url="https://x", source_type="rss",

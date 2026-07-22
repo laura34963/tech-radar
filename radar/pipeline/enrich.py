@@ -27,6 +27,24 @@ def parse_enrich_response(text: str) -> dict:
     return data
 
 
+def _dedupe_fields(fields: dict) -> dict:
+    """Blank any enriched field whose text merely repeats an earlier one, so the
+    digest never shows the same content twice within a card. Priority order:
+    summary > detail > why_it_matters > recommended_action (the first occurrence
+    wins, later duplicates become "")."""
+    seen: set[str] = set()
+    out: dict[str, str] = {}
+    for key in ("summary", "detail", "why_it_matters", "recommended_action"):
+        val = (fields.get(key) or "").strip()
+        norm = re.sub(r"\s+", " ", val).casefold()
+        if norm and norm in seen:
+            val = ""
+        elif norm:
+            seen.add(norm)
+        out[key] = val
+    return out
+
+
 def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> dict:
     snap = load_snapshot(snapshot_path)
     if not snap or "meta" not in snap:
@@ -57,12 +75,12 @@ def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> di
             result = parse_enrich_response(provider.complete(system, user))
             for iid, fields in result.items():
                 if iid in by_id and isinstance(fields, dict):
-                    by_id[iid]["llm"] = {
-                        "summary": fields.get("summary", by_id[iid]["summary"]),
-                        "detail": fields.get("detail", by_id[iid]["summary"]),
-                        "why_it_matters": fields.get("why_it_matters", ""),
-                        "recommended_action": fields.get("recommended_action", ""),
-                    }
+                    by_id[iid]["llm"] = _dedupe_fields({
+                        "summary": fields.get("summary") or by_id[iid]["summary"],
+                        "detail": fields.get("detail") or "",
+                        "why_it_matters": fields.get("why_it_matters") or "",
+                        "recommended_action": fields.get("recommended_action") or "",
+                    })
             snap["meta"].setdefault("enriched", {})[cat] = True
             log.info("  [%d/%d] %s: enriched", n, len(by_cat), cat)
         except Exception as e:

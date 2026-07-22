@@ -46,13 +46,17 @@
         </div>
         <h3><a href="{{ it.url | safe_url }}">{{ it.title }}</a></h3>
         <div class="summary">{{ (it.llm.summary if it.llm else it.summary) | md }}</div>
+        {% set detail = it.llm.detail if it.llm else it.summary %}
+        {% set why = it.llm.why_it_matters if it.llm else '' %}
+        {% if detail or why %}
         <details class="detail">
           <summary>Read more</summary>
-          <div class="detail-body">{{ (it.llm.detail if it.llm else it.summary) | md }}</div>
-          {% if it.llm and it.llm.why_it_matters %}
-          <div class="why"><span class="label">Why it matters</span>{{ it.llm.why_it_matters | md }}</div>
+          {% if detail %}<div class="detail-body">{{ detail | md }}</div>{% endif %}
+          {% if why %}
+          <div class="why"><span class="label">Why it matters</span>{{ why | md }}</div>
           {% endif %}
         </details>
+        {% endif %}
         {% if it.llm and it.llm.recommended_action %}
         <div class="action"><span class="label">Recommended action</span>{{ it.llm.recommended_action | md }}</div>
         {% endif %}

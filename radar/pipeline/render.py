@@ -119,11 +119,39 @@ def snapshot_hash(snapshot: dict) -> str:
     return "sha256:" + hashlib.sha256(payload.encode()).hexdigest()[:16]
 
 
+def _content_key(it: dict) -> str:
+    """Identity of a story for display de-duplication: normalized title, else URL."""
+    title = re.sub(r"\s+", " ", it.get("title") or "").strip().casefold()
+    return title or (it.get("url") or "").strip().casefold()
+
+
+def _dedupe_by_content(items: list[dict]) -> list[dict]:
+    """Show a repeated story once. Items sharing a title (else URL) are collapsed
+    to the highest-severity / most-recent copy, so the same news arriving from
+    two sources (e.g. a CVE from both OSV and GHSA) is not listed twice. Purely a
+    display concern — the snapshot keeps every item."""
+    ranked = sorted(
+        items,
+        key=lambda it: (_SEV.get(it.get("severity"), -1),
+                        IMPORTANCE_ORDER.get(it.get("importance", "low"), 0),
+                        it.get("published", "")),
+        reverse=True)
+    seen: set[str] = set()
+    out: list[dict] = []
+    for it in ranked:
+        key = _content_key(it)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(it)
+    return out
+
+
 def _group(snapshot: dict, cfg) -> dict:
     min_disp = cfg.general.get("min_display_importance", "high")
     threshold = IMPORTANCE_ORDER[min_disp]
     grouped: dict[str, dict] = {c: {"cards": [], "also_noted": []} for c in cfg.categories}
-    for it in snapshot["items"]:
+    for it in _dedupe_by_content(snapshot["items"]):
         bucket = grouped.setdefault(it["category"], {"cards": [], "also_noted": []})
         if IMPORTANCE_ORDER[it["importance"]] >= threshold:
             bucket["cards"].append(it)

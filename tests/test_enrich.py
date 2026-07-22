@@ -60,6 +60,21 @@ def test_run_enrich_populates_llm_fields(tmp_path):
     assert saved["meta"]["enriched"]["backend"] is True
 
 
+def test_run_enrich_dedupes_repeated_fields(tmp_path):
+    p = tmp_path / "s.json"
+    atomic_write_json(p, _snap([_high("1")]))
+    # detail repeats summary, why repeats it again; action is distinct
+    payload = json.dumps({"1": {"summary": "同一段文字", "detail": "同一段文字",
+                                "why_it_matters": " 同一段文字 ",
+                                "recommended_action": "升級到 1.2.3"}})
+    run_enrich(_cfg(), p, provider=FakeProvider(payload))
+    llm = load_snapshot(p)["items"][0]["llm"]
+    assert llm["summary"] == "同一段文字"
+    assert llm["detail"] == ""              # duplicate of summary -> blanked
+    assert llm["why_it_matters"] == ""      # duplicate (whitespace-insensitive)
+    assert llm["recommended_action"] == "升級到 1.2.3"  # distinct -> kept
+
+
 def test_run_enrich_degrades_on_provider_error(tmp_path):
     p = tmp_path / "s.json"
     atomic_write_json(p, _snap([_high("1")]))
