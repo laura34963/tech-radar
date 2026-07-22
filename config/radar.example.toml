@@ -44,6 +44,51 @@ type = "security"           # GitHub Security Advisories; uses [stack].packages 
 category = "security"
 feed = "ghsa"               # optional GITHUB_TOKEN raises the rate limit
 
+# Threat intel & security news (verified 2026-07-22; plain RSS, no auth).
+# NOTE: some security sites (e.g. BleepingComputer) sit behind Cloudflare and
+# return 403 to any non-browser client — a UA header alone won't fetch them.
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://www.cisa.gov/cybersecurity-advisories/all.xml"   # CISA advisories
+
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://feeds.feedburner.com/TheHackersNews"   # The Hacker News
+
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://isc.sans.edu/rssfeed_full.xml"         # SANS Internet Storm Center
+
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://krebsonsecurity.com/feed/"             # Krebs on Security
+
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://unit42.paloaltonetworks.com/feed/"     # Palo Alto Unit 42
+
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://blog.talosintelligence.com/rss/"       # Cisco Talos
+
+[[sources]]
+type = "rss"
+category = "security"
+url = "https://thedfirreport.com/feed/"               # The DFIR Report
+
+[[sources]]
+type = "social"
+category = "security"
+source = "reddit"
+subreddit = "netsec"
+min_points = 50
+
 [[sources]]
 type = "social"
 category = "frontend"
