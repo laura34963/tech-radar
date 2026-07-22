@@ -260,3 +260,20 @@ def test_index_uses_archive_layout(tmp_path):
     assert 'class="latest-card"' in index
     assert "Intelligence Archive" in index
     assert 'id="filter"' in index          # search retained
+
+
+def test_stylesheet_drops_serif_and_styles_new_hooks(tmp_path):
+    out = tmp_path / "output"
+    it = Item(id="1", title="X", url="https://x", source_type="rss",
+              category="backend", published=NOW, summary="s", importance="high")
+    snap_path = _write_snap(tmp_path, _snap_with([it]))
+    run_render(_cfg(), snap_path, out, force=True)
+    css = (out / "styles.css").read_text()
+    # magazine serif display font is gone (spec: sans everywhere)
+    assert "Iowan Old Style" not in css and "Palatino" not in css
+    # new structural hooks are styled
+    for hook in (".kpi-row", ".kpi--critical", ".priority-row", ".section-head",
+                 ".latest-card"):
+        assert hook in css
+    # dark theme retained
+    assert "prefers-color-scheme: dark" in css
