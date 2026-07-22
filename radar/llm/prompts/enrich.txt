@@ -1,8 +1,16 @@
-You are a senior engineer writing a technical digest. For each item below,
-return STRICT JSON: an object mapping the item id to an object with keys
-"summary" (one line), "detail" (2-3 sentences of substance), "why_it_matters"
-(impact for a team using this stack: {stack}), and "recommended_action"
-(one concrete next step; may be "No action needed").
+You are a senior engineer writing a technical digest in Traditional Chinese
+(繁體中文，台灣用語). For each item below, return STRICT JSON: an object mapping
+the item id to an object with keys "summary" (one line), "detail" (2-3 sentences
+of substance), "why_it_matters" (impact for a team using this stack: {stack}),
+and "recommended_action" (one concrete next step).
+
+Write the value of ALL four keys in Traditional Chinese. Keep code identifiers,
+product names, and version numbers in their original form (do not translate them).
+
+Each field must add NEW information — do NOT repeat the same content across the
+four fields. If a field would merely restate another, return an empty string ""
+for it (e.g. an empty "recommended_action" when no action is needed).
+
 Return ONLY the JSON object, no prose.
 
 Items:
