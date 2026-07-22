@@ -42,7 +42,7 @@ def test_render_produces_digest_and_index(tmp_path):
 
 def test_render_dedupes_same_story_across_sources(tmp_path):
     out = tmp_path / "output"
-    # same headline from two sources; the critical copy should win and show once
+    # same headline from two sources; the critical copy should win and show once (but appears in priority + cards)
     osv = Item(id="1", title="CVE-2026-1 in rails", url="https://osv/1",
                source_type="security", category="backend", published=NOW,
                summary="from osv", importance="critical", severity="critical")
@@ -52,7 +52,7 @@ def test_render_dedupes_same_story_across_sources(tmp_path):
     snap_path = _write_snap(tmp_path, _snap_with([ghsa, osv]))
     run_render(_cfg(), snap_path, out, force=True)
     digest = (out / "digests" / "2026-07-17.html").read_text()
-    assert digest.count("CVE-2026-1 in rails") == 1   # shown once, not twice
+    assert digest.count("CVE-2026-1 in rails") == 2   # shown twice: priority section + cards section
     assert "https://osv/1" in digest                  # critical copy kept
     assert "https://ghsa/2" not in digest             # duplicate dropped
 
@@ -211,3 +211,40 @@ def test_priority_empty_when_no_high_or_critical():
     med_only = Item(id="2", title="M", url="https://x/2", source_type="rss",
                     category="backend", published=NOW, summary="s", importance="medium")
     assert _priority(_grouped_from(cfg, [med_only])) == []
+
+
+def test_digest_shows_kpi_tiles(tmp_path):
+    out = tmp_path / "output"
+    high = Item(id="1", title="Big News", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    snap_path = _write_snap(tmp_path, _snap_with([high]))
+    run_render(_cfg(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert 'class="kpi-row"' in digest
+    assert "TOTAL" in digest and "HIGH" in digest
+
+
+def test_digest_priority_block_lists_high_items(tmp_path):
+    out = tmp_path / "output"
+    high = Item(id="1", title="Urgent Advisory", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    snap_path = _write_snap(tmp_path, _snap_with([high]))
+    run_render(_cfg(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert 'class="priority"' in digest
+    assert digest.count("Urgent Advisory") == 2   # priority row + full card
+
+
+def test_digest_priority_block_omitted_when_none(tmp_path):
+    out = tmp_path / "output"
+    # a card at threshold "high" but importance exactly "high" is priority;
+    # use a lower cfg threshold so a medium card shows but is NOT priority.
+    cfg = Config(general={"title": "Radar", "min_display_importance": "medium"},
+                 stack={}, categories=["backend"], sources=[], llm={})
+    med = Item(id="1", title="Routine", url="https://x/1", source_type="rss",
+               category="backend", published=NOW, summary="s", importance="medium")
+    snap_path = _write_snap(tmp_path, _snap_with([med]))
+    run_render(cfg, snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert 'class="priority"' not in digest
+    assert "Routine" in digest    # still shown as a card

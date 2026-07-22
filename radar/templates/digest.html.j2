@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="zh-Hant"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ cfg.general.get('title', 'Tech Radar') }} — Week {{ period.week }} ({{ period.start }} ~ {{ period.end }})</title>
@@ -8,18 +8,27 @@
 <body>
 <div class="topbar"><div class="topbar-inner">
   <a class="brand" href="../index.html">{{ cfg.general.get('title', 'Tech Radar') }}</a>
+  <span class="wordmark">Intelligence Brief</span>
   <span class="spacer"></span>
-  <a class="navlink" href="../index.html">← Home</a>
+  <a class="navlink" href="../index.html">Home</a>
   {% if prev %}<a class="navlink" href="{{ prev }}.html">← {{ prev }}</a>{% endif %}
   {% if next %}<a class="navlink" href="{{ next }}.html">{{ next }} →</a>{% endif %}
 </div></div>
 
 <div class="wrap">
-  <header class="page-head">
-    <div class="kicker">Weekly Digest · Week {{ period.week }}, {{ period.year }}</div>
-    <h1>What changed in your stack</h1>
+  <header class="brief-head">
+    <div class="kicker">Weekly Intelligence Brief · Week {{ period.week }}, {{ period.year }}</div>
+    <h1>情資週報</h1>
     <div class="byline">{{ period.start }} ~ {{ period.end }}</div>
     {% if snapshot.digest_summary %}<div class="lede">{{ snapshot.digest_summary | md }}</div>{% endif %}
+
+    <div class="kpi-row">
+      <div class="kpi kpi--total"><span class="kpi-num">{{ tally.total }}</span><span class="kpi-label">TOTAL</span></div>
+      <div class="kpi kpi--critical"><span class="kpi-num">{{ tally.critical }}</span><span class="kpi-label">CRITICAL</span></div>
+      <div class="kpi kpi--high"><span class="kpi-num">{{ tally.high }}</span><span class="kpi-label">HIGH</span></div>
+      <div class="kpi kpi--medium"><span class="kpi-num">{{ tally.medium }}</span><span class="kpi-label">MEDIUM</span></div>
+      <div class="kpi kpi--low"><span class="kpi-num">{{ tally.low }}</span><span class="kpi-label">LOW</span></div>
+    </div>
     <div class="counts">
       {% for cat in cfg.categories %}
         {% set n = grouped[cat].cards|length + grouped[cat].also_noted|length %}
@@ -28,11 +37,29 @@
     </div>
   </header>
 
+  {% if priority %}
+  <section class="priority">
+    <h2 class="section-head">⚠ Priority Intelligence</h2>
+    <ul class="priority-list">
+      {% for it in priority %}
+      {% set lvl = it.severity or it.importance %}
+      <li class="priority-row priority-row--{{ lvl }}">
+        <span class="level level--{{ lvl }}">{{ lvl }}</span>
+        <span class="pill pill--stack">{{ it.category }}</span>
+        <a class="priority-title" href="{{ it.url | safe_url }}">{{ it.title }}</a>
+        <span class="when">{{ it.published[:10] }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <h2 class="section-head">By Category</h2>
   {% for cat in cfg.categories %}
     {% set cards = grouped[cat].cards %}
     {% set noted = grouped[cat].also_noted %}
     {% if cards or noted %}
-    <details class="category">
+    <details class="category" open>
       <summary class="cat-head">{{ cat }}<span class="cat-count">{{ cards|length + noted|length }}</span></summary>
       <div class="cards">
       {% for it in cards %}
@@ -46,19 +73,19 @@
         </div>
         <h3><a href="{{ it.url | safe_url }}">{{ it.title }}</a></h3>
         <div class="summary">{{ (it.llm.summary if it.llm else it.summary) | md }}</div>
-        {% set detail = it.llm.detail if it.llm else it.summary %}
         {% set why = it.llm.why_it_matters if it.llm else '' %}
-        {% if detail or why %}
-        <details class="detail">
-          <summary>Read more</summary>
-          {% if detail %}<div class="detail-body">{{ detail | md }}</div>{% endif %}
-          {% if why %}
-          <div class="why"><span class="label">Why it matters</span>{{ why | md }}</div>
-          {% endif %}
-        </details>
+        {% if why %}
+        <div class="why"><span class="label">Why it matters</span>{{ why | md }}</div>
         {% endif %}
         {% if it.llm and it.llm.recommended_action %}
         <div class="action"><span class="label">Recommended action</span>{{ it.llm.recommended_action | md }}</div>
+        {% endif %}
+        {% set detail = it.llm.detail if it.llm else it.summary %}
+        {% if detail %}
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body">{{ detail | md }}</div>
+        </details>
         {% endif %}
       </article>
       {% endfor %}
