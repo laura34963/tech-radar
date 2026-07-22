@@ -248,3 +248,15 @@ def test_digest_priority_block_omitted_when_none(tmp_path):
     digest = (out / "digests" / "2026-07-17.html").read_text()
     assert 'class="priority"' not in digest
     assert "Routine" in digest    # still shown as a card
+
+
+def test_index_uses_archive_layout(tmp_path):
+    out = tmp_path / "output"
+    high = Item(id="1", title="Big News", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    snap_path = _write_snap(tmp_path, _snap_with([high]))
+    run_render(_cfg(), snap_path, out, force=True)
+    index = (out / "index.html").read_text()
+    assert 'class="latest-card"' in index
+    assert "Intelligence Archive" in index
+    assert 'id="filter"' in index          # search retained
