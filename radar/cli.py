@@ -11,6 +11,13 @@ from radar.pipeline.enrich import run_enrich
 from radar.pipeline.render import run_render
 from radar.llm.provider import make_provider
 
+# Sent on every outbound request. A descriptive UA is standard etiquette for a
+# feed crawler and is more robust than httpx's default `python-httpx/x.y`, which
+# some feeds reject. Deliberately NOT a browser string: spoofing a browser trips
+# bot-detection on some sources (e.g. CISA returns 403 to a fake browser UA).
+# Per-request headers (e.g. the Reddit adapter's) still override this default.
+_USER_AGENT = "tech-radar/1.0 (+https://github.com/laura34963/tech-radar)"
+
 
 def _snapshot_path(output: Path, now: datetime) -> Path:
     return output / "data" / f"{now.date().isoformat()}.json"
@@ -41,7 +48,7 @@ def main(argv: list[str] | None = None) -> int:
              args.command, now.date().isoformat(), output)
 
     total_failure = False
-    with httpx.Client() as client:
+    with httpx.Client(headers={"User-Agent": _USER_AGENT}) as client:
         if args.command in ("fetch", "run"):
             log.info("── fetch ──")
             snap = run_fetch(cfg, snap_path, now=now, client=client,
