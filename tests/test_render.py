@@ -177,40 +177,47 @@ def _grouped_from(cfg, items):
     return _group(_snap_with(items), cfg)
 
 
-def test_tally_counts_cards_by_effective_level():
+def test_tally_counts_cards_by_alert_tier():
     cfg = _cfg()
     crit = Item(id="1", title="c", url="https://x/1", source_type="security",
                 category="backend", published=NOW, summary="s",
                 importance="critical", severity="critical")
-    high = Item(id="2", title="h", url="https://x/2", source_type="rss",
-                category="backend", published=NOW, summary="s", importance="high")
-    med = Item(id="3", title="m", url="https://x/3", source_type="rss",
+    sec_high = Item(id="2", title="sh", url="https://x/2", source_type="security",
+                    category="backend", published=NOW, summary="s",
+                    importance="high", severity="high")
+    plain_high = Item(id="3", title="ph", url="https://x/3", source_type="rss",
+                      category="backend", published=NOW, summary="s", importance="high")
+    med = Item(id="4", title="m", url="https://x/4", source_type="rss",
                category="backend", published=NOW, summary="s", importance="medium")
-    t = _tally(_grouped_from(cfg, [crit, high, med]))
-    # medium is below min_display_importance="high" -> "also noted", not a card
-    assert t == {"total": 2, "critical": 1, "high": 1, "medium": 0, "low": 0}
+    t = _tally(_grouped_from(cfg, [crit, sec_high, plain_high, med]))
+    # medium is below min_display_importance="high" -> "also noted", not a card.
+    # plain_high cleared the threshold but has no security severity -> "normal".
+    assert t == {"total": 3, "critical": 1, "high": 1, "medium": 0, "normal": 1}
 
 
 def test_priority_is_critical_and_high_sorted():
     cfg = _cfg()
-    high = Item(id="1", title="H", url="https://x/1", source_type="rss",
-                category="backend", published=NOW, summary="s", importance="high")
+    sec_high = Item(id="1", title="H", url="https://x/1", source_type="security",
+                    category="backend", published=NOW, summary="s",
+                    importance="high", severity="high")
     crit = Item(id="2", title="C", url="https://x/2", source_type="security",
                 category="backend", published=NOW, summary="s",
                 importance="critical", severity="critical")
-    pri = _priority(_grouped_from(cfg, [high, crit]))
-    assert [p["title"] for p in pri] == ["C", "H"]      # critical before high
+    plain_high = Item(id="3", title="N", url="https://x/3", source_type="rss",
+                      category="backend", published=NOW, summary="s", importance="high")
+    pri = _priority(_grouped_from(cfg, [sec_high, crit, plain_high]))
+    # critical before high; plain_high (tier "normal") is excluded entirely
+    assert [p["title"] for p in pri] == ["C", "H"]
     assert all(p["category"] == "backend" for p in pri)
 
 
-def test_priority_empty_when_no_high_or_critical():
+def test_priority_empty_when_only_normal_tier_cards():
     cfg = _cfg()
-    high = Item(id="1", title="H", url="https://x/1", source_type="rss",
-                category="backend", published=NOW, summary="s", importance="high")
-    # only cards at/above threshold reach grouped["cards"]; drop the high one
-    med_only = Item(id="2", title="M", url="https://x/2", source_type="rss",
-                    category="backend", published=NOW, summary="s", importance="medium")
-    assert _priority(_grouped_from(cfg, [med_only])) == []
+    # a card that cleared the display threshold but carries no security severity
+    # is tier "normal" -> not priority, even though it IS a displayed card.
+    plain_high = Item(id="1", title="H", url="https://x/1", source_type="rss",
+                      category="backend", published=NOW, summary="s", importance="high")
+    assert _priority(_grouped_from(cfg, [plain_high])) == []
 
 
 def test_digest_shows_kpi_tiles(tmp_path):
@@ -226,8 +233,10 @@ def test_digest_shows_kpi_tiles(tmp_path):
 
 def test_digest_priority_block_lists_high_items(tmp_path):
     out = tmp_path / "output"
-    high = Item(id="1", title="Urgent Advisory", url="https://x/1", source_type="rss",
-                category="backend", published=NOW, summary="s", importance="high")
+    # a security-flagged high-severity item is an alert tier -> Priority block
+    high = Item(id="1", title="Urgent Advisory", url="https://x/1", source_type="security",
+                category="backend", published=NOW, summary="s",
+                importance="high", severity="high")
     snap_path = _write_snap(tmp_path, _snap_with([high]))
     run_render(_cfg(), snap_path, out, force=True)
     digest = (out / "digests" / "2026-07-17.html").read_text()
@@ -237,8 +246,8 @@ def test_digest_priority_block_lists_high_items(tmp_path):
 
 def test_digest_priority_block_omitted_when_none(tmp_path):
     out = tmp_path / "output"
-    # a card at threshold "high" but importance exactly "high" is priority;
-    # use a lower cfg threshold so a medium card shows but is NOT priority.
+    # a non-security card is tier "normal" no matter its importance, so it never
+    # enters the priority block; lower the threshold so a medium card still shows.
     cfg = Config(general={"title": "Radar", "min_display_importance": "medium"},
                  stack={}, categories=["backend"], sources=[], llm={})
     med = Item(id="1", title="Routine", url="https://x/1", source_type="rss",
@@ -248,6 +257,20 @@ def test_digest_priority_block_omitted_when_none(tmp_path):
     digest = (out / "digests" / "2026-07-17.html").read_text()
     assert 'class="priority"' not in digest
     assert "Routine" in digest    # still shown as a card
+
+
+def test_normal_tier_card_has_no_level_badge(tmp_path):
+    out = tmp_path / "output"
+    # a plain high-importance item (no security severity) is tier "normal":
+    # rendered as card--normal with no urgent level badge, keeping the page calm.
+    plain = Item(id="1", title="Routine Release", url="https://x/1", source_type="rss",
+                 category="backend", published=NOW, summary="s", importance="high")
+    snap_path = _write_snap(tmp_path, _snap_with([plain]))
+    run_render(_cfg(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert 'class="card card--normal"' in digest
+    assert 'class="level level--normal"' not in digest   # badge suppressed
+    assert 'class="priority"' not in digest              # not an alert
 
 
 def test_index_uses_archive_layout(tmp_path):

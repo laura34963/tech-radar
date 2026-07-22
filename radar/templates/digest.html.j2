@@ -27,7 +27,7 @@
       <div class="kpi kpi--critical"><span class="kpi-num">{{ tally.critical }}</span><span class="kpi-label">CRITICAL</span></div>
       <div class="kpi kpi--high"><span class="kpi-num">{{ tally.high }}</span><span class="kpi-label">HIGH</span></div>
       <div class="kpi kpi--medium"><span class="kpi-num">{{ tally.medium }}</span><span class="kpi-label">MEDIUM</span></div>
-      <div class="kpi kpi--low"><span class="kpi-num">{{ tally.low }}</span><span class="kpi-label">LOW</span></div>
+      <div class="kpi kpi--normal"><span class="kpi-num">{{ tally.normal }}</span><span class="kpi-label">NORMAL</span></div>
     </div>
     <div class="counts">
       {% for cat in cfg.categories %}
@@ -42,7 +42,7 @@
     <h2 class="section-head">⚠ Priority Intelligence</h2>
     <ul class="priority-list">
       {% for it in priority %}
-      {% set lvl = it.severity or it.importance %}
+      {% set lvl = it | level %}
       <li class="priority-row priority-row--{{ lvl }}">
         <span class="level level--{{ lvl }}">{{ lvl }}</span>
         <span class="pill pill--stack">{{ it.category }}</span>
@@ -63,9 +63,9 @@
       <summary class="cat-head">{{ cat }}<span class="cat-count">{{ cards|length + noted|length }}</span></summary>
       <div class="cards">
       {% for it in cards %}
-      {% set lvl = it.severity or it.importance %}
+      {% set lvl = it | level %}
       <article class="card card--{{ lvl }}">
-        <span class="level level--{{ lvl }}">{{ lvl }}</span>
+        {% if lvl != 'normal' %}<span class="level level--{{ lvl }}">{{ lvl }}</span>{% endif %}
         <div class="meta">
           {% if it.provider %}<span class="pill pill--provider">{{ it.provider }}</span>{% endif %}
           {% if it.stack_match %}<span class="pill pill--stack">stack: {{ it.stack_match|join(', ') }}</span>{% endif %}

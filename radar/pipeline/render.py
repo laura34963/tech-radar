@@ -99,6 +99,7 @@ def _env() -> Environment:
                       autoescape=select_autoescape(["html", "j2"]))
     env.filters["safe_url"] = _safe_url
     env.filters["md"] = _md
+    env.filters["level"] = _level
     return env
 
 
@@ -163,19 +164,27 @@ def _group(snapshot: dict, cfg) -> dict:
 
 
 def _level(it: dict) -> str:
-    """Effective display level: explicit severity wins, else importance."""
-    return it.get("severity") or it.get("importance")
+    """Alert tier for display. A security severity (or a critical ranking) sets
+    the tier; anything that merely cleared the display-importance threshold is
+    'normal'. Without this, a digest whose min_display_importance is 'high' would
+    render every card as one urgent colour and flood the priority block."""
+    sev = it.get("severity")
+    if it.get("importance") == "critical" or sev == "critical":
+        return "critical"
+    if sev == "high":
+        return "high"
+    if sev == "medium":
+        return "medium"
+    return "normal"
 
 
 def _tally(grouped: dict) -> dict:
-    """Count displayed cards (not 'also noted') by effective level."""
-    t = {"total": 0, "critical": 0, "high": 0, "medium": 0, "low": 0}
+    """Count displayed cards (not 'also noted') by alert tier."""
+    t = {"total": 0, "critical": 0, "high": 0, "medium": 0, "normal": 0}
     for bucket in grouped.values():
         for it in bucket["cards"]:
             t["total"] += 1
-            lvl = _level(it)
-            if lvl in t:
-                t[lvl] += 1
+            t[_level(it)] += 1
     return t
 
 
