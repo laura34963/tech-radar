@@ -149,18 +149,39 @@ def _dedupe_by_content(items: list[dict]) -> list[dict]:
 
 
 def _group(snapshot: dict, cfg) -> dict:
+    """Route items into two boards (tech / news), then group each board by
+    category. Returns {"tech": {cat: {cards, also_noted}}, "news": {...}}."""
     min_disp = cfg.general.get("min_display_importance", "high")
     threshold = IMPORTANCE_ORDER[min_disp]
-    grouped: dict[str, dict] = {c: {"cards": [], "also_noted": []} for c in cfg.categories}
+    sections = {s: {c: {"cards": [], "also_noted": []} for c in cfg.categories}
+                for s in ("tech", "news")}
     for it in _dedupe_by_content(snapshot["items"]):
+        grouped = sections[_section(it)]
         bucket = grouped.setdefault(it["category"], {"cards": [], "also_noted": []})
         if IMPORTANCE_ORDER[it["importance"]] >= threshold:
             bucket["cards"].append(it)
         else:
             bucket["also_noted"].append(it)
-    for b in grouped.values():
-        b["cards"].sort(key=lambda it: _SEV.get(it.get("severity"), -1), reverse=True)
-    return grouped
+    for grouped in sections.values():
+        for b in grouped.values():
+            b["cards"].sort(key=lambda it: _SEV.get(it.get("severity"), -1), reverse=True)
+    return sections
+
+
+def _section(it: dict) -> str:
+    """Which board an item belongs to, by source nature.
+
+    News = community/social feeds and security-category news outlets. Tech =
+    everything else: releases, official-project blogs, cloud change feeds, and
+    advisory feeds (OSV/GHSA use source_type 'security'). Derived purely from
+    the item so no config or schema change is needed.
+    """
+    st = it.get("source_type")
+    if st == "social":
+        return "news"
+    if st == "rss" and it.get("category") == "security":
+        return "news"
+    return "tech"
 
 
 def _level(it: dict) -> str:
@@ -204,10 +225,20 @@ def render_digest(snapshot: dict, cfg, env: Environment,
                   prev: str | None = None, next: str | None = None) -> str:
     lookback = int(cfg.general.get("lookback_days", 7))
     period = _period(snapshot["meta"]["date"], lookback)
-    grouped = _group(snapshot, cfg)
+    sections = _group(snapshot, cfg)
+    boards = []
+    for key, label in (("tech", "技術資訊"), ("news", "新聞")):
+        grouped = sections[key]
+        boards.append({
+            "key": key,
+            "label": label,
+            "grouped": grouped,
+            "tally": _tally(grouped),
+            "priority": _priority(grouped),
+            "has_items": any(g["cards"] or g["also_noted"] for g in grouped.values()),
+        })
     return env.get_template("digest.html.j2").render(
-        snapshot=snapshot, cfg=cfg, grouped=grouped,
-        tally=_tally(grouped), priority=_priority(grouped),
+        snapshot=snapshot, cfg=cfg, boards=boards,
         period=period, prev=prev, next=next)
 
 

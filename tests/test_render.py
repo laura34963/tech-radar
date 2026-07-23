@@ -13,6 +13,11 @@ def _cfg():
                   stack={}, categories=["backend"], sources=[], llm={})
 
 
+def _cfg_sec():
+    return Config(general={"title": "Radar", "min_display_importance": "high"},
+                  stack={}, categories=["backend", "security"], sources=[], llm={})
+
+
 def _snap_with(items):
     s = new_snapshot("2026-07-17")
     s["items"] = [item_to_dict(i) for i in items]
@@ -170,7 +175,24 @@ def test_render_title_shows_week_and_range(tmp_path):
 
 # --- tally and priority helpers ---
 
-from radar.pipeline.render import _tally, _priority, _group
+from radar.pipeline.render import _section, _tally, _priority, _group
+
+
+def test_section_classifies_by_source_nature():
+    def it(source_type, category):
+        return {"source_type": source_type, "category": category}
+    # tech: releases, official blogs, cloud, advisories
+    assert _section(it("github", "backend")) == "tech"
+    assert _section(it("cloud", "cloud")) == "tech"
+    assert _section(it("registry", "backend")) == "tech"
+    assert _section(it("security", "security")) == "tech"        # OSV / GHSA advisory feeds
+    assert _section(it("rss", "backend")) == "tech"              # official blog
+    assert _section(it("rss", "frontend")) == "tech"
+    assert _section(it("rss", "devops")) == "tech"
+    # news: social + security-category news feeds
+    assert _section(it("social", "backend")) == "news"          # HN, category is incidental
+    assert _section(it("social", "security")) == "news"
+    assert _section(it("rss", "security")) == "news"            # THN/Krebs/SANS/CISA/Reddit-rss
 
 
 def _grouped_from(cfg, items):
@@ -189,7 +211,7 @@ def test_tally_counts_cards_by_alert_tier():
                       category="backend", published=NOW, summary="s", importance="high")
     med = Item(id="4", title="m", url="https://x/4", source_type="rss",
                category="backend", published=NOW, summary="s", importance="medium")
-    t = _tally(_grouped_from(cfg, [crit, sec_high, plain_high, med]))
+    t = _tally(_grouped_from(cfg, [crit, sec_high, plain_high, med])["tech"])
     # medium is below min_display_importance="high" -> "also noted", not a card.
     # plain_high cleared the threshold but has no security severity -> "normal".
     assert t == {"total": 3, "critical": 1, "high": 1, "medium": 0, "normal": 1}
@@ -205,7 +227,7 @@ def test_priority_is_critical_and_high_sorted():
                 importance="critical", severity="critical")
     plain_high = Item(id="3", title="N", url="https://x/3", source_type="rss",
                       category="backend", published=NOW, summary="s", importance="high")
-    pri = _priority(_grouped_from(cfg, [sec_high, crit, plain_high]))
+    pri = _priority(_grouped_from(cfg, [sec_high, crit, plain_high])["tech"])
     # critical before high; plain_high (tier "normal") is excluded entirely
     assert [p["title"] for p in pri] == ["C", "H"]
     assert all(p["category"] == "backend" for p in pri)
@@ -217,7 +239,7 @@ def test_priority_empty_when_only_normal_tier_cards():
     # is tier "normal" -> not priority, even though it IS a displayed card.
     plain_high = Item(id="1", title="H", url="https://x/1", source_type="rss",
                       category="backend", published=NOW, summary="s", importance="high")
-    assert _priority(_grouped_from(cfg, [plain_high])) == []
+    assert _priority(_grouped_from(cfg, [plain_high])["tech"]) == []
 
 
 def test_digest_shows_kpi_tiles(tmp_path):
@@ -296,7 +318,51 @@ def test_stylesheet_drops_serif_and_styles_new_hooks(tmp_path):
     assert "Iowan Old Style" not in css and "Palatino" not in css
     # new structural hooks are styled
     for hook in (".kpi-row", ".kpi--critical", ".priority-row", ".priority-row--high", ".section-head",
-                 ".latest-card"):
+                 ".latest-card", ".tab-label", ".tab-panel", ".empty-board"):
         assert hook in css
     # dark theme retained
     assert "prefers-color-scheme: dark" in css
+
+
+def test_group_splits_items_into_tech_and_news_boards(tmp_path):
+    cfg = _cfg()
+    blog = Item(id="1", title="Rails 8", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    news = Item(id="2", title="Breach", url="https://x/2", source_type="rss",
+                category="security", published=NOW, summary="s",
+                importance="high", severity="high")
+    hn = Item(id="3", title="HN Story", url="https://x/3", source_type="social",
+              category="backend", published=NOW, summary="s", importance="high")
+    grouped = _group(_snap_with([blog, news, hn]), cfg)
+    tech_titles = [c["title"] for b in grouped["tech"].values() for c in b["cards"]]
+    news_titles = [c["title"] for b in grouped["news"].values() for c in b["cards"]]
+    assert tech_titles == ["Rails 8"]
+    assert sorted(news_titles) == ["Breach", "HN Story"]
+
+
+def test_digest_renders_both_tabs_with_tech_default(tmp_path):
+    out = tmp_path / "output"
+    tech = Item(id="1", title="Rails Release", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    news = Item(id="2", title="Krebs Story", url="https://x/2", source_type="rss",
+                category="security", published=NOW, summary="s",
+                importance="high", severity="high")
+    snap_path = _write_snap(tmp_path, _snap_with([tech, news]))
+    run_render(_cfg_sec(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert "技術資訊" in digest and "新聞" in digest
+    assert 'id="tab-tech"' in digest and "checked" in digest
+    assert 'class="tab-panel tab-panel--tech"' in digest
+    assert 'class="tab-panel tab-panel--news"' in digest
+    assert "Rails Release" in digest and "Krebs Story" in digest
+
+
+def test_digest_empty_board_shows_placeholder(tmp_path):
+    out = tmp_path / "output"
+    # only a tech item -> news board is empty
+    tech = Item(id="1", title="Go Release", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    snap_path = _write_snap(tmp_path, _snap_with([tech]))
+    run_render(_cfg_sec(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert "本區本週無情資" in digest
