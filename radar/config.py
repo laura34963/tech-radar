@@ -9,6 +9,8 @@ _REQUIRED = {
     "registry": ["registry", "packages"],
 }
 
+_BOARDS = {"tech", "news"}
+
 
 class ConfigError(Exception):
     pass
@@ -45,6 +47,11 @@ def load_config(path: Path) -> Config:
         for field_name in _REQUIRED[stype]:
             if not s.get(field_name):
                 raise ConfigError(f"{label}: type '{stype}' requires {field_name!r}")
+        board = s.get("board")
+        if board is not None and board not in _BOARDS:
+            raise ConfigError(
+                f"{label}: board must be one of {sorted(_BOARDS)}, got {board!r}"
+            )
     return Config(
         general=raw.get("general", {}),
         stack=raw.get("stack", {}),
