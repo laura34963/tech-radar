@@ -272,3 +272,32 @@ footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--bord
   .digest-row .d-cats { margin-left: 0; width: 100%; }
   .kpi { flex-basis: 4rem; }
 }
+
+/* --- tab boards (CSS-only, no JS): 技術資訊 / 新聞 --- */
+.tab-radio { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.tabs { margin-top: 1.6rem; }
+.tab-label {
+  display: inline-block;
+  padding: .55rem 1.15rem;
+  margin-right: .4rem;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface-2);
+  cursor: pointer;
+}
+.tab-label:hover { color: var(--text); }
+/* the label immediately following its checked radio is the active tab */
+#tab-tech:checked ~ label[for="tab-tech"],
+#tab-news:checked ~ label[for="tab-news"] {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--accent);
+}
+.panels { border-top: 1px solid var(--border); padding-top: 1.4rem; }
+.tab-panel { display: none; }
+#tab-tech:checked ~ .panels .tab-panel--tech,
+#tab-news:checked ~ .panels .tab-panel--news { display: block; }
+.empty-board { color: var(--muted); text-align: center; padding: 2.4rem 0; }
