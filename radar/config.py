@@ -1,6 +1,6 @@
 from __future__ import annotations
 import tomllib
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 _REQUIRED = {
@@ -21,6 +21,10 @@ class Config:
     categories: list[str]
     sources: list[dict]
     llm: dict
+    # per-category keyword lists; an item matching one of its own category's
+    # keywords is boosted to "high" (see fetch.score_importance). Lets a
+    # category like "ai" surface content that never touches [stack] terms.
+    category_keywords: dict = field(default_factory=dict)
 
 
 def load_config(path: Path) -> Config:
@@ -47,4 +51,5 @@ def load_config(path: Path) -> Config:
         categories=categories,
         sources=sources,
         llm=raw.get("llm", {}),
+        category_keywords=raw.get("category_keywords", {}),
     )

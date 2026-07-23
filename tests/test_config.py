@@ -74,3 +74,27 @@ def test_registry_missing_packages_raises(tmp_path):
             category = "frontend"
             registry = "npm"
         """))
+
+
+def test_invalid_board_raises(tmp_path):
+    with pytest.raises(ConfigError, match="board"):
+        load_config(_write(tmp_path, """
+            categories = ["backend"]
+            [[sources]]
+            type = "rss"
+            category = "backend"
+            url = "https://x/feed"
+            board = "bogus"
+        """))
+
+
+def test_valid_board_loads(tmp_path):
+    cfg = load_config(_write(tmp_path, """
+        categories = ["security"]
+        [[sources]]
+        type = "rss"
+        category = "security"
+        url = "https://x/feed"
+        board = "news"
+    """))
+    assert cfg.sources[0]["board"] == "news"

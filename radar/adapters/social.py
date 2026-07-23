@@ -19,11 +19,17 @@ class SocialAdapter:
         raise NotImplementedError(f"social source {src!r} not implemented (hn, reddit only)")
 
     def _fetch_hn(self, source: dict, *, client: httpx.Client, now: datetime) -> list[Item]:
-        resp = client.get("https://hn.algolia.com/api/v1/search_by_date",
-                          params={"query": source.get("query", ""), "tags": "story"},
-                          timeout=20.0, follow_redirects=True)
-        resp.raise_for_status()
         min_points = source.get("min_points", 0)
+        params = {"query": source.get("query", ""), "tags": "story"}
+        # Push the score threshold to Algolia. search_by_date returns only the
+        # newest ~20 stories; brand-new stories rarely have many points yet, so
+        # filtering client-side alone would drop nearly everything. numericFilters
+        # makes Algolia draw the newest window from stories already above min_points.
+        if min_points:
+            params["numericFilters"] = f"points>={min_points}"
+        resp = client.get("https://hn.algolia.com/api/v1/search_by_date",
+                          params=params, timeout=20.0, follow_redirects=True)
+        resp.raise_for_status()
         items: list[Item] = []
         for hit in resp.json().get("hits", []):
             if hit.get("points", 0) < min_points:
