@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kdan Tech Radar — Week 30 (2026-07-15 ~ 2026-07-22)</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <a class="brand" href="../index.html">Kdan Tech Radar</a>
+  <span class="wordmark">Intelligence Brief</span>
+  <span class="spacer"></span>
+  <a class="navlink" href="../index.html">Home</a>
+  <a class="navlink" href="2026-07-20.html">← 2026-07-20</a>
+  <a class="navlink" href="2026-07-23.html">2026-07-23 →</a>
+</div></div>
+
+<div class="wrap">
+  <header class="brief-head">
+    <div class="kicker">Weekly Intelligence Brief · Week 30, 2026</div>
+    <h1>情資週報</h1>
+    <div class="byline">2026-07-15 ~ 2026-07-22</div>
+    
+
+    <div class="kpi-row">
+      <div class="kpi kpi--total"><span class="kpi-num">28</span><span class="kpi-label">TOTAL</span></div>
+      <div class="kpi kpi--critical"><span class="kpi-num">0</span><span class="kpi-label">CRITICAL</span></div>
+      <div class="kpi kpi--high"><span class="kpi-num">2</span><span class="kpi-label">HIGH</span></div>
+      <div class="kpi kpi--medium"><span class="kpi-num">0</span><span class="kpi-label">MEDIUM</span></div>
+      <div class="kpi kpi--normal"><span class="kpi-num">26</span><span class="kpi-label">NORMAL</span></div>
+    </div>
+    <div class="counts">
+      
+        
+        <span class="count-chip"><strong>1</strong> backend</span>
+      
+        
+        <span class="count-chip"><strong>14</strong> frontend</span>
+      
+        
+        <span class="count-chip"><strong>6</strong> devops</span>
+      
+        
+        <span class="count-chip"><strong>20</strong> cloud</span>
+      
+        
+        <span class="count-chip"><strong>16</strong> security</span>
+      
+    </div>
+  </header>
+
+  
+  <section class="priority">
+    <h2 class="section-head">⚠ Priority Intelligence</h2>
+    <ul class="priority-list">
+      
+      
+      <li class="priority-row priority-row--high">
+        <span class="level level--high">high</span>
+        <span class="pill pill--stack">security</span>
+        <a class="priority-title" href="https://github.com/axios/axios/security/advisories/GHSA-gcfj-64vw-6mp9">GHSA-gcfj-64vw-6mp9: axios</a>
+        <span class="when">2026-07-22</span>
+      </li>
+      
+      
+      <li class="priority-row priority-row--high">
+        <span class="level level--high">high</span>
+        <span class="pill pill--stack">security</span>
+        <a class="priority-title" href="https://github.com/axios/axios/security/advisories/GHSA-pjwm-pj3p-43mv">GHSA-pjwm-pj3p-43mv: axios</a>
+        <span class="when">2026-07-20</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  <h2 class="section-head">By Category</h2>
+  
+    
+    
+    
+    <details class="category" open>
+      <summary class="cat-head">backend<span class="cat-count">1</span></summary>
+      <div class="cards">
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: rails, rails, ruby</span>
+          <span class="when">2026-07-17</span>
+        </div>
+        <h3><a href="https://rubyonrails.org/2026/7/17/this-week-in-rails">What time is it? Rails time!</a></h3>
+        <div class="summary"><p>本週 Rails codebase 重要變更彙整，涵蓋 Active Record、Action Pack 等核心模組的時間處理與行為調整。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>團隊以 rails 為主力框架並搭配 sidekiq、puma，時間與時區相關的變更會直接影響背景任務排程、快取過期判斷與資料庫時間欄位的一致性；未同步這些變更可能在升級 Rails 版本時踩到隱性行為差異。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>追蹤原文列出的相關 PR 連結，確認是否涉及你們目前使用的 Rails minor 版本，並在下次升版評估時納入這些時間處理變更的回歸測試。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>這是「This Week in Rails」類型的每週開發動態，整理 Rails 主線在 Active Record 查詢、時間與時區處理、以及框架內部 API 的最新 commit 與 PR。內容通常包含 bug 修正、效能微調與行為變更，部分變更會影響邊界情境（如時區轉換、時間比較與序列化）。</p></div>
+        </details>
+        
+      </article>
+      
+      </div>
+      
+    </details>
+    
+  
+    
+    
+    
+    <details class="category" open>
+      <summary class="cat-head">frontend<span class="cat-count">14</span></summary>
+      <div class="cards">
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.93">vercel/next.js v16.3.0-canary.93</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.93 發布，聚焦 Turbopack 內部路徑處理與相關重構。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>屬於 Turbopack 打包引擎的底層調整，對已使用 next 於 docker/k8s 部署的團隊而言影響有限，主要利於未來建置穩定性與跨平台一致性。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>canary 版本僅供嘗鮮，正式環境不需採用，可持續觀察 Turbopack 穩定進度。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此 canary 版本修正 Turbopack 在 Windows 上缺少路徑正規化的問題，並改用逐字（verbatim）路徑於內部處理；同時將 chunk group map 的值移除 chunk group id，並改以 <code>Arc&lt;PathBuf&gt;</code> 作為 keys。另回退了先前「soft nav 頁面不做 SSR」的變更（#95539）。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: react, next, react, next.js</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.7">vercel/next.js v16.3.0-preview.7</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-preview.7 升級 React 並強化 Server Actions 安全性與效能。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p><code>serverActions.bodySizeLimit</code> 於 Edge runtime 生效與 middleware matcher 修正，直接關係到 App Router 專案的請求安全邊界，對使用 next + react 的團隊具實質防護意義。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>preview 版本可於測試環境試跑 Server Actions 相關流程，確認 bodySizeLimit 行為符合預期後再評估。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>本版將內建 React 從 <code>172742b4-20260716</code> 升級至 <code>81e442ea-20260721</code>，修正 Turbopack middleware matcher 於單一 locale i18n 的問題，並在 Edge runtime 中強制套用 <code>serverActions.bodySizeLimit</code>。同時改善 MPA 表單提交驗證效能，並修正自訂 server 內部重導向的 origin。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: react, next, react, next.js</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.92">vercel/next.js v16.3.0-canary.92</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.92 內容與 preview.7 一致，為同批變更的 canary 快照。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>與 preview.7 為同批修正，對團隊的意義在於這些安全與效能改動即將進入穩定版，值得預先規劃驗證。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本同樣包含 React 升級至 <code>81e442ea-20260721</code>、Edge runtime 強制 <code>serverActions.bodySizeLimit</code>、Turbopack i18n 單一 locale middleware matcher 修正，以及 MPA 表單驗證效能改善。內容與 v16.3.0-preview.7 幾乎重疊，屬並行發布的 canary 通道。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.2.11">vercel/next.js v16.2.11</a></h3>
+        <div class="summary"><p>Next.js v16.2.11 安全性修補版，修復多個 High 等級漏洞。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>SSRF 與 middleware bypass 可能讓攻擊者繞過存取控制或對內網發動請求，對以 next 部署於 k8s/docker 且開啟 rewrites 的服務屬直接威脅。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>若使用 16.2.x 分支，立即升級至 v16.2.11 並檢查 next.config 中 rewrites 目的主機是否採白名單限制。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本修補 App Router 使用 Server Actions 時的 Denial of Service（GHSA-m99w-x7hq-7vfj）、Turbopack 搭配單一 locale 的 Middleware/Proxy bypass（GHSA-6gpp-xcg3-4w24），以及 rewrites 中經由攻擊者控制目的主機名的 SSRF。皆屬需盡速套用的高風險修補。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v15.5.21">vercel/next.js v15.5.21</a></h3>
+        <div class="summary"><p>Next.js v15.5.21 為 15.x 分支的同批安全性修補回移版本。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>尚停留在 Next.js 15 的專案同樣暴露於相同高風險漏洞，此回移版讓團隊無需大版本升級即可取得修補。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>仍使用 15.x 的專案立即升級至 v15.5.21，並排程評估遷移至 16 的時程。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本將 Server Actions DoS、Turbopack 單一 locale 的 Middleware/Proxy bypass 與 rewrites SSRF 等 High 等級修補回移至 15.x 維護分支，供尚未升級至 16 的專案套用。漏洞內容與 v16.2.11 相同。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: react, react</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/react/react/releases/tag/v19.2.8">facebook/react v19.2.8</a></h3>
+        <div class="summary"><p>React v19.2.8 改善 React Server Components 解碼效能。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>使用 RSC（多與 next.js App Router 搭配）的團隊可獲得序列化資料傳輸的解碼效能提升，對大型頁面串流有正面影響。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>隨 next.js 內建 React 版本一併更新即可，無需單獨處理 react/react-dom。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此修補版針對 React Server Components 的解碼路徑進行效能優化（#37087，由 @eps1lon 提交）。屬於維護性小改版，無 API 變更或破壞性調整。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: react, react</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/react/react/releases/tag/v19.1.9">facebook/react v19.1.9</a></h3>
+        <div class="summary"><p>React v19.1.9 於 19.1 分支回移 RSC 解碼效能改善。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>讓固定於 React 19.1 的專案也能享有 RSC 解碼效能提升，維持與較新版一致的執行表現。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本將 React Server Components 解碼效能優化（#37088）回移至 19.1 維護分支，內容對應 19.2.8 的同類改動，供停留於 19.1 的專案取得。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: react, react</span>
+          <span class="when">2026-07-21</span>
+        </div>
+        <h3><a href="https://github.com/react/react/releases/tag/v19.0.8">facebook/react v19.0.8</a></h3>
+        <div class="summary"><p>React v19.0.8 於 19.0 分支回移 RSC 解碼效能改善。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>確保鎖定 React 19.0 的專案亦可取得相同 RSC 效能改善，降低因版本落差造成的效能差異。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本將 React Server Components 解碼效能優化（#37089）回移至 19.0 維護分支，為跨 19.0/19.1/19.2 三分支的同批效能修補之一。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.91">vercel/next.js v16.3.0-canary.91</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.91 將多項靜態資產設定移出 experimental。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>設定選項脫離 experimental 意味未來可安全用於正式建置，對重視靜態資產快取（immutable assets）與 CDN 策略的部署團隊具規劃價值。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>留意 <code>outputHashSalt</code> 與 immutable assets 設定的穩定化，於正式版釋出後再納入 next.config 調整。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本將 <code>outputHashSalt</code> 與 immutable static assets 設定選項移出 experimental，代表其逐步趨於穩定；同時包含多項 Turbopack 優化，如略過冗餘的 top-level root 更新、移除 CJS module 未使用的 exports。另新增文件與 CMS 範例修正。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://nextjs.org/blog/july-2026-security-release">July 2026 Security Release</a></h3>
+        <div class="summary"><p>Next.js 官方發布 2026 年 7 月安全性發布公告。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>此類官方安全公告是團隊掌握 next.js 漏洞與修補時程的權威來源，應納入資安追蹤流程。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>閱讀官方公告並比對線上服務所用 Next.js 版本，確認已涵蓋本次所有 High 修補。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此公告宣布 2026 年 7 月的 Next.js 安全性發布已可取得，對應 v16.2.11 與 v15.5.21 中所修補的 Server Actions DoS、Middleware/Proxy bypass 與 rewrites SSRF 等 High 等級漏洞。為官方彙整的資安通知入口。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: react, next, react, next.js</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.90">vercel/next.js v16.3.0-canary.90</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.90 升級內建 React 版本。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>屬 React 版本推進的過渡快照，對團隊的參考價值在於觀察 next 與 React 內建版本的同步節奏。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此 canary 版本將內建 React 從 <code>7023f501-20260714</code> 升級至 <code>172742b4-20260716</code>（#95901），為隨後 preview.7 進一步升級的中間步驟，無其他功能性變更。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js, docker</span>
+          <span class="when">2026-07-17</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.89">vercel/next.js v16.3.0-canary.89</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.89 含 Turbopack 清理與 SSR 導航行為調整。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>SSR 導航行為的實驗性調整可能影響 soft navigation 下的頁面渲染時機，惟該變更已於後續版本回退，實務影響尚不確定。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本修正 Rust doctest 失敗、清理 <code>server_chunking_context</code>，並加入「僅透過 soft nav 導航到的頁面不做 SSR」（#95539，後於 canary.93 被回退）。另將 skills/ 打包為 Claude Code plugin，並回退了在 cacheComponents flag 下執行更多測試套件的變更。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.88">vercel/next.js v16.3.0-canary.88</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.88 統一 App Shell 與 Partial Prefetching。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>App Shell 與 Partial Prefetching 的整合關係到頁面預取與首屏載入策略，對追求導航體驗的 next.js 前端團隊具長期效能意涵。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本將 appShells flag 與 Partial Prefetching 統一（#95415），修正 Request Insights span 收集，並讓 pages-router 路由僅隨 client chunk-group bootstrap manifest 出貨（#94671）以精簡輸出。另回退了 hydration 前同文件遍歷的重播機制。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next, next.js</span>
+          <span class="when">2026-07-15</span>
+        </div>
+        <h3><a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.87">vercel/next.js v16.3.0-canary.87</a></h3>
+        <div class="summary"><p>Next.js v16.3.0-canary.87 優化 Turbopack chunk 快取命中率。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>提升 Turbopack chunk 快取命中率可縮短重複建置時間，對 CI/CD 頻繁建置 next.js 應用的 docker/k8s 流水線有助益。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本為每個 merged group 產生 component chunks 以提升快取命中（#95261），並將 5 分鐘內的 stale 內容排除於 app shells 之外。另新增 cssChunking graph 選項文件，並移除過時的建置警告與 experimental routing 註記。</p></div>
+        </details>
+        
+      </article>
+      
+      </div>
+      
+    </details>
+    
+  
+    
+    
+    
+    <details class="category" open>
+      <summary class="cat-head">devops<span class="cat-count">6</span></summary>
+      <div class="cards">
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: kubernetes</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0-beta.0">kubernetes/kubernetes v1.37.0-beta.0</a></h3>
+        <div class="summary"><p>Kubernetes 釋出 v1.37.0-beta.0 預覽版，供社群提前測試新版功能。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>團隊的 k8s／kubernetes 叢集是核心部署基礎，beta 版可能包含影響 workload 排程、API 棄用與 kubectl 行為的變更；提前掌握有助於規劃 Rails／Go／Next.js 服務的升級路徑，避免正式版釋出時措手不及。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>在非正式環境（如 kind 或 staging 叢集）部署此 beta 版，針對現有 Deployment 與 CRD 執行相容性測試，並比對 CHANGELOG 中的 deprecation 清單。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此為 1.37 系列的 beta 里程碑，尚未達正式 GA 品質，主要供使用者在正式版前驗證相容性與新特性。詳細變更（含各項 KEP、API 異動與 binary 下載）記錄於 CHANGELOG-1.37.md。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: docker</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://www.docker.com/blog/coding-agent-horror-stories-the-agent-that-deleted-production/">Coding Agent Horror Stories: The Agent That Deleted Production</a></h3>
+        <div class="summary"><p>一篇剖析 AI coding agent 誤刪 production 導致 13 小時服務中斷的事故案例。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>團隊若在 CI/CD 或維運流程引入 AI agent，直接接觸 docker 與 k8s 叢集將帶來高風險；此案例點出必須以最小權限與隔離沙箱包覆 agent 的可執行範圍。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>檢視目前授予任何自動化 agent 的權限，確保其無法直接對 production 叢集執行 delete／drop 類操作，並評估導入隔離執行環境。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>文章以真實事故為例，說明 AI agent 在缺乏權限邊界時可能執行破壞性操作。並介紹 Docker Sandboxes 如何透過 scoped identities 與隔離執行環境降低此類風險。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: docker</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://www.docker.com/blog/from-the-captains-chair-mohammad-ali-arabi/">From the Captain’s Chair: Mohammad-Ali A’râbi</a></h3>
+        <div class="summary"><p>Docker 部落格「From the Captain&#39;s Chair」系列專訪軟體工程師 Mohammad-Ali A&#39;râbi。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>此為社群性質內容，對現有 stack 無直接技術影響。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>這是一篇社群人物專訪，訪談作者、講者暨工程師 Mohammad-Ali A&#39;râbi，分享其在容器與軟體工程領域的觀點與經驗。內容偏向職涯與社群分享，非技術規格公告。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: docker</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://github.com/moby/moby/releases/tag/docker-v29.6.2">moby/moby docker-v29.6.2</a></h3>
+        <div class="summary"><p>Docker Engine 釋出 29.6.2 修補版，修正多項安全漏洞。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>團隊大量使用 docker 作為建置與部署基礎，此為安全性修補版，若 build 流程涉及 Git source 或 bundle 檔操作，未升級可能暴露於 CVE-2026-15793 風險之下。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>盡快將 build 主機與 CI runner 的 Docker Engine 升級至 29.6.2，並確認相關 CVE 是否影響現有 build pipeline。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>此版本包含針對 Docker Engine 的多個 CVE 修補，其中 CVE-2026-15793 涉及從 bundle 檔進行 Git source checkout 時可能引發的安全問題。完整 PR 與變更列於 docker/cli 與 moby/moby 的 29.6.2 milestone。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: docker</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://www.docker.com/blog/what-are-ai-agents/">AI Agents Explained: How to Build with Them Safely</a></h3>
+        <div class="summary"><p>一篇說明 AI agents 運作原理與如何在 production 安全建置運行的入門文章。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>若團隊考慮在 TypeScript／Next.js 或 Ruby 服務中整合 AI agent 能力，此文提供安全落地的思考框架，有助於在導入前建立正確的風險認知。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>作為團隊評估 AI agent 導入時的入門參考閱讀，用以對齊安全設計的基本共識。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>文章解釋 AI agent 的定義與運作機制，並探討在正式環境中安全建置與運行所需的條件。屬概念性導論，涵蓋權限、隔離與可觀測性等實務考量。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: docker</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://www.docker.com/blog/docker-wearedevelopers-world-congress-north-america-2026/">The Developer Has Changed. So Should Developer Conferences</a></h3>
+        <div class="summary"><p>Docker 宣布共同主辦 WeAreDevelopers World Congress North America，探討 AI agent 對開發生態的影響。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>此為活動與趨勢宣傳內容，對現有 stack 無直接技術影響。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>文章說明 Docker 與該研討會合作的動機，並論述 AI agent 如何改變軟體開發方式與開發者社群。內容偏向活動宣傳與趨勢觀察。</p></div>
+        </details>
+        
+      </article>
+      
+      </div>
+      
+    </details>
+    
+  
+    
+    
+    
+    <details class="category" open>
+      <summary class="cat-head">cloud<span class="cat-count">20</span></summary>
+      <div class="cards">
+      
+      </div>
+      
+      <details class="also-noted">
+        <summary>Also noted (20)</summary>
+        <ul>
+          <li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r6in-r6idn/">Amazon EC2 R6in and R6idn instances are now available in additional regions</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c6in/">Amazon EC2 C6in instances are now available in Asia Pacific (Taipei) Region</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m6in-m6idn/">Amazon EC2 M6in and M6idn instances are now available in additional regions</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-adv-deployments-eu-sovereign-cloud/">Amazon ECS advanced deployment strategies now available in AWS European Sovereign Cloud</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-action-logs/">Amazon ECS now provides Action Logs for deployment and orchestration visibility</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-supports-latest-cu-gdr-microsoft-sql-server">Amazon RDS now supports the latest CU and GDR updates for Microsoft SQL Server</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sqlserver-supports-sqlserver-2025">Amazon RDS for SQL Server now supports Microsoft SQL Server 2025</a> <span class="when">— 2026-07-21</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-data-exports-amazon-bedrock-product-metadata/">AWS Data Exports now provides standardized Amazon Bedrock product metadata</a> <span class="when">— 2026-07-20</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r8i-r8i-flex-instances-in-stockholm-zurich-regions/">Amazon EC2 R8i and R8i-flex instances are now available in additional regions</a> <span class="when">— 2026-07-20</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-i8ge-instances-aws-govcloud-us-regions/">Amazon EC2 I8ge instances are now available in AWS GovCloud (US) Regions</a> <span class="when">— 2026-07-20</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect/">Amazon Connect Customer launches metrics for agent queues on analytics dashboards</a> <span class="when">— 2026-07-20</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/storage-multi-session-fleets/">Amazon WorkSpaces Applications now supports Microsoft OneDrive and Google Drive on Multi-Session fleets</a> <span class="when">— 2026-07-20</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/aws-local-zone-athens-greece/">Announcing the general availability of a new AWS Local Zone in Athens, Greece</a> <span class="when">— 2026-07-20</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-gamelift-streams-iam/">Amazon GameLift Streams now supports IAM role credentials for stream sessions</a> <span class="when">— 2026-07-17</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-opensearch-ui-one-click-dashboard-migration">Amazon OpenSearch UI now supports one-click dashboard migration</a> <span class="when">— 2026-07-17</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/monitor-cost-efficiency-using-dashboards">Track cost efficiency trends directly in Billing and Cost Management Dashboards with the new Cost Efficiency widget</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-public-images-ssm-parameters">Amazon EC2 now surfaces the public SSM parameters associated with public AMIs</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/postgresql-19-beta-2-amazon-rds-database-preview-environment/">PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-event-notifications-system-generated-tags/">Amazon S3 Event Notifications now include system-generated tags</a> <span class="when">— 2026-07-16</span></li><li><a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-europe/">Amazon EC2 High Memory U7in-24TB instances now available in AWS Europe (Paris) region</a> <span class="when">— 2026-07-16</span></li>
+        </ul>
+      </details>
+      
+    </details>
+    
+  
+    
+    
+    
+    <details class="category" open>
+      <summary class="cat-head">security<span class="cat-count">16</span></summary>
+      <div class="cards">
+      
+      
+      <article class="card card--high">
+        <span class="level level--high">high</span>
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: axios</span>
+          <span class="when">2026-07-22</span>
+        </div>
+        <h3><a href="https://github.com/axios/axios/security/advisories/GHSA-gcfj-64vw-6mp9">GHSA-gcfj-64vw-6mp9: axios</a></h3>
+        <div class="summary"><p>axios Node HTTP adapter 在 interceptor 複製 config 後，可能沿用繼承來的 proxy 設定，導致請求走向非預期的代理。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>axios 已列於你們的 npm 相依套件中，且 Node.js 後端（含 Next.js API route、SSR 呼叫）常以它發外部請求；一旦流量被導向惡意 proxy，等同開了 SSRF 與中間人的破口。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>升級 axios 至含修補的版本，並在 CI 以 npm audit 或 lockfile 確認所有傳遞相依都已更新。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>當使用 interceptor 修改並複製請求 config 時，Node 端的 HTTP adapter 會保留原始繼承的 proxy 設定，即使呼叫端以為已停用或覆寫。攻擊者若能影響 proxy 環境變數或預設值，可讓外送流量經過受控節點，造成資料外洩或請求竄改。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--high">
+        <span class="level level--high">high</span>
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: axios</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://github.com/axios/axios/security/advisories/GHSA-pjwm-pj3p-43mv">GHSA-pjwm-pj3p-43mv: axios</a></h3>
+        <div class="summary"><p>axios 的 shouldBypassProxy 無法辨識 IPv4-mapped IPv6 位址，使 NO_PROXY 白名單可被繞過（CVE-2025-62718 的補丁不完整）。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>在 Kubernetes/Docker 雙協定網路環境中，服務常以 IPv6-mapped 形式解析內部位址，NO_PROXY 被繞過會讓原本受信任的東西向流量意外離開叢集邊界。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>更新至同時修補此不完整補丁的 axios 版本，並實測以 ::ffff: 前綴的內網位址確實走直連而非 proxy。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>shouldBypassProxy 比對 NO_PROXY 時未正規化 ::ffff:x.x.x.x 這類 IPv4-mapped IPv6 表示法，導致原本應直連的內網位址仍被送往 proxy。這是先前 CVE-2025-62718 修補未涵蓋的殘留路徑，攻擊者可藉此讓針對內部服務的請求外流或被攔截。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: ruby</span>
+          <span class="when">2026-07-20</span>
+        </div>
+        <h3><a href="https://thehackernews.com/2026/07/sleepergem-uses-three-malicious.html">SleeperGem Uses Three Malicious RubyGems Packages to Target Developer Machines</a></h3>
+        <div class="summary"><p>供應鏈攻擊 SleeperGem 於 RubyGems 發布三個惡意 gem（含 git_credential_manager、Dendreo），用來投放後續 payload。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>你們的 Rails 專案直接倚賴 rubygems 生態，開發者與 CI 常無審查地安裝 gem，惡意套件可竊取 Git 憑證與環境變數，橫向擴散到部署管線。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>稽核 Gemfile.lock 是否出現上述 gem 名稱與版本，並為 CI 導入 gem 來源鎖定與簽章／版本白名單檢查。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>攻擊者以類似合法工具的名稱發布 git_credential_manager（2.8.0–2.8.3）與 Dendreo（1.1.3–1.1.4）等 gem，安裝後會拉取並執行額外 payload，目標鎖定開發者機器。此為典型的命名混淆（typosquatting/masquerading）供應鏈攻擊，一旦被 bundle install 帶入即在開發或 CI 環境取得執行權。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: nginx</span>
+          <span class="when">2026-07-19</span>
+        </div>
+        <h3><a href="https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html">Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Execution</a></h3>
+        <div class="summary"><p>nginx 重大漏洞 CVE-2026-42533：未認證遠端攻擊者可用特製 HTTP 請求在 worker 觸發 heap buffer overflow，恐致 RCE。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>nginx 是你們對外的反向代理與流量入口，且常以容器形式部署於 Kubernetes；未認證即可觸發代表整個對外邊界都暴露於 DoS 甚至入口節點被接管的風險。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>立即將所有 nginx／NGINX Plus 實例與容器映像升級至修補版本，並重建部署中的 base image。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>F5 已於 7 月 15 日修補此漏洞，涵蓋 nginx 1.30.4（stable）、1.31.3（mainline）與 NGINX Plus 37.0.3.1。觸發後至少會使 worker 崩潰或重啟造成 DoS，堆積溢位亦可能被利用為遠端程式碼執行，任何舊版皆受影響。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: kubernetes</span>
+          <span class="when">2026-07-17</span>
+        </div>
+        <h3><a href="https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html">New NadMesh Botnet Hunts Exposed AI Services for Cloud Keys and Kubernetes Tokens</a></h3>
+        <div class="summary"><p>Go 撰寫的 NadMesh 殭屍網路掃描外露 AI 服務以竊取雲端金鑰與 Kubernetes token，操作者宣稱已收集 3,811 組 AWS key。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>團隊以 Go 與 Kubernetes 為主，若曾臨時架設任何上述 AI/工作流服務並暴露於公網，等同把叢集 token 與 AWS 金鑰放在被主動掃描的攻擊面上。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>盤點對外暴露的 AI 服務並移至私網或加上認證，同時輪換可能外露的雲端金鑰與 Kubernetes service account token。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>NadMesh 於 7 月初現身，透過 Shodan harvester 持續補充掃描佇列，鎖定 ComfyUI、Ollama、n8n、Open WebUI、Langflow、Gradio 等常被快速架設卻延遲上防火牆的 AI 服務。得手後會擷取雲端憑證與 k8s token，進一步橫向存取受害者的雲端與叢集資源。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next</span>
+          <span class="when">2026-07-17</span>
+        </div>
+        <h3><a href="https://thehackernews.com/2026/07/eu-orders-google-to-open-android-mic.html">E.U. Orders Google to Open Android Mic, Camera and Screen to Rival AI Assistants</a></h3>
+        <div class="summary"><p>歐盟命令 Google 在 Android 18 開放相機、麥克風、螢幕內容與背景操作能力給競爭對手的 AI 助理。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>此為監管與產業動向，對你們現有 Ruby/Go/TypeScript 後端與 Web 前端無直接技術風險，但若未來有 Android 端整合，需留意背景模擬操作帶來的無障礙權限濫用面。</p></div>
+        
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>歐盟執委會要求 Google 讓第三方 AI 助理取得與 Gemini 相同的系統存取權，包括螢幕關閉時仍可觸發的喚醒詞，以及模擬點擊與輸入來背景操控其他 app。Google 須在下一個主要版本 Android 18 交付，期限為 2027 年 8 月 1 日。</p></div>
+        </details>
+        
+      </article>
+      
+      
+      <article class="card card--normal">
+        
+        <div class="meta">
+          
+          <span class="pill pill--stack">stack: next</span>
+          <span class="when">2026-07-16</span>
+        </div>
+        <h3><a href="https://thehackernews.com/2026/07/new-clicklock-macos-stealer-kills-apps.html">New ClickLock macOS Stealer Kills Apps Every 210ms Until Victims Type Their Password</a></h3>
+        <div class="summary"><p>新型 macOS 竊密程式 ClickLock 每 210ms 反覆強制關閉受害者 app，逼迫其輸入登入密碼。</p></div>
+        
+        
+        <div class="why"><span class="label">Why it matters</span><p>開發者多以 macOS 為工作機，一旦中招，登入密碼與鑰匙圈內的 Git 憑證、雲端與部署金鑰都可能外流，直接威脅到程式碼與生產環境。</p></div>
+        
+        
+        <div class="action"><span class="label">Recommended action</span><p>提醒團隊絕不貼上來路不明的 Terminal 指令，並在端點部署可偵測異常 LaunchAgent 建立行為的 EDR。</p></div>
+        
+        
+        
+        <details class="detail">
+          <summary>展開詳細</summary>
+          <div class="detail-body"><p>ClickLock 以貼進 Terminal 的指令散布，透過偽造系統對話框索取密碼；受害者取消時便安裝兩個 LaunchAgent 並靜默退出。下次登入時它會迴圈殺掉 Finder、Dock、Spotlight、Terminal、Activity Monitor 等程序，直到使用者交出密碼。</p></div>
+        </details>
+        
+      </article>
+      
+      </div>
+      
+      <details class="also-noted">
+        <summary>Also noted (9)</summary>
+        <ul>
+          <li><a href="https://github.com/axios/axios/security/advisories/GHSA-mmx7-hfxf-jppx">GHSA-mmx7-hfxf-jppx: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-f4gw-2p7v-4548">GHSA-f4gw-2p7v-4548: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-mwf2-3pr3-8698">GHSA-mwf2-3pr3-8698: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-7q8q-rj6j-mhjq">GHSA-7q8q-rj6j-mhjq: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-42h9-826w-cgv3">GHSA-42h9-826w-cgv3: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-hcpx-6fm6-wx23">GHSA-hcpx-6fm6-wx23: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-pmv8-rq9r-6j72">GHSA-pmv8-rq9r-6j72: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-jqh4-m9w3-8hp9">GHSA-jqh4-m9w3-8hp9: axios</a> <span class="when">— 2026-07-22</span></li><li><a href="https://github.com/axios/axios/security/advisories/GHSA-xj6q-8x83-jv6g">GHSA-xj6q-8x83-jv6g: axios</a> <span class="when">— 2026-07-22</span></li>
+        </ul>
+      </details>
+      
+    </details>
+    
+  
+
+  <footer>Generated by tech-radar · Week 30 · 2026-07-15 ~ 2026-07-22</footer>
+</div>
+</body></html>
