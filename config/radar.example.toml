@@ -83,11 +83,9 @@ category = "security"
 url = "https://thedfirreport.com/feed/"               # The DFIR Report
 
 [[sources]]
-type = "social"
-category = "security"
-source = "reddit"
-subreddit = "netsec"
-min_points = 50
+type = "rss"                # Reddit's .json API returns 403 to unauthenticated
+category = "security"       # clients; the per-subreddit .rss feed still works.
+url = "https://www.reddit.com/r/netsec/.rss"   # note: RSS carries no score, so min_points can't apply
 
 [[sources]]
 type = "social"
