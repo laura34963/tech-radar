@@ -21,86 +21,105 @@
     <h1>情資週報</h1>
     <div class="byline">{{ period.start }} ~ {{ period.end }}</div>
     {% if snapshot.digest_summary %}<div class="lede">{{ snapshot.digest_summary | md }}</div>{% endif %}
-
-    <div class="kpi-row">
-      <div class="kpi kpi--total"><span class="kpi-num">{{ tally.total }}</span><span class="kpi-label">TOTAL</span></div>
-      <div class="kpi kpi--critical"><span class="kpi-num">{{ tally.critical }}</span><span class="kpi-label">CRITICAL</span></div>
-      <div class="kpi kpi--high"><span class="kpi-num">{{ tally.high }}</span><span class="kpi-label">HIGH</span></div>
-      <div class="kpi kpi--medium"><span class="kpi-num">{{ tally.medium }}</span><span class="kpi-label">MEDIUM</span></div>
-      <div class="kpi kpi--normal"><span class="kpi-num">{{ tally.normal }}</span><span class="kpi-label">NORMAL</span></div>
-    </div>
-    <div class="counts">
-      {% for cat in cfg.categories %}
-        {% set n = grouped[cat].cards|length + grouped[cat].also_noted|length %}
-        {% if n %}<span class="count-chip"><strong>{{ n }}</strong> {{ cat }}</span>{% endif %}
-      {% endfor %}
-    </div>
   </header>
 
-  {% if priority %}
-  <section class="priority">
-    <h2 class="section-head">⚠ Priority Intelligence</h2>
-    <ul class="priority-list">
-      {% for it in priority %}
-      {% set lvl = it | level %}
-      <li class="priority-row priority-row--{{ lvl }}">
-        <span class="level level--{{ lvl }}">{{ lvl }}</span>
-        <span class="pill pill--stack">{{ it.category }}</span>
-        <a class="priority-title" href="{{ it.url | safe_url }}">{{ it.title }}</a>
-        <span class="when">{{ it.published[:10] }}</span>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
+  <div class="tabs">
+    {% for b in boards %}
+    <input type="radio" name="board" id="tab-{{ b.key }}" class="tab-radio"{% if loop.first %} checked{% endif %}>
+    {% endfor %}
+    {% for b in boards %}
+    <label class="tab-label" for="tab-{{ b.key }}">{{ b.label }}</label>
+    {% endfor %}
 
-  <h2 class="section-head">By Category</h2>
-  {% for cat in cfg.categories %}
-    {% set cards = grouped[cat].cards %}
-    {% set noted = grouped[cat].also_noted %}
-    {% if cards or noted %}
-    <details class="category" open>
-      <summary class="cat-head">{{ cat }}<span class="cat-count">{{ cards|length + noted|length }}</span></summary>
-      <div class="cards">
-      {% for it in cards %}
-      {% set lvl = it | level %}
-      <article class="card card--{{ lvl }}">
-        {% if lvl != 'normal' %}<span class="level level--{{ lvl }}">{{ lvl }}</span>{% endif %}
-        <div class="meta">
-          {% if it.provider %}<span class="pill pill--provider">{{ it.provider }}</span>{% endif %}
-          {% if it.stack_match %}<span class="pill pill--stack">stack: {{ it.stack_match|join(', ') }}</span>{% endif %}
-          <span class="when">{{ it.published[:10] }}</span>
+    <div class="panels">
+    {% for b in boards %}
+      <section class="tab-panel tab-panel--{{ b.key }}">
+      {% if b.has_items %}
+        <div class="kpi-row">
+          <div class="kpi kpi--total"><span class="kpi-num">{{ b.tally.total }}</span><span class="kpi-label">TOTAL</span></div>
+          <div class="kpi kpi--critical"><span class="kpi-num">{{ b.tally.critical }}</span><span class="kpi-label">CRITICAL</span></div>
+          <div class="kpi kpi--high"><span class="kpi-num">{{ b.tally.high }}</span><span class="kpi-label">HIGH</span></div>
+          <div class="kpi kpi--medium"><span class="kpi-num">{{ b.tally.medium }}</span><span class="kpi-label">MEDIUM</span></div>
+          <div class="kpi kpi--normal"><span class="kpi-num">{{ b.tally.normal }}</span><span class="kpi-label">NORMAL</span></div>
         </div>
-        <h3><a href="{{ it.url | safe_url }}">{{ it.title }}</a></h3>
-        <div class="summary">{{ (it.llm.summary if it.llm else it.summary) | md }}</div>
-        {% set why = it.llm.why_it_matters if it.llm else '' %}
-        {% if why %}
-        <div class="why"><span class="label">Why it matters</span>{{ why | md }}</div>
+        <div class="counts">
+          {% for cat in cfg.categories %}
+            {% set n = b.grouped[cat].cards|length + b.grouped[cat].also_noted|length %}
+            {% if n %}<span class="count-chip"><strong>{{ n }}</strong> {{ cat }}</span>{% endif %}
+          {% endfor %}
+        </div>
+
+        {% if b.priority %}
+        <section class="priority">
+          <h2 class="section-head">⚠ Priority Intelligence</h2>
+          <ul class="priority-list">
+            {% for it in b.priority %}
+            {% set lvl = it | level %}
+            <li class="priority-row priority-row--{{ lvl }}">
+              <span class="level level--{{ lvl }}">{{ lvl }}</span>
+              <span class="pill pill--stack">{{ it.category }}</span>
+              <a class="priority-title" href="{{ it.url | safe_url }}">{{ it.title }}</a>
+              <span class="when">{{ it.published[:10] }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
         {% endif %}
-        {% if it.llm and it.llm.recommended_action %}
-        <div class="action"><span class="label">Recommended action</span>{{ it.llm.recommended_action | md }}</div>
-        {% endif %}
-        {% set detail = it.llm.detail if it.llm else it.summary %}
-        {% if detail %}
-        <details class="detail">
-          <summary>展開詳細</summary>
-          <div class="detail-body">{{ detail | md }}</div>
-        </details>
-        {% endif %}
-      </article>
-      {% endfor %}
-      </div>
-      {% if noted %}
-      <details class="also-noted">
-        <summary>Also noted ({{ noted|length }})</summary>
-        <ul>
-          {% for it in noted %}<li><a href="{{ it.url | safe_url }}">{{ it.title }}</a> <span class="when">— {{ it.published[:10] }}</span></li>{% endfor %}
-        </ul>
-      </details>
+
+        <h2 class="section-head">By Category</h2>
+        {% for cat in cfg.categories %}
+          {% set cards = b.grouped[cat].cards %}
+          {% set noted = b.grouped[cat].also_noted %}
+          {% if cards or noted %}
+          <details class="category" open>
+            <summary class="cat-head">{{ cat }}<span class="cat-count">{{ cards|length + noted|length }}</span></summary>
+            <div class="cards">
+            {% for it in cards %}
+            {% set lvl = it | level %}
+            <article class="card card--{{ lvl }}">
+              {% if lvl != 'normal' %}<span class="level level--{{ lvl }}">{{ lvl }}</span>{% endif %}
+              <div class="meta">
+                {% if it.provider %}<span class="pill pill--provider">{{ it.provider }}</span>{% endif %}
+                {% if it.stack_match %}<span class="pill pill--stack">stack: {{ it.stack_match|join(', ') }}</span>{% endif %}
+                <span class="when">{{ it.published[:10] }}</span>
+              </div>
+              <h3><a href="{{ it.url | safe_url }}">{{ it.title }}</a></h3>
+              <div class="summary">{{ (it.llm.summary if it.llm else it.summary) | md }}</div>
+              {% set why = it.llm.why_it_matters if it.llm else '' %}
+              {% if why %}
+              <div class="why"><span class="label">Why it matters</span>{{ why | md }}</div>
+              {% endif %}
+              {% if it.llm and it.llm.recommended_action %}
+              <div class="action"><span class="label">Recommended action</span>{{ it.llm.recommended_action | md }}</div>
+              {% endif %}
+              {% set detail = it.llm.detail if it.llm else it.summary %}
+              {% if detail %}
+              <details class="detail">
+                <summary>展開詳細</summary>
+                <div class="detail-body">{{ detail | md }}</div>
+              </details>
+              {% endif %}
+            </article>
+            {% endfor %}
+            </div>
+            {% if noted %}
+            <details class="also-noted">
+              <summary>Also noted ({{ noted|length }})</summary>
+              <ul>
+                {% for it in noted %}<li><a href="{{ it.url | safe_url }}">{{ it.title }}</a> <span class="when">— {{ it.published[:10] }}</span></li>{% endfor %}
+              </ul>
+            </details>
+            {% endif %}
+          </details>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p class="empty-board">本區本週無情資</p>
       {% endif %}
-    </details>
-    {% endif %}
-  {% endfor %}
+      </section>
+    {% endfor %}
+    </div>
+  </div>
 
   <footer>Generated by tech-radar · Week {{ period.week }} · {{ period.start }} ~ {{ period.end }}</footer>
 </div>
