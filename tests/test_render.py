@@ -170,7 +170,24 @@ def test_render_title_shows_week_and_range(tmp_path):
 
 # --- tally and priority helpers ---
 
-from radar.pipeline.render import _tally, _priority, _group
+from radar.pipeline.render import _section, _tally, _priority, _group
+
+
+def test_section_classifies_by_source_nature():
+    def it(source_type, category):
+        return {"source_type": source_type, "category": category}
+    # tech: releases, official blogs, cloud, advisories
+    assert _section(it("github", "backend")) == "tech"
+    assert _section(it("cloud", "cloud")) == "tech"
+    assert _section(it("registry", "backend")) == "tech"
+    assert _section(it("security", "security")) == "tech"        # OSV / GHSA advisory feeds
+    assert _section(it("rss", "backend")) == "tech"              # official blog
+    assert _section(it("rss", "frontend")) == "tech"
+    assert _section(it("rss", "devops")) == "tech"
+    # news: social + security-category news feeds
+    assert _section(it("social", "backend")) == "news"          # HN, category is incidental
+    assert _section(it("social", "security")) == "news"
+    assert _section(it("rss", "security")) == "news"            # THN/Krebs/SANS/CISA/Reddit-rss
 
 
 def _grouped_from(cfg, items):

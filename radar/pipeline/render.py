@@ -163,6 +163,22 @@ def _group(snapshot: dict, cfg) -> dict:
     return grouped
 
 
+def _section(it: dict) -> str:
+    """Which board an item belongs to, by source nature.
+
+    News = community/social feeds and security-category news outlets. Tech =
+    everything else: releases, official-project blogs, cloud change feeds, and
+    advisory feeds (OSV/GHSA use source_type 'security'). Derived purely from
+    the item so no config or schema change is needed.
+    """
+    st = it.get("source_type")
+    if st == "social":
+        return "news"
+    if st == "rss" and it.get("category") == "security":
+        return "news"
+    return "tech"
+
+
 def _level(it: dict) -> str:
     """Alert tier for display. A security severity (or a critical ranking) sets
     the tier; anything that merely cleared the display-importance threshold is
