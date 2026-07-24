@@ -60,6 +60,19 @@ def rank_and_truncate(items: list[Item], categories: list[str], max_per: int) ->
     return out
 
 
+def _source_name(source: dict, i: int) -> str:
+    """Stable, unique resume/label key for a source. repo/url/feed are already
+    unique, but 'social' (source='hn'/'reddit') and 'registry' (registry='npm'…)
+    repeat across categories; keyed by that field alone they collapse onto one
+    entry and all but the first get skipped as 'cached'. Append the field that
+    actually distinguishes them (query / subreddit / packages)."""
+    base = (source.get("repo") or source.get("url") or source.get("feed")
+            or source.get("source") or source.get("registry") or f"source{i}")
+    disc = source.get("query") or source.get("subreddit") \
+        or ",".join(source.get("packages", []))
+    return f"{base}:{source.get('category', '')}:{disc}" if disc else base
+
+
 def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
               force: bool = False, fresh: bool = False) -> dict:
     date = now.date().isoformat()
@@ -70,8 +83,7 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
     total = len(cfg.sources)
     log.info("fetch: %d source(s)", total)
     for i, source in enumerate(cfg.sources):
-        name = source.get("repo") or source.get("url") or source.get("feed") or \
-            source.get("source") or source.get("registry") or f"source{i}"
+        name = _source_name(source, i)
         prev = snap["meta"]["sources"].get(name, {})
         if prev.get("status") == "ok" and not force:
             log.info("  [%d/%d] %s (%s): cached, skipping", i + 1, total, name, source["type"])

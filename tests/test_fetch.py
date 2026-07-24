@@ -142,6 +142,25 @@ def test_run_fetch_merge_keeps_richest_duplicate_regardless_of_source_order(tmp_
     assert snap2["items"][0]["summary"] == _LONG_DESC
 
 
+def test_run_fetch_runs_every_same_type_social_source(tmp_path):
+    # Two HN sources differ only by query/category. They must NOT collapse onto
+    # a single resume key ("hn"), which would skip all but the first.
+    seen = []
+
+    def handler(req):
+        seen.append(req.url.params.get("query"))
+        return httpx.Response(200, text='{"hits": []}')
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = _cfg([
+        {"type": "social", "category": "backend", "source": "hn", "query": "ruby"},
+        {"type": "social", "category": "ai", "source": "hn", "query": "llm"},
+    ])
+    run_fetch(cfg, tmp_path / "social.json",
+              now=datetime(2026, 7, 17, tzinfo=timezone.utc), client=client, fresh=True)
+    assert "ruby" in seen and "llm" in seen  # both queried, neither skipped
+
+
 def test_run_fetch_isolates_unknown_adapter_type(tmp_path):
     def handler(req):
         return httpx.Response(200, text=RSS)
