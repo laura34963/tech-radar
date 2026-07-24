@@ -25,10 +25,20 @@ def stack_matches(it: Item, stack: dict) -> list[str]:
     return [t for t in terms if t.lower() in hay]
 
 
-def score_importance(it: Item, stack: dict) -> str:
+def category_matches(it: Item, category_keywords: dict) -> list[str]:
+    """Keywords hit for the item's OWN category. Unlike stack_matches (global),
+    this is scoped per-category so an 'ai' keyword can't boost a security item."""
+    terms = (category_keywords or {}).get(it.category, [])
+    if not terms:
+        return []
+    hay = f"{it.title} {it.summary} {it.url}".lower()
+    return [t for t in terms if t.lower() in hay]
+
+
+def score_importance(it: Item, stack: dict, category_keywords: dict | None = None) -> str:
     if it.severity:
         return it.severity
-    if stack_matches(it, stack):
+    if stack_matches(it, stack) or category_matches(it, category_keywords):
         return "high"
     if it.source_type in ("github", "cloud", "social", "registry"):
         return "medium"
@@ -111,7 +121,7 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
 
     scored = []
     for it in by_id.values():
-        it = replace(it, importance=score_importance(it, cfg.stack),
+        it = replace(it, importance=score_importance(it, cfg.stack, cfg.category_keywords),
                      stack_match=stack_matches(it, cfg.stack))
         if within_lookback(it.published, now, lookback) and importance_ge(it.importance, min_keep):
             scored.append(it)

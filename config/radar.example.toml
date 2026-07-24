@@ -1,6 +1,6 @@
 # NOTE: top-level `categories` MUST appear before the first [table] header,
 # otherwise TOML nests it under the preceding table (e.g. [stack]).
-categories = ["backend", "frontend", "devops", "cloud", "security"]
+categories = ["backend", "frontend", "devops", "cloud", "security", "ai"]
 
 [general]
 title = "Kdan Tech Radar"
@@ -15,6 +15,17 @@ languages  = ["ruby", "go", "javascript", "python"]
 frameworks = ["rails", "react"]
 packages   = ["rails", "sidekiq", "react", "axios"]
 ecosystems = ["rubygems", "npm", "pypi"]
+
+# Per-category keyword boosting. An item in one of these categories whose
+# title/summary/url mentions one of its terms is scored "high" (same tier as a
+# [stack] hit) and floated as a card; scoped per-category so terms never leak
+# across boards. Use for categories whose feeds don't touch [stack] terms — e.g.
+# "ai": without this, every AI item scores "low" and is dropped at fetch.
+# Keep terms distinctive substrings (no bare "ai" — matches "email"/"detail").
+[category_keywords]
+ai = ["llm", "gpt", "claude", "gemini", "openai", "anthropic", "mistral",
+      "llama", "transformer", "diffusion", "agentic", "fine-tuning",
+      "neural network", "machine learning", "deep learning", "hugging face"]
 
 [[sources]]
 type = "cloud"
@@ -113,6 +124,38 @@ type = "registry"
 category = "backend"
 registry = "rubygems"
 packages = ["rails", "sidekiq"]
+
+# AI — frontier labs + open-source ecosystem (RSS scored via [category_keywords]),
+# plus HN for community pulse and labs without a public feed (e.g. Anthropic).
+# RSS feeds verified 2026-07-23. Note: HN is event-driven — a story only surfaces
+# once it clears min_points AND falls inside lookback_days, so it stays quiet
+# between notable AI launches.
+[[sources]]
+type = "rss"
+category = "ai"
+url = "https://openai.com/blog/rss.xml"             # OpenAI
+
+[[sources]]
+type = "rss"
+category = "ai"
+url = "https://deepmind.google/blog/rss.xml"        # Google DeepMind
+
+[[sources]]
+type = "rss"
+category = "ai"
+url = "https://huggingface.co/blog/feed.xml"        # Hugging Face
+
+[[sources]]
+type = "rss"
+category = "ai"
+url = "https://simonwillison.net/atom/everything/"  # Simon Willison (keyword-filtered to AI)
+
+[[sources]]
+type = "social"
+category = "ai"
+source = "hn"
+query = "LLM OR GPT OR Claude OR OpenAI OR Anthropic"
+min_points = 100
 
 [llm]
 enabled = true

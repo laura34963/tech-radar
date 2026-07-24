@@ -36,6 +36,24 @@ def test_score_importance_precedence():
     assert score_importance(_item(source_type="github"), {}) == "medium"
 
 
+def test_category_keywords_boost_matching_item_to_high():
+    kw = {"ai": ["llm", "claude"]}
+    # a plain rss item that would otherwise score "low" is boosted to "high"
+    # when it matches a keyword for its own category
+    assert score_importance(_item(category="ai", title="New Claude 5 model"), {}, kw) == "high"
+
+
+def test_category_keywords_do_not_boost_non_matching_item():
+    kw = {"ai": ["llm", "claude"]}
+    assert score_importance(_item(category="ai", title="unrelated musings"), {}, kw) == "low"
+
+
+def test_category_keywords_are_scoped_to_their_category():
+    kw = {"ai": ["claude"]}
+    # the "ai" keywords must not boost an item in another category
+    assert score_importance(_item(category="backend", title="claude"), {}, kw) == "low"
+
+
 def test_dedupe_keeps_one_per_id():
     a = _item(id="dup", summary="short")
     b = _item(id="dup", summary="a much longer and richer summary")
