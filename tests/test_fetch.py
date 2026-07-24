@@ -196,3 +196,33 @@ def test_run_fetch_isolates_unknown_adapter_type(tmp_path):
     assert snap["meta"]["sources"]["https://good/feed"]["status"] == "ok"
     assert snap["meta"]["sources"]["https://mystery/feed"]["status"] == "failed"
     assert len(snap["items"]) == 1  # only the good feed's item survived
+
+
+_BOARD_FEED = """<?xml version="1.0"?>
+<rss version="2.0"><channel><title>S</title>
+  <item>
+    <title>{title}</title>
+    <link>{link}</link>
+    <description>d</description>
+    <pubDate>Wed, 16 Jul 2026 10:00:00 GMT</pubDate>
+    <guid>{link}</guid>
+  </item>
+</channel></rss>"""
+
+
+def test_run_fetch_stamps_declared_board(tmp_path):
+    def handler(req):
+        if "newsfeed" in str(req.url):
+            return httpx.Response(200, text=_BOARD_FEED.format(title="N", link="https://example.com/n"))
+        return httpx.Response(200, text=_BOARD_FEED.format(title="P", link="https://example.com/p"))
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = _cfg([
+        {"type": "rss", "category": "backend", "url": "https://newsfeed/feed", "board": "news"},
+        {"type": "rss", "category": "backend", "url": "https://plainfeed/feed"},
+    ])
+    snap = run_fetch(cfg, tmp_path / "board.json",
+                     now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client, fresh=True)
+    boards = {it["title"]: it["board"] for it in snap["items"]}
+    assert boards == {"N": "news", "P": None}  # declared stamped, undeclared stays None

@@ -24,4 +24,5 @@ class Item:
     tags: list[str] = field(default_factory=list)
     severity: str | None = None
     stack_match: list[str] = field(default_factory=list)
+    board: str | None = None
     llm: dict | None = None

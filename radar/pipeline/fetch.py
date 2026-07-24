@@ -102,7 +102,10 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
         try:
             adapter = ADAPTERS[source["type"]]
             fetched = adapter.fetch(source, cfg, client=client, now=now)
+            board = source.get("board")
             for it in fetched:
+                if board is not None:
+                    it = replace(it, board=board)
                 cur = by_id.get(it.id)
                 if cur is None or len(it.summary) > len(cur.summary):
                     by_id[it.id] = it
