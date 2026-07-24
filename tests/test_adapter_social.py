@@ -18,6 +18,34 @@ def test_hn_applies_min_points():
     assert items[0].title == "React 20 announced"
 
 
+def test_hn_sends_points_filter_to_algolia():
+    # min_points must reach Algolia as a numericFilter so the "newest N stories"
+    # window is drawn from high-scoring stories, not filtered to ~0 client-side.
+    cap = {}
+
+    def handler(req):
+        cap["nf"] = req.url.params.get("numericFilters")
+        return httpx.Response(200, text=FIX)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    SocialAdapter().fetch({"source": "hn", "category": "ai", "query": "llm", "min_points": 100},
+                          None, client=client, now=NOW)
+    assert cap["nf"] == "points>=100"
+
+
+def test_hn_omits_points_filter_when_no_min():
+    cap = {}
+
+    def handler(req):
+        cap["nf"] = req.url.params.get("numericFilters")
+        return httpx.Response(200, text=FIX)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    SocialAdapter().fetch({"source": "hn", "category": "ai", "query": "llm"},
+                          None, client=client, now=NOW)
+    assert cap["nf"] is None
+
+
 def test_reddit_applies_min_points_and_maps():
     client = httpx.Client(transport=httpx.MockTransport(
         lambda req: httpx.Response(200, text=REDDIT_FIX)))
