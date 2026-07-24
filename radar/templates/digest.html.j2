@@ -92,7 +92,7 @@
               {% if it.llm and it.llm.recommended_action %}
               <div class="action"><span class="label">Recommended action</span>{{ it.llm.recommended_action | md }}</div>
               {% endif %}
-              {% set detail = it.llm.detail if it.llm else it.summary %}
+              {% set detail = it.llm.detail if it.llm else '' %}
               {% if detail %}
               <details class="detail">
                 <summary>展開詳細</summary>

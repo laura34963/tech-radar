@@ -27,9 +27,14 @@ ai = ["llm", "gpt", "claude", "gemini", "openai", "anthropic", "mistral",
       "llama", "transformer", "diffusion", "agentic", "fine-tuning",
       "neural network", "machine learning", "deep learning", "hugging face"]
 
+# `board` routes an item to a digest tab: "tech" (技術資訊 — releases, official
+# blogs, cloud changes, advisories) or "news" (新聞 — reporting, commentary,
+# community discussion). Omitting it derives one by nature: social feeds → news,
+# everything else → tech. Every source below sets it explicitly for clarity.
 [[sources]]
 type = "cloud"
 category = "cloud"
+board = "tech"
 provider = "aws"
 url = "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
 services = ["ec2", "s3", "lambda", "rds"]
@@ -37,22 +42,26 @@ services = ["ec2", "s3", "lambda", "rds"]
 [[sources]]
 type = "cloud"
 category = "cloud"
+board = "tech"
 provider = "azure"
 url = "https://azure.microsoft.com/en-us/updates/feed/"
 
 [[sources]]
 type = "github"
 category = "backend"
+board = "tech"
 repo = "rails/rails"
 
 [[sources]]
 type = "security"
 category = "security"
+board = "tech"              # OSV advisories — actionable, not news
 feed = "osv"
 
 [[sources]]
 type = "security"           # GitHub Security Advisories; uses [stack].packages + ecosystems
 category = "security"
+board = "tech"              # advisories — actionable, not news
 feed = "ghsa"               # optional GITHUB_TOKEN raises the rate limit
 
 # Threat intel & security news (verified 2026-07-22; plain RSS, no auth).
@@ -61,6 +70,7 @@ feed = "ghsa"               # optional GITHUB_TOKEN raises the rate limit
 [[sources]]
 type = "rss"
 category = "security"
+board = "tech"              # CISA advisories are actionable reference, not news
 url = "https://www.cisa.gov/cybersecurity-advisories/all.xml"   # CISA advisories
 
 [[sources]]
@@ -108,6 +118,7 @@ url = "https://www.reddit.com/r/netsec/.rss"   # note: RSS carries no score, so 
 [[sources]]
 type = "social"
 category = "frontend"
+board = "news"              # HN community discussion
 source = "hn"
 query = "react OR frontend"
 min_points = 100
@@ -115,6 +126,7 @@ min_points = 100
 [[sources]]
 type = "social"
 category = "frontend"
+board = "news"              # Reddit community discussion
 source = "reddit"
 subreddit = "reactjs"
 query = ""                  # optional; empty -> newest posts, set -> search within the subreddit
@@ -123,12 +135,14 @@ min_points = 50
 [[sources]]
 type = "registry"           # package-registry release news; complements github releases
 category = "frontend"
+board = "tech"              # release announcements
 registry = "npm"            # npm | pypi | rubygems
 packages = ["react", "axios"]
 
 [[sources]]
 type = "registry"
 category = "backend"
+board = "tech"              # release announcements
 registry = "rubygems"
 packages = ["rails", "sidekiq"]
 
@@ -140,26 +154,31 @@ packages = ["rails", "sidekiq"]
 [[sources]]
 type = "rss"
 category = "ai"
+board = "tech"              # official lab blog
 url = "https://openai.com/blog/rss.xml"             # OpenAI
 
 [[sources]]
 type = "rss"
 category = "ai"
+board = "tech"              # official lab blog
 url = "https://deepmind.google/blog/rss.xml"        # Google DeepMind
 
 [[sources]]
 type = "rss"
 category = "ai"
+board = "tech"              # official project blog
 url = "https://huggingface.co/blog/feed.xml"        # Hugging Face
 
 [[sources]]
 type = "rss"
 category = "ai"
+board = "news"              # independent commentary/analysis, not an official blog
 url = "https://simonwillison.net/atom/everything/"  # Simon Willison (keyword-filtered to AI)
 
 [[sources]]
 type = "social"
 category = "ai"
+board = "news"              # HN community discussion
 source = "hn"
 query = "LLM OR GPT OR Claude OR OpenAI OR Anthropic"
 min_points = 100
