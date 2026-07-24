@@ -178,21 +178,19 @@ def test_render_title_shows_week_and_range(tmp_path):
 from radar.pipeline.render import _section, _tally, _priority, _group
 
 
-def test_section_classifies_by_source_nature():
-    def it(source_type, category):
-        return {"source_type": source_type, "category": category}
-    # tech: releases, official blogs, cloud, advisories
+def test_section_routes_by_explicit_board_then_social_default():
+    def it(source_type, category, board=None):
+        return {"source_type": source_type, "category": category, "board": board}
+    # explicit board wins in both directions
+    assert _section(it("rss", "security", "news")) == "news"
+    assert _section(it("social", "backend", "tech")) == "tech"
+    # no board: social -> news, everything else -> tech
+    assert _section(it("social", "backend")) == "news"
+    assert _section(it("rss", "security")) == "tech"   # CHANGED: no longer auto-news
+    assert _section(it("rss", "backend")) == "tech"
     assert _section(it("github", "backend")) == "tech"
+    assert _section(it("security", "security")) == "tech"  # OSV / GHSA advisories
     assert _section(it("cloud", "cloud")) == "tech"
-    assert _section(it("registry", "backend")) == "tech"
-    assert _section(it("security", "security")) == "tech"        # OSV / GHSA advisory feeds
-    assert _section(it("rss", "backend")) == "tech"              # official blog
-    assert _section(it("rss", "frontend")) == "tech"
-    assert _section(it("rss", "devops")) == "tech"
-    # news: social + security-category news feeds
-    assert _section(it("social", "backend")) == "news"          # HN, category is incidental
-    assert _section(it("social", "security")) == "news"
-    assert _section(it("rss", "security")) == "news"            # THN/Krebs/SANS/CISA/Reddit-rss
 
 
 def _grouped_from(cfg, items):
@@ -330,7 +328,7 @@ def test_group_splits_items_into_tech_and_news_boards(tmp_path):
                 category="backend", published=NOW, summary="s", importance="high")
     news = Item(id="2", title="Breach", url="https://x/2", source_type="rss",
                 category="security", published=NOW, summary="s",
-                importance="high", severity="high")
+                importance="high", severity="high", board="news")
     hn = Item(id="3", title="HN Story", url="https://x/3", source_type="social",
               category="backend", published=NOW, summary="s", importance="high")
     grouped = _group(_snap_with([blog, news, hn]), cfg)
@@ -346,7 +344,7 @@ def test_digest_renders_both_tabs_with_tech_default(tmp_path):
                 category="backend", published=NOW, summary="s", importance="high")
     news = Item(id="2", title="Krebs Story", url="https://x/2", source_type="rss",
                 category="security", published=NOW, summary="s",
-                importance="high", severity="high")
+                importance="high", severity="high", board="news")
     snap_path = _write_snap(tmp_path, _snap_with([tech, news]))
     run_render(_cfg_sec(), snap_path, out, force=True)
     digest = (out / "digests" / "2026-07-17.html").read_text()

@@ -66,36 +66,43 @@ url = "https://www.cisa.gov/cybersecurity-advisories/all.xml"   # CISA advisorie
 [[sources]]
 type = "rss"
 category = "security"
+board = "news"
 url = "https://feeds.feedburner.com/TheHackersNews"   # The Hacker News
 
 [[sources]]
 type = "rss"
 category = "security"
+board = "news"
 url = "https://isc.sans.edu/rssfeed_full.xml"         # SANS Internet Storm Center
 
 [[sources]]
 type = "rss"
 category = "security"
+board = "news"
 url = "https://krebsonsecurity.com/feed/"             # Krebs on Security
 
 [[sources]]
 type = "rss"
 category = "security"
+board = "news"
 url = "https://unit42.paloaltonetworks.com/feed/"     # Palo Alto Unit 42
 
 [[sources]]
 type = "rss"
 category = "security"
+board = "news"
 url = "https://blog.talosintelligence.com/rss/"       # Cisco Talos
 
 [[sources]]
 type = "rss"
 category = "security"
+board = "news"
 url = "https://thedfirreport.com/feed/"               # The DFIR Report
 
 [[sources]]
 type = "rss"                # Reddit's .json API returns 403 to unauthenticated
 category = "security"       # clients; the per-subreddit .rss feed still works.
+board = "news"
 url = "https://www.reddit.com/r/netsec/.rss"   # note: RSS carries no score, so min_points can't apply
 
 [[sources]]

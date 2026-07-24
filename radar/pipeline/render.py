@@ -169,19 +169,14 @@ def _group(snapshot: dict, cfg) -> dict:
 
 
 def _section(it: dict) -> str:
-    """Which board an item belongs to, by source nature.
-
-    News = community/social feeds and security-category news outlets. Tech =
-    everything else: releases, official-project blogs, cloud change feeds, and
-    advisory feeds (OSV/GHSA use source_type 'security'). Derived purely from
-    the item so no config or schema change is needed.
+    """Which board an item belongs to. An explicit source-level `board`
+    ('tech'|'news') wins; otherwise derive by nature: social/community feeds
+    are news, everything else (releases, blogs, cloud, advisory feeds) is tech.
     """
-    st = it.get("source_type")
-    if st == "social":
-        return "news"
-    if st == "rss" and it.get("category") == "security":
-        return "news"
-    return "tech"
+    board = it.get("board")
+    if board in ("tech", "news"):
+        return board
+    return "news" if it.get("source_type") == "social" else "tech"
 
 
 def _level(it: dict) -> str:
