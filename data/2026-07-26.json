@@ -1,0 +1,1091 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "5101d00a00e29a12",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T16:44:42.340000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-28cd4bb0-20260723",
+      "tags": [],
+      "title": "react 0.0.0-experimental-28cd4bb0-20260723",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-28cd4bb0-20260723"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "4fa338ca1dc12245",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T16:42:21.745000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 19.3.0-canary-28cd4bb0-20260723",
+      "tags": [],
+      "title": "react 19.3.0-canary-28cd4bb0-20260723",
+      "url": "https://www.npmjs.com/package/react/v/19.3.0-canary-28cd4bb0-20260723"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "dbc50bebd0af0ce5",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T16:43:50.784000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-711c445b-20260722",
+      "tags": [],
+      "title": "react 0.0.0-experimental-711c445b-20260722",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-711c445b-20260722"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "7e15b8697cf17a89",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T16:41:17.370000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 19.3.0-canary-711c445b-20260722",
+      "tags": [],
+      "title": "react 19.3.0-canary-711c445b-20260722",
+      "url": "https://www.npmjs.com/package/react/v/19.3.0-canary-711c445b-20260722"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "c4b8c83622b172b7",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T16:50:51.051000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-81e442ea-20260721",
+      "tags": [],
+      "title": "react 0.0.0-experimental-81e442ea-20260721",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-81e442ea-20260721"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "b78737a06639e4a1",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T16:41:44.901000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 19.3.0-canary-81e442ea-20260721",
+      "tags": [],
+      "title": "react 19.3.0-canary-81e442ea-20260721",
+      "url": "https://www.npmjs.com/package/react/v/19.3.0-canary-81e442ea-20260721"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "43d625df868283e7",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T15:43:22.261000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 19.0.8",
+      "tags": [],
+      "title": "react 19.0.8",
+      "url": "https://www.npmjs.com/package/react/v/19.0.8"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "d94032d3cf3cd6ec",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T15:41:58.570000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 19.1.9",
+      "tags": [],
+      "title": "react 19.1.9",
+      "url": "https://www.npmjs.com/package/react/v/19.1.9"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "0273304578764a4c",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T15:41:28.716000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 19.2.8",
+      "tags": [],
+      "title": "react 19.2.8",
+      "url": "https://www.npmjs.com/package/react/v/19.2.8"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "764b92e1c6c3c7af",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-20T16:49:13.475000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-83840902-20260719",
+      "tags": [],
+      "title": "react 0.0.0-experimental-83840902-20260719",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-83840902-20260719"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "bafb11ac1b6c5408",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T14:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "We are pleased to announce the availability of Amazon EC2 G6 instances in the AWS GovCloud (US-East) region on Amazon SageMaker AI inference. G6 instances are powered by up to 8 NVIDIA L4 Tensor Core GPUs, each with 24 GB of memory, and third-generation AMD EPYC processors, delivering up to 2x the deep learning inference performance compared to G4dn instances.  With this region expansion, government agencies and organizations operating in GovCloud can deploy inference endpoints on G6 instances t",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Announcing region expansion of G6 instances on SageMaker AI Inference",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/g6-sagemaker-ai-inference/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "23f4549f38c817f2",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T17:36:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch as a data source, enabling you to query and analyze your search and log analytics data directly alongside your other data assets. With this new connection, you can combine operational search data in OpenSearch with data from sources like Amazon Redshift, Amazon S3, and relational databases - all within a single, governed environment. \nThis integration is particularly valuable when you need to correlate data across analytical and oper",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "bb1b93fb5113c3cc",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-20T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Amazon Web Services (AWS) announces the availability of Amazon EC2 I8ge instances in AWS GovCloud (US-East, US-West) regions. I8ge instances are powered by AWS Graviton4 processors and deliver up to 60% better compute performance compared to previous generation Graviton2-based storage optimized Amazon EC2 instances. I8ge instances use the third generation AWS Nitro SSDs, local NVMe storage, and deliver up to 55% better real-time storage performance per TB compared to previous generation Amazon E",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 I8ge instances are now available in AWS GovCloud (US) Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-i8ge-instances-aws-govcloud-us-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "c57d6a13b6a9244d",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-20T15:28:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Amazon Connect Customer dashboards now display real-time and historical metrics for agent queues. Agent queues are used to directly route contacts to a specific agent. Now, supervisors can track how these agents perform in their own queues. For example, a supervisor notices a spike in contacts queued to a specific agent queue following a series of scheduled callbacks, and reassigns them to avoid long wait times.  Agent queue metrics are available in all AWS commercial and AWS GovCloud (US-West) ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Connect Customer launches metrics for agent queues on analytics dashboards",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-connect/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "fd0f1466c3977c91",
+      "importance": "high",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-20T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Amazon WorkSpaces Applications now supports Microsoft OneDrive for Business and Google Drive as persistent storage options on multi-session fleets. Users streaming on multi-session fleets can now connect their OneDrive or Google Drive accounts and access, save, and sync their cloud-based files directly within their streaming sessions, in addition to the existing home folder backed by Amazon S3.  Multi-session fleets allow multiple users to share a single fleet instance, enabling organizations to",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon WorkSpaces Applications now supports Microsoft OneDrive and Google Drive on Multi-Session fleets",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/storage-multi-session-fleets/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "d86bcc9ca23751e0",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-24T21:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, customers can create Host Resource Groups (HRGs) for EC2 Dedicated Hosts without the previously required step of creating Self-Managed Licenses (SMLs) and associating AMIs through AWS License Manager. \nThis flexibility is particularly valuable for EC2 Mac Instance customers and for customers who need Dedicated Hosts for hardware-level isolation rather than Bring Your Own License (BYOL). Customers with BYOL workloads can continue to create HRGs with SMLs to ensure that only instan",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 Dedicated Hosts now support host resource groups without self-managed licenses",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-dedicated-hosts-hrg/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "39cb9f97d91eff9d",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-24T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda now publishes logs for Lambda Managed Instances (LMI) capacity providers to Amazon CloudWatch Logs, giving you visibility into scaling activity and instance lifecycle operations. LMI enables you to run Lambda functions on Amazon EC2 instances while maintaining serverless operational simplicity. Capacity providers are resources that let you define compute resources that Lambda provisions on your behalf. With capacity provider logs, you can monitor, troubleshoot, and optimize these mana",
+      "tags": [
+        "ec2",
+        "lambda"
+      ],
+      "title": "AWS Lambda now publishes logs for Lambda Managed Instances capacity providers",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-managed-instances-logs/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "8eb330687c716357",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T18:05:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for MySQL&nbsp;now supports version community MySQL 9.7 in the&nbsp;Amazon RDS Database Preview Environment, allowing you to evaluate the latest Release on Amazon RDS for MySQL. This preview environment provides a sandbox where you can test applications and explore new MySQL 9.7 capabilities before they become generally available.  MySQL 9.7 is the latest Long-Term Support release for community MySQL. MySQL Long-Term Support releases include bug fixes, security patches, as well as new",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for MySQL supports MySQL 9.7 in Amazon RDS Database Preview Environment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-mysql-long-term-9-7-rds-database-preview/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "94e95a83f82cfd42",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS announces the general availability of the AWS Lambda Durable Execution SDK for .NET, empowering C# developers to build resilient, long-running workflows using Lambda durable functions. With this SDK, developers can create multi-step applications like payment processing pipelines, AI agent orchestration, and human-in-the-loop approvals directly in their applications without implementing custom progress tracking or integrating external orchestration services.&nbsp; \nLambda durable funct",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda durable execution SDK for .NET is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/lambdadf-dotnet/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "3f741f94856877d6",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Web Services (AWS) announces the availability of Amazon EC2 I8ge instances in AWS Europe (London) and Canada (Central)&nbsp; regions. I8ge instances are powered by AWS Graviton4 processors and deliver up to 60% better compute performance compared to previous generation Graviton2-based storage optimized Amazon EC2 instances. I8ge instances use the third generation AWS Nitro SSDs, local NVMe storage, and deliver up to 55% better real-time storage performance per TB compared to previous gene",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 I8ge instances are now generally available in additional AWS regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-i8ge-additional-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "84f6190e8d0759f8",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T16:24:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, we're announcing that Amazon Elastic VMware Service (Amazon EVS) is now available in the Asia Pacific (Seoul), Europe (Zurich), and Europe (Stockholm)&nbsp;Regions. This expansion provides more options to leverage the scale and flexibility of AWS for running your VMware workloads in the cloud.  Amazon EVS lets you run VMware Cloud Foundation (VCF) directly within your Amazon Virtual Private Cloud (VPC) on EC2 bare-metal instances, powered by AWS Nitro. You can set up a complete VCF enviro",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EVS is now available in additional Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-evs-available-in-additional-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "a72df1b0c3881f6a",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T15:04:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "We are pleased to announce the availability of Amazon EC2 G7e instances in Asia Pacific (Seoul), Europe (London), and Asia Pacific (Tokyo) on Amazon SageMaker AI inference. G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 96 GB of memory per GPU, 5th Generation Intel Xeon processors, and up to 1,600 Gbps of Elastic Fabric Adapter networking bandwidth, delivering up to 2.3x inference performance compared to previous-generation G6e instances.  With this region e",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Announcing region expansion of G7e instances on SageMaker AI inference",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/g7e-sagemaker-ai/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "2e2d4b63da9171c2",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 High Memory U7in-16TB instances (u7in-16tb.224xlarge) are now available in AWS South America (São Paulo) region, and U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Ireland) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-16TB instances offer 16 TiB of DDR5 memory, and U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transac",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 High Memory U7i instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-u7i/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "f18cf108cf9f8c6e",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T21:42:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, the compute optimized Amazon EC2 C7a instances are now available in AWS US West (N. California) Region. C7a instances, powered by 4th Gen AMD EPYC processors (code-named Genoa) with a maximum frequency of 3.7 GHz, deliver up to 50% higher performance compared to C6a instances.  C7a instances offer new processor capabilities such as AVX-512, VNNI, and bfloat16. They feature Double Data Rate 5 (DDR5) memory to enable high-speed access to data in memory and 2.25x more memory bandwid",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C7a instances are now available in the US West (N. California) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7a-instances-us-west-ncalifornia-region/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "e6cf5a137763d356",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T20:55:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, the general-purpose Amazon EC2 M8a instances are available in AWS Asia Pacific (Hyderabad) region. M8a instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to M7a instances.  M8a instances deliver 45% more memory bandwidth compared to M7a instances, making these instances ideal for even latency sensitive workloads. M8a instances de",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M8a instances now available in the Asia Pacific (Hyderabad) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8a-instances-asia-pacific-hyderabad-region/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "3f283ad957ed4a4e",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-24T11:45:17+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "A crafted SVG submitted to Bing's image search ran commands as NT AUTHORITY\\SYSTEM on Microsoft's production image-processing workers, and as root on the Linux machines in the same fleet.\n\nXBOW's testing got the same result on workers across different hosts and network ranges, so the problem sat in Bing's image tier, not on one bad machine. Microsoft issued two critical CVEs, CVE-2026-32194 and",
+      "tags": [],
+      "title": "Bing Images Flaws Let Crafted SVGs Run Commands as SYSTEM on Microsoft's Servers",
+      "url": "https://thehackernews.com/2026/07/bing-images-flaws-let-crafted-svgs-run.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "2320d2a00fa5bc02",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-24T10:09:24+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "The threat actors behind the Golden Chickens malware-as-a-service (MaaS) ecosystem have resurfaced with four new malware families, indicating that the operators are showing no signs of stopping despite extensive public disclosures into their inner workings.\n\nThe malware families in question are: TinyEgg, ChonkyChicken, a modularized variant of ChonkyChicken, and a modified web browser credential",
+      "tags": [],
+      "title": "Golden Chickens Resurfaces With Four New Malware Families and Modular Implants",
+      "url": "https://thehackernews.com/2026/07/golden-chickens-resurfaces-with-four.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "5518fb6b7eb971cc",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T18:36:08+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "A Russian state-supported espionage group spent months reading Western mailboxes through a then-unknown flaw in Zimbra's webmail client.\n\nThe payload goes after the last 90 days of email, the organization's entire email directory, the password saved in the browser and the codes kept for two-factor recovery. Opening the message was enough to start it.\n\nThe NSA, CISA and partner agencies published",
+      "tags": [],
+      "title": "Russian Espionage Group Exploited Zimbra Zero-Day to Steal Mail and 2FA Codes",
+      "url": "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "41beb2597ff339d1",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T14:10:53+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Unit 42 details a Russian cyberespionage campaign targeting  Zimbra webmail servers using JavaScript injection to steal credentials.\nThe post Russian Global Webmail Espionage appeared first on Unit 42.",
+      "tags": [],
+      "title": "Russian Global Webmail Espionage",
+      "url": "https://unit42.paloaltonetworks.com/russian-webmail-espionage/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "fc34dbd20e32ba62",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:20:23+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "An exposed Alibaba Cloud server has revealed a China-nexus operation that Group-IB tracks as JadeProx. The cluster has targeted government, healthcare, and education organizations across Asia and Latin America with a previously undocumented Windows loader called TriBack Loader.\n\nGroup-IB found the server in mid-April 2026 in Alibaba Cloud's Singapore region; it was offline by the time the report",
+      "tags": [],
+      "title": "China-Nexus JadeProx Uses New TriBack Loader in Government and Healthcare Attacks",
+      "url": "https://thehackernews.com/2026/07/china-nexus-jadeprox-uses-new-triback.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "90de07c18f1a7838",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of these vulnerabilities could allow a non-privileged user to escalate privileges or view the credentials of other users.\nThe following versions of Weintek cMT3092X are affected:\n\ncMT3092X firmware &lt;20210218&nbsp;\nEasyWeb &lt;v2.1.20\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 8.8\nWeintek\nWeintek cMT3092X\nReliance on Cookies without Validation and Integrity Checking in a Security Decision, Incorrect Permission Assignment for Critical Resource, P",
+      "tags": [],
+      "title": "Weintek cMT3092X",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-03"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "90fd2e6b9508886a",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of this vulnerability could allow an authenticated attacker to write arbitrary files to restricted system directories outside of the application's intended directory.\nThe following versions of Rockwell Automation ThinManager are affected:\n\nThinManager &gt;=13.0.0|&lt;13.0.7, &gt;=13.1.0|&lt;13.1.5, &gt;=13.2.0|&lt;13.2.4, &gt;=14.0.0|&lt;14.0.2\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 8.1\nRockwell Automation\nRockwell Automation ThinManager\nImpro",
+      "tags": [],
+      "title": "Rockwell Automation ThinManager",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-05"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "aec17661cbedaad5",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Russian State-Supported Cyber Actors Conduct Phishing Campaign Targeting Users of Zimbra Collaboration Suite\nExecutive summary&nbsp;\nA group of Russian state-supported cyber actors has been targeting and compromising various Western government and commercial organizations using the Zimbra Collaboration Suite (ZCS) software since at least July 2025. The Russian state-supported advanced persistent threat (APT) group’s activity is tracked in the cybersecurity community under several names (see Cybe",
+      "tags": [],
+      "title": "Russian State-Supported Cyber Actors Conduct Phishing Campaign Targeting Users of Zimbra Collaboration Suite",
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-204a"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "379af1c80656b323",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of this vulnerability could result in an attacker obtaining confidential information from the device.\nThe following versions of Johnson Controls XAAP Android are affected:\n\nXAAP Android &lt;1.53\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 3.3\nJohnson Controls\nJohnson Controls XAAP Android\nCleartext Storage of Sensitive Information\n\n\n\n\nBackground\n\nCritical Infrastructure Sectors: Critical Manufacturing\nCountries/Areas Deployed: Worldwide\nCompany Hea",
+      "tags": [],
+      "title": "Johnson Controls XAAP Android",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-02"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "4d1fefcb0aa34c14",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of these vulnerabilities could allow an unauthenticated network-adjacent attacker to crash critical IEC 61850 services or execute arbitrary code, disrupting or compromising protection, visibility, and control functions.\nThe following versions of MZ Automation libIEC61850 are affected:\n\nlibIEC61850 &gt;=v1.0.0|&lt;=v1.6.1&nbsp;\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 8.1\nMZ Automation\nMZ Automation libIEC61850\nStack-based Buffer Overflow, Heap-b",
+      "tags": [],
+      "title": "MZ Automation libIEC61850",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-06"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "bdeab1dfbec5889c",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of this vulnerability could cause the parsing process to crash, which will cause a denial of service.\nThe following versions of MZ Automation lib60870 are affected:\n\nlib60870 &lt;=2.4.0\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 8.2\nMZ Automation\nMZ Automation lib60870\nOut-of-bounds Read\n\n\n\n\nBackground\n\nCritical Infrastructure Sectors: Chemical, Energy, Water and Wastewater\nCountries/Areas Deployed: Worldwide\nCompany Headquarters Location: Germany",
+      "tags": [],
+      "title": "MZ Automation lib60870",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-07"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "f1d622034ed0337f",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of these vulnerabilities could allow an attacker with network access to achieve remote code execution.\nThe following versions of Johnson Controls C-CURE 9000 and Victor application server are affected:\n\nC-CURE 9000 and victor &lt;=v2.90_v3.0&nbsp;\nvictor Web &lt;=v7.1&nbsp;\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 9.6\nJohnson Controls\nJohnson Controls C-CURE 9000 and Victor application server\nServer-Side Request Forgery (SSRF), Execution with Un",
+      "tags": [],
+      "title": "Johnson Controls C-CURE 9000 and Victor application server",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "16515121743a2ccc",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "View CSAF\nSummary\nSuccessful exploitation of these vulnerabilities could allow an attacker with access to the IT network to manipulate industrial control devices without requiring physical access, specialized insider knowledge, or advanced tooling.\nThe following versions of Panduit IntraVUE are affected:\n\nIntraVUE &lt;=3.2.1a14&nbsp;\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 10\nPronetiqs\nPanduit IntraVUE\nPlaintext Storage of a Password, Unintended Proxy or Intermediary ('Confused Deputy'",
+      "tags": [],
+      "title": "Panduit IntraVUE",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-04"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "dc5c5aee88921b05",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Google on Thursday announced a new way for users to sign-in to their accounts by letting them take a selfie video.\n\nThe selfie for sign-in, per the tech giant, is another option on top of existing recovery methods to log in to an account, including an email address or a phone number. The idea is to use a video selfie as a way to regain access if a user ever gets locked out or doesn't have access",
+      "tags": [],
+      "title": "Google Adds Selfie Video Recovery for Users Locked Out of Their Accounts",
+      "url": "https://thehackernews.com/2026/07/google-adds-selfie-video-recovery-for.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "b10cb1ecd6b6cd55",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. &nbsp;\n\nCVE-2026-16232 Check Point SmartConsole Improper Authentication Vulnerability\nCVE-2026-50522 Microsoft SharePoint Deserialization of Untrusted Data Vulnerability\n\nThese types of vulnerabilities are a frequent attack vector for malicious cyber actors and pose significant risks to the federal enterprise.\nBinding Operational Directive (BOD) 26-04: Prioritizi",
+      "tags": [],
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/07/22/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "2ca540797f84b65a",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-26T19:30:54+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "An Inside Look at the Relay Market Powering Token Resellers and Fraud\nFascinating investigation by Matt Lenhard into the market that has grown up around reselling LLM tokens at a discount by pooling API keys from various sources.\nThis looks to be mostly a thing in China. Resellers sell access to an LLM proxy that offers significant discounts on regular API pricing, which they achieve by abusing free trials, proxying through unprotected support bots, or sometimes through stolen credit cards or ch",
+      "tags": [],
+      "title": "An Inside Look at the Relay Market Powering Token Resellers and Fraud",
+      "url": "https://simonwillison.net/2026/Jul/26/relay-market/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "76441278750caacb",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-25T22:44:05+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go",
+        "python"
+      ],
+      "summary": "Ruff v0.16.0\nAstral shipped a significant new version of their Ruff Python linting tool a few days ago on July 23rd. I noticed today because my various CI jobs all started failing thanks to new default Ruff checks and my unpinned \"ruff\" dev dependency.\nFrom Brent Westbrook's announcement post:\n\nRuff now enables 413 rules by default, up from 59 in previous versions.\nSince Ruff's default rule set was last modified in v0.1.0, the number of rules in Ruff has grown from 708 to 968. Many of these rule",
+      "tags": [],
+      "title": "Ruff v0.16.0",
+      "url": "https://simonwillison.net/2026/Jul/25/ruff/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "25a79f33334f2b0e",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-25T00:42:59+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "More than any of these eval scores, what is most exciting to me is something else: Opus 5 is our least prompt injectable model yet. It is a bit buried in the system card, but across PI evals and red teaming, Opus 5 is very hard to prompt inject successfully.\n&mdash; Boris Cherny, here's that System Card section, page 73\n\n    Tags: prompt-injection, anthropic, claude, generative-ai, ai, llms, boris-cherny",
+      "tags": [],
+      "title": "Quoting Boris Cherny",
+      "url": "https://simonwillison.net/2026/Jul/25/boris-cherny/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "9ad129712140dfd6",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-24T23:48:50+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing Claude Opus 5\nI've been offline kayaking with sea otters for much of today so I haven't had a chance to put Anthropic's new model Claude Opus 5 through its paces yet. The buzz is positive, and Anthropic's description of it as a \"thoughtful and proactive model that comes close to the frontier intelligence of Claude Fable 5 at half the price\" sounds promising. It's currently leading the Artificial Analysis leaderboard, in front of even Fable 5.\nIt's priced the same as Opus 4.8, and con",
+      "tags": [],
+      "title": "Introducing Claude Opus 5",
+      "url": "https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "5fd66fe78995adc9",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:53:08+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "The first known runaway AI agent - or a very bad marketing stunt?\nMartin Alderson's commentary on the OpenAI accidental cyberattack against Hugging Face includes a couple of details I hadn't considered.\nFirst, Hugging Face offers a truly rich target if you're trying to find potential vulnerabilities that require executing arbitrary code:\n\nHugging Face has an enormous attack surface. They have more interfaces than I can count which run untrusted models and code. While they definitely have investe",
+      "tags": [],
+      "title": "The first known runaway AI agent - or a very bad marketing stunt?",
+      "url": "https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "5721223bc9fd1381",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T04:50:36+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "The Python Package Index (PyPI) now rejects new files being uploaded to releases that are older than 14 days. This restriction was put in place to prevent old and long-stable releases from being poisoned in case publishing tokens or workflows of PyPI projects were compromised. As far as we are aware this has not yet been abused, but there is no technical reason beyond that attackers weren't aware it was possible.\n&mdash; Seth Larson, PyPI blog\n\n    Tags: packaging, python, supply-chain, pypi, se",
+      "tags": [],
+      "title": "Quoting Seth Larson",
+      "url": "https://simonwillison.net/2026/Jul/23/seth-larson/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "bf70d809f9542eee",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
+      "tags": [],
+      "title": "Launching Health in ChatGPT",
+      "url": "https://openai.com/index/health-in-chatgpt"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "96f5dc656a14a806",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "",
+      "tags": [],
+      "title": "Bringing Nunchaku 4-bit Diffusion Inference to Diffusers",
+      "url": "https://huggingface.co/blog/nunchaku-diffusers"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "3d15fa811ba45dbb",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T23:59:01+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "I genuinely believe that if you took an open weights model from 2025 and built a pentest harness for it, it could do this kind of sandbox escape and scan/hack in most networks. This is only surprising because you assume OpenAI has sounder sandboxes.\n&mdash; Thomas Ptacek, doesn't think this even needs a frontier model\n\n    Tags: thomas-ptacek, openai, security, generative-ai, ai-security-research, ai, llms, sandboxing",
+      "tags": [],
+      "title": "Quoting Thomas Ptacek",
+      "url": "https://simonwillison.net/2026/Jul/22/thomas-ptacek/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "e75e48fe5615bbac",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T23:51:33+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "This story is wild. The short version: OpenAI were running a cybersecurity test against an unreleased model, with the model's guardrail features turned off. Rather than solve the test, the model broke its way out of OpenAI's sandbox, then found exploits to break in to Hugging Face, all so it could cheat on the test by stealing the answers.\nAlong the way it helped make the strongest case yet for how the imbalance of model availability is hurting our ability to secure our software.\nHere's what hap",
+      "tags": [],
+      "title": "OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened",
+      "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "a821810ee2b72f16",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T13:38:54+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Google commits $40M in AI tokens and credits for the Genesis Mission",
+      "tags": [],
+      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to the Genesis Mission",
+      "url": "https://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "082c4173c70b0451",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+      "tags": [],
+      "title": "Building AI infrastructure with the Effingham County community",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "932591afba7f1cf5",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishers worldwide.",
+      "tags": [],
+      "title": "How news organizations are using AI to advance their vital missions",
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "577ddf6b90e6d70b",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate discovery.",
+      "tags": [],
+      "title": "Advancing the next era of national science",
+      "url": "https://openai.com/index/advancing-the-next-era-of-national-science"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "839f7a51d7b587ae",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T05:30:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal workflows.",
+      "tags": [],
+      "title": "Introducing OpenAI Presence",
+      "url": "https://openai.com/index/introducing-openai-presence"
+    }
+  ],
+  "meta": {
+    "date": "2026-07-26",
+    "enriched": {},
+    "rendered": {
+      "2026-07-26": "sha256:84f3dce8fd413f32"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 62,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 48,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 831,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1050,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 62,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
