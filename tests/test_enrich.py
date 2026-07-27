@@ -4,7 +4,7 @@ from pathlib import Path
 from radar.config import Config
 from radar.item import Item
 from radar.store import atomic_write_json, new_snapshot, item_to_dict, load_snapshot
-from radar.pipeline.enrich import parse_enrich_response, run_enrich
+from radar.pipeline.enrich import parse_enrich_response, run_enrich, _chunk
 
 NOW = datetime(2026, 7, 17, tzinfo=timezone.utc)
 
@@ -99,3 +99,21 @@ def test_run_enrich_skips_already_enriched(tmp_path):
     fp = FakeProvider(json.dumps({"1": {"summary": "new"}}))
     run_enrich(_cfg(), p, provider=fp)
     assert fp.calls == 0  # nothing to do
+
+
+def test_chunk_splits_into_bounded_groups():
+    assert _chunk(list(range(20)), 8) == [
+        [0, 1, 2, 3, 4, 5, 6, 7],
+        [8, 9, 10, 11, 12, 13, 14, 15],
+        [16, 17, 18, 19],
+    ]
+
+
+def test_chunk_covers_every_item_once():
+    items = list(range(23))
+    chunks = _chunk(items, 5)
+    assert [x for c in chunks for x in c] == items  # order preserved, no dupes
+
+
+def test_chunk_empty_is_empty():
+    assert _chunk([], 8) == []

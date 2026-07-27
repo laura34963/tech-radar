@@ -45,6 +45,12 @@ def _dedupe_fields(fields: dict) -> dict:
     return out
 
 
+def _chunk(items: list, size: int) -> list[list]:
+    """Split items into consecutive sublists of at most `size`. The last sublist
+    may be shorter. Every element appears exactly once; empty input -> []."""
+    return [items[i:i + size] for i in range(0, len(items), size)]
+
+
 def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> dict:
     snap = load_snapshot(snapshot_path)
     if not snap or "meta" not in snap:
