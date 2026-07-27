@@ -1,4 +1,5 @@
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from radar.config import Config
@@ -144,3 +145,57 @@ def test_enrich_chunk_raises_on_provider_error():
     import pytest
     with pytest.raises(RuntimeError):
         _enrich_chunk("backend", chunk, {}, FakeProvider("", fail=True))
+
+
+class PerItemProvider:
+    """Returns a summary for each id it sees in the prompt (`id=<id>`). Optionally
+    raises when a given id appears, to simulate a single failing chunk."""
+    def __init__(self, fail_id=None):
+        self.fail_id, self.calls = fail_id, 0
+
+    def complete(self, system, user):
+        self.calls += 1
+        ids = re.findall(r"id=(\S+)", user)
+        if self.fail_id and self.fail_id in ids:
+            raise RuntimeError("boom")
+        return json.dumps({i: {"summary": f"S-{i}"} for i in ids})
+
+
+def _cfg_chunked(chunk_size, concurrency):
+    return Config(general={}, stack={"packages": ["rails"]},
+                  categories=["backend"], sources=[],
+                  llm={"enabled": True, "max_items_to_enrich": 40,
+                       "enrich_chunk_size": chunk_size,
+                       "enrich_concurrency": concurrency})
+
+
+def test_run_enrich_chunks_and_merges_all_items(tmp_path):
+    p = tmp_path / "s.json"
+    atomic_write_json(p, _snap([_high(str(i)) for i in range(20)]))
+    fp = PerItemProvider()
+    run_enrich(_cfg_chunked(8, 4), p, provider=fp)
+    saved = load_snapshot(p)
+    assert fp.calls == 3  # 20 items / chunk 8 -> 3 chunks
+    for i in range(20):
+        assert saved["items"][i]["llm"]["summary"] == f"S-{i}"
+
+
+def test_run_enrich_isolates_failed_chunk(tmp_path):
+    p = tmp_path / "s.json"
+    atomic_write_json(p, _snap([_high(str(i)) for i in range(20)]))
+    # chunk 8 -> ids 0-7 / 8-15 / 16-19; fail the chunk containing id "10"
+    run_enrich(_cfg_chunked(8, 4), p, provider=PerItemProvider(fail_id="10"))
+    saved = {it["id"]: it for it in load_snapshot(p)["items"]}
+    assert saved["10"].get("llm") is None       # its whole chunk skipped
+    assert saved["8"].get("llm") is None         # same failed chunk
+    assert saved["0"]["llm"]["summary"] == "S-0"  # other chunks enriched
+    assert saved["19"]["llm"]["summary"] == "S-19"
+
+
+def test_run_enrich_clamps_zero_chunk_size(tmp_path):
+    p = tmp_path / "s.json"
+    atomic_write_json(p, _snap([_high(str(i)) for i in range(3)]))
+    fp = PerItemProvider()
+    run_enrich(_cfg_chunked(0, 0), p, provider=fp)  # 0 -> clamp to 1
+    assert fp.calls == 3  # one item per chunk
+    assert load_snapshot(p)["items"][0]["llm"]["summary"] == "S-0"

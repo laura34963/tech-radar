@@ -2,6 +2,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from radar.pipeline.fetch import importance_ge
 from radar.store import load_snapshot, atomic_write_json
@@ -92,24 +93,29 @@ def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> di
     for it in eligible:
         by_cat.setdefault(it["category"], []).append(it)
 
-    log.info("enrich: %d item(s) across %d categor(ies) via LLM",
-             len(eligible), len(by_cat))
-    for n, (cat, cat_items) in enumerate(by_cat.items(), 1):
-        log.info("  [%d/%d] %s (%d item(s))…", n, len(by_cat), cat, len(cat_items))
-        system, user = build_batch_prompt(cat, cat_items, cfg.stack)
-        try:
-            result = parse_enrich_response(provider.complete(system, user))
-            for iid, fields in result.items():
-                if iid in by_id and isinstance(fields, dict):
-                    by_id[iid]["llm"] = _dedupe_fields({
-                        "summary": fields.get("summary") or by_id[iid]["summary"],
-                        "detail": fields.get("detail") or "",
-                        "why_it_matters": fields.get("why_it_matters") or "",
-                        "recommended_action": fields.get("recommended_action") or "",
-                    })
-            snap["meta"].setdefault("enriched", {})[cat] = True
-            log.info("  [%d/%d] %s: enriched", n, len(by_cat), cat)
-        except Exception as e:
-            log.warning("  [%d/%d] %s: enrich failed (kept rule-based) — %s", n, len(by_cat), cat, e)
-        atomic_write_json(snapshot_path, snap)  # checkpoint per category
+    chunk_size = max(1, int(cfg.llm.get("enrich_chunk_size", 8)))
+    concurrency = max(1, int(cfg.llm.get("enrich_concurrency", 4)))
+
+    tasks = [(cat, chunk)
+             for cat, cat_items in by_cat.items()
+             for chunk in _chunk(cat_items, chunk_size)]
+
+    log.info("enrich: %d item(s) in %d chunk(s) across %d categor(ies), concurrency=%d",
+             len(eligible), len(tasks), len(by_cat), concurrency)
+
+    with ThreadPoolExecutor(max_workers=concurrency) as ex:
+        futures = {ex.submit(_enrich_chunk, cat, chunk, cfg.stack, provider): (cat, len(chunk))
+                   for cat, chunk in tasks}
+        for n, fut in enumerate(as_completed(futures), 1):
+            cat, size = futures[fut]
+            try:
+                for iid, fields in fut.result().items():
+                    if iid in by_id:
+                        by_id[iid]["llm"] = fields
+                snap["meta"].setdefault("enriched", {})[cat] = True
+                log.info("  [%d/%d] %s: enriched (%d item(s))", n, len(tasks), cat, size)
+            except Exception as e:
+                log.warning("  [%d/%d] %s: chunk failed (kept rule-based, %d item(s)) — %s",
+                            n, len(tasks), cat, size, e)
+            atomic_write_json(snapshot_path, snap)  # checkpoint per completed chunk
     return snap

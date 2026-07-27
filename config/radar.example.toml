@@ -190,6 +190,10 @@ base_url = "https://api.openai.com/v1"
 model = "gpt-4o-mini"
 api_key_env = "RADAR_LLM_API_KEY"
 max_items_to_enrich = 40
+# Enrichment batching: cap items per LLM call so large categories can't hit the
+# provider timeout, and run chunks concurrently.
+enrich_chunk_size  = 8   # max items packed into one LLM call
+enrich_concurrency = 4   # max concurrent LLM calls
 # Gemini example:
 #   provider = "gemini"
 #   base_url = "https://generativelanguage.googleapis.com"   # optional; this is the default
