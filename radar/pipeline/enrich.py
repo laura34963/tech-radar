@@ -51,6 +51,26 @@ def _chunk(items: list, size: int) -> list[list]:
     return [items[i:i + size] for i in range(0, len(items), size)]
 
 
+def _enrich_chunk(cat: str, chunk_items: list[dict], stack: dict, provider) -> dict[str, dict]:
+    """Enrich one bounded chunk: build the prompt, call the provider, parse, and
+    dedupe. Pure and stateless — no shared state, no disk I/O — so it is safe to
+    run in a thread pool. Returns {item_id: deduped_fields} for ids present in
+    both the response and this chunk. Raises on provider or parse error."""
+    system, user = build_batch_prompt(cat, chunk_items, stack)
+    result = parse_enrich_response(provider.complete(system, user))
+    fallback = {it["id"]: it["summary"] for it in chunk_items}
+    out: dict[str, dict] = {}
+    for iid, fields in result.items():
+        if iid in fallback and isinstance(fields, dict):
+            out[iid] = _dedupe_fields({
+                "summary": fields.get("summary") or fallback[iid],
+                "detail": fields.get("detail") or "",
+                "why_it_matters": fields.get("why_it_matters") or "",
+                "recommended_action": fields.get("recommended_action") or "",
+            })
+    return out
+
+
 def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> dict:
     snap = load_snapshot(snapshot_path)
     if not snap or "meta" not in snap:

@@ -4,7 +4,7 @@ from pathlib import Path
 from radar.config import Config
 from radar.item import Item
 from radar.store import atomic_write_json, new_snapshot, item_to_dict, load_snapshot
-from radar.pipeline.enrich import parse_enrich_response, run_enrich, _chunk
+from radar.pipeline.enrich import parse_enrich_response, run_enrich, _chunk, _enrich_chunk
 
 NOW = datetime(2026, 7, 17, tzinfo=timezone.utc)
 
@@ -117,3 +117,30 @@ def test_chunk_covers_every_item_once():
 
 def test_chunk_empty_is_empty():
     assert _chunk([], 8) == []
+
+
+def test_enrich_chunk_returns_deduped_fields_for_known_ids():
+    chunk = [{"id": "1", "title": "t", "summary": "orig"}]
+    payload = json.dumps({
+        "1": {"summary": "S", "detail": "D", "why_it_matters": "W",
+              "recommended_action": "A"},
+        "999": {"summary": "ignored"},  # not in chunk -> dropped
+    })
+    out = _enrich_chunk("backend", chunk, {}, FakeProvider(payload))
+    assert set(out) == {"1"}
+    assert out["1"] == {"summary": "S", "detail": "D",
+                        "why_it_matters": "W", "recommended_action": "A"}
+
+
+def test_enrich_chunk_falls_back_to_item_summary():
+    chunk = [{"id": "1", "title": "t", "summary": "orig"}]
+    payload = json.dumps({"1": {"detail": "D"}})  # no summary in response
+    out = _enrich_chunk("backend", chunk, {}, FakeProvider(payload))
+    assert out["1"]["summary"] == "orig"
+
+
+def test_enrich_chunk_raises_on_provider_error():
+    chunk = [{"id": "1", "title": "t", "summary": "orig"}]
+    import pytest
+    with pytest.raises(RuntimeError):
+        _enrich_chunk("backend", chunk, {}, FakeProvider("", fail=True))
