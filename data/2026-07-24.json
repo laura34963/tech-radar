@@ -1,0 +1,1690 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "7f6f87d1fceb6125",
+      "importance": "high",
+      "llm": {
+        "detail": "此 canary 版將內建 React 從 711c445b-20260722 升到 28cd4bb0-20260723，並針對 Turbopack 的檔案 watcher 事件處理與批次邏輯做小幅重構。同時當 output: export 搭配 generateStaticParams 回傳空值、不完整或無效值時會直接拋錯，並移除已失效的 experimental.viewTransition flag。",
+        "recommended_action": "若有靜態匯出頁面，可在測試環境試裝此 canary 驗證 generateStaticParams 是否觸發新拋錯，但正式環境請等穩定版。",
+        "summary": "Next.js v16.3.0-canary.95：Turbopack watcher 微調、React 升級，並強化 generateStaticParams 的錯誤檢查。",
+        "why_it_matters": "團隊的 next 專案若使用 output: export 與 generateStaticParams，過去回傳異常值可能靜默產生錯誤的靜態頁；現在會提早拋錯，能在 build 階段就抓到問題。canary 版不建議上正式環境。"
+      },
+      "provider": null,
+      "published": "2026-07-23T23:58:12+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "next",
+        "react",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- Turbopack: Very minor improvements for watcher loop: #96103\n- Turbopack: Refactor watcher event handling and batching logic: #96087\n- fix: remove deprecated url.parse() from custom-server example: #96105\n- Upgrade React from `711c445b-20260722` to `28cd4bb0-20260723`: #96100\n- Throw for empty or incomplete generateStaticParams results with output: export: #95969\n- Throw when generateStaticParams returns invalid values: #95968\n- Remove inert experimental.viewTransition flag: #",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.95",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.95"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "1bfad083bda9836d",
+      "importance": "high",
+      "llm": {
+        "detail": "此 preview 版將 turbo-tasks-fs 的 lib.rs 拆分為較小模組，並以 Arc<PathMap> 與 Box<Path> 讓 InvalidatorMap 更省記憶體。Cache Components 則在未提供 generateStaticParams 值時，將動態參數排除於預渲染之外。",
+        "recommended_action": "",
+        "summary": "Next.js v16.3.0-preview.9：Turbopack 記憶體與模組結構最佳化，Cache Components 調整預渲染參數。",
+        "why_it_matters": "這些多為 Turbopack 內部效能與記憶體優化，對使用 next 的團隊而言短期無直接 API 影響，但預示未來 dev/build 速度改善。"
+      },
+      "provider": null,
+      "published": "2026-07-23T12:43:08+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- [Bench] Add client-trace attribution pass and document metrics to render-pipeline: #95828\n- Turbopack: Split up turbo-tasks-fs/src/lib.rs into smaller modules: #96030\n- Turbopack: Use Arc<PathMap> and Box<Path> to make InvalidatorMap slightly more efficient: #95987\n- Turbopack: Use `swc_core::ecma::utils::prop_name_eq` for a couple of the `next-custom-transforms`: #96035\n- [Cache Components] Exclude dynamic params from prerenders when no generateStaticParams values is provide",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-preview.9",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.9"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "4b41da0f1e494740",
+      "importance": "high",
+      "llm": {
+        "detail": "此版把 partialFallback 行為改由 partialPrefetching flag 控管，並修正 Turbopack 元件 chunk 的 deployment skew protection，同時停止把 sourcesContent 複製進每份序列化 source map。另修正搭配 getStaticProps 的快取頁在 App Shell 出現 cache miss 的問題。",
+        "recommended_action": "",
+        "summary": "Next.js v16.3.0-canary.94：修正 App Shell 於 gSP 快取頁的 cache miss，並將 partialFallback 收攏至 partialPrefetching flag。",
+        "why_it_matters": "cache miss 修正對有大量 gSP 快取頁的 next 專案可改善命中率與延遲；source map 不再重複複製也能縮小產物體積。仍為 canary，行為可能再變動。"
+      },
+      "provider": null,
+      "published": "2026-07-23T00:02:38+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "next",
+        "react",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- [Cache Components] Exclude dynamic params from prerenders when no generateStaticParams values is provided: #95872\n- Gate `partialFallback` behavior behind `partialPrefetching` flag: #96074\n- [turbopack] Fix deployment skew protection for component chunks: #96079\n- Turbopack: stop copying sourcesContent into every serialized source map: #95934\n- Upgrade React from `81e442ea-20260721` to `711c445b-20260722`: #96066\n- fix: cache miss in App Shell for cached pages with gSP: #9566",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.94",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.94"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "a649b9ababe4d31d",
+      "importance": "high",
+      "llm": {
+        "detail": "此版讓工具鏈優先參考 npm_config_user_agent 判斷套件管理器，重寫 next-cache-components-optimizer 為測試驅動的 instant() 迴圈，並在 CI 的 e2e 測試中強制 minimumReleaseAge。Turbopack 也修正 Windows 上遺漏的路徑正規化、內部一律使用 verbatim 路徑。",
+        "recommended_action": "",
+        "summary": "Next.js v16.3.0-preview.8：優先讀取 npm_config_user_agent，並修正 Windows 路徑正規化。",
+        "why_it_matters": "若團隊 CI 或開發環境含 Windows 節點，路徑正規化修正可減少跨平台建置差異；user_agent 偵測則讓 pnpm/yarn/bun 使用者的指令行為更一致。"
+      },
+      "provider": null,
+      "published": "2026-07-22T10:21:37+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- Always consult `npm_config_user_agent` first: #95879\n- Rewrite next-cache-components-optimizer around a test-driven instant() loop: #94721\n- docs: attribute App Shell prefetch to Partial Prefetching: #96003\n- Turbopack: Remove chunk group id from value of chunk groups map: #95142\n- [ci] Enforce minimumReleaseAge in e2e tests that install external dependencies: #95628\n- Turbopack: Fix missing canonicalization of paths and always use verbatim paths internally for Windows: #9566",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-preview.8",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.8"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "eaf10aab2330288c",
+      "importance": "high",
+      "llm": {
+        "detail": "此版還原了先前 #95539「只透過 soft nav 進入的頁面不做 SSR」的變更，代表該最佳化因故被撤回。其餘為 Turbopack 的 chunk group id 移除、Windows 路徑正規化修正與 CI minimumReleaseAge 強制等內部調整。",
+        "recommended_action": "若曾依賴 soft nav 不 SSR 的行為，請勿在此版之後做出相關假設，等行為在穩定版定案。",
+        "summary": "Next.js v16.3.0-canary.93：還原「soft nav 頁面不 SSR」變更，並含 Windows 路徑修正。",
+        "why_it_matters": "被還原的 SSR 行為顯示該路徑仍在反覆調整中，追蹤 canary 的團隊需留意 soft navigation 的渲染行為在版本間不穩定。"
+      },
+      "provider": null,
+      "published": "2026-07-21T23:55:58+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- docs: attribute App Shell prefetch to Partial Prefetching: #96003\n- Turbopack: Remove chunk group id from value of chunk groups map: #95142\n- [ci] Enforce minimumReleaseAge in e2e tests that install external dependencies: #95628\n- Turbopack: Fix missing canonicalization of paths and always use verbatim paths internally for Windows: #95668\n- Revert \"[turbopack] Don't SSR on pages only navigated to through a soft nav (#95539)\": #96028\n- Turbopack: Use `Arc<PathBuf>` for keys in",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.93",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.93"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "346573e9abccbdcb",
+      "importance": "high",
+      "llm": {
+        "detail": "此版讓 Server Actions 在 Edge runtime 也會套用 serverActions.bodySizeLimit，修正 Turbopack 在 i18n 單一語系下的 middleware matcher，並改善 MPA 表單提交驗證效能。同時修正 custom server 內部 redirect 的 origin 設定。",
+        "recommended_action": "若在 Edge runtime 使用 Server Actions，確認 serverActions.bodySizeLimit 設定符合預期上限。",
+        "summary": "Next.js v16.3.0-preview.7：Edge runtime 強制 serverActions.bodySizeLimit，並修正 i18n 單一語系的 middleware matcher。",
+        "why_it_matters": "bodySizeLimit 在 Edge runtime 生效可防止過大 payload 造成資源濫用，對使用 Server Actions 的 next 專案是實質的防護強化。i18n middleware 修正與後續安全版的 locale bypass 議題相關。"
+      },
+      "provider": null,
+      "published": "2026-07-21T18:28:46+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "next",
+        "react",
+        "next.js"
+      ],
+      "summary": "### Example Changes\n\n- fix: error handling and loading states in with-apollo-and-redux example: #91457\n\n### Misc Changes\n\n- Upgrade React from `172742b4-20260716` to `81e442ea-20260721`: #96016\n- Fix Turbopack middleware matcher with i18n single locale: #96014\n- Improve performance of validating MPA form submissions: #96013\n- Enforce `serverActions.bodySizeLimit` for Server Actions in Edge runtime: #96012\n- Set correct origin for internal redirects in custom server: #96011\n- Ensure exotic rewrit",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-preview.7",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-preview.7"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "57a305861a9895e9",
+      "importance": "high",
+      "llm": {
+        "detail": "此 canary 與 v16.3.0-preview.7 對應同一批變更：Server Actions 在 Edge runtime 強制 bodySizeLimit、修正 Turbopack i18n 單一語系 middleware matcher、改善 MPA 表單驗證效能、修正 custom server 內部 redirect origin，以及 React 升級。",
+        "recommended_action": "",
+        "summary": "Next.js v16.3.0-canary.92：內容等同 preview.7，含 Edge bodySizeLimit 與 i18n middleware 修正。",
+        "why_it_matters": "canary 與 preview 為同批內容，追蹤者擇一觀察即可，避免重複驗證同樣變更。"
+      },
+      "provider": null,
+      "published": "2026-07-21T17:51:18+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "next",
+        "react",
+        "next.js"
+      ],
+      "summary": "### Example Changes\n\n- fix: error handling and loading states in with-apollo-and-redux example: #91457\n\n### Misc Changes\n\n- Upgrade React from `172742b4-20260716` to `81e442ea-20260721`: #96016\n- Fix Turbopack middleware matcher with i18n single locale: #96014\n- Improve performance of validating MPA form submissions: #96013\n- Enforce `serverActions.bodySizeLimit` for Server Actions in Edge runtime: #96012\n- Set correct origin for internal redirects in custom server: #96011\n- Ensure exotic rewrit",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.92",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.92"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "6447ae51f789c14b",
+      "importance": "high",
+      "llm": {
+        "detail": "此穩定修補版涵蓋三項 High 等級公告：App Router Server Actions 的阻斷服務（DoS）、使用 Turbopack 且單一語系時的 Middleware / Proxy 繞過，以及 rewrites 中攻擊者可控目標主機名造成的伺服端請求偽造（SSRF）。",
+        "recommended_action": "立即將 16.2.x 線的專案升級至 v16.2.11，並複查 next.config 中含變數 destination 的 rewrites 規則。",
+        "summary": "Next.js v16.2.11：修補多個 High 等級安全漏洞（DoS、middleware bypass、SSRF）。",
+        "why_it_matters": "團隊的 next 專案若採 App Router、Server Actions、i18n 或含動態 destination 的 rewrites，皆直接暴露於這些漏洞；SSRF 與 proxy bypass 尤其可能被用來存取內網或繞過存取控制，屬必須儘速處理。"
+      },
+      "provider": null,
+      "published": "2026-07-21T16:58:28+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "This release contains security fixes for the following advisories:\r\n\r\nHigh:\r\n\r\n- [Denial of Service in App Router using Server Actions](https://github.com/vercel/next.js/security/advisories/GHSA-m99w-x7hq-7vfj)\r\n- [Middleware / Proxy bypass in App Router applications using Turbopack and single locale](https://github.com/vercel/next.js/security/advisories/GHSA-6gpp-xcg3-4w24)\r\n- [Server-Side Request Forgery in rewrites via attacker-controlled destination hostname](https://github.com/vercel/next.j",
+      "tags": [],
+      "title": "vercel/next.js v16.2.11",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "ed1fcc8497b69598",
+      "importance": "high",
+      "llm": {
+        "detail": "此版為 15.x 維護線的 backport，修補與 v16.2.11 相同的三項 High 等級漏洞：Server Actions DoS、Turbopack 單一語系的 Middleware/Proxy 繞過，以及 rewrites 目標主機名造成的 SSRF。",
+        "recommended_action": "若專案仍在 15.x，立即升級至 v15.5.21；若已規劃升 16，可評估直接跳升至 v16.2.11。",
+        "summary": "Next.js v15.5.21：15.x 線的對應安全修補（DoS、middleware bypass、SSRF）。",
+        "why_it_matters": "尚未升級到 16.x 的 next 專案不會被自動涵蓋，必須改用此 15.5.21 才能取得同等修補；停留在舊 15.x 版即帶著已公開的高風險漏洞。"
+      },
+      "provider": null,
+      "published": "2026-07-21T16:58:17+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "This release contains security fixes for the following advisories:\r\n\r\nHigh:\r\n\r\n- [Denial of Service in App Router using Server Actions](https://github.com/vercel/next.js/security/advisories/GHSA-m99w-x7hq-7vfj)\r\n- [Middleware / Proxy bypass in App Router applications using Turbopack and single locale](https://github.com/vercel/next.js/security/advisories/GHSA-6gpp-xcg3-4w24)\r\n- [Server-Side Request Forgery in rewrites via attacker-controlled destination hostname](https://github.com/vercel/next.j",
+      "tags": [],
+      "title": "vercel/next.js v15.5.21",
+      "url": "https://github.com/vercel/next.js/releases/tag/v15.5.21"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "d2c258b8553db30a",
+      "importance": "high",
+      "llm": {
+        "detail": "此修補版（by @eps1lon，#37087）針對 React Server Components 的解碼路徑做效能改善，屬 19.2 線的小版更新，無 API 變更。",
+        "recommended_action": "使用 react 19.2 的專案可安全升級至 19.2.8。",
+        "summary": "React v19.2.8：改善 React Server Components 的解碼效能。",
+        "why_it_matters": "使用 react 19.2 搭配 RSC（如 Next.js App Router）的團隊可獲得 RSC payload 解碼的效能提升，屬低風險純效能修補。"
+      },
+      "provider": null,
+      "published": "2026-07-21T15:49:09+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "## React Server Components\r\n\r\n- Performance improvements when decoding\r\n ([#37087](https://github.com/facebook/react/pull/37087) by @eps1lon)",
+      "tags": [],
+      "title": "facebook/react v19.2.8",
+      "url": "https://github.com/react/react/releases/tag/v19.2.8"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "1366fb75a8ef3554",
+      "importance": "high",
+      "llm": {
+        "detail": "此版將 React Server Components 解碼效能改善（#37088）backport 至 19.1 維護線，內容與 19.2.8 對應，無破壞性變更。",
+        "recommended_action": "若鎖定 react 19.1，可升級至 19.1.9。",
+        "summary": "React v19.1.9：19.1 線的 RSC 解碼效能改善 backport。",
+        "why_it_matters": "仍停留在 react 19.1 的專案可在不升 minor 版的前提下取得相同 RSC 解碼效能提升。"
+      },
+      "provider": null,
+      "published": "2026-07-21T15:48:51+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "## React Server Components\r\n\r\n- Performance improvements when decoding\r\n ([#37088](https://github.com/facebook/react/pull/37088) by @eps1lon)",
+      "tags": [],
+      "title": "facebook/react v19.1.9",
+      "url": "https://github.com/react/react/releases/tag/v19.1.9"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "0f7350cc005def39",
+      "importance": "high",
+      "llm": {
+        "detail": "此版為 19.0 維護線 backport（#37089），同樣改善 React Server Components 的解碼效能，無 API 變更。",
+        "recommended_action": "若被鎖在 react 19.0，可升級至 19.0.8。",
+        "summary": "React v19.0.8：19.0 線的 RSC 解碼效能改善 backport。",
+        "why_it_matters": "受相依限制仍停在 react 19.0 的專案，也能取得同一 RSC 效能修補而不需跨 minor 升級。"
+      },
+      "provider": null,
+      "published": "2026-07-21T15:48:28+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "react",
+        "react"
+      ],
+      "summary": "## React Server Components\r\n\r\n- Performance improvements when decoding\r\n ([#37089](https://github.com/facebook/react/pull/37089) by @eps1lon)",
+      "tags": [],
+      "title": "facebook/react v19.0.8",
+      "url": "https://github.com/react/react/releases/tag/v19.0.8"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "895d70b3f40f5fd8",
+      "importance": "high",
+      "llm": {
+        "detail": "此版把 outputHashSalt 及不可變靜態資產（immutable static assets）設定項自 experimental 提升為正式設定，並修正 cms-contentful 範例未 await draftMode() 的問題。其餘為 Turbopack 內部最佳化與文件更新。",
+        "recommended_action": "留意這些設定將於穩定版改為非 experimental 前綴，屆時更新 next.config 對應鍵名。",
+        "summary": "Next.js v16.3.0-canary.91：outputHashSalt 與 immutable static assets 設定移出 experimental。",
+        "why_it_matters": "設定項脫離 experimental 代表 API 趨於穩定，使用這些快取/資產設定的 next 團隊未來遷移到穩定版時可少改設定鍵名。"
+      },
+      "provider": null,
+      "published": "2026-07-20T23:58:30+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "### Misc Changes\n\n- [turbopack] Skip redundant top-level root updates: #95903\n- [turbopack] Drop unused exports from a CJS module: #95716\n- Turbopack: Simplify parent directory creation retry loop logic: #95835\n- Run Rust doctests in CI: #95911\n- docs: add 'Set up your editor' to the installation guide: #95928\n- fix(cms-contentful): await draftMode() and use Promise<> params type: #95631\n- Move outputHashSalt out of experimental: #95840\n- Move immutable static assets config option out of experim",
+      "tags": [],
+      "title": "vercel/next.js v16.3.0-canary.91",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.91"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "id": "78b71474fa566a6e",
+      "importance": "high",
+      "llm": {
+        "detail": "此為 Next.js 官方 2026 年七月安全發布公告，對應 v16.2.11 與 v15.5.21 等版本所修補的 High 等級漏洞（Server Actions DoS、Turbopack 單一語系 middleware bypass、rewrites SSRF）。",
+        "recommended_action": "依公告盤點所有 next 專案版本，將 15.x 升至 v15.5.21、16.x 升至 v16.2.11 或更新版。",
+        "summary": "July 2026 Security Release：Next.js 七月安全發布公告。",
+        "why_it_matters": "此公告是團隊排定 next 安全升級的權威依據，彙整了需立即處理的漏洞清單與受影響版本範圍。"
+      },
+      "provider": null,
+      "published": "2026-07-20T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "The July 2026 security release for Next.js is now available",
+      "tags": [],
+      "title": "July 2026 Security Release",
+      "url": "https://nextjs.org/blog/july-2026-security-release"
+    },
+    {
+      "board": "tech",
+      "category": "devops",
+      "id": "077edade8376c309",
+      "importance": "high",
+      "llm": {
+        "detail": "此為 1.36 系列的第三個 patch，主要收錄 bug 修復與元件（kubelet、kube-apiserver 等）的穩定性改善，通常也含相依函式庫的安全更新。完整變更列於 CHANGELOG-1.36.md，並附上二進位下載連結。",
+        "recommended_action": "確認叢集若在 1.36.x，排程節點滾動升級至 v1.36.3，並先在 staging 驗證 workload。",
+        "summary": "Kubernetes v1.36.3 patch 版本發布，屬 1.36 穩定分支的維護更新。",
+        "why_it_matters": "若正式環境叢集跑在 1.36 分支，這是最新的建議修補等級；patch 版本保證 API 相容，可安全滾動升級以吸收修補而不影響 Rails/Go/Node 服務。"
+      },
+      "provider": null,
+      "published": "2026-07-23T00:35:52+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "\nSee [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce). Additional binary downloads are linked in the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md).\n\nSee the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md) for more details.\n\n\n\n",
+      "tags": [],
+      "title": "kubernetes/kubernetes v1.36.3",
+      "url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.36.3"
+    },
+    {
+      "board": "tech",
+      "category": "devops",
+      "id": "4b05a0e98f1733c8",
+      "importance": "high",
+      "llm": {
+        "detail": "1.35 分支的第七個 patch，累積修復數量較多，反映該版本已進入成熟維護期。內容以缺陷與安全性修補為主，無新功能或破壞性變更。",
+        "recommended_action": "評估從 1.35 升級到 1.36 的時程，短期先套用 v1.35.7 補齊已知修補。",
+        "summary": "Kubernetes v1.35.7 patch 版本發布，維護較舊的 1.35 穩定分支。",
+        "why_it_matters": "1.35 已非最新次要版本，仍在維護窗口內但接近尾聲；持續留在此分支的團隊應開始規劃升級路徑以免脫離支援。"
+      },
+      "provider": null,
+      "published": "2026-07-22T22:28:35+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "\nSee [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce). Additional binary downloads are linked in the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md).\n\nSee the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md) for more details.\n\n\n\n",
+      "tags": [],
+      "title": "kubernetes/kubernetes v1.35.7",
+      "url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.35.7"
+    },
+    {
+      "board": "tech",
+      "category": "devops",
+      "id": "64c47932988baada",
+      "importance": "high",
+      "llm": {
+        "detail": "作為三個維護分支中最舊者，1.34 的高 patch 號代表其接近支援生命週期終點。此版延續純修補性質，聚焦回歸問題與 CVE 處理。",
+        "recommended_action": "將 1.34 叢集列為優先升級對象，先套 v1.34.10，再規劃跨兩個次版本的分階段升級。",
+        "summary": "Kubernetes v1.34.10 patch 發布，1.34 分支已累積至第十個修補。",
+        "why_it_matters": "1.34 即將或已接近 End-of-Life，仍運行此版的叢集面臨後續不再有安全修補的風險，是技術債的明確訊號。"
+      },
+      "provider": null,
+      "published": "2026-07-22T22:01:08+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "\nSee [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce). Additional binary downloads are linked in the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md).\n\nSee the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md) for more details.\n\n\n\n",
+      "tags": [],
+      "title": "kubernetes/kubernetes v1.34.10",
+      "url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.34.10"
+    },
+    {
+      "board": "tech",
+      "category": "devops",
+      "id": "e58e5890332f9659",
+      "importance": "high",
+      "llm": {
+        "detail": "文章論述隔離（isolation）、政策強制執行（policy enforcement）與受控工具存取（controlled tool access）正成為 AI agent 系統的基礎能力。核心觀點是：對 agent 的約束必須由執行環境硬性攔截，而非依賴 prompt 或模型自律。",
+        "recommended_action": "盤點現有 agent 的工具與雲端權限，套用最小權限並在沙箱或受限 namespace 中執行。",
+        "summary": "探討 agentic 系統應在 runtime 層做「強制執行」而非僅提供「建議」的治理主張。",
+        "why_it_matters": "團隊若導入 AI coding agent 或自動化 agent 存取 CI/CD 與 Kubernetes，等同引入難以預測的執行主體，需以容器隔離與 RBAC/OPA 等 runtime 政策把關其權限邊界。"
+      },
+      "provider": null,
+      "published": "2026-07-22T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Explore governance at the runtime layer and learn why isolation, policy enforcement, and controlled tool access are becoming foundational for agentic systems.",
+      "tags": [],
+      "title": "Runtime Enforcement, Not Runtime Advice",
+      "url": "https://www.docker.com/blog/runtime-enforcement-not-runtime-advice/"
+    },
+    {
+      "board": "tech",
+      "category": "devops",
+      "id": "0de0e71fa5a4602e",
+      "importance": "high",
+      "llm": {
+        "detail": "beta.0 標誌 1.37 進入功能凍結前的測試階段，此時 alpha/beta feature gate 大致底定，適合預覽新特性與 API 變更；此版本不應用於正式環境。",
+        "recommended_action": "在測試叢集部署 v1.37.0-beta.0，跑一次 workload 相容性與 deprecated API 掃描（如 kubent）。",
+        "summary": "Kubernetes v1.37.0-beta.0 發布，開啟下一個次要版本的預覽測試週期。",
+        "why_it_matters": "這是提前檢視 1.37 是否有影響現有 workload 的 API 棄用或行為變更的機會，可及早調整 manifest 與 controller。"
+      },
+      "provider": null,
+      "published": "2026-07-20T23:21:18+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "\nSee [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce). Additional binary downloads are linked in the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md).\n\nSee the [CHANGELOG](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md) for more details.\n\n\n\n",
+      "tags": [],
+      "title": "kubernetes/kubernetes v1.37.0-beta.0",
+      "url": "https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0-beta.0"
+    },
+    {
+      "board": "tech",
+      "category": "devops",
+      "id": "7daa636e30f56ef8",
+      "importance": "high",
+      "llm": {
+        "detail": "文章剖析一起 agent 造成長時間 outage 的事故，並提出以 Docker Sandboxes 搭配 scoped identities 與隔離執行來降低風險。重點在於把 agent 的破壞半徑限制在沙箱內，而非賦予其正式環境的直接存取權。",
+        "recommended_action": "禁止 agent 直接持有 production 憑證，改以短效 scoped 憑證並在隔離沙箱中執行其操作。",
+        "summary": "案例分享：AI coding agent 誤刪正式環境，導致 13 小時停機。",
+        "why_it_matters": "呼應 runtime 強制執行的主張，對正在把自動化 agent 接入 docker/k8s 部署流程的團隊是具體的反面教材，凸顯身分範圍與環境隔離的必要性。"
+      },
+      "provider": null,
+      "published": "2026-07-20T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Learn how an AI coding agent caused a 13-hour outage and how Docker Sandboxes help reduce risk with scoped identities and isolated execution.",
+      "tags": [],
+      "title": "Coding Agent Horror Stories: The Agent That Deleted Production",
+      "url": "https://www.docker.com/blog/coding-agent-horror-stories-the-agent-that-deleted-production/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "9ba2a8705e029970",
+      "importance": "high",
+      "llm": {
+        "detail": "此更新讓使用者能在 EKS Auto Mode 及開源 Karpenter 的 NodePool 上，指定 EFA 網路介面設定並透過 placement groups 控制 EC2 執行個體在 AWS 實體基礎設施上的分布方式。EFA 提供作業系統繞道（OS-bypass）的低延遲、高頻寬節點間通訊，placement groups 則可依 cluster、spread 或 partition 策略調整實例的物理擺放，兩者主要服務於分散式訓練與推論等 HPC 型工作負載。",
+        "recommended_action": "若近期無 GPU 密集或分散式訓練需求，僅需記錄此能力備查；有需求時再於 NodePool 資源中評估加入 EFA 與 placement group 設定。",
+        "summary": "EKS Auto Mode 與 Karpenter 的 node pool 現支援 EC2 placement groups 與 EFA 網路裝置設定。",
+        "why_it_matters": "團隊目前的 k8s/docker 技術棧若在 EKS 上運行一般 Rails/React 服務，這項功能屬於 GPU/HPC 場景專用，對現有 web workload 幾乎無直接影響；但若未來要在既有 EKS 叢集上加入分散式 AI 訓練或推論管線，即可沿用現有 Karpenter 佈建流程而不需另建叢集。"
+      },
+      "provider": "aws",
+      "published": "2026-07-22T14:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "Amazon Elastic Kubernetes Service (EKS) now supports Amazon EC2 placement groups and Elastic Fabric Adapter (EFA) network device configuration for node pools on EKS Auto Mode and the open-source Karpenter project, enabling you to optimize EKS workloads for performance and availability. These capabilities allow you to control EFA network interface configuration and how EC2 instances are physically distributed across AWS infrastructure for distributed training and inference workloads.  With EKS Au",
+      "tags": [
+        "ec2",
+        "eks"
+      ],
+      "title": "Amazon EKS now supports EFA and placement groups on Amazon EKS Auto Mode and Karpenter",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-eks-efa-placement-groups/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "e30c8886f9b39a31",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T23:46:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Elastic Container Service (Amazon ECS)&nbsp;introduces zone-aware routing for ECS Service Connect, enabling customers to reduce cross Availability Zone (AZ) data transfer costs and latency by automatically prioritizing service-to-service traffic within the same AZ. \nWith this launch, ECS Service Connect preferentially routes requests to endpoints in the same AZ as the originating task while dynamically adjusting traffic weights as endpoints scale to maintain balanced load across target se",
+      "tags": [
+        "ecs"
+      ],
+      "title": "Amazon ECS Service Connect now supports Zone-Aware routing",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-service-connect-zone-aware/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "8eb330687c716357",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T18:05:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for MySQL&nbsp;now supports version community MySQL 9.7 in the&nbsp;Amazon RDS Database Preview Environment, allowing you to evaluate the latest Release on Amazon RDS for MySQL. This preview environment provides a sandbox where you can test applications and explore new MySQL 9.7 capabilities before they become generally available.  MySQL 9.7 is the latest Long-Term Support release for community MySQL. MySQL Long-Term Support releases include bug fixes, security patches, as well as new",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for MySQL supports MySQL 9.7 in Amazon RDS Database Preview Environment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-mysql-long-term-9-7-rds-database-preview/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "94e95a83f82cfd42",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS announces the general availability of the AWS Lambda Durable Execution SDK for .NET, empowering C# developers to build resilient, long-running workflows using Lambda durable functions. With this SDK, developers can create multi-step applications like payment processing pipelines, AI agent orchestration, and human-in-the-loop approvals directly in their applications without implementing custom progress tracking or integrating external orchestration services.&nbsp; \nLambda durable funct",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda durable execution SDK for .NET is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/lambdadf-dotnet/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "84f6190e8d0759f8",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T16:24:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, we're announcing that Amazon Elastic VMware Service (Amazon EVS) is now available in the Asia Pacific (Seoul), Europe (Zurich), and Europe (Stockholm)&nbsp;Regions. This expansion provides more options to leverage the scale and flexibility of AWS for running your VMware workloads in the cloud.  Amazon EVS lets you run VMware Cloud Foundation (VCF) directly within your Amazon Virtual Private Cloud (VPC) on EC2 bare-metal instances, powered by AWS Nitro. You can set up a complete VCF enviro",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EVS is now available in additional Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-evs-available-in-additional-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "a72df1b0c3881f6a",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T15:04:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "We are pleased to announce the availability of Amazon EC2 G7e instances in Asia Pacific (Seoul), Europe (London), and Asia Pacific (Tokyo) on Amazon SageMaker AI inference. G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 96 GB of memory per GPU, 5th Generation Intel Xeon processors, and up to 1,600 Gbps of Elastic Fabric Adapter networking bandwidth, delivering up to 2.3x inference performance compared to previous-generation G6e instances.  With this region e",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Announcing region expansion of G7e instances on SageMaker AI inference",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/g7e-sagemaker-ai/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "bafb11ac1b6c5408",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T14:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "We are pleased to announce the availability of Amazon EC2 G6 instances in the AWS GovCloud (US-East) region on Amazon SageMaker AI inference. G6 instances are powered by up to 8 NVIDIA L4 Tensor Core GPUs, each with 24 GB of memory, and third-generation AMD EPYC processors, delivering up to 2x the deep learning inference performance compared to G4dn instances.  With this region expansion, government agencies and organizations operating in GovCloud can deploy inference endpoints on G6 instances t",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Announcing region expansion of G6 instances on SageMaker AI Inference",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/g6-sagemaker-ai-inference/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "2e2d4b63da9171c2",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 High Memory U7in-16TB instances (u7in-16tb.224xlarge) are now available in AWS South America (São Paulo) region, and U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS Europe (Ireland) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-16TB instances offer 16 TiB of DDR5 memory, and U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transac",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 High Memory U7i instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-high-memory-u7i/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "f18cf108cf9f8c6e",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T21:42:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, the compute optimized Amazon EC2 C7a instances are now available in AWS US West (N. California) Region. C7a instances, powered by 4th Gen AMD EPYC processors (code-named Genoa) with a maximum frequency of 3.7 GHz, deliver up to 50% higher performance compared to C6a instances.  C7a instances offer new processor capabilities such as AVX-512, VNNI, and bfloat16. They feature Double Data Rate 5 (DDR5) memory to enable high-speed access to data in memory and 2.25x more memory bandwid",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C7a instances are now available in the US West (N. California) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7a-instances-us-west-ncalifornia-region/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "e6cf5a137763d356",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T20:55:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, the general-purpose Amazon EC2 M8a instances are available in AWS Asia Pacific (Hyderabad) region. M8a instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to M7a instances.  M8a instances deliver 45% more memory bandwidth compared to M7a instances, making these instances ideal for even latency sensitive workloads. M8a instances de",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M8a instances now available in the Asia Pacific (Hyderabad) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8a-instances-asia-pacific-hyderabad-region/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "86cc09be7fff9bff",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T19:55:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 M8id instances are now available in (Ireland). These instances are powered by custom Intel Xeon 6 processors and deliver up to 43% higher performance and 3.3x more memory bandwidth compared to previous generation M6id instances.  M8id instances offer up to 384 vCPUs, 1.5TiB of memory, and 22.8TB of NVMe SSD storage, 3x more than previous generation instances. These instances deliver up to 46% higher performance for I/O intensive database workloads, and up to 30% faster query results f",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M8id instances are now available in Europe (Ireland) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m8id-europe-ireland/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "8603aa14c1a3f8f7",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T19:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Entity Resolution now supports real-time matching with advanced matching workflows, enabling customers to match records in milliseconds using complex rulesets through the GenerateMatchId API. Previously, real-time matching was limited to simple rule-based workflows, while advanced rulesets—which support operators like Exact and ExactManyToMany combined with AND/OR logic—could only be used for batch processing that took minutes to hours. This created a critical gap for customers needing real-",
+      "tags": [
+        "rds"
+      ],
+      "title": "AWS Entity Resolution now supports advanced real-time matching",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-entity-resolution/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "c0a512a39cf06209",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T18:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda durable functions now supports encryption of durable execution data with an AWS Key Management Service (AWS KMS) customer managed key. Lambda durable functions&nbsp;lets you build long-running, reliable workflows directly in your Lambda function code with automatic state management. Lambda encrypts execution state at rest by default with an AWS owned key.&nbsp;Now with support for AWS KMS, you can choose and manage the encryption key yourself. \nIf you operate in regulated industries s",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda durable functions now supports customer managed key encryption",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/durablefunctions-cmk/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "58c36b8bbb9993bd",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-22T07:45:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for Microsoft SQL Server 2016 SP3+GDR KB5089271 (RDS version 13.00.6490.1.v1), SQL Server 2017 CU31+GDR KB5090354 (RDS version 14.00.3530.2.v1), SQL Server 2019 CU32+GDR KB5090407 (RDS version 15.00.4470.1.v1) and SQL Server 2022 CU25 KB5081477 (RDS version 16.00.4255.1.v1).  The GDR u",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS now supports the latest CU and GDR updates for Microsoft SQL Server",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-supports-latest-cu-gdr-microsoft-sql-server"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "cf16bfc2e22d8c4e",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R6in and R6idn instances are available in AWS Europe (Paris) and Canada (Central) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System, deliver up to 200Gbps network bandwidth, 2x more network bandwidth, and up to 2x higher packet-processing performance over comparable fifth-generation instances.&nbsp; \nCustomers can use R6in and R6idn insta",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R6in and R6idn instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-r6in-r6idn/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "f81827f2eca67e9f",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M6in and M6idn instances are available in AWS Asia Pacific (Hyderabad) and South America (Sao Paulo) regions. These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System, deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable fifth-generation instances.&nbsp; \nCustomers can use M6in and M6idn instances to scale their performa",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M6in and M6idn instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-m6in-m6idn/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "336fd8b333156f23",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C6in instances are available in AWS Asia Pacific (Taipei). These sixth-generation network optimized instances, powered by 3rd Generation Intel Xeon Scalable processors and built on the AWS Nitro System, deliver up to 200Gbps network bandwidth, for 2x more network bandwidth over comparable fifth-generation instances.&nbsp; &nbsp; Customers can use C6in instances to scale the performance of applications such as network virtual appliances (f",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C6in instances are now available in Asia Pacific (Taipei) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c6in/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "23f4549f38c817f2",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T17:36:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch as a data source, enabling you to query and analyze your search and log analytics data directly alongside your other data assets. With this new connection, you can combine operational search data in OpenSearch with data from sources like Amazon Redshift, Amazon S3, and relational databases - all within a single, governed environment. \nThis integration is particularly valuable when you need to correlate data across analytical and oper",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon SageMaker Unified Studio now supports Amazon OpenSearch",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-sagemaker-unified/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "6deaf0ce0043f1af",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Elastic Container Service (Amazon ECS) now supports built-in blue/green, linear, and canary deployment strategies in the AWS European Sovereign Cloud, making software updates for containerized applications safer and allowing you to release new application versions faster with greater confidence. Built directly into Amazon ECS, these capabilities eliminate the need for custom deployment tooling while providing production-ready controls including deployment lifecycle hooks, bake time, and q",
+      "tags": [
+        "ecs"
+      ],
+      "title": "Amazon ECS advanced deployment strategies now available in AWS European Sovereign Cloud",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/ecs-adv-deployments-eu-sovereign-cloud/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "id": "cf69370f58699244",
+      "importance": "medium",
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-21T15:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, Amazon Elastic Container Service (Amazon ECS) introduces Action Logs, a new observability feature that delivers detailed, timestamped records of the actions Amazon ECS performs on behalf of customers during service deployments and ECS Managed Daemon updates. By surfacing service-side operations that were previously invisible, Action Logs help you monitor and troubleshoot your workloads directly, without contacting AWS Support or manually correlating data from multiple sources. \nWith Actio",
+      "tags": [
+        "ecs",
+        "rds"
+      ],
+      "title": "Amazon ECS now provides Action Logs for deployment and orchestration visibility",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-action-logs/"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "966fff0b533a271e",
+      "importance": "critical",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-24T04:14:38.576623+00:00",
+      "severity": "critical",
+      "source_type": "security",
+      "stack_match": [
+        "react",
+        "next",
+        "react",
+        "next.js"
+      ],
+      "summary": "Next.js is vulnerable to RCE in React flight protocol",
+      "tags": [],
+      "title": "GHSA-9qr9-h5gf-34mp: next",
+      "url": "https://github.com/facebook/react/security/advisories/GHSA-fv66-9v8q-g76r"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "6740ad76c34aae4f",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:34.204475+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+      "tags": [],
+      "title": "GHSA-89xv-2m56-2m9x: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-89xv-2m56-2m9x"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "797e627cd9224c24",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:33.364661+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+      "tags": [],
+      "title": "GHSA-p9j2-gv94-2wf4: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-p9j2-gv94-2wf4"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "6a079d9da84261dd",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:32.057629+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Middleware / Proxy bypass in App Router applications using Turbopack and single locale",
+      "tags": [],
+      "title": "GHSA-6gpp-xcg3-4w24: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-6gpp-xcg3-4w24"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "56321b7962fc9071",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:31.841651+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Denial of Service in App Router using Server Actions",
+      "tags": [],
+      "title": "GHSA-m99w-x7hq-7vfj: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-m99w-x7hq-7vfj"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "7b6143d7907f22cc",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:40.307294+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+      "tags": [],
+      "title": "GHSA-gcfj-64vw-6mp9: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-gcfj-64vw-6mp9"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "184da473e29c7dad",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-20T12:46:22.030126+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "axios's shouldBypassProxy does not recognize IPv4-mapped IPv6 addresses, allowing NO_PROXY bypass (incomplete fix for CVE-2025-62718)",
+      "tags": [],
+      "title": "GHSA-pjwm-pj3p-43mv: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-pjwm-pj3p-43mv"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "67d5dc0782386890",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-20T05:15:39+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "ruby"
+      ],
+      "summary": "Cybersecurity researchers have flagged a new software supply chain attack codenamed SleeperGem targeting the Ruby ecosystem after three malicious gems were published to RubyGems with the end goal of serving additional payloads.\n\nThe rogue gems are listed below -\n\n\n  git_credential_manager (versions 2.8.0, 2.8.1, 2.8.2, 2.8.3) - Published on July 18, 2026\n  Dendreo (versions 1.1.3, 1.1.4) -",
+      "tags": [],
+      "title": "SleeperGem Uses Three Malicious RubyGems Packages to Target Developer Machines",
+      "url": "https://thehackernews.com/2026/07/sleepergem-uses-three-malicious.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "id": "89f3cdde9df9a892",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-19T20:42:49+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "nginx"
+      ],
+      "summary": "F5 has shipped fixes for a critical nginx flaw that lets a remote, unauthenticated attacker trigger a heap buffer overflow in the worker process with crafted HTTP requests. CVE-2026-42533 was patched on July 15 in nginx 1.30.4 (stable) and 1.31.3 (mainline), and in NGINX Plus 37.0.3.1; anyone on an earlier build should upgrade.\n\nTriggering it can crash or restart the worker, causing a denial of",
+      "tags": [],
+      "title": "Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Execution",
+      "url": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "072bb0d740fa11bf",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:34.590350+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+      "tags": [],
+      "title": "GHSA-4633-3j49-mh5q: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-4633-3j49-mh5q"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "07eee98c0ec38cc2",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:33.632285+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Denial of Service in the Image Optimization API using SVGs",
+      "tags": [],
+      "title": "GHSA-q8wf-6r8g-63ch: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-q8wf-6r8g-63ch"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "e8e7a4ea38840ea1",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:33.305041+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
+      "tags": [],
+      "title": "GHSA-68g3-v927-f742: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-68g3-v927-f742"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "4e641fa251b82eb5",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:32.391926+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
+      "tags": [],
+      "title": "GHSA-4c39-4ccg-62r3: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-4c39-4ccg-62r3"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "5562bdda6ed32289",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:29:32.290965+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "next",
+        "next.js"
+      ],
+      "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+      "tags": [],
+      "title": "GHSA-955p-x3mx-jcvp: next",
+      "url": "https://github.com/vercel/next.js/security/advisories/GHSA-955p-x3mx-jcvp"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "5a5fa72cf4c0d5d5",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:41.870042+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Prototype pollution gadgets can alter axios request construction",
+      "tags": [],
+      "title": "GHSA-mmx7-hfxf-jppx: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-mmx7-hfxf-jppx"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "d243fae9c832289f",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:41.685336+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+      "tags": [],
+      "title": "GHSA-f4gw-2p7v-4548: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-f4gw-2p7v-4548"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "6b8bfc0a4bb7996c",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:41.338458+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: HTTP/2 streamed uploads bypass `maxBodyLength`",
+      "tags": [],
+      "title": "GHSA-mwf2-3pr3-8698: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-mwf2-3pr3-8698"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "b9d31f9ed8ebffb3",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:41.210137+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Nested axios option objects can consume polluted prototype values",
+      "tags": [],
+      "title": "GHSA-7q8q-rj6j-mhjq: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-7q8q-rj6j-mhjq"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "ec0794185ef0ccaf",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:41.082666+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+      "tags": [],
+      "title": "GHSA-42h9-826w-cgv3: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-42h9-826w-cgv3"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "id": "d0318751767b37bd",
+      "importance": "medium",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T02:59:40.895475+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios form serializer maxDepth bypass via {} metatoken",
+      "tags": [],
+      "title": "GHSA-hcpx-6fm6-wx23: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-hcpx-6fm6-wx23"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "5fd66fe78995adc9",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T22:53:08+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "The first known runaway AI agent - or a very bad marketing stunt?\nMartin Alderson's commentary on the OpenAI accidental cyberattack against Hugging Face includes a couple of details I hadn't considered.\nFirst, Hugging Face offers a truly rich target if you're trying to find potential vulnerabilities that require executing arbitrary code:\n\nHugging Face has an enormous attack surface. They have more interfaces than I can count which run untrusted models and code. While they definitely have investe",
+      "tags": [],
+      "title": "The first known runaway AI agent - or a very bad marketing stunt?",
+      "url": "https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "bf70d809f9542eee",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
+      "tags": [],
+      "title": "Launching Health in ChatGPT",
+      "url": "https://openai.com/index/health-in-chatgpt"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "96f5dc656a14a806",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "",
+      "tags": [],
+      "title": "Bringing Nunchaku 4-bit Diffusion Inference to Diffusers",
+      "url": "https://huggingface.co/blog/nunchaku-diffusers"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "3d15fa811ba45dbb",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T23:59:01+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "I genuinely believe that if you took an open weights model from 2025 and built a pentest harness for it, it could do this kind of sandbox escape and scan/hack in most networks. This is only surprising because you assume OpenAI has sounder sandboxes.\n&mdash; Thomas Ptacek, doesn't think this even needs a frontier model\n\n    Tags: thomas-ptacek, openai, security, generative-ai, ai-security-research, ai, llms, sandboxing",
+      "tags": [],
+      "title": "Quoting Thomas Ptacek",
+      "url": "https://simonwillison.net/2026/Jul/22/thomas-ptacek/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "e75e48fe5615bbac",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T23:51:33+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "This story is wild. The short version: OpenAI were running a cybersecurity test against an unreleased model, with the model's guardrail features turned off. Rather than solve the test, the model broke its way out of OpenAI's sandbox, then found exploits to break in to Hugging Face, all so it could cheat on the test by stealing the answers.\nAlong the way it helped make the strongest case yet for how the imbalance of model availability is hurting our ability to secure our software.\nHere's what hap",
+      "tags": [],
+      "title": "OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened",
+      "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "082c4173c70b0451",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+      "tags": [],
+      "title": "Building AI infrastructure with the Effingham County community",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "932591afba7f1cf5",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T13:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishers worldwide.",
+      "tags": [],
+      "title": "How news organizations are using AI to advance their vital missions",
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "577ddf6b90e6d70b",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next"
+      ],
+      "summary": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate discovery.",
+      "tags": [],
+      "title": "Advancing the next era of national science",
+      "url": "https://openai.com/index/advancing-the-next-era-of-national-science"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "839f7a51d7b587ae",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T05:30:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal workflows.",
+      "tags": [],
+      "title": "Introducing OpenAI Presence",
+      "url": "https://openai.com/index/introducing-openai-presence"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "389ebd02d2834f48",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-22T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "NTT DATA Group uses ChatGPT Enterprise and Codex to help 9,000 employees automate work, cut incident analysis to 30 minutes, and scale secure AI adoption.",
+      "tags": [],
+      "title": "NTT DATA Group cuts incident analysis to 30 minutes with Codex",
+      "url": "https://openai.com/index/ntt-data"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "3064e426d18ccd85",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T17:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
+      "tags": [],
+      "title": "Introducing the ChatGPT for small business program",
+      "url": "https://openai.com/index/introducing-chatgpt-small-business-program"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "a9044d63de90cb98",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T15:16:30+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
+      "tags": [],
+      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "url": "https://deepmind.google/blog/introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "1611d485eafec99f",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T14:22:27+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Nativ: Run AI models locally on your Mac\nPrince Canuma is the developer behind the excellent MLX-VLM Python library for running vision-LLMs using MLX on a Mac.\nI'm really excited about his new project, which wraps MLX in a full macOS desktop application. It's similar in shape to LM Studio, providing both a chat interface and a localhost API server for accessing models.\nThe app picked up MLX models I had already tried that were present in my Hugging Face cache directory, which was a nice touch.\n\n",
+      "tags": [],
+      "title": "Nativ: Run AI models locally on your Mac",
+      "url": "https://simonwillison.net/2026/Jul/21/nativ/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "07d858f5b61f2e83",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T12:54:02+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Earlier this month I hosted a fireside chat session at the AI Engineer World's Fair with Cat Wu and Thariq Shihipar from Anthropic's Claude Code team. We talked about Claude Code, Claude Tag, Fable, coding agent security, evals, tool design, and how Anthropic use these tools themselves.\nThe full video of the session is now available on YouTube. Below is an edited copy of the transcript, with extra links and my own bolded highlights.\n \n\nA few top-level notes if you don't want to watch the video o",
+      "tags": [],
+      "title": "A Fireside Chat with Cat and Thariq from the Claude Code team",
+      "url": "https://simonwillison.net/2026/Jul/21/cat-and-thariq/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "d925d8c91f460a44",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defenders.",
+      "tags": [],
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "69e481323262afa1",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-21T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC, bringing global leadership in finance, technology, and governance.",
+      "tags": [],
+      "title": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC",
+      "url": "https://openai.com/index/david-velez-robin-vince-join-openai-boards"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "id": "a5ab872c216c2f94",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-20T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI shares lessons from deploying long-running AI models, highlighting new safety risks, observed failures, and improved safeguards through iterative deployment.",
+      "tags": [],
+      "title": "Safety and alignment in an era of long-horizon models",
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "f8697401d95d0607",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-20T03:47:59+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next"
+      ],
+      "summary": "We have been having extensive discussions around open source strategy. We will discuss it more at our next board meeting, but one thing we’d like to do soon is to create a language model with the approximate capability of GPT-3 that can run locally on consumer hardware and release that. We’d like to do it soon, before Stability or someone else does. In general, we think this helps discourage others from releasing similarly-powerful models, and makes it harder for new efforts to get funded.\n&mdas",
+      "tags": [],
+      "title": "Quoting Sam Altman",
+      "url": "https://simonwillison.net/2026/Jul/20/sam-altman/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "746ff2a79bb880c4",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-19T05:06:21+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "AI Mania Is Eviscerating Global Decision-Making\nHere's an entertaining perspective from Nik Suresh on the AI mania that is overwhelming the large companies that he consults with. It's crammed with spicy anecdotes from anonymous sources.\n\nIn one extreme case, I have seen an executive confess that they had never even used ChatGPT or any AI tool in their life, immediately after producing a technical strategy for an organisation with $2B+ in revenue which was entirely centered around AI.\n\nHere's a r",
+      "tags": [],
+      "title": "AI Mania Is Eviscerating Global Decision-Making",
+      "url": "https://simonwillison.net/2026/Jul/19/ai-mania/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "id": "eb24893336d648f2",
+      "importance": "high",
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-19T03:54:09+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "In Rewriting Bun in Rust Jarred Sumner made the following claim:\n\nClaude Code v2.1.181 (released June 17th) and later use the Rust port of Bun. Startup got 10% faster on Linux but otherwise, barely anyone noticed. Boring is good.\n\nI decided to have a poke at my own Claude Code installation to see if I could find evidence that it was using Bun written in Rust.\nI found these two commands convincing:\nstrings ~/.local/bin/claude | grep -m1 'Bun v1'\n\nFor me this outputs Bun v1.4.0 (macOS arm64). The ",
+      "tags": [],
+      "title": "Claude Code uses Bun written in Rust now",
+      "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/#atom-everything"
+    }
+  ],
+  "meta": {
+    "date": "2026-07-24",
+    "enriched": {
+      "cloud": true,
+      "devops": true,
+      "frontend": true
+    },
+    "rendered": {
+      "2026-07-24": "sha256:15b36a9ff70cd20d"
+    },
+    "schema_version": 1,
+    "sources": {
+      "facebook/react": {
+        "count": 10,
+        "status": "ok"
+      },
+      "ghsa": {
+        "count": 198,
+        "status": "ok"
+      },
+      "golang/go": {
+        "count": 0,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:backend:rails OR ruby OR golang": {
+        "count": 1,
+        "status": "ok"
+      },
+      "hn:devops:nginx OR docker OR kubernetes OR k8s": {
+        "count": 0,
+        "status": "ok"
+      },
+      "hn:frontend:react OR next.js OR typescript": {
+        "count": 2,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://blog.nginx.org/feed": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://go.dev/blog/feed.atom": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 831,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://kubernetes.io/feed.xml": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://nextjs.org/feed.xml": {
+        "count": 69,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1050,
+        "status": "ok"
+      },
+      "https://rubyonrails.org/feed.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.docker.com/blog/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "kubernetes/kubernetes": {
+        "count": 10,
+        "status": "ok"
+      },
+      "moby/moby": {
+        "count": 10,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 205,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "vercel/next.js": {
+        "count": 10,
+        "status": "ok"
+      }
+    }
+  }
+}
