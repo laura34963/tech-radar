@@ -1,7 +1,7 @@
 from datetime import datetime, timezone, timedelta
 from radar.item import Item
-from radar.pipeline.fetch import (importance_ge, within_lookback, score_importance,
-                                   stack_matches, dedupe, rank_and_truncate)
+from radar.pipeline.fetch import (importance_ge, within_lookback, dedupe,
+                                  rank_and_truncate)
 
 NOW = datetime(2026, 7, 17, tzinfo=timezone.utc)
 
@@ -22,36 +22,6 @@ def test_importance_ge():
 def test_within_lookback():
     assert within_lookback(NOW - timedelta(days=3), NOW, 7)
     assert not within_lookback(NOW - timedelta(days=8), NOW, 7)
-
-
-def test_stack_matches_by_substring():
-    it = _item(title="Rails 7.2 released", summary="")
-    assert stack_matches(it, {"packages": ["rails", "sidekiq"]}) == ["rails"]
-
-
-def test_score_importance_precedence():
-    assert score_importance(_item(severity="critical"), {}) == "critical"
-    assert score_importance(_item(title="rails x"), {"packages": ["rails"]}) == "high"
-    assert score_importance(_item(source_type="rss"), {}) == "low"
-    assert score_importance(_item(source_type="github"), {}) == "medium"
-
-
-def test_category_keywords_boost_matching_item_to_high():
-    kw = {"ai": ["llm", "claude"]}
-    # a plain rss item that would otherwise score "low" is boosted to "high"
-    # when it matches a keyword for its own category
-    assert score_importance(_item(category="ai", title="New Claude 5 model"), {}, kw) == "high"
-
-
-def test_category_keywords_do_not_boost_non_matching_item():
-    kw = {"ai": ["llm", "claude"]}
-    assert score_importance(_item(category="ai", title="unrelated musings"), {}, kw) == "low"
-
-
-def test_category_keywords_are_scoped_to_their_category():
-    kw = {"ai": ["claude"]}
-    # the "ai" keywords must not boost an item in another category
-    assert score_importance(_item(category="backend", title="claude"), {}, kw) == "low"
 
 
 def test_dedupe_keeps_one_per_id():

@@ -4,6 +4,7 @@ from dataclasses import replace
 from datetime import datetime, timedelta
 from pathlib import Path
 from radar.item import Item, IMPORTANCE_ORDER
+from radar.match import category_matches, score_importance, stack_matches
 from radar.adapters import ADAPTERS
 from radar.store import (new_snapshot, load_snapshot, atomic_write_json,
                          item_to_dict, item_from_dict)
@@ -17,32 +18,6 @@ def importance_ge(a: str, b: str) -> bool:
 
 def within_lookback(published: datetime, now: datetime, days: int) -> bool:
     return published >= now - timedelta(days=days)
-
-
-def stack_matches(it: Item, stack: dict) -> list[str]:
-    hay = f"{it.title} {it.summary} {it.url}".lower()
-    terms = stack.get("packages", []) + stack.get("frameworks", []) + stack.get("languages", [])
-    return [t for t in terms if t.lower() in hay]
-
-
-def category_matches(it: Item, category_keywords: dict) -> list[str]:
-    """Keywords hit for the item's OWN category. Unlike stack_matches (global),
-    this is scoped per-category so an 'ai' keyword can't boost a security item."""
-    terms = (category_keywords or {}).get(it.category, [])
-    if not terms:
-        return []
-    hay = f"{it.title} {it.summary} {it.url}".lower()
-    return [t for t in terms if t.lower() in hay]
-
-
-def score_importance(it: Item, stack: dict, category_keywords: dict | None = None) -> str:
-    if it.severity:
-        return it.severity
-    if stack_matches(it, stack) or category_matches(it, category_keywords):
-        return "high"
-    if it.source_type in ("github", "cloud", "social", "registry"):
-        return "medium"
-    return "low"
 
 
 def dedupe(items: list[Item]) -> list[Item]:
