@@ -60,9 +60,11 @@ arbitrarily. Measured against the real `output/data/2026-07-27.json` snapshot (8
 
 Deliberately excluded after measurement (see *Rejected alternatives*):
 
-- A numeric composite relevance score.
+- A numeric composite relevance score. Measured as useless here: it can only combine
+  signals `relevance_key` already uses, and re-weighting keyword counts cannot separate PR
+  from substance when the counts themselves are the bad signal.
 - Cross-run continuity tracking (`first_seen` / `seen_count`).
-- LLM-based relevance filtering.
+- LLM-based relevance filtering — deferred to its own follow-up spec, not rejected.
 
 ## Goals
 
@@ -77,7 +79,7 @@ Deliberately excluded after measurement (see *Rejected alternatives*):
   config can be tuned from evidence rather than guesswork.
 
 Target on the 2026-07-27 snapshot: 51 cards → 30, with "also noted" **growing** from 32 to
-42 as demoted items land there. Only the 11 items removed by exclusion keywords leave the
+38 as demoted items land there. Only the 15 items removed by exclusion keywords leave the
 snapshot; the source-fairness pass discards nothing.
 
 Note on Problem 1: this design does **not** change how cards are ordered. It attacks tier
@@ -174,7 +176,12 @@ global   = ["fireside chat", "joins the board"]
 # "PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview Environment".
 frontend = ["canary", "preview", "nightly"]
 devops   = ["beta", "alpha"]
-ai       = ["small business", "partner with"]
+# The `ai` list is the corporate-PR filter, and it is where this mechanism pays off most.
+# Measured on 2026-07-27: these phrases take openai.com from 9 card-tier items to 4, and
+# all 4 survivors are substantive. Keep broad words like `community` and `program` scoped
+# to this category — globally they would shred legitimate cloud and devops items.
+ai       = ["small business", "joins the boards", "join the boards", "board of directors",
+            "national science", "news organizations", "community", "program", "anniversary"]
 ```
 
 Semantics:
@@ -250,12 +257,13 @@ descending. The match count is a deliberate addition to the existing
 `_rank_key` — see the honest limitation below. Both fields are already computed during
 scoring, so it costs nothing. `fetch._rank_key` is changed to delegate to `relevance_key`
 so the pipeline has a single notion of rank; on real data this carries no behavioral change,
-because `rank_and_truncate` currently truncates nothing (72 items in, 72 out at
+because `rank_and_truncate` currently truncates nothing (68 items in, 68 out at
 `max_items_per_category = 20`).
 
-**Honest limitation: "merit" is weaker than it sounds.** 25 of the 40 card-tier items in the
-2026-07-27 snapshot have exactly one keyword match, and none carry a `severity`, so
-`relevance_key` collapses to *newest first* for most of them. The merit phase therefore
+**Honest limitation: "merit" is weaker than it sounds.** 22 of the 36 card-tier items in the
+2026-07-27 snapshot have exactly one keyword match, and only 7 items in the tier carry a
+`severity` at all, so `relevance_key` collapses to *newest first* for most of them. The merit
+phase therefore
 tends to favour whichever source publishes most often — the exact behavior the budget is
 meant to contain. Measured: with `per_source_limit = 1` the merit phase hands
 `simonwillison.net` 6 cards and leaves `openai.com` 3; at `per_source_limit = 3` the floor
@@ -359,9 +367,10 @@ separately, since a demoted item is not dropped.
 
 - `config/radar.example.toml` gains `max_card_items` and `per_source_limit` under
   `[general]` and a commented `[exclude]` table, seeded with the terms verified against real
-  data (`canary` for `frontend`, `beta`/`alpha` for `devops`). Two things the comments must
-  record, or the reasoning is lost: why `preview` is scoped to `frontend` rather than
-  `global`, and why `per_source_limit` is a floor rather than a cap.
+  data (`canary` for `frontend`, `beta`/`alpha` for `devops`, the PR phrases for `ai`). Three
+  things the comments must record, or the reasoning is lost: why `preview` is scoped to
+  `frontend` rather than `global`, why broad words like `community` and `program` are scoped
+  to `ai`, and why `per_source_limit` is a floor rather than a cap.
 - `config/radar.example.toml:24` — the "no bare `ai`" warning is now obsolete and must be
   removed; word boundaries make short keywords safe.
 - `docs/domain-models.md` — document `Item.keyword_match`, `Item.demoted`, and the
@@ -444,10 +453,12 @@ Acceptance check — every number below was produced by simulating this exact fi
 
 | Expectation | Value |
 |---|---|
-| Items leaving the snapshot | exactly 11, all from exclusion keywords; word-boundary rescoring drops 0 more |
-| Cards | 51 → 30 |
-| Also noted | 32 → 42 (the 10 demoted items land here) |
-| Demotions | 10, falling on `openai.com` (6) and `simonwillison.net` (4) |
+| Items leaving the snapshot | exactly 15, all from exclusion keywords; word-boundary rescoring drops 0 more |
+| Card-tier candidates | 51 → 36 after exclusion |
+| Cards | 51 → 30 (the budget binds) |
+| Also noted | 32 → 38 (the 6 demoted items land here) |
+| Demotions | 6, falling on `simonwillison.net` (4) and `openai.com` (2) |
+| Floor vs merit split | floors reserve 27 of the 30 slots; the merit phase allocates 3 |
 
 Resulting card distribution — no source exceeds its floor except where the merit phase or
 the severity exemption earned it:
@@ -461,6 +472,12 @@ the severity exemption earned it:
 1  nextjs.org       1  aws.amazon.com      1  github.com/facebook/react
 1  huggingface.co   1  deepmind.google
 ```
+
+Over-blocking regression: `OpenAI and Hugging Face partner to address security incident`
+must **survive**. An earlier draft of the `ai` list included `partner to address`, which
+killed it — a substantive security story lost to an over-broad phrase. That phrase is
+deliberately absent from the seeded list, and this item is the canary for anyone tempted to
+add it back.
 
 Plus: `Agentic AI Needs Guardrails, Not Guesswork` keeps its `high` importance — it is a
 Docker post and `docker` is in `[stack]` — but its `stack_match` goes from
@@ -513,13 +530,27 @@ by six days — the repetition is expected, not a defect. The scheduled cadence 
 schedule changes.
 
 **LLM-based relevance filtering** (TRENDRADAR's `ai_interests.txt`: describe interests in
-prose, have the model score each item, fall back to keywords on failure). Removes the
-keyword-list maintenance burden, but moves LLM calls from the enrich stage — which
-currently touches at most `max_items_to_enrich = 40` high/critical items — to *before*
-fetch-stage filtering, where every fetched item must be scored. Cost and latency rise
-substantially, and `fetch` changes from a pure, offline-testable rule engine into a
-consumer of an external service, which conflicts with the layering in
-`docs/coding-style.md`.
+prose, have the model score each item, fall back to keywords on failure). Deferred to its
+own spec rather than rejected on cost — see
+[`2026-07-28-llm-relevance-scoring-design.md`](2026-07-28-llm-relevance-scoring-design.md).
+
+Two objections were raised against this and only one survived measurement. The surviving
+one: it does not belong inside `fetch`, which must stay a pure, offline-testable rule engine
+per `docs/coding-style.md`. The follow-up spec resolves that by making it a separate optional
+stage, the way `enrich` already is.
+
+The objection that did **not** survive was cost. Scoring "every fetched item" would indeed be
+expensive, but only the card tier needs scoring — 51 items on the 2026-07-27 snapshot, 36
+once the PR phrases in §3 are applied. That is the same order as the existing
+`max_items_to_enrich = 40`, i.e. roughly one enrich-sized pass, not a scan of everything
+fetched.
+
+Sequencing, not cost, is the reason it waits: exclusion keywords are cheaper and, on this
+data, strictly more effective. Adding PR phrases to the `ai` exclusion list takes
+`openai.com` from 9 card-tier items to 5, and every survivor is substantive. No ranking
+change achieves that, because ranking can only reorder a pool that still contains the PR.
+Ship the cheap mechanism, observe it for a few weeks, then decide whether the residue
+justifies the expensive one.
 
 **A separate `frequency_words.txt` with `+`/`!`/`/regex/` syntax** (TRENDRADAR's format).
 Requires a second config format and a hand-written parser alongside the existing TOML.
