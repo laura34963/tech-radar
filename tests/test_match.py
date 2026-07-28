@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from radar.item import Item
 from radar.match import (term_hits, haystack, stack_matches, category_matches,
-                         score_importance)
+                         score_importance, exclusion_hit)
 
 NOW = datetime(2026, 7, 17, tzinfo=timezone.utc)
 
@@ -83,3 +83,37 @@ def test_category_keywords_do_not_boost_non_matching_item():
 def test_category_keywords_are_scoped_to_their_category():
     kw = {"ai": ["claude"]}
     assert score_importance(_item(category="backend", title="claude"), {}, kw) == "low"
+
+
+# --- exclusion ----------------------------------------------------------------
+
+def test_global_exclude_applies_to_every_category():
+    exclude = {"global": ["fireside chat"]}
+    for cat in ("ai", "security", "backend"):
+        it = _item(category=cat, title="A Fireside Chat with the team")
+        assert exclusion_hit(it, exclude) == "fireside chat"
+
+
+def test_per_category_exclude_does_not_leak_across_categories():
+    # the measured over-blocking hazard: `preview` must kill a frontend canary
+    # release without touching a legitimate cloud announcement.
+    exclude = {"frontend": ["preview"]}
+    canary = _item(category="frontend", title="vercel/next.js v16.3.0-preview.9")
+    cloud = _item(category="cloud",
+                  title="PostgreSQL 19 Beta 2 is now available in Amazon RDS "
+                        "Database Preview Environment")
+    assert exclusion_hit(canary, exclude) == "preview"
+    assert exclusion_hit(cloud, exclude) is None
+
+
+def test_exclude_is_case_insensitive():
+    assert exclusion_hit(_item(title="CANARY build"), {"global": ["canary"]}) == "canary"
+
+
+def test_item_with_no_exclusion_match_is_kept():
+    assert exclusion_hit(_item(title="Rails 8 released"), {"global": ["canary"]}) is None
+
+
+def test_exclusion_hit_with_no_config_is_none():
+    assert exclusion_hit(_item(title="anything"), None) is None
+    assert exclusion_hit(_item(title="anything"), {}) is None

@@ -63,6 +63,21 @@ def category_matches(it: Item, category_keywords: dict | None = None) -> list[st
     return term_hits(terms, haystack(it))
 
 
+def exclusion_hit(it: Item, exclude: dict | None) -> str | None:
+    """The first configured term that disqualifies this item, else None.
+
+    `exclude["global"]` applies to every category; `exclude[<category>]` only
+    within its own. Per-category scoping is load-bearing, not cosmetic: `preview`
+    is pure noise on a frontend release feed but names a real product stage in a
+    cloud announcement, so a single global list would over-block.
+    """
+    if not exclude:
+        return None
+    terms = list(exclude.get("global", [])) + list(exclude.get(it.category, []))
+    hits = term_hits(terms, haystack(it))
+    return hits[0] if hits else None
+
+
 def score_importance(it: Item, stack: dict,
                      category_keywords: dict | None = None) -> str:
     if it.severity:
