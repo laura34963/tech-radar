@@ -7,7 +7,8 @@ arguments, so the rules can be tested offline without fetch scaffolding.
 from __future__ import annotations
 import re
 from functools import lru_cache
-from radar.item import Item
+from urllib.parse import urlsplit
+from radar.item import Item, IMPORTANCE_ORDER
 
 
 @lru_cache(maxsize=None)
@@ -87,3 +88,43 @@ def score_importance(it: Item, stack: dict,
     if it.source_type in ("github", "cloud", "social", "registry"):
         return "medium"
     return "low"
+
+
+_UNKNOWN_SOURCE = "(unknown)"
+
+
+def source_key(url: str) -> str:
+    """Grouping key for source fairness: the publisher, as coarsely as is useful.
+
+    Host, lowercased, with a leading `www.` stripped. `github.com` is split to
+    owner/repo so sibling repos are not pooled into one quota. Never raises — an
+    unusable URL lands in one shared bucket rather than aborting the pass, since
+    a single bad URL from one adapter must not fail the whole finalize.
+    """
+    try:
+        parts = urlsplit(url or "")
+    except ValueError:
+        return _UNKNOWN_SOURCE
+    host = (parts.netloc or "").lower().removeprefix("www.")
+    if not host:
+        return _UNKNOWN_SOURCE
+    if host == "github.com":
+        seg = parts.path.strip("/").split("/")
+        if len(seg) >= 2 and seg[0] and seg[1]:
+            return f"github.com/{seg[0]}/{seg[1]}"
+    return host
+
+
+def relevance_key(it: Item) -> tuple:
+    """The pipeline's single notion of rank, for `sorted(..., reverse=True)`:
+    importance tier, then how many configured terms the item matched, then
+    recency.
+
+    The match-count term is a weak signal by design — most items match exactly
+    one term, so this often decays to newest-first. It is included because it is
+    free (both fields are computed during scoring) and it does separate some real
+    cases. A genuine relevance signal is deferred; see the follow-up spec.
+    """
+    return (IMPORTANCE_ORDER[it.importance],
+            len(it.stack_match) + len(it.keyword_match),
+            it.published)

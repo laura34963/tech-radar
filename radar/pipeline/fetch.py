@@ -4,7 +4,8 @@ from dataclasses import replace
 from datetime import datetime, timedelta
 from pathlib import Path
 from radar.item import Item, IMPORTANCE_ORDER
-from radar.match import category_matches, score_importance, stack_matches
+from radar.match import (category_matches, relevance_key, score_importance,
+                         stack_matches)
 from radar.adapters import ADAPTERS
 from radar.store import (new_snapshot, load_snapshot, atomic_write_json,
                          item_to_dict, item_from_dict)
@@ -30,7 +31,8 @@ def dedupe(items: list[Item]) -> list[Item]:
 
 
 def _rank_key(it: Item):
-    return (IMPORTANCE_ORDER[it.importance], it.published)
+    """One notion of rank across the pipeline; see match.relevance_key."""
+    return relevance_key(it)
 
 
 def rank_and_truncate(items: list[Item], categories: list[str], max_per: int) -> list[Item]:

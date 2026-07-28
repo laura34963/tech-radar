@@ -1,7 +1,8 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from radar.item import Item
 from radar.match import (term_hits, haystack, stack_matches, category_matches,
                          score_importance, exclusion_hit)
+from radar.match import source_key, relevance_key
 
 NOW = datetime(2026, 7, 17, tzinfo=timezone.utc)
 
@@ -117,3 +118,50 @@ def test_item_with_no_exclusion_match_is_kept():
 def test_exclusion_hit_with_no_config_is_none():
     assert exclusion_hit(_item(title="anything"), None) is None
     assert exclusion_hit(_item(title="anything"), {}) is None
+
+
+# --- source_key -----------------------------------------------------------
+
+def test_github_source_key_is_repo_scoped():
+    assert source_key("https://github.com/vercel/next.js/releases/tag/v16") == \
+        "github.com/vercel/next.js"
+    # sibling repos must not pool into one bucket
+    assert source_key("https://github.com/facebook/react/releases/tag/v19") == \
+        "github.com/facebook/react"
+
+
+def test_github_url_without_repo_path_falls_back_to_host():
+    assert source_key("https://github.com/") == "github.com"
+
+
+def test_www_prefix_stripped_from_source_key():
+    assert source_key("https://www.docker.com/blog/x") == "docker.com"
+    assert source_key("https://docker.com/blog/x") == "docker.com"
+
+
+def test_source_key_is_case_insensitive_on_host():
+    assert source_key("https://OpenAI.com/blog") == "openai.com"
+
+
+def test_malformed_url_source_key_does_not_raise():
+    for bad in ("", "not a url", "mailto:x@y.z", "https://[oops"):
+        assert source_key(bad) == "(unknown)"
+
+
+def test_relevance_key_ranks_more_matches_above_fewer():
+    few = _item(id="few", importance="high", stack_match=["docker"])
+    many = _item(id="many", importance="high",
+                 stack_match=["docker"], keyword_match=["llm", "claude"])
+    assert relevance_key(many) > relevance_key(few)
+
+
+def test_relevance_key_ranks_importance_above_match_count():
+    crit = _item(id="c", importance="critical")
+    high = _item(id="h", importance="high", stack_match=["a", "b", "c"])
+    assert relevance_key(crit) > relevance_key(high)
+
+
+def test_relevance_key_breaks_equal_matches_by_recency():
+    old = _item(id="o", importance="high", published=NOW - timedelta(days=1))
+    new = _item(id="n", importance="high", published=NOW)
+    assert relevance_key(new) > relevance_key(old)
