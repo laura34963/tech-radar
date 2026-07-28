@@ -28,3 +28,22 @@ def test_item_roundtrip():
               importance="high", tags=["lambda"], stack_match=["rails"])
     back = item_from_dict(item_to_dict(it))
     assert back == it
+
+
+def test_item_roundtrip_carries_keyword_match_and_demoted():
+    it = Item(id="1", title="t", url="u", source_type="rss", category="ai",
+              published=datetime(2026, 7, 17, 9, tzinfo=timezone.utc), summary="s",
+              importance="high", keyword_match=["claude"], demoted="source_fairness")
+    back = item_from_dict(item_to_dict(it))
+    assert back == it
+    assert back.keyword_match == ["claude"] and back.demoted == "source_fairness"
+
+
+def test_old_snapshot_without_new_fields_still_loads():
+    # a dict written before these fields existed must take the dataclass defaults
+    legacy = {"id": "1", "title": "t", "url": "u", "source_type": "rss",
+              "category": "backend", "published": "2026-07-17T09:00:00+00:00",
+              "summary": "s", "importance": "high", "provider": None, "tags": [],
+              "severity": None, "stack_match": [], "board": None, "llm": None}
+    it = item_from_dict(legacy)
+    assert it.keyword_match == [] and it.demoted is None
