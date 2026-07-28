@@ -123,7 +123,8 @@ New:
 | `term_hits(terms, text) -> list[str]` | Case-insensitive, word-boundary matching; returns the matched terms in the order they appear in `terms`, with duplicate terms collapsed |
 | `exclusion_hit(item, exclude) -> str \| None` | The first exclusion term that matches, else `None` |
 | `source_key(url) -> str` | Normalized host; `github.com` split to owner/repo granularity |
-| `apply_source_fairness(items, budget, rank_key) -> tuple[list[Item], dict[str, int]]` | Returns every input item — with `demoted` set on the ones that lost the round-robin — plus per-source demoted counts for the caller to log |
+| `relevance_key(item) -> tuple` | The pipeline's single sort key: importance, then match count, then published date |
+| `apply_source_fairness(items, budget, floor) -> tuple[list[Item], dict[str, int]]` | Returns every input item — with `demoted` set on the ones that won neither a floor slot nor a merit slot — plus per-source demoted counts for the caller to log |
 
 `fetch.py` retains `importance_ge`, `within_lookback`, `dedupe`, `_rank_key`,
 `rank_and_truncate`, `_source_name`, and `run_fetch`. The existing
@@ -162,7 +163,8 @@ substring on URL) was rejected because it keeps the hazard alive on the URL fiel
 
 ```toml
 [general]
-max_card_items = 30      # 0 or omitted disables the source-fairness pass
+max_card_items   = 30    # card-tier budget; 0 or omitted disables the fairness pass
+per_source_limit = 3     # floor: every source is guaranteed up to this many cards
 
 [exclude]
 # global: applies to every category
@@ -213,21 +215,55 @@ is the same notion of significance `radar/pipeline/enrich.py:86` already uses.
 `max_card_items`, every item keeps its card, no matter how lopsided the source
 distribution is. Diversity is enforced only under scarcity.
 
-**Over budget: fair-share by round-robin (water-filling).**
+**Over budget: a per-source floor, then merit for the surplus.**
 
-1. Group card-tier items by `source_key`, each group sorted by the existing `_rank_key`
-   (importance descending, then published descending).
-2. Seed the kept set with the exempt items (below). They count toward the budget but can
-   never be demoted.
-3. Order the source groups by their best remaining item's `_rank_key`, descending, with
-   `source_key` ascending as the tie-break so the result is deterministic.
-4. Rotate through that order, taking one item per source per round, until the budget is
-   full or every group is empty.
-5. Everything not taken is **demoted**, not dropped.
+`[general] per_source_limit` (default `3`) is a **floor, not a cap**: every source is
+guaranteed up to that many cards. A source holding fewer items than the floor simply keeps
+what it has — there is nothing to pad.
 
-Round-robin means a source with a deep backlog is trimmed hard while a source with two
-items keeps both, and once the small sources are exhausted the remaining budget flows back
-to the deep ones. Fairness costs nothing when there is no competition.
+Both keys are read with `cfg.general.get(...)` and coerced at use, matching how
+`enrich_chunk_size` is handled today: a negative `max_card_items` is treated as `0`
+(disabled), and a `per_source_limit` below `0` is treated as `0` (pure merit allocation).
+No `load_config` validation is added for them.
+
+1. Group card-tier items by `source_key`, each group sorted by `relevance_key` descending.
+2. Seed the kept set with the exempt items (below). They can never be demoted, they count
+   toward the budget, and they count toward their source's floor — a source with three
+   exempt items has already met a floor of 3 and reserves nothing further.
+3. **Floor phase.** Reserve each source's top `min(per_source_limit, len(group))` items.
+4. **Merit phase.** Fill the remaining budget from all unreserved items, taken globally by
+   `relevance_key` descending, **ignoring source**. The best leftovers win regardless of
+   who published them.
+5. Everything still unkept is **demoted**, not dropped.
+
+**When the floors alone exceed the budget** — possible whenever
+`per_source_limit × source count > max_card_items` — the floor phase fills level by level
+(every source's 1st item, then every source's 2nd, and so on up to the floor), stopping the
+moment the budget is full. Sources are visited in `relevance_key` order of their best item,
+with `source_key` ascending as the tie-break so the result is deterministic. This degrades
+gracefully instead of letting the first few sources consume every floor slot. Note this
+level-by-level fill is the only place a rotation appears, and it is bounded by the floor;
+the surplus is always allocated by merit.
+
+**`relevance_key`.** `(importance, len(stack_match) + len(keyword_match), published)`, all
+descending. The match count is a deliberate addition to the existing
+`_rank_key` — see the honest limitation below. Both fields are already computed during
+scoring, so it costs nothing. `fetch._rank_key` is changed to delegate to `relevance_key`
+so the pipeline has a single notion of rank; on real data this carries no behavioral change,
+because `rank_and_truncate` currently truncates nothing (72 items in, 72 out at
+`max_items_per_category = 20`).
+
+**Honest limitation: "merit" is weaker than it sounds.** 25 of the 40 card-tier items in the
+2026-07-27 snapshot have exactly one keyword match, and none carry a `severity`, so
+`relevance_key` collapses to *newest first* for most of them. The merit phase therefore
+tends to favour whichever source publishes most often — the exact behavior the budget is
+meant to contain. Measured: with `per_source_limit = 1` the merit phase hands
+`simonwillison.net` 6 cards and leaves `openai.com` 3; at `per_source_limit = 3` the floor
+dominates and the outcome is balanced (see the acceptance table). This is why the default
+floor is 3 rather than 1. A real fix requires the relevance score that is deliberately
+deferred (see *Rejected alternatives*); the match-count term is a partial mitigation that
+does at least float `Introducing Claude Opus 5` (2 matches) above `openai.com`'s
+single-match PR posts.
 
 **Key.** `source_key(url)`: lowercase host, leading `www.` stripped. When the host is
 `github.com` and the path has at least two segments, the key becomes
@@ -242,10 +278,10 @@ bury a serious advisory.
 
 **Known consequence of the URL-derived key.** A GHSA advisory's URL points at the affected
 repository, so advisories share a group with that repo's release items — on the
-2026-07-27 snapshot, 4 of `github.com/vercel/next.js`'s 11 items are advisories. The
-severity exemption means those 4 are always kept, so next.js holds 6 cards at any budget
-(4 exempt + 2 from the rotation). This is acceptable: the advisories are the items most
-worth showing.
+2026-07-27 snapshot, 4 of `github.com/vercel/next.js`'s card-tier items are advisories. The
+severity exemption means those 4 are always kept and they satisfy next.js's floor outright,
+so next.js holds 6 cards (4 exempt + 2 from the merit phase). This is acceptable: the
+advisories are the items most worth showing.
 
 ### 5. Demotion
 
@@ -321,10 +357,11 @@ separately, since a demoted item is not dropped.
 
 ### 9. Documentation and example config
 
-- `config/radar.example.toml` gains `max_card_items` under `[general]` and a commented
-  `[exclude]` table, seeded with the terms verified against real data (`canary` for
-  `frontend`, `beta`/`alpha` for `devops`). The comment must record why `preview` is
-  scoped to `frontend` rather than `global`, so the reasoning is not lost.
+- `config/radar.example.toml` gains `max_card_items` and `per_source_limit` under
+  `[general]` and a commented `[exclude]` table, seeded with the terms verified against real
+  data (`canary` for `frontend`, `beta`/`alpha` for `devops`). Two things the comments must
+  record, or the reasoning is lost: why `preview` is scoped to `frontend` rather than
+  `global`, and why `per_source_limit` is a floor rather than a cap.
 - `config/radar.example.toml:24` — the "no bare `ai`" warning is now obsolete and must be
   removed; word boundaries make short keywords safe.
 - `docs/domain-models.md` — document `Item.keyword_match`, `Item.demoted`, and the
@@ -360,16 +397,20 @@ www_prefix_stripped_from_source_key
 malformed_url_source_key_does_not_raise
 fairness_pass_demotes_nobody_when_under_budget
 fairness_pass_demotes_instead_of_dropping
-fairness_pass_rotates_one_item_per_source_per_round
-fairness_pass_refills_budget_from_deep_sources_once_small_ones_exhaust
+fairness_pass_guarantees_floor_to_every_source
+fairness_pass_does_not_pad_a_source_holding_fewer_than_the_floor
+fairness_pass_allocates_surplus_by_merit_ignoring_source
+fairness_pass_fills_floors_level_by_level_when_floors_exceed_budget
 fairness_pass_never_demotes_high_severity_item
 fairness_pass_counts_exempt_items_against_the_budget
+fairness_pass_exempt_items_satisfy_their_sources_floor
 fairness_pass_ignores_medium_items
 fairness_pass_disabled_when_budget_zero
 fairness_pass_is_deterministic_for_equal_ranks
+relevance_key_ranks_more_matches_above_fewer
 ```
 
-Two of these carry most of the regression weight:
+Three of these carry most of the regression weight:
 
 - `per_category_exclude_does_not_leak_across_categories` — the `preview` over-blocking
   hazard. With `frontend = ["preview"]`, a `frontend` canary item is dropped while the
@@ -379,6 +420,9 @@ Two of these carry most of the regression weight:
 - `fairness_pass_demotes_nobody_when_under_budget` — the core of the requested behavior.
   Given one source holding every card and a budget above the card count, no item is
   demoted; lopsidedness alone must not trigger trimming.
+- `fairness_pass_allocates_surplus_by_merit_ignoring_source` — the other half. Once floors
+  are reserved, a source with many strong leftovers must be able to take several surplus
+  slots in a row; the surplus is explicitly *not* rotated.
 
 Updates to existing suites:
 
@@ -393,8 +437,10 @@ Updates to existing suites:
   even though it clears `min_display_importance`.
 - `tests/test_enrich.py` — a demoted item is not eligible for enrichment.
 
-Acceptance check — all four numbers were produced by simulating this exact finalize chain
-against the real `output/data/2026-07-27.json`:
+Acceptance check — every number below was produced by simulating this exact finalize chain
+(exclusion → word-boundary rescoring → `min_keep` → fairness at `max_card_items = 30`,
+`per_source_limit = 3` → category truncation) against the real
+`output/data/2026-07-27.json`:
 
 | Expectation | Value |
 |---|---|
@@ -402,6 +448,19 @@ against the real `output/data/2026-07-27.json`:
 | Cards | 51 → 30 |
 | Also noted | 32 → 42 (the 10 demoted items land here) |
 | Demotions | 10, falling on `openai.com` (6) and `simonwillison.net` (4) |
+
+Resulting card distribution — no source exceeds its floor except where the merit phase or
+the severity exemption earned it:
+
+```
+6  github.com/vercel/next.js     (4 exempt advisories + 2 merit)
+3  github.com/react/react        3  docker.com
+3  github.com/kubernetes/kubernetes
+3  simonwillison.net             3  openai.com
+2  rubyonrails.org               2  github.com/axios/axios
+1  nextjs.org       1  aws.amazon.com      1  github.com/facebook/react
+1  huggingface.co   1  deepmind.google
+```
 
 Plus: `Agentic AI Needs Guardrails, Not Guesswork` keeps its `high` importance — it is a
 Docker post and `docker` is in `[stack]` — but its `stack_match` goes from
@@ -424,13 +483,23 @@ been observed in production.
 than N items). Simpler to implement and to reason about, and it cut the 2026-07-27 snapshot
 from 51 cards to 27. Rejected because it charges a source for depth even when the digest
 has room to spare — a week with only 20 candidate cards would still have its best source
-truncated to 3 for no benefit. The budget-plus-round-robin design in §4 collapses to
-exactly the same fair-share behavior under scarcity while being a no-op when there is
-room, which is the property that matters.
+truncated to 3 for no benefit. §4 turns the same number into a floor and gates the whole
+pass behind a budget, so it is a no-op when there is room.
+
+**Round-robin (water-filling) for the whole allocation** — rotate one item per source per
+round until the budget fills, with no separate floor or merit phase. It produces the same
+headline numbers on this snapshot (30 cards, 10 demotions on the same two sources) and needs
+one fewer config key. Rejected because rotation gives a source with many genuinely strong
+leftovers no way to claim more than its neighbours: once every source has had its turn, the
+next-best item in the whole digest loses to an unrelated source's weaker one. The
+floor-plus-merit split in §4 keeps the diversity guarantee where it matters — the floor —
+and lets quality decide the surplus. The trade-off is documented in §4's *honest
+limitation*: with today's saturated importance tier, "quality" for the surplus is largely
+recency, which is why the floor is defaulted high enough to dominate.
 
 **Dropping the fairness losers instead of demoting them.** A whole-digest budget applied
-destructively also squeezes out the "also noted" tier, because round-robin picks by rank
-and cards always outrank `medium` items within a source. Measured: a budget of 30 over all
+destructively also squeezes out the "also noted" tier, because any rank-ordered allocation
+lets cards outrank `medium` items. Measured: a budget of 30 over all
 items yields 26 cards but only **4** "also noted" entries, down from 32 — the breadth
 disappears, and one knob ends up controlling two unrelated things. Scoping the budget to
 the card tier and demoting the losers keeps both adjustable and discards nothing.
