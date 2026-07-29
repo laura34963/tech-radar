@@ -196,3 +196,105 @@ def test_run_fetch_stamps_declared_board(tmp_path):
                      client=client, fresh=True)
     boards = {it["title"]: it["board"] for it in snap["items"]}
     assert boards == {"N": "news", "P": None}  # declared stamped, undeclared stays None
+
+
+_TWO_ITEM_FEED = """<?xml version="1.0"?>
+<rss version="2.0"><channel><title>S</title>
+  <item>
+    <title>{t1}</title><link>{l1}</link><description>d</description>
+    <pubDate>Wed, 16 Jul 2026 10:00:00 GMT</pubDate><guid>{l1}</guid>
+  </item>
+  <item>
+    <title>{t2}</title><link>{l2}</link><description>d</description>
+    <pubDate>Wed, 16 Jul 2026 09:00:00 GMT</pubDate><guid>{l2}</guid>
+  </item>
+</channel></rss>"""
+
+
+def _cfg_ex(sources, exclude=None, general=None):
+    base = {"lookback_days": 3650, "min_keep_importance": "low"}
+    base.update(general or {})
+    return Config(general=base, stack={}, categories=["backend"], sources=sources,
+                  llm={}, exclude=exclude or {})
+
+
+def test_run_fetch_drops_excluded_items(tmp_path):
+    feed = _TWO_ITEM_FEED.format(t1="next.js v16.3.0-canary.97", l1="https://x/1",
+                                 t2="next.js v16.2.12", l2="https://x/2")
+
+    def handler(req):
+        return httpx.Response(200, text=feed)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = _cfg_ex([{"type": "rss", "category": "backend", "url": "https://f/feed"}],
+                  exclude={"backend": ["canary"]})
+    snap = run_fetch(cfg, tmp_path / "ex.json",
+                     now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client, fresh=True)
+    titles = [it["title"] for it in snap["items"]]
+    assert titles == ["next.js v16.2.12"]   # the canary release never reached disk
+
+
+def test_run_fetch_records_keyword_match(tmp_path):
+    feed = _TWO_ITEM_FEED.format(t1="New Claude model", l1="https://x/1",
+                                 t2="unrelated musings", l2="https://x/2")
+
+    def handler(req):
+        return httpx.Response(200, text=feed)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = Config(general={"lookback_days": 3650, "min_keep_importance": "low"},
+                 stack={}, categories=["backend"], sources=[
+                     {"type": "rss", "category": "backend", "url": "https://f/feed"}],
+                 llm={}, category_keywords={"backend": ["claude"]})
+    snap = run_fetch(cfg, tmp_path / "kw.json",
+                     now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client, fresh=True)
+    by_title = {it["title"]: it for it in snap["items"]}
+    assert by_title["New Claude model"]["keyword_match"] == ["claude"]
+    assert by_title["New Claude model"]["importance"] == "high"
+    assert by_title["unrelated musings"]["keyword_match"] == []
+
+
+def test_run_fetch_demotes_over_budget_without_dropping(tmp_path):
+    feed = _TWO_ITEM_FEED.format(t1="Claude one", l1="https://only.example/1",
+                                 t2="Claude two", l2="https://only.example/2")
+
+    def handler(req):
+        return httpx.Response(200, text=feed)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    # both items score high via the keyword; budget 1 forces one demotion
+    cfg = Config(general={"lookback_days": 3650, "min_keep_importance": "low",
+                          "max_card_items": 1, "per_source_limit": 1},
+                 stack={}, categories=["backend"], sources=[
+                     {"type": "rss", "category": "backend", "url": "https://f/feed"}],
+                 llm={}, category_keywords={"backend": ["claude"]})
+    snap = run_fetch(cfg, tmp_path / "fair.json",
+                     now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client, fresh=True)
+    assert len(snap["items"]) == 2                                  # nothing dropped
+    demoted = [it for it in snap["items"] if it["demoted"]]
+    assert len(demoted) == 1
+    assert demoted[0]["demoted"] == "source_fairness"
+    assert demoted[0]["importance"] == "high"                       # importance intact
+
+
+def test_run_fetch_does_not_demote_when_within_budget(tmp_path):
+    feed = _TWO_ITEM_FEED.format(t1="Claude one", l1="https://only.example/1",
+                                 t2="Claude two", l2="https://only.example/2")
+
+    def handler(req):
+        return httpx.Response(200, text=feed)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = Config(general={"lookback_days": 3650, "min_keep_importance": "low",
+                          "max_card_items": 30, "per_source_limit": 3},
+                 stack={}, categories=["backend"], sources=[
+                     {"type": "rss", "category": "backend", "url": "https://f/feed"}],
+                 llm={}, category_keywords={"backend": ["claude"]})
+    snap = run_fetch(cfg, tmp_path / "under.json",
+                     now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client, fresh=True)
+    # one source holds both cards, but the tier is under budget -> untouched
+    assert all(it["demoted"] is None for it in snap["items"])
