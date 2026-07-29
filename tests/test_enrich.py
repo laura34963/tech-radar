@@ -199,3 +199,30 @@ def test_run_enrich_clamps_zero_chunk_size(tmp_path):
     run_enrich(_cfg_chunked(0, 0), p, provider=fp)  # 0 -> clamp to 1
     assert fp.calls == 3  # one item per chunk
     assert load_snapshot(p)["items"][0]["llm"]["summary"] == "S-0"
+
+
+def _demoted(id):
+    return Item(id=id, title="t", url="u", source_type="rss", category="backend",
+                published=NOW, summary="s", importance="high",
+                demoted="source_fairness")
+
+
+def test_run_enrich_skips_demoted_items(tmp_path):
+    p = tmp_path / "s.json"
+    atomic_write_json(p, _snap([_high("keep"), _demoted("skip")]))
+    payload = json.dumps({"keep": {"summary": "S"}, "skip": {"summary": "S"}})
+    fp = FakeProvider(payload)
+    run_enrich(_cfg(), p, provider=fp)
+    saved = {it["id"]: it for it in load_snapshot(p)["items"]}
+    assert saved["keep"]["llm"]["summary"] == "S"
+    # "also noted" renders only a title link and a date, so enriching a demoted
+    # item spends tokens on output that is never displayed
+    assert saved["skip"].get("llm") is None
+
+
+def test_run_enrich_noop_when_every_eligible_item_is_demoted(tmp_path):
+    p = tmp_path / "s.json"
+    atomic_write_json(p, _snap([_demoted("a"), _demoted("b")]))
+    fp = FakeProvider(json.dumps({"a": {"summary": "S"}}))
+    run_enrich(_cfg(), p, provider=fp)
+    assert fp.calls == 0   # no LLM call at all

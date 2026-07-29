@@ -56,6 +56,8 @@ Defined in `radar/item.py` as a **frozen** dataclass. It is the contract between
 | `tags` | `list[str]` | Adapter-specific tags (e.g. matched cloud services) |
 | `severity` | `str \| None` | Security items only: `critical`/`high`/`medium`/`low` |
 | `stack_match` | `list[str]` | Configured stack terms found in this item |
+| `keyword_match` | `list[str]` | Which `[category_keywords]` terms admitted this item. The per-category counterpart to `stack_match`; together they make an item's `high` score explainable. |
+| `demoted` | `str \| None` | Why this item lost its card, or `None`. Currently only `"source_fairness"`. Set at fetch; read by render (routes to "also noted") and enrich (skips it). Deliberately does not alter `importance`, so the snapshot never misstates what an item is. |
 | `llm` | `dict \| None` | Enrichment output (see [§5.3](#5-value-sets-and-importance-flow)) |
 
 **Invariants / non-obvious rules:**
@@ -112,15 +114,24 @@ via `store.item_from_dict`.
 
 | Field | Type | Source in TOML |
 |---|---|---|
-| `general` | `dict` | `[general]` (title, timezone, `lookback_days`, `max_items_per_category`, `min_keep_importance`, `min_display_importance`) |
+| `general` | `dict` | `[general]` (title, timezone, `lookback_days`, `max_items_per_category`, `min_keep_importance`, `min_display_importance`, `max_card_items`, `per_source_limit`) |
 | `stack` | `dict` | `[stack]` (languages, frameworks, packages, ecosystems) |
 | `categories` | `list[str]` | top-level `categories` (default: backend, frontend, devops, cloud, security) |
 | `sources` | `list[dict]` | `[[sources]]` array of tables |
+| `exclude` | `dict` | `[exclude]` — `{"global": [str], "<category>": [str]}` |
 | `llm` | `dict` | `[llm]` (enabled, provider, base_url, model, `api_key_env`, `max_items_to_enrich`) |
 
 **Validation (fail-fast, before any network call):** every source needs a known `type`
 and a `category`; `rss`/`cloud` need `url`, `github` needs `repo`, `security` needs `feed`,
 `social` needs `source`. A violation raises `ConfigError` naming the offending entry.
+
+**`[exclude]` and the source-fairness `[general]` keys:**
+
+- `[exclude]` — `{"global": [str], "<category>": [str]}`. Word-boundary terms; a match
+  drops the item at fetch. Validated at load: keys must be `"global"` or a declared
+  category, values lists of non-empty strings, and `global` is reserved as a category name.
+- `[general].max_card_items` (default 30) — card-tier budget; `0` disables source fairness.
+  `[general].per_source_limit` (default 3) — per-source floor.
 
 **Two importance thresholds** control the noise cut:
 

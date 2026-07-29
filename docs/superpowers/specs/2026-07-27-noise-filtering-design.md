@@ -177,8 +177,8 @@ global   = ["fireside chat", "joins the board"]
 frontend = ["canary", "preview", "nightly"]
 devops   = ["beta", "alpha"]
 # The `ai` list is the corporate-PR filter, and it is where this mechanism pays off most.
-# Measured on 2026-07-27: these phrases take openai.com from 9 card-tier items to 4, and
-# all 4 survivors are substantive. Keep broad words like `community` and `program` scoped
+# Measured on 2026-07-27: these phrases take openai.com from 10 card-tier items to 5, and
+# all 5 survivors are substantive. Keep broad words like `community` and `program` scoped
 # to this category — globally they would shred legitimate cloud and devops items.
 ai       = ["small business", "joins the boards", "join the boards", "board of directors",
             "national science", "news organizations", "community", "program", "anniversary"]
@@ -247,7 +247,7 @@ No `load_config` validation is added for them.
 `per_source_limit × source count > max_card_items` — the floor phase fills level by level
 (every source's 1st item, then every source's 2nd, and so on up to the floor), stopping the
 moment the budget is full. Sources are visited in `relevance_key` order of their best item,
-with `source_key` ascending as the tie-break so the result is deterministic. This degrades
+with `source_key` descending as the tie-break so the result is deterministic. This degrades
 gracefully instead of letting the first few sources consume every floor slot. Note this
 level-by-level fill is the only place a rotation appears, and it is bounded by the floor;
 the surplus is always allocated by merit.
@@ -378,6 +378,16 @@ separately, since a demoted item is not dropped.
 - `docs/project-overview.md` §5 — the fetch stage description gains the exclusion and
   source-fairness steps, and the note that `demoted` is set at fetch but consumed by
   render and enrich.
+- `config/radar.example.toml` `[stack]` — brought up from 8 terms to the fuller set the
+  project actually cares about (`docker`, `kubernetes`, `k8s`, `nginx`, `next.js`,
+  `react-dom`, `typescript`, `puma`, `devise`, `nokogiri`, …). This is a behavior change to
+  what CI publishes, not a cosmetic edit, and it is deliberate: the workflow copies this file
+  over `config/radar.toml`, so the published digest was scoring against a stack nobody uses.
+  Over-matching was checked across all 165 historical items before adopting it. Bare `next`
+  was dropped from the stack: of its 37 raw hits, four items were promoted to card tier
+  *solely* by the English word "next", two of them unrelated `security` stories with no
+  connection to Next.js — so the term was removed and `next.js` kept in its place. `go` hits
+  1 item; `k8s` and `golang` hit 0.
 
 ## Error handling
 
@@ -449,7 +459,20 @@ Updates to existing suites:
 Acceptance check — every number below was produced by simulating this exact finalize chain
 (exclusion → word-boundary rescoring → `min_keep` → fairness at `max_card_items = 30`,
 `per_source_limit = 3` → category truncation) against the real
-`output/data/2026-07-27.json`:
+`output/data/2026-07-27.json`.
+
+**These numbers depend on `config/radar.toml`, not `config/radar.example.toml`.** The sample
+snapshot was produced locally, and the two configs differ materially: the local one carries 17
+`[stack]` terms including `docker` and `max_items_per_category = 20`, while the committed
+example carries 8 terms without `docker` and a cap of 15. The `Guardrails` case below only
+arises at all because `docker` is in the local stack. Anything reproducing these figures must
+read `[stack]`, `[category_keywords]` and `[general]` from `config/radar.toml`, and only
+`[exclude]` from the example.
+
+Worth flagging separately, because it is a live defect rather than a measurement artifact:
+`.github/workflows/radar.yml:25` copies the example config over `config/radar.toml` in CI, so
+the **published** digest has been running on the narrower 8-term stack all along. That is
+addressed in §9 by bringing the example's `[stack]` up to match.
 
 | Expectation | Value |
 |---|---|
@@ -458,7 +481,7 @@ Acceptance check — every number below was produced by simulating this exact fi
 | Cards | 51 → 30 (the budget binds) |
 | Also noted | 32 → 38 (the 6 demoted items land here) |
 | Demotions | 6, falling on `simonwillison.net` (4) and `openai.com` (2) |
-| Floor vs merit split | floors reserve 27 of the 30 slots; the merit phase allocates 3 |
+| Floor vs merit split | floors reserve 28 of the 30 slots; the merit phase allocates 2 |
 
 Resulting card distribution — no source exceeds its floor except where the merit phase or
 the severity exemption earned it:
@@ -547,7 +570,7 @@ fetched.
 
 Sequencing, not cost, is the reason it waits: exclusion keywords are cheaper and, on this
 data, strictly more effective. Adding PR phrases to the `ai` exclusion list takes
-`openai.com` from 9 card-tier items to 5, and every survivor is substantive. No ranking
+`openai.com` from 10 card-tier items to 5, and every survivor is substantive. No ranking
 change achieves that, because ranking can only reorder a pool that still contains the PR.
 Ship the cheap mechanism, observe it for a few weeks, then decide whether the residue
 justifies the expensive one.

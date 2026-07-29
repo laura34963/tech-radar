@@ -10,10 +10,24 @@ lookback_days = 7
 min_keep_importance = "medium"      # low | medium | high | critical
 min_display_importance = "high"
 
+# Source fairness. `max_card_items` budgets the card tier (high/critical items);
+# under budget the pass is a no-op no matter how lopsided the sources are, so a
+# quiet week is never trimmed. `per_source_limit` is a FLOOR, not a cap: each
+# source is guaranteed up to that many cards, a source holding fewer keeps what
+# it has, and the surplus budget goes to the best leftovers globally. Items that
+# fit neither are demoted to "also noted", never discarded. Set max_card_items
+# to 0 to disable. A high/critical severity is never demoted.
+max_card_items   = 30
+per_source_limit = 3
+
+# Starting point only — tailor this to whatever you actually run. Terms match on
+# word boundaries, so short entries are safe (e.g. "go" matches "Go" but not
+# "google"/"logo").
 [stack]
-languages  = ["ruby", "go", "javascript", "python"]
-frameworks = ["rails", "react"]
-packages   = ["rails", "sidekiq", "react", "axios"]
+languages  = ["ruby", "go", "javascript", "python", "typescript", "golang"]
+frameworks = ["rails", "react", "next.js", "react-dom"]
+packages   = ["rails", "sidekiq", "puma", "devise", "nokogiri", "react",
+              "axios", "nginx", "docker", "kubernetes", "k8s"]
 ecosystems = ["rubygems", "npm", "pypi"]
 
 # Per-category keyword boosting. An item in one of these categories whose
@@ -21,11 +35,35 @@ ecosystems = ["rubygems", "npm", "pypi"]
 # [stack] hit) and floated as a card; scoped per-category so terms never leak
 # across boards. Use for categories whose feeds don't touch [stack] terms — e.g.
 # "ai": without this, every AI item scores "low" and is dropped at fetch.
-# Keep terms distinctive substrings (no bare "ai" — matches "email"/"detail").
+# Terms match on word boundaries, so short words are safe: "ai" matches "AI"
+# but not "email" or "available".
 [category_keywords]
 ai = ["llm", "gpt", "claude", "gemini", "openai", "anthropic", "mistral",
       "llama", "transformer", "diffusion", "agentic", "fine-tuning",
       "neural network", "machine learning", "deep learning", "hugging face"]
+
+# Exclusion keywords: an item matching any applicable term is dropped at fetch
+# and never written to the snapshot. `global` applies everywhere; a category key
+# applies only within that category.
+#
+# Scoping is load-bearing. `preview` is pure noise on a frontend release feed
+# but names a real product stage in a cloud announcement — globally it would kill
+# "PostgreSQL 19 Beta 2 is now available in Amazon RDS Database Preview
+# Environment". Same for the broad words in `ai` below: `community` and `program`
+# would shred legitimate cloud and devops items if they were global.
+#
+# The `ai` list is the corporate-PR filter and is where this pays off most.
+# Measured on the 2026-07-27 snapshot it takes openai.com from 10 card-tier items
+# to 5, with every survivor substantive. Do NOT add "partner to address" — it
+# killed "OpenAI and Hugging Face partner to address security incident", a real
+# security story.
+[exclude]
+global   = ["fireside chat", "joins the board"]
+frontend = ["canary", "preview", "nightly"]
+devops   = ["beta", "alpha"]
+ai       = ["small business", "joins the boards", "join the boards",
+            "board of directors", "national science", "news organizations",
+            "community", "program", "anniversary"]
 
 # `board` routes an item to a digest tab: "tech" (技術資訊 — releases, official
 # blogs, cloud changes, advisories) or "news" (新聞 — reporting, commentary,

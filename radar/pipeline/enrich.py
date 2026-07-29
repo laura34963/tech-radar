@@ -83,7 +83,11 @@ def run_enrich(cfg, snapshot_path: Path, *, provider, force: bool = False) -> di
     items = snap["items"]
     by_id = {it["id"]: it for it in items}
 
+    # Demoted items render as a bare title link and date in "also noted"
+    # (templates/digest.html.j2), so enriching them would spend tokens on output
+    # nothing displays.
     eligible = [it for it in items if importance_ge(it["importance"], "high")
+                and not it.get("demoted")
                 and (force or not it.get("llm"))][:cap]
     if not eligible:
         log.info("enrich: nothing to do (no high/critical items pending)")

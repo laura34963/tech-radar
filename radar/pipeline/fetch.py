@@ -1,9 +1,12 @@
 from __future__ import annotations
 import logging
+from collections import Counter
 from dataclasses import replace
 from datetime import datetime, timedelta
 from pathlib import Path
 from radar.item import Item, IMPORTANCE_ORDER
+from radar.match import (apply_source_fairness, category_matches, exclusion_hit,
+                         relevance_key, score_importance, stack_matches)
 from radar.adapters import ADAPTERS
 from radar.store import (new_snapshot, load_snapshot, atomic_write_json,
                          item_to_dict, item_from_dict)
@@ -19,32 +22,6 @@ def within_lookback(published: datetime, now: datetime, days: int) -> bool:
     return published >= now - timedelta(days=days)
 
 
-def stack_matches(it: Item, stack: dict) -> list[str]:
-    hay = f"{it.title} {it.summary} {it.url}".lower()
-    terms = stack.get("packages", []) + stack.get("frameworks", []) + stack.get("languages", [])
-    return [t for t in terms if t.lower() in hay]
-
-
-def category_matches(it: Item, category_keywords: dict) -> list[str]:
-    """Keywords hit for the item's OWN category. Unlike stack_matches (global),
-    this is scoped per-category so an 'ai' keyword can't boost a security item."""
-    terms = (category_keywords or {}).get(it.category, [])
-    if not terms:
-        return []
-    hay = f"{it.title} {it.summary} {it.url}".lower()
-    return [t for t in terms if t.lower() in hay]
-
-
-def score_importance(it: Item, stack: dict, category_keywords: dict | None = None) -> str:
-    if it.severity:
-        return it.severity
-    if stack_matches(it, stack) or category_matches(it, category_keywords):
-        return "high"
-    if it.source_type in ("github", "cloud", "social", "registry"):
-        return "medium"
-    return "low"
-
-
 def dedupe(items: list[Item]) -> list[Item]:
     by_id: dict[str, Item] = {}
     for it in items:
@@ -55,7 +32,8 @@ def dedupe(items: list[Item]) -> list[Item]:
 
 
 def _rank_key(it: Item):
-    return (IMPORTANCE_ORDER[it.importance], it.published)
+    """One notion of rank across the pipeline; see match.relevance_key."""
+    return relevance_key(it)
 
 
 def rank_and_truncate(items: list[Item], categories: list[str], max_per: int) -> list[Item]:
@@ -117,24 +95,55 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
         snap["items"] = [item_to_dict(it) for it in by_id.values()]
         atomic_write_json(snapshot_path, snap)  # checkpoint
 
-    # finalize: importance, lookback, hard-cut, rank
+    # finalize: exclude -> score -> lookback + min_keep -> dedupe -> fairness -> truncate
     lookback = int(cfg.general.get("lookback_days", 7))
     min_keep = cfg.general.get("min_keep_importance", "medium")
     max_per = int(cfg.general.get("max_items_per_category", 15))
+    budget = max(0, int(cfg.general.get("max_card_items", 30)))
+    floor = max(0, int(cfg.general.get("per_source_limit", 3)))
 
-    scored = []
+    excluded: Counter = Counter()
+    stale = below_keep = 0
+    scored: list[Item] = []
     for it in by_id.values():
-        it = replace(it, importance=score_importance(it, cfg.stack, cfg.category_keywords),
-                     stack_match=stack_matches(it, cfg.stack))
-        if within_lookback(it.published, now, lookback) and importance_ge(it.importance, min_keep):
-            scored.append(it)
-    dropped = len(by_id) - len(scored)
+        term = exclusion_hit(it, cfg.exclude)
+        if term is not None:
+            excluded[term] += 1
+            continue  # excluded items are never scored
+        it = replace(it,
+                     importance=score_importance(it, cfg.stack, cfg.category_keywords),
+                     stack_match=stack_matches(it, cfg.stack),
+                     keyword_match=category_matches(it, cfg.category_keywords),
+                     demoted=None)
+        if not within_lookback(it.published, now, lookback):
+            stale += 1
+            continue
+        if not importance_ge(it.importance, min_keep):
+            below_keep += 1
+            continue
+        scored.append(it)
+
+    if excluded:
+        log.info("excluded %d item(s) by keyword; most frequent: %s",
+                 sum(excluded.values()), excluded.most_common(5))
+
     # by_id already merges richest-per-id across sources; dedupe() here is a
     # defensive safety net (not dead code) in case future callers feed it items
-    # that weren't merged through the by_id path.
-    final = rank_and_truncate(dedupe(scored), cfg.categories, max_per)
+    # that weren't merged through the by_id path. It also guarantees the unique
+    # ids apply_source_fairness relies on.
+    fair, demoted = apply_source_fairness(dedupe(scored), budget, floor)
+    if demoted:
+        log.info("source fairness: demoted %d item(s) to also-noted across %d source(s): %s",
+                 sum(demoted.values()), len(demoted),
+                 sorted(demoted.items(), key=lambda kv: (-kv[1], kv[0])))
+    else:
+        log.info("source fairness: card tier within budget (%d), nothing demoted", budget)
+
+    final = rank_and_truncate(fair, cfg.categories, max_per)
     snap["items"] = [item_to_dict(it) for it in final]
     atomic_write_json(snapshot_path, snap)
-    log.info("fetched %d items from %d sources, kept %d, dropped %d",
-             len(by_id), len(cfg.sources), len(final), dropped)
+    log.info("fetched %d item(s) from %d source(s), kept %d "
+             "(dropped %d excluded, %d outside lookback, %d below %s)",
+             len(by_id), len(cfg.sources), len(final),
+             sum(excluded.values()), stale, below_keep, min_keep)
     return snap

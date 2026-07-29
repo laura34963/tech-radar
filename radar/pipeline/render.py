@@ -158,7 +158,9 @@ def _group(snapshot: dict, cfg) -> dict:
     for it in _dedupe_by_content(snapshot["items"]):
         grouped = sections[_section(it)]
         bucket = grouped.setdefault(it["category"], {"cards": [], "also_noted": []})
-        if IMPORTANCE_ORDER[it["importance"]] >= threshold:
+        # A demoted item cleared the importance threshold but lost the fetch-stage
+        # source-fairness pass, so it belongs in "also noted" regardless.
+        if IMPORTANCE_ORDER[it["importance"]] >= threshold and not it.get("demoted"):
             bucket["cards"].append(it)
         else:
             bucket["also_noted"].append(it)

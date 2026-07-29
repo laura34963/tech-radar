@@ -98,3 +98,55 @@ def test_valid_board_loads(tmp_path):
         board = "news"
     """))
     assert cfg.sources[0]["board"] == "news"
+
+
+def test_exclude_table_loads(tmp_path):
+    cfg = load_config(_write(tmp_path, """
+        categories = ["frontend", "ai"]
+        [exclude]
+        global = ["fireside chat"]
+        frontend = ["canary", "preview"]
+    """))
+    assert cfg.exclude["global"] == ["fireside chat"]
+    assert cfg.exclude["frontend"] == ["canary", "preview"]
+
+
+def test_absent_exclude_table_defaults_to_empty(tmp_path):
+    cfg = load_config(_write(tmp_path, """
+        categories = ["frontend"]
+    """))
+    assert cfg.exclude == {}
+
+
+def test_exclude_unknown_key_raises(tmp_path):
+    with pytest.raises(ConfigError, match="exclude.frontnd"):
+        load_config(_write(tmp_path, """
+            categories = ["frontend"]
+            [exclude]
+            frontnd = ["canary"]
+        """))
+
+
+def test_exclude_non_list_value_raises(tmp_path):
+    with pytest.raises(ConfigError, match="list of non-empty strings"):
+        load_config(_write(tmp_path, """
+            categories = ["frontend"]
+            [exclude]
+            frontend = "canary"
+        """))
+
+
+def test_exclude_empty_string_term_raises(tmp_path):
+    with pytest.raises(ConfigError, match="list of non-empty strings"):
+        load_config(_write(tmp_path, """
+            categories = ["frontend"]
+            [exclude]
+            frontend = ["canary", "  "]
+        """))
+
+
+def test_category_named_global_is_rejected(tmp_path):
+    with pytest.raises(ConfigError, match="reserved"):
+        load_config(_write(tmp_path, """
+            categories = ["global", "frontend"]
+        """))
