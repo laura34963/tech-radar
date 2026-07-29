@@ -73,8 +73,9 @@ filter logic is centralized and unit-tested offline.
                         ▼
    ┌───────────────── fetch ──────────────────┐
    │  adapters (rss, cloud, github, security,  │
-   │  social) → normalize → dedupe → score     │
+   │  social) → normalize → exclude → score    │
    │  importance → lookback filter → hard cut  │
+   │  → dedupe → source fairness (demote)      │
    │  → rank/truncate                          │
    └───────────────────┬───────────────────────┘
                         ▼
@@ -133,7 +134,7 @@ Files that change together live together (a stage's logic, its tests, its templa
 
 | Command | Does | Reads | Writes |
 |---|---|---|---|
-| `radar.py fetch` | Run adapters, normalize, dedupe, score, filter, rank | config + existing snapshot | `output/data/<date>.json` |
+| `radar.py fetch` | Run adapters, normalize, exclude, score, filter, dedupe, apply source fairness, rank | config + existing snapshot | `output/data/<date>.json` |
 | `radar.py enrich` | Optional LLM pass over high/critical items | snapshot | LLM fields back into the snapshot |
 | `radar.py render` | Build digest page + rebuild the hub index | snapshot + `output/data/*.json` | `output/digests/<date>.html`, `output/index.html` |
 | `radar.py run` | `fetch` → `enrich` → `render` in sequence (used by CI) | — | all of the above |
@@ -142,6 +143,10 @@ Shared flags: `--config` (default `config/radar.toml`), `--output` (default `out
 `--force` (all stages: redo work over the existing snapshot). `fetch` also has `--fresh`
 (discard the snapshot and start clean). See [`coding-style.md` §4](coding-style.md#4-error-handling-and-logging)
 for exit-code behavior.
+
+`fetch` sets `Item.demoted` (source fairness), but render and enrich are the ones that
+consume it — render routes a demoted item to "also noted" and enrich skips it — so both
+stages depend on a field they don't own.
 
 **Resumability contract:** `fetch` skips sources already marked `ok` and retries `failed`
 ones; `enrich` skips items that already carry an `llm` block; `render` skips a date whose
