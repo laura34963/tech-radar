@@ -364,3 +364,30 @@ def test_digest_empty_board_shows_placeholder(tmp_path):
     run_render(_cfg_sec(), snap_path, out, force=True)
     digest = (out / "digests" / "2026-07-17.html").read_text()
     assert "本區本週無情資" in digest
+
+
+def test_demoted_high_item_renders_under_also_noted(tmp_path):
+    out = tmp_path / "output"
+    kept = Item(id="1", title="Kept Card", url="https://x/1", source_type="rss",
+                category="backend", published=NOW, summary="s", importance="high")
+    # clears min_display_importance="high" but lost the fairness pass
+    demoted = Item(id="2", title="Demoted Item", url="https://x/2", source_type="rss",
+                   category="backend", published=NOW, summary="s",
+                   importance="high", demoted="source_fairness")
+    grouped = _group(_snap_with([kept, demoted]), _cfg())
+    bucket = grouped["tech"]["backend"]
+    assert [c["title"] for c in bucket["cards"]] == ["Kept Card"]
+    assert [c["title"] for c in bucket["also_noted"]] == ["Demoted Item"]
+
+    snap_path = _write_snap(tmp_path, _snap_with([kept, demoted]))
+    run_render(_cfg(), snap_path, out, force=True)
+    digest = (out / "digests" / "2026-07-17.html").read_text()
+    assert "Demoted Item" in digest and "Also noted" in digest
+
+
+def test_demoted_item_is_not_counted_as_a_card(tmp_path):
+    demoted = Item(id="1", title="D", url="https://x/1", source_type="rss",
+                   category="backend", published=NOW, summary="s",
+                   importance="high", demoted="source_fairness")
+    t = _tally(_group(_snap_with([demoted]), _cfg())["tech"])
+    assert t["total"] == 0
