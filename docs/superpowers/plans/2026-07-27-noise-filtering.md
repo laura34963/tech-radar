@@ -1566,39 +1566,49 @@ Expected: PASS.
 
 - [ ] **Step 8: Verify the spec's acceptance numbers against the real snapshot**
 
-This reproduces the whole finalize chain over `output/data/2026-07-27.json` using the shipped example config's `[exclude]` and checks the four numbers the spec commits to.
+This reproduces the whole finalize chain over `output/data/2026-07-27.json` and checks the numbers the spec commits to.
+
+**The two config sources are deliberately split, and the split is load-bearing.** `[exclude]` comes from `config/radar.example.toml`, because that table is the artifact under test. Everything else — `[stack]`, `[category_keywords]`, `[general]` — comes from `config/radar.toml`, because that is the config that produced the sample snapshot. The two differ materially (local: 17 stack terms including `docker`, `max_items_per_category = 20`; example: 8 terms without `docker`, cap 15), and the `Guardrails` expectation below only arises at all because `docker` is in the local stack. Read `[stack]` from the example instead and every number except `excluded` diverges — that mistake blocked this task on the first attempt. Note `config/radar.toml` is the gitignored user config: read it with `tomllib` directly and never write to it. `max_card_items` / `per_source_limit` are absent from it, so the `.get` defaults below apply and coincide with the example's shipped values.
 
 ```bash
 .venv/bin/python - <<'PY'
-import json, collections
+import json, tomllib
 from dataclasses import replace
 from radar.config import load_config
-from radar.item import Item, IMPORTANCE_ORDER
+from radar.item import IMPORTANCE_ORDER
 from radar.match import (apply_source_fairness, category_matches, exclusion_hit,
-                         relevance_key, score_importance, source_key, stack_matches)
+                         score_importance, stack_matches)
 from radar.pipeline.fetch import dedupe, importance_ge, rank_and_truncate
 from radar.store import item_from_dict
 
-cfg = load_config('config/radar.example.toml')
+# [exclude] from the example config — that table is the artifact under test.
+exclude = load_config('config/radar.example.toml').exclude
+# Everything else from the config that actually produced the sample snapshot.
+# radar.toml is the gitignored user config and has no [exclude]; read it directly.
+local = tomllib.load(open('config/radar.toml', 'rb'))
+stack = local['stack']
+ckw = local.get('category_keywords', {})
+gen = local['general']
+
 raw = json.load(open('output/data/2026-07-27.json'))['items']
 before_cards = sum(1 for d in raw if d['importance'] in ('high', 'critical'))
 
 kept, excluded = [], 0
 for d in raw:
     it = item_from_dict(d)
-    if exclusion_hit(it, cfg.exclude) is not None:
+    if exclusion_hit(it, exclude) is not None:
         excluded += 1
         continue
-    it = replace(it, importance=score_importance(it, cfg.stack, cfg.category_keywords),
-                 stack_match=stack_matches(it, cfg.stack),
-                 keyword_match=category_matches(it, cfg.category_keywords))
-    if importance_ge(it.importance, cfg.general.get('min_keep_importance', 'medium')):
+    it = replace(it, importance=score_importance(it, stack, ckw),
+                 stack_match=stack_matches(it, stack),
+                 keyword_match=category_matches(it, ckw))
+    if importance_ge(it.importance, gen.get('min_keep_importance', 'medium')):
         kept.append(it)
 
 tier = sum(1 for it in kept if IMPORTANCE_ORDER[it.importance] >= IMPORTANCE_ORDER['high'])
 fair, demoted = apply_source_fairness(
-    dedupe(kept), cfg.general['max_card_items'], cfg.general['per_source_limit'])
-final = rank_and_truncate(fair, cfg.categories, cfg.general['max_items_per_category'])
+    dedupe(kept), gen.get('max_card_items', 30), gen.get('per_source_limit', 3))
+final = rank_and_truncate(fair, local['categories'], gen['max_items_per_category'])
 cards = [it for it in final
          if IMPORTANCE_ORDER[it.importance] >= IMPORTANCE_ORDER['high'] and not it.demoted]
 

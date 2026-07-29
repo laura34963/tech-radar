@@ -378,6 +378,15 @@ separately, since a demoted item is not dropped.
 - `docs/project-overview.md` §5 — the fetch stage description gains the exclusion and
   source-fairness steps, and the note that `demoted` is set at fetch but consumed by
   render and enrich.
+- `config/radar.example.toml` `[stack]` — brought up from 8 terms to the fuller set the
+  project actually cares about (`docker`, `kubernetes`, `k8s`, `nginx`, `next.js`,
+  `react-dom`, `typescript`, `puma`, `devise`, `nokogiri`, …). This is a behavior change to
+  what CI publishes, not a cosmetic edit, and it is deliberate: the workflow copies this file
+  over `config/radar.toml`, so the published digest was scoring against a stack nobody uses.
+  Over-matching was checked across all 165 historical items before adopting it — bare `next`
+  hits 37, but almost all are GHSA advisories literally titled `GHSA-…: next` (the npm package
+  is named `next`), and its one false positive is already removed by the `national science`
+  phrase; `go` hits 1, `k8s` and `golang` hit 0.
 
 ## Error handling
 
@@ -449,7 +458,20 @@ Updates to existing suites:
 Acceptance check — every number below was produced by simulating this exact finalize chain
 (exclusion → word-boundary rescoring → `min_keep` → fairness at `max_card_items = 30`,
 `per_source_limit = 3` → category truncation) against the real
-`output/data/2026-07-27.json`:
+`output/data/2026-07-27.json`.
+
+**These numbers depend on `config/radar.toml`, not `config/radar.example.toml`.** The sample
+snapshot was produced locally, and the two configs differ materially: the local one carries 17
+`[stack]` terms including `docker` and `max_items_per_category = 20`, while the committed
+example carries 8 terms without `docker` and a cap of 15. The `Guardrails` case below only
+arises at all because `docker` is in the local stack. Anything reproducing these figures must
+read `[stack]`, `[category_keywords]` and `[general]` from `config/radar.toml`, and only
+`[exclude]` from the example.
+
+Worth flagging separately, because it is a live defect rather than a measurement artifact:
+`.github/workflows/radar.yml:25` copies the example config over `config/radar.toml` in CI, so
+the **published** digest has been running on the narrower 8-term stack all along. That is
+addressed in §9 by bringing the example's `[stack]` up to match.
 
 | Expectation | Value |
 |---|---|
