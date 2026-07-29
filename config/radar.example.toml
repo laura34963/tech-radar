@@ -26,7 +26,7 @@ per_source_limit = 3
 [stack]
 languages  = ["ruby", "go", "javascript", "python", "typescript", "golang"]
 frameworks = ["rails", "react", "next.js", "react-dom"]
-packages   = ["rails", "sidekiq", "puma", "devise", "nokogiri", "react", "next",
+packages   = ["rails", "sidekiq", "puma", "devise", "nokogiri", "react",
               "axios", "nginx", "docker", "kubernetes", "k8s"]
 ecosystems = ["rubygems", "npm", "pypi"]
 
@@ -53,7 +53,7 @@ ai = ["llm", "gpt", "claude", "gemini", "openai", "anthropic", "mistral",
 # would shred legitimate cloud and devops items if they were global.
 #
 # The `ai` list is the corporate-PR filter and is where this pays off most.
-# Measured on the 2026-07-27 snapshot it takes openai.com from 9 card-tier items
+# Measured on the 2026-07-27 snapshot it takes openai.com from 10 card-tier items
 # to 5, with every survivor substantive. Do NOT add "partner to address" — it
 # killed "OpenAI and Hugging Face partner to address security incident", a real
 # security story.

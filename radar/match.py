@@ -180,8 +180,8 @@ def apply_source_fairness(items: list[Item], budget: int, floor: int
         group.sort(key=relevance_key, reverse=True)
 
     keep = {it.id for it in tier if it.severity in _EXEMPT_SEVERITIES}
-    # Best-item rank orders the sources; source_key breaks ties so the outcome is
-    # reproducible for items that rank identically.
+    # Best-item rank orders the sources; source_key breaks ties, descending, so the
+    # outcome is reproducible for items that rank identically.
     order = sorted(groups, key=lambda k: (relevance_key(groups[k][0]), k), reverse=True)
     # Exempt items already banked for a source count toward its floor (per the
     # contract above), so only its not-yet-kept items are eligible to fill

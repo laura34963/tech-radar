@@ -280,6 +280,37 @@ def test_run_fetch_demotes_over_budget_without_dropping(tmp_path):
     assert demoted[0]["importance"] == "high"                       # importance intact
 
 
+def test_run_fetch_clears_stale_demotion_when_within_budget(tmp_path):
+    from radar.item import Item
+    from radar.store import new_snapshot, item_to_dict, atomic_write_json
+
+    snap_path = tmp_path / "stale.json"
+    snap = new_snapshot("2026-07-17")
+    stale_item = Item(id="stale-1", title="Claude one", url="https://only.example/1",
+                      source_type="rss", category="backend",
+                      published=datetime(2026, 7, 16, tzinfo=timezone.utc),
+                      summary="s", importance="high", keyword_match=["claude"],
+                      demoted="source_fairness")
+    snap["items"] = [item_to_dict(stale_item)]
+    # mark the source as already fetched this run so run_fetch skips re-fetching
+    # and drives finalize straight from the rehydrated (stale-demoted) item.
+    snap["meta"]["sources"]["https://f/feed"] = {"status": "ok", "count": 1}
+    atomic_write_json(snap_path, snap)
+
+    client = httpx.Client(transport=httpx.MockTransport(
+        lambda req: httpx.Response(500)))  # must not be called; source is cached
+    cfg = Config(general={"lookback_days": 3650, "min_keep_importance": "low",
+                          "max_card_items": 30, "per_source_limit": 3},
+                 stack={}, categories=["backend"], sources=[
+                     {"type": "rss", "category": "backend", "url": "https://f/feed"}],
+                 llm={}, category_keywords={"backend": ["claude"]})
+    snap = run_fetch(cfg, snap_path, now=datetime(2026, 7, 17, tzinfo=timezone.utc),
+                     client=client)
+
+    assert len(snap["items"]) == 1
+    assert snap["items"][0]["demoted"] is None  # fairness recomputed, no longer stale
+
+
 def test_run_fetch_does_not_demote_when_within_budget(tmp_path):
     feed = _TWO_ITEM_FEED.format(t1="Claude one", l1="https://only.example/1",
                                  t2="Claude two", l2="https://only.example/2")

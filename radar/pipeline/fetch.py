@@ -113,7 +113,8 @@ def run_fetch(cfg, snapshot_path: Path, *, now: datetime, client,
         it = replace(it,
                      importance=score_importance(it, cfg.stack, cfg.category_keywords),
                      stack_match=stack_matches(it, cfg.stack),
-                     keyword_match=category_matches(it, cfg.category_keywords))
+                     keyword_match=category_matches(it, cfg.category_keywords),
+                     demoted=None)
         if not within_lookback(it.published, now, lookback):
             stale += 1
             continue
