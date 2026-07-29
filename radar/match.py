@@ -6,6 +6,7 @@ arguments, so the rules can be tested offline without fetch scaffolding.
 """
 from __future__ import annotations
 import re
+from dataclasses import replace
 from functools import lru_cache
 from urllib.parse import urlsplit
 from radar.item import Item, IMPORTANCE_ORDER
@@ -128,3 +129,87 @@ def relevance_key(it: Item) -> tuple:
     return (IMPORTANCE_ORDER[it.importance],
             len(it.stack_match) + len(it.keyword_match),
             it.published)
+
+
+_CARD_TIER = "high"
+_EXEMPT_SEVERITIES = ("high", "critical")
+
+
+def apply_source_fairness(items: list[Item], budget: int, floor: int
+                          ) -> tuple[list[Item], dict[str, int]]:
+    """Decide which card-tier items keep their card when the tier is over budget.
+
+    Returns `(items, {source_key: demoted count})`. Every input item comes back —
+    losing this pass costs an item its card, not its place in the snapshot, so a
+    demoted item is returned with `demoted="source_fairness"` set and nothing is
+    discarded.
+
+    Two phases once the tier exceeds `budget`:
+
+    1. **Floor.** Every source is guaranteed its top `min(floor, group size)`
+       items — a floor, not a cap. A source holding fewer than the floor simply
+       keeps what it has; there is nothing to pad. When the floors together
+       exceed the budget, they are filled level by level (every source's 1st
+       item, then every source's 2nd) so the guarantee degrades evenly instead of
+       the first few sources consuming every slot.
+    2. **Merit.** The remaining budget goes to the best unreserved items
+       globally, by `relevance_key`, ignoring source. This is the only place a
+       source with deep, strong leftovers can take several slots in a row.
+
+    Items with a high/critical `severity` are never demoted: they do consume
+    budget, and they do satisfy their own source's floor, but a fairness rule must
+    never bury a serious advisory. If they alone exceed the budget, all are still
+    kept and the budget is overshot.
+
+    Under budget this is a no-op regardless of how lopsided the sources are —
+    diversity is enforced only under scarcity. `budget <= 0` disables it entirely.
+
+    Requires unique `Item.id` across `items`; `fetch.dedupe` guarantees that.
+    """
+    if budget <= 0:
+        return items, {}
+    tier = [it for it in items
+            if IMPORTANCE_ORDER[it.importance] >= IMPORTANCE_ORDER[_CARD_TIER]]
+    if len(tier) <= budget:
+        return items, {}
+
+    groups: dict[str, list[Item]] = {}
+    for it in tier:
+        groups.setdefault(source_key(it.url), []).append(it)
+    for group in groups.values():
+        group.sort(key=relevance_key, reverse=True)
+
+    keep = {it.id for it in tier if it.severity in _EXEMPT_SEVERITIES}
+    # Best-item rank orders the sources; source_key breaks ties so the outcome is
+    # reproducible for items that rank identically.
+    order = sorted(groups, key=lambda k: (relevance_key(groups[k][0]), k), reverse=True)
+    # Exempt items already banked for a source count toward its floor (per the
+    # contract above), so only its not-yet-kept items are eligible to fill
+    # whatever floor slots remain.
+    remaining = {k: [it for it in group if it.id not in keep]
+                 for k, group in groups.items()}
+    floor_quota = {k: max(0, floor - (len(groups[k]) - len(remaining[k])))
+                   for k in groups}
+    for level in range(max(0, floor)):
+        for key in order:
+            if len(keep) >= budget:
+                break
+            if level < floor_quota[key] and level < len(remaining[key]):
+                keep.add(remaining[key][level].id)
+    for it in sorted((x for x in tier if x.id not in keep),
+                     key=relevance_key, reverse=True):
+        if len(keep) >= budget:
+            break
+        keep.add(it.id)
+
+    demoted: dict[str, int] = {}
+    out: list[Item] = []
+    for it in items:
+        if (it.id in keep
+                or IMPORTANCE_ORDER[it.importance] < IMPORTANCE_ORDER[_CARD_TIER]):
+            out.append(it)
+            continue
+        key = source_key(it.url)
+        demoted[key] = demoted.get(key, 0) + 1
+        out.append(replace(it, demoted="source_fairness"))
+    return out, demoted

@@ -1,8 +1,10 @@
+import collections
 from datetime import datetime, timezone, timedelta
 from radar.item import Item
 from radar.match import (term_hits, haystack, stack_matches, category_matches,
                          score_importance, exclusion_hit)
 from radar.match import source_key, relevance_key
+from radar.match import apply_source_fairness
 
 NOW = datetime(2026, 7, 17, tzinfo=timezone.utc)
 
@@ -165,3 +167,123 @@ def test_relevance_key_breaks_equal_matches_by_recency():
     old = _item(id="o", importance="high", published=NOW - timedelta(days=1))
     new = _item(id="n", importance="high", published=NOW)
     assert relevance_key(new) > relevance_key(old)
+
+
+# --- apply_source_fairness ----------------------------------------------------
+
+def _card(id, host, n=0, published=None, severity=None):
+    """A high-importance item from `host`, with `n` fake stack matches."""
+    return _item(id=id, importance="high", url=f"https://{host}/{id}",
+                 stack_match=[f"t{i}" for i in range(n)],
+                 published=published or NOW, severity=severity)
+
+
+def test_fairness_pass_demotes_nobody_when_under_budget():
+    # one source holding every card; lopsidedness alone must not trigger trimming
+    items = [_card(str(i), "openai.com") for i in range(10)]
+    out, demoted = apply_source_fairness(items, budget=30, floor=3)
+    assert demoted == {}
+    assert all(it.demoted is None for it in out)
+
+
+def test_fairness_pass_demotes_instead_of_dropping():
+    items = [_card(str(i), "openai.com") for i in range(5)]
+    out, demoted = apply_source_fairness(items, budget=3, floor=3)
+    assert len(out) == 5                                   # nothing discarded
+    assert sum(1 for it in out if it.demoted) == 2
+    assert demoted == {"openai.com": 2}
+    assert all(it.importance == "high" for it in out)       # importance untouched
+
+
+def test_fairness_pass_guarantees_floor_to_every_source():
+    # 3 sources x 4 cards = 12, budget 9, floor 3 -> each source keeps exactly 3
+    items = [_card(f"{h}-{i}", h)
+             for h in ("a.com", "b.com", "c.com") for i in range(4)]
+    out, _ = apply_source_fairness(items, budget=9, floor=3)
+    kept = collections.Counter(source_key(it.url) for it in out if not it.demoted)
+    assert kept == {"a.com": 3, "b.com": 3, "c.com": 3}
+
+
+def test_fairness_pass_does_not_pad_a_source_holding_fewer_than_the_floor():
+    items = [_card("a1", "a.com")] + [_card(f"b{i}", "b.com") for i in range(5)]
+    out, _ = apply_source_fairness(items, budget=4, floor=3)
+    kept = collections.Counter(source_key(it.url) for it in out if not it.demoted)
+    # a.com has only 1 item and keeps it; b.com takes its floor of 3
+    assert kept == {"a.com": 1, "b.com": 3}
+
+
+def test_fairness_pass_allocates_surplus_by_merit_ignoring_source():
+    # floor 1 reserves 1 per source (2 slots), budget 4 leaves 2 merit slots.
+    # b.com's leftovers have more matches, so it takes BOTH — no rotation.
+    items = [_card("a1", "a.com", n=5), _card("a2", "a.com", n=0),
+             _card("a3", "a.com", n=0),
+             _card("b1", "b.com", n=4), _card("b2", "b.com", n=3),
+             _card("b3", "b.com", n=2)]
+    out, _ = apply_source_fairness(items, budget=4, floor=1)
+    kept = {it.id for it in out if not it.demoted}
+    assert kept == {"a1", "b1", "b2", "b3"}
+
+
+def test_fairness_pass_fills_floors_level_by_level_when_floors_exceed_budget():
+    # 4 sources x floor 3 = 12 reserved but budget is only 4, so the floor phase
+    # must give every source its 1st item before anyone gets a 2nd.
+    items = [_card(f"{h}-{i}", h, n=(3 - i))
+             for h in ("a.com", "b.com", "c.com", "d.com") for i in range(3)]
+    out, _ = apply_source_fairness(items, budget=4, floor=3)
+    kept = collections.Counter(source_key(it.url) for it in out if not it.demoted)
+    assert kept == {"a.com": 1, "b.com": 1, "c.com": 1, "d.com": 1}
+
+
+def test_fairness_pass_never_demotes_high_severity_item():
+    advisory = _card("cve", "openai.com", severity="critical")
+    filler = [_card(str(i), "openai.com", n=5) for i in range(5)]
+    out, _ = apply_source_fairness([advisory] + filler, budget=2, floor=0)
+    kept = {it.id for it in out if not it.demoted}
+    assert "cve" in kept
+
+
+def test_fairness_pass_counts_exempt_items_against_the_budget():
+    advisories = [_card(f"cve{i}", "a.com", severity="high") for i in range(3)]
+    others = [_card(f"o{i}", "b.com") for i in range(3)]
+    out, _ = apply_source_fairness(advisories + others, budget=3, floor=0)
+    kept = {it.id for it in out if not it.demoted}
+    assert kept == {"cve0", "cve1", "cve2"}   # budget consumed by the exempt items
+
+
+def test_fairness_pass_exempt_items_satisfy_their_sources_floor():
+    # a.com's 2 advisories already meet a floor of 2, so it reserves nothing more
+    advisories = [_card(f"cve{i}", "a.com", severity="high") for i in range(2)]
+    extra = [_card(f"a{i}", "a.com", n=5) for i in range(2)]
+    others = [_card(f"b{i}", "b.com") for i in range(2)]
+    out, _ = apply_source_fairness(advisories + extra + others, budget=4, floor=2)
+    kept = collections.Counter(source_key(it.url) for it in out if not it.demoted)
+    assert kept == {"a.com": 2, "b.com": 2}
+
+
+def test_fairness_pass_ignores_medium_items():
+    med = [_item(id=f"m{i}", importance="medium", url="https://a.com/x") for i in range(5)]
+    cards = [_card(str(i), "a.com") for i in range(5)]
+    out, demoted = apply_source_fairness(med + cards, budget=3, floor=3)
+    assert all(it.demoted is None for it in out if it.importance == "medium")
+    assert sum(demoted.values()) == 2       # only cards were trimmed
+
+
+def test_fairness_pass_disabled_when_budget_zero():
+    items = [_card(str(i), "a.com") for i in range(10)]
+    out, demoted = apply_source_fairness(items, budget=0, floor=3)
+    assert demoted == {} and all(it.demoted is None for it in out)
+
+
+def test_fairness_pass_is_deterministic_for_equal_ranks():
+    # identical rank on every item: repeated runs must demote the same ones
+    items = [_card(f"{h}-{i}", h) for h in ("a.com", "b.com") for i in range(4)]
+    first = {it.id for it in apply_source_fairness(items, 3, 1)[0] if not it.demoted}
+    for _ in range(5):
+        again = {it.id for it in apply_source_fairness(items, 3, 1)[0] if not it.demoted}
+        assert again == first
+
+
+def test_fairness_pass_never_removes_an_item():
+    items = [_card(str(i), "a.com") for i in range(9)]
+    out, _ = apply_source_fairness(items, budget=2, floor=1)
+    assert {it.id for it in out} == {str(i) for i in range(9)}
