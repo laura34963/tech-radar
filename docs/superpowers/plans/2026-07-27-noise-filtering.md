@@ -1018,12 +1018,20 @@ def apply_source_fairness(items: list[Item], budget: int, floor: int
     # Best-item rank orders the sources; source_key breaks ties so the outcome is
     # reproducible for items that rank identically.
     order = sorted(groups, key=lambda k: (relevance_key(groups[k][0]), k), reverse=True)
+    # Exempt items already banked for a source count toward its floor (per the
+    # contract above), so only its not-yet-kept items are eligible to fill
+    # whatever floor slots remain. Computed before the floor loop mutates `keep`,
+    # so a non-exempt item can never inflate the exempt count.
+    remaining = {k: [it for it in group if it.id not in keep]
+                 for k, group in groups.items()}
+    floor_quota = {k: max(0, floor - (len(groups[k]) - len(remaining[k])))
+                   for k in groups}
     for level in range(max(0, floor)):
         for key in order:
             if len(keep) >= budget:
                 break
-            if len(groups[key]) > level:
-                keep.add(groups[key][level].id)
+            if level < floor_quota[key] and level < len(remaining[key]):
+                keep.add(remaining[key][level].id)
     for it in sorted((x for x in tier if x.id not in keep),
                      key=relevance_key, reverse=True):
         if len(keep) >= budget:
