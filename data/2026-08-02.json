@@ -1,0 +1,1208 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "8a61de767b8250c3",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T15:10:16.536000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "New RubyGems release: rails 8.0.5.1",
+      "tags": [],
+      "title": "rails 8.0.5.1",
+      "url": "https://rubygems.org/gems/rails/versions/8.0.5.1"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "c66b6b11700d489f",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T15:08:39.997000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "New RubyGems release: rails 7.2.3.2",
+      "tags": [],
+      "title": "rails 7.2.3.2",
+      "url": "https://rubygems.org/gems/rails/versions/7.2.3.2"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "e1e745b5537a4b8a",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T15:08:22+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "## Active Support\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Model\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Record\r\n\r\n*   No changes.\r\n\r\n\r\n## Action View\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Pack\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Job\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Mailer\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Cable\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Storage\r\n\r\n*   Disable libvips's unfuzzed image loaders and savers.\r\n\r\n    libvips flags some of its loaders and savers as \"unfuzzed\" or \"untrusted\", meaning they are onl",
+      "tags": [],
+      "title": "rails/rails v8.0.5.1",
+      "url": "https://github.com/rails/rails/releases/tag/v8.0.5.1"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "b547dc8d5aeb0537",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T15:05:22+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "## Active Support\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Model\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Record\r\n\r\n*   No changes.\r\n\r\n\r\n## Action View\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Pack\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Job\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Mailer\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Cable\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Storage\r\n\r\n*   Disable libvips's unfuzzed image loaders and savers.\r\n\r\n    libvips flags some of its loaders and savers as \"unfuzzed\" or \"untrusted\", meaning they are onl",
+      "tags": [],
+      "title": "rails/rails v7.2.3.2",
+      "url": "https://github.com/rails/rails/releases/tag/v7.2.3.2"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "fd8c25e7bf6bf6dd",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T15:02:41.060000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "New RubyGems release: rails 8.1.3.1",
+      "tags": [],
+      "title": "rails 8.1.3.1",
+      "url": "https://rubygems.org/gems/rails/versions/8.1.3.1"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "3c0b2f8c58af7bfd",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T14:59:54+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "## Active Support\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Model\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Record\r\n\r\n*   No changes.\r\n\r\n\r\n## Action View\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Pack\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Job\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Mailer\r\n\r\n*   No changes.\r\n\r\n\r\n## Action Cable\r\n\r\n*   No changes.\r\n\r\n\r\n## Active Storage\r\n\r\n*   Disable libvips's unfuzzed image loaders and savers.\r\n\r\n    libvips flags some of its loaders and savers as \"unfuzzed\" or \"untrusted\", meaning they are onl",
+      "tags": [],
+      "title": "rails/rails v8.1.3.1",
+      "url": "https://github.com/rails/rails/releases/tag/v8.1.3.1"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "f18b4a6dd7f9f6fc",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-31T16:52:17.052000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-cbb046ab-20260731",
+      "tags": [],
+      "title": "react 0.0.0-experimental-cbb046ab-20260731",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-cbb046ab-20260731"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "ab8b97988af82991",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T20:28:30.427000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-0f42eac2-20260730",
+      "tags": [],
+      "title": "react 0.0.0-experimental-0f42eac2-20260730",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-0f42eac2-20260730"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "34d42168c7facfc8",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T16:47:46.133000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-6cb4322d-20260729",
+      "tags": [],
+      "title": "react 0.0.0-experimental-6cb4322d-20260729",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-6cb4322d-20260729"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "b7d454084d50e8fc",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T18:50:58.253000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-1724e9ce-20260729",
+      "tags": [],
+      "title": "react 0.0.0-experimental-1724e9ce-20260729",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-1724e9ce-20260729"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "c1f2ecac433f1364",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T17:07:54.912000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "New npm release: axios 1.19.0",
+      "tags": [],
+      "title": "axios 1.19.0",
+      "url": "https://www.npmjs.com/package/axios/v/1.19.0"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "d46ebcb29832e62b",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-28T17:22:24.045000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-96fcba90-20260728",
+      "tags": [],
+      "title": "react 0.0.0-experimental-96fcba90-20260728",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-96fcba90-20260728"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "bbfa20cf1eba713d",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-31T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for Oracle now offers 1-year and 3-year Reserved Instances for R8i and M8i instances with up to 53% cost savings compared to On-Demand prices. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. R8i and M8i instances offer up to 15% better price-performance and 2.5x more memory bandwidth compared to previous generation Intel-based instances.",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for Oracle now offers Reserved Instances for R8i and M8i instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-rds-oracle-r8i-m8i/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8a978d2c979c1c07",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-31T14:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda now supports Java 8, Java 11, and Java 17 runtimes on Amazon Linux 2023 (AL2023), available as both managed runtimes and container base images. These new runtimes enable customers running Lambda functions on Java 8, 11, or 17 to migrate from Amazon Linux 2 (AL2) to AL2023 without requiring a simultaneous Java version upgrade.  The existing Lambda runtimes for Java 8, 11 and 17 run on AL2, which reached end of life on June 30, 2026. To maintain support coverage and SLA eligibility, cus",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda now supports Java 8, 11, and 17 on Amazon Linux 2023",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-java-amazon-linux/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "3017872305cd25a1",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-31T13:06:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon CloudWatch now supports collecting Prometheus metrics from your AWS infrastructure using fully managed collectors — enabling you to monitor Amazon EKS, Amazon EC2, Amazon ECS, Amazon MSK, and Amazon OpenSearch Service workloads without deploying or managing any agents. \nPreviously, getting Prometheus metrics into CloudWatch required deploying, scaling, and maintaining a self-managed OpenTelemetry Collector. Managed Prometheus collectors eliminate that overhead. You provide a scrape config",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon CloudWatch announces managed Prometheus collectors",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/cloudwatch-managed-collectors/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "5ed706abe0ed7097",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-31T10:54:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS CodeDeploy is now available in five additional AWS Regions: Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Taipei), Asia Pacific (Malaysia), and Mexico (Central). AWS CodeDeploy is a fully managed deployment service that automates application deployments to Amazon EC2 instances, on-premises servers, AWS Lambda functions, and Amazon ECS services. Customers in these newly added regions can now access CodeDeploy locally, enabling lower latency and supporting data residency r",
+      "tags": [
+        "ec2",
+        "lambda"
+      ],
+      "title": "AWS CodeDeploy now available in five additional AWS regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-codedeploy-five-additional-regions"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "693e666e9167b5b5",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-31T00:21:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C7i-flex instances powered by custom 4th Gen Intel Xeon Scalable processors (code-named Sapphire Rapids) are available in Europe (Milan) region. These custom processors, available only on AWS, offer up to 15% better performance over comparable x86-based Intel processors utilized by other cloud providers.  C7i-flex instances are the easiest way for you to get price performance benefits for a majority of compute intensive workloads, and del",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C7i-flex instances now available in Europe (Milan) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7i-flex-instances-MXP-region/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ce227f3cb95b7c4f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-31T00:17:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C7i instances powered by custom 4th Gen Intel Xeon Scalable processors (code-named Sapphire Rapids) are available in Europe (Milan) and Canada West (Calgary) regions. These custom processors, available only on AWS, offer up to 15% better performance over comparable x86-based Intel processors utilized by other cloud providers.  C7i instances deliver up to 15% better price-performance versus C6i instances and are a great choice for all comp",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C7i instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ec2-c7i-instances-mxp-yyc-region/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "7f226a1b84dfba0f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-30T20:02:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Redshift now supports Graviton-based RG instances on the trailing track.&nbsp;Starting today, rg.large and rg.12xlarge instance types are available for customers running workloads on the trailing track on patch P202 and onwards.  The trailing track is designed for customers who prioritize stability for production workloads, running on a version already validated through the leading track. With RG instances now available on both tracks, customers can take advantage of AWS Graviton-powered ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Redshift RG large and 12xlarge instances now available on the trailing track",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-redshift-rg-large-12xlarge-trailing-track"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "3b6ead65d8edbd1f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-30T14:07:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon MSK Express brokers now delivers data to Amazon S3 general purpose buckets, providing a fully managed capability to deliver Apache Kafka data in Amazon S3 for downstream processing in the easiest and most reliable way. This capability automatically scales to deliver high-throughput Kafka data to S3 with end-to-end reliability for mission-critical workloads, while reducing ingestion and delivery costs by up to 60% compared to self-managed alternatives. \nCustomers deliver Apache Kafka data ",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon MSK Express brokers now delivers Apache Kafka data to Amazon S3",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-express-brokers-delivers-to-amazon-s3"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "4dac779d154b5170",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-30T14:07:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon MSK Express brokers now deliver data to streaming tables for Apache Iceberg, a new capability that continuously materializes Apache Kafka topics as Apache Iceberg tables on Amazon S3 Tables. Amazon MSK data delivery to streaming tables can reduce the cost of ingesting and delivering Apache Kafka data into Amazon S3 Tables by up to 60% versus self-managed deployments and reduces downstream query costs by up to 30% versus self-managed Apache Kafka deployments. \nCustomers rely on Apache Kafk",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon MSK Express brokers now deliver data to streaming tables for Apache Iceberg",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-msk-streaming-tables-for-apache-iceberg"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "723a45a99ebe8e9e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-29T21:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 Auto Scaling now supports Instance Refresh as a new AWS CloudFormation update policy. When you configure the new AutoScalingInstanceRefresh update policy and update properties that require instance replacement, CloudFormation automatically triggers an Instance Refresh. \nWith this integration, you can now access Instance Refresh capabilities including replace root volume for in-place updates, launch-before-terminate, alarm-based monitoring, and checkpoints with bake time for controlled",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 Auto Scaling now supports Instance Refresh in CloudFormation",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/ec2-auto-scaling-instance-refresh-cloudformation"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "1a331847960341ce",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-28T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Tables now support the Variant data type as defined in the Apache Iceberg Version 3 (V3) specification. You can now write semi-structured data like JSON directly to S3 Tables without defining a fixed schema in advance, allowing you to land data faster while still getting efficient analytical query performance.  With the Variant data type, Apache Iceberg V3-compatible engines shred your semi-structured data into hidden columns as you write it, generating Parquet column statistics that q",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 Tables now support the Variant data type for Apache Iceberg V3",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-s3-tables-variant-iceberg-v3/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "d50c046db44f9091",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-07-27T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports restoring Transparent Data Encryption (TDE)-enabled SQL Server databases on Multi-AZ instances and instances configured with a read replica in the same region, using native backup and restore. Previously, TDE-enabled database restore was available only for Single-AZ instances, requiring you to disable TDE or migrate to a Single-AZ configuration before restoring encrypted databases.  You can restore TDE-enabled database b",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for SQL Server now supports restoring TDE databases on Mult-AZ instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/rds-sql-server-supports-tde-for-maz/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "49247fcd00acbcaf",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-31T11:08:19+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "rails",
+        "ruby"
+      ],
+      "summary": "&#32; submitted by &#32;  /u/hakluke   [link] &#32; [comments]",
+      "tags": [],
+      "title": "Full Rails RCE technical writeup... KindaRails2Shell: How a MATLAB file reads your secrets and pops a shell on Ruby on Rails | Ethiack",
+      "url": "https://www.reddit.com/r/netsec/comments/1vbnvo5/full_rails_rce_technical_writeup_kindarails2shell/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "5226afe42a903f3d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T18:10:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "rails",
+        "ruby"
+      ],
+      "summary": "Ruby on Rails has released fixes for a critical Active Storage vulnerability that could let unauthenticated attackers read arbitrary files from application servers through crafted image uploads.\n\nTracked as CVE-2026-66066 (CVSS score: 9.5), the flaw can expose the Rails process environment and secrets such as secret_key_base, the Rails master key, database passwords, cloud storage credentials,",
+      "tags": [],
+      "title": "Critical Rails Flaw Could Let Unauthenticated Attackers Read Server Files via Image Uploads",
+      "url": "https://thehackernews.com/2026/07/critical-rails-flaw-could-let.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "7b6143d7907f22cc",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:46.069203+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+      "tags": [],
+      "title": "GHSA-gcfj-64vw-6mp9: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-gcfj-64vw-6mp9"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "0fa86a6b2f57fc9d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-01T09:03:07+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Attackers modified a JavaScript file served by advertising technology company Adform, turning it into a browser-side tool that rewrites cryptocurrency wallet addresses.\n\nAdform detected the incident on July 27, 2026, removed the malicious code, notified affected clients, and reported it to authorities.\n\nAnyone who visited a site carrying the affected script on July 27 and copied a Bitcoin,",
+      "tags": [],
+      "title": "Hackers Poison Adform Script to Swap Crypto Wallet Addresses Across Customer Sites",
+      "url": "https://thehackernews.com/2026/08/hackers-poison-adform-script-to-swap.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "b854b6f9db795aeb",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-31T16:39:31+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Cybersecurity researchers have shed light on a previously undocumented Go-based loader framework called HollowFrame and a Rust-based malware family tracked as Matryoshka.\n\nAccording to Blackpoint Cyber, the intrusion sequence begins with a spear-phishing message containing a link to an encrypted archive, which holds a Windows Shortcut (LNK). Executing the file triggers a multi-stage chain that",
+      "tags": [],
+      "title": "HollowFrame Loader Deploys Matryoshka Backdoor in Spear-Phishing Attack on Law Firm",
+      "url": "https://thehackernews.com/2026/07/hollowframe-loader-deploys-matryoshka.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "4fdfdbc0dc4e56e2",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T14:04:52+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "Active Storage's default vips variant processor exposes an arbitrary file read that chains to RCE on stock Rails 7.x and 8.x, where the app serves back processed variants of user-supplied images. No authentication required in certain setups. Only vips is affected, Magick is not. Patched in 7.2.3.2, 8.0.5.1, and 8.1.3.1, and the fix requires libvips 8.13+. Chain and PoC withheld while patches roll out.  &#32; submitted by &#32;  /u/ZealousidealHunter80   [link] &#32; [comments]",
+      "tags": [],
+      "title": "KindaRails2Shell: arbitrary file read to RCE in Rails Active Storage via libvips (CVE-2026-66066)",
+      "url": "https://www.reddit.com/r/netsec/comments/1vauljz/kindarails2shell_arbitrary_file_read_to_rce_in/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "42d1eedeb284c954",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T04:20:57+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Beta release versions of two npm packages in the @joyfill namespace have been compromised to deliver a remote access trojan (RAT) associated with the DEV#POPPER malware family.\n\nThe list of affected packages is as follows -\n\n\n  @joyfill/layouts@0.1.2-2773.beta.0\n  @joyfill/components@4.0.0-rc24-2773-beta.4\n\nThe two packages \"contain an import-time JavaScript implant that resolves encrypted code",
+      "tags": [],
+      "title": "Two Compromised joyfill npm Packages Run RAT When Imported Into Node.js",
+      "url": "https://thehackernews.com/2026/07/two-compromised-joyfill-npm-packages.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "d0318751767b37bd",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:48.888402+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios form serializer maxDepth bypass via {} metatoken",
+      "tags": [],
+      "title": "GHSA-hcpx-6fm6-wx23: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-hcpx-6fm6-wx23"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "b9d31f9ed8ebffb3",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:48.829122+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Nested axios option objects can consume polluted prototype values",
+      "tags": [],
+      "title": "GHSA-7q8q-rj6j-mhjq: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-7q8q-rj6j-mhjq"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "d243fae9c832289f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:48.423969+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+      "tags": [],
+      "title": "GHSA-f4gw-2p7v-4548: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-f4gw-2p7v-4548"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "ec0794185ef0ccaf",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:47.616320+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+      "tags": [],
+      "title": "GHSA-42h9-826w-cgv3: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-42h9-826w-cgv3"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "5a5fa72cf4c0d5d5",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:47.407301+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Prototype pollution gadgets can alter axios request construction",
+      "tags": [],
+      "title": "GHSA-mmx7-hfxf-jppx: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-mmx7-hfxf-jppx"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "30ab622a84849d63",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:46.989491+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Prototype pollution auth subfields can inject Basic auth",
+      "tags": [],
+      "title": "GHSA-xj6q-8x83-jv6g: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-xj6q-8x83-jv6g"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "24188f6fc21903eb",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:46.540493+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+      "tags": [],
+      "title": "GHSA-pmv8-rq9r-6j72: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-pmv8-rq9r-6j72"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "bdf7a3b172275997",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-02T03:56:46.440984+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+      "tags": [],
+      "title": "GHSA-jqh4-m9w3-8hp9: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-jqh4-m9w3-8hp9"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "e6f02996d1193634",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "gemini",
+        "agentic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-27T21:55:53+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "An opinionated guide to which AI to use to do stuff\nIt's interesting watching the evolution of Ethan Mollick's guide over time. \nA year ago it was still all about chat - ChatGPT, Claude, Gemini - with o3, Claude 4 Opus, and Gemini 2.5 Pro as the models and Deep Research as a useful alternative mode.\nToday it's much more about agentic systems - \"where the AI is capable of doing the equivalent of many hours of real human work in one go\".\nGemini has fallen off Ethan's list, since Google still doesn",
+      "tags": [],
+      "title": "An opinionated guide to which AI to use to do stuff",
+      "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "518c46c1375437aa",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "openai",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-01T20:34:49+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Ten advances in mathematics and theoretical computer science\nA few days ago it was Anthropic discovering cryptographic weaknesses with Claude using Mythos Preview, spending $100,000 on tokens and with prompts that included \"again we are not looking for low hanging fruit, we want proper research to find genuinly hard findings.\"\nNow it's OpenAI's turn to flex. They set \"an internal version of Astra, our next major model\" on finding solutions to ten mathematical problems that \"have seen no progress",
+      "tags": [],
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "7c4f61301b375309",
+      "importance": "high",
+      "keyword_match": [
+        "openai",
+        "anthropic",
+        "hugging face"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T23:41:29+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Investigating three real-world incidents in our cybersecurity evaluations\nIt happened again! This is turning into something of a pattern.\nLast week OpenAI accidentally exploited Hugging Face when one of their frontier models broke out of a sandboxed container and hacked into Hugging Face to try and get the solutions to the cyber benchmark it was executing.\nThis inspired Anthropic to double-check their own logs, and it turned out they had three similar (albeit less impressive) incidents, the earl",
+      "tags": [],
+      "title": "Investigating three real-world incidents in our cybersecurity evaluations",
+      "url": "https://simonwillison.net/2026/Jul/30/three-real-world-incidents/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "eb71f165025c2507",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai",
+        "agentic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT-5.6 improves AI efficiency across models, inference, and agentic workflows, helping deliver more useful intelligence per dollar.",
+      "tags": [],
+      "title": "How GPT-5.6 fuses frontier intelligence with frontier efficiency",
+      "url": "https://openai.com/index/gpt-5-6-frontier-intelligence-efficiency"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "95185cf91586e5d4",
+      "importance": "high",
+      "keyword_match": [
+        "agentic",
+        "hugging face"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-31T23:59:44+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "deepseek-ai/DeepSeek-V4-Flash-0731\nThe latest release in DeepSeek's V4 family, \"with substantially enhanced agentic capabilities\". It's 304 billion parameters - 167GB on Hugging Face - but it appears to punch well above its weight.\nArtificial Analysis rank it ahead of MiniMax M3 - a 428B model. It's $0.14/million input and $0.27/million output pricing means this may currently be the best value-per-intelligence model out there. It's looking very good on the Intelligence Index vs. Cost per Intelli",
+      "tags": [],
+      "title": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "url": "https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "6663cb7fa838dda5",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-31T23:13:22+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol.\nFor background: MCP is the Model Context Protocol, which describes a standard way to expose new tools to LLM-powered agent frameworks. It was introduced by Anthropic back in November 2024, had a",
+      "tags": [],
+      "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+      "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "a2271f06d37ea936",
+      "importance": "high",
+      "keyword_match": [
+        "llm"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-31T14:14:23+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Release: datasette-agent 0.4a0\n        \n\nNew await context.browser_task() mechanism allowing agent tools to run code directly in the user's browser. #33\n\n\nThis is an exciting new capability: it makes it easy for Datasette Agent plugins to provide tools that execute custom JavaScript in the user's browser.\nI used this to add a debug loop to Datasette Apps in datasette-apps 0.2a0.\n    \n    \n        Tags: datasette, llm-tool-use, datasette-agent",
+      "tags": [],
+      "title": "datasette-agent 0.4a0",
+      "url": "https://simonwillison.net/2026/Jul/31/datasette-agent/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "7bc027728ff8ee44",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T23:58:42+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Advancing the price-performance frontier with GPT‑5.6\nHuge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop.\nOpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to optimize inference itself:\n\nWe also used GPT‑5.6 Sol to optimize the model’s forward pass: the computation that transforms inputs into next-toke",
+      "tags": [],
+      "title": "Advancing the price-performance frontier with GPT‑5.6",
+      "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "31c91c487dcc06ec",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "gpt"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T22:52:06+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm 0.32rc2\n        Hot on the heels of RC1, this fixes a dependency issue and also adds two neat new features:\n\n\nThe default model for users who have not set their own default is now GPT-5.6 Luna. It was previously GPT-4o mini. Luna is a much better and more recent model, albeit slightly more expensive - $0.20 per million input tokens and $1.20 per million output tokens, compared to $0.15/$0.60 for 4o mini. You can switch back to 4o mini using llm models default gpt-4o-mini, or switch ",
+      "tags": [],
+      "title": "llm 0.32rc2",
+      "url": "https://simonwillison.net/2026/Jul/30/llm-rc2/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "c8cdfd360cc42f47",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T15:43:16+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-chat-completions-server 0.1a0\n        A key goal of the new content-addressable logs in LLM 0.32rc1 was being able to support OpenAI Chat Completion style requests where each incoming message extends the previous conversation, like this:\ncurl http://localhost:8002/v1/chat/completions \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"model\": \"qwen3.5-4b\",\n    \"messages\": [\n      {\"role\": \"user\", \"content\": \"Capital of France?\"},\n      {\"role\": \"assistant\", \"content\": \"Paris.\"},\n",
+      "tags": [],
+      "title": "llm-chat-completions-server 0.1a0",
+      "url": "https://simonwillison.net/2026/Jul/30/llm-chat-completions-server/#atom-everything"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "dca7adc62d79fe1c",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+      "tags": [],
+      "title": "Advancing the price-performance frontier with GPT-5.6",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "da425c76a8c018d0",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-30T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "avatarin uses OpenAI’s GPT-Realtime to give Yamada Denki shoppers 24/7 multilingual support. In two weeks, 30,000 people used the agent and 92% of survey responses were positive.",
+      "tags": [],
+      "title": "How avatarin built a 24/7 retail agent with GPT-Realtime",
+      "url": "https://openai.com/index/avatarin"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "265c6a0134aba9b6",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-29T15:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
+      "tags": [],
+      "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+      "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": "source_fairness",
+      "id": "76714d4a34b5d359",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-28T22:45:37+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Discovering cryptographic weaknesses with Claude\nThe best part of this article (here's the repo) about how Anthropic researchers used Claude Mythos to find mathematical flaws in both HAWK and a weaker version of AES (\"neither of these results has a practical impact on today’s computer systems\") is the prompts that they shared, spelling mistakes included:\n\nthe models tend to think it is impossible to solve so they don't try they need a good amount of prompting.\nwhy not do aes-128 r7? the whole po",
+      "tags": [],
+      "title": "Discovering cryptographic weaknesses with Claude",
+      "url": "https://simonwillison.net/2026/Jul/28/discovering-cryptographic-weaknesses-with-claude/#atom-everything"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": "source_fairness",
+      "id": "27e9eb043a6d1bd4",
+      "importance": "high",
+      "keyword_match": [
+        "openai",
+        "hugging face"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-07-28T21:28:54+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident\nHugging Face just released this extremely detailed technical description of OpenAI's recent accidental cyberattack against their infrastructure. This attack was very sophisticated, and the resulting document doubles as a crash-course in modern adversarial security approaches.\nWe're still waiting for more details from OpenAI on how their agent broke out of its sandbox. The package proxy that it found a zero-",
+      "tags": [],
+      "title": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+      "url": "https://simonwillison.net/2026/Jul/28/anatomy-of-a-frontier-lab-agent-intrusion/#atom-everything"
+    }
+  ],
+  "meta": {
+    "date": "2026-08-02",
+    "enriched": {},
+    "rendered": {
+      "2026-08-02": "sha256:00514947f95aeed3"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 144,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 39,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 834,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1105,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 140,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
