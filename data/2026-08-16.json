@@ -1,0 +1,762 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "c91a2d3cb5db018c",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-14T17:35:11.111000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-eb8feb71-20260814",
+      "tags": [],
+      "title": "react 0.0.0-experimental-eb8feb71-20260814",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-eb8feb71-20260814"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "02eb32d605363c47",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-13T16:32:50.945000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-beef6d60-20260813",
+      "tags": [],
+      "title": "react 0.0.0-experimental-beef6d60-20260813",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-beef6d60-20260813"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "563f1f2d0fa84881",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-12T16:36:17.150000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-22e4f993-20260811",
+      "tags": [],
+      "title": "react 0.0.0-experimental-22e4f993-20260811",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-22e4f993-20260811"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "2e70f1aca4ceb972",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-11T16:30:59.712000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-bfb7a768-20260811",
+      "tags": [],
+      "title": "react 0.0.0-experimental-bfb7a768-20260811",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-bfb7a768-20260811"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "dc4b45a209b7cf78",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-10T16:33:46.869000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-807d21fd-20260810",
+      "tags": [],
+      "title": "react 0.0.0-experimental-807d21fd-20260810",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-807d21fd-20260810"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "1a6c8ca35ad30ed3",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-10T17:47:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Amazon EC2 introduces application status checks, a new status check that helps customers detect and respond to application-level issues on their EC2 instances. With application status checks, EC2 monitors applications to detect issues such as a web server that has stopped accepting requests, a Docker daemon that is not running, an incorrect networking configuration, or a network interface that is no longer passing traffic. \nCustomers rely on EC2 status checks today to receive alerts when an inst",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 introduces application status checks",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-application-status-checks"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "c4a0b2beb1286082",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-14T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for Oracle now supports Oracle Application Express (APEX) version 26.1. Amazon RDS for Oracle is a managed database service that makes it simple to set up, operate, and scale Oracle Database deployments in the cloud. Oracle APEX is a low-code development platform that enables developers to build scalable, secure enterprise applications with modern user interfaces. To learn more about the latest features of Oracle APEX 26.1, see Oracle’s APEX Releas",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for Oracle now supports Oracle Application Express (APEX) version 26.1",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-oracle-apex-26-1/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e4a913fc52762c4a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-14T02:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Billing and Cost Management (BCM) Dashboards now include Managed Dashboards. These are a collection of preconfigured and read-only dashboards located in your dashboard list. They deliver actionable cost insights with your account data pre-populated without setup.&nbsp; \nThere are five curated dashboards. Cost Overview &amp; Trends tracks your spending patterns across services, accounts, and regions over 12 months with forward-looking forecasts. Compute and Database&nbsp;dashboards show your ",
+      "tags": [
+        "rds"
+      ],
+      "title": "AWS Billing and Cost Management introduces Managed Dashboards",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-billing-and-cost-management-managed-dashboards/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "164a5395daafb94e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-13T13:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 now includes the specific AWS Identity and Access Management (IAM) and AWS Organizations policy Amazon Resource Name (ARN) in HTTP 403 Access Denied error messages for same-account and same-organization requests. This helps you quickly identify the exact policy responsible for a denied request and remediate the issue directly. \nPreviously, S3 access denied error messages included the policy type and reason for denial, but when multiple policies of the same type existed, you still had t",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 adds additional policy details to access denied error messages",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/s3-additional-policy-details-access-denied-error-messages/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "51e9a5c465103228",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-11T22:03:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon EC2 R8a instances are now available in&nbsp;Canada (Central)&nbsp;Region. These instances, feature 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to R7a instances. \nR8a instances deliver 45% more memory bandwidth compared to R7a instances, making these instances ideal for latency sensitive workloads. Compared to Amazon EC2 R7a instances, R8a i",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R8a instances are now available in Canada (Central) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8a-instances-canada-central/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "4c9fee5d3d01445e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-11T12:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Clean Rooms now supports exporting privacy-enhanced analysis logs for SQL analyses, offering customers greater optimization and troubleshooting capabilities. With this launch, you can export privacy-enhanced analysis logs to an S3 bucket for SQL queries that ran in an AWS Clean Rooms collaboration, providing insight into Spark execution details that can help you optimize and troubleshoot your queries. Collaboration owners grant a member the ability to export analysis logs when they create a ",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Clean Rooms supports exporting privacy-enhanced analysis logs for SQL",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-clean-rooms-export-analysis-log-sql"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "bb9337fcc05c55b8",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-11T08:54:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon RDS for MariaDB supports MariaDB major version 12.3, the latest Long-Term Support release from the MariaDB community. This release supports MariaDB 12.3.2 minor version. &nbsp;  MariaDB 12.3 includes Oracle TO_DATE() function compatibility, reducing the code changes needed when migrating applications from Oracle to MariaDB. It adds an IS JSON predicate, so you can validate JSON documents natively in the database rather than in application code. The query optimizer now hand",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for MariaDB now supports MariaDB 12.3",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-mariadb-1232-available/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e1a7ccfd07a853a9",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-10T23:02:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 High Memory U7in-24TB instances (u7in-24tb.224xlarge) are now available in AWS South America (São Paulo) region. U7i instances are part of the AWS 7th generation and are powered by custom fourth-generation Intel Xeon Scalable processors (Sapphire Rapids). U7in-24TB instances offer 24 TiB of DDR5 memory, enabling customers to scale transaction processing throughput in a fast-growing data environment. \nU7in-24TB instances deliver 896 vCPUs and support up to 100 Gbps of Amazon EBS bandwi",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 High Memory U7i instances now available in AWS South America (São Paulo) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-high-memory-u7i-south-america"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "304a1a74e39ff4fc",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-14T04:46:39+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "ruby"
+      ],
+      "summary": "&#32; submitted by &#32;  /u/AnimalStrange   [link] &#32; [comments]",
+      "tags": [],
+      "title": "Ruby 4.0 Universal RCE Deserialization Gadget Chain - elttam",
+      "url": "https://www.reddit.com/r/netsec/comments/1vnxkvm/ruby_40_universal_rce_deserialization_gadget/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "ef7a70b327b6f817",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-12T08:04:52+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "Two malicious LiteLLM releases sat on PyPI for about 40 minutes in March carrying credential-stealing code capable of harvesting cloud keys, SSH keys, Kubernetes tokens, database passwords, and other secrets from systems that installed them.\n\nThreat intelligence firm CloudSEK now says a dataset it obtained, built from roughly 434,000 files the attackers captured, maps potential exposure to more",
+      "tags": [],
+      "title": "Malicious LiteLLM Releases Tied to Trivy Hack May Have Exposed 2,100+ Organizations",
+      "url": "https://thehackernews.com/2026/08/malicious-litellm-releases-tied-to.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "221294a048b71b9d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-11T15:33:52+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Author here. We discovered a vulnerability in docker cp that allows a malicious container to create or overwrite files on the machine running the Docker CLI. The exploit combines a filesystem race in Docker’s archive creation with unsafe symlink handling during extraction. Depending on the CLI user’s privileges, this can lead to developer-account compromise or root code execution. Docker confirmed that sbx cp was also affected. Fixed versions:  Docker Engine/CLI 29.7.2+ Docker Desktop 4.86.0+ Do",
+      "tags": [],
+      "title": "CopyEscape: Container-to-host arbitrary file write via docker cp (CVE-2026-17106)",
+      "url": "https://www.reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "8770b5825635005b",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-10T18:41:25+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Hunt.io researchers analyzed two open directories recovered through Attack Capture system and reconstructed the tooling one operator used to find, exploit, and view internet-exposed cameras in Ukraine. Technical highlights:  A custom FastAPI/Docker project the operator named camview, which wraps the open-source Ingram scanner, brute-forces camera credentials over HTTP and RTSP (3,811 pair dictionary), and transcodes RTSP to MJPEG for browser viewing Ingram targets known camera CVEs: CVE-2017-792",
+      "tags": [],
+      "title": "Inside a Russian-speaking operator's toolkit for compromising Ukrainian IP cameras",
+      "url": "https://www.reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "173aef63f1af2fd3",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "openai",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-11T22:40:45+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Stealing Reasoning Traces from Proprietary LLM APIs\nA vanity domain name (stolen-thoughts.com) for a neat paper:\n\nAnthropic, OpenAI, and Google return encrypted chain-of-thought blocks to clients that can be replayed across sessions, users, and models. We take a trace produced by a frontier model, replay it into a weaker sibling, jailbreak the weaker model, and recover the stronger model’s hidden reasoning in plaintext\n\nYou can see an example of these encrypted blocks by running:\ncurl https://ap",
+      "tags": [],
+      "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+      "url": "https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "a22cf7dd149bd8e0",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-15T14:49:54+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Tool: CORS Chat\n        I built this today (with GPT-5.6-Sol xhigh) to help test Qwen 3.8 27B running in LM Studio on both my M5 MacBook Pro and an NVIDIA DGX Spark.\nIt provides a web UI for exercising an OpenAI-Responses-compatible chat endpoint. I've tried it against LM Studio with the --cors option and OpenRouter, and both work fine.\nConversations are persisted in the browser and can be exported as copy-pasted JSON. One fun detail is that it notices SVG images that are being generated and pro",
+      "tags": [],
+      "title": "CORS Chat",
+      "url": "https://simonwillison.net/2026/Aug/15/cors-chat/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "65448e9eb8b57102",
+      "importance": "high",
+      "keyword_match": [
+        "llm"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-14T21:54:35+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Don&#x27;t classify. Hallucinate!\nI still have quite a bit of older content on my blog that I never got round to tagging. My blog has 1,856 tags - likely too many to feed to an LLM in one go and say \"which of these tags match the following content\".\nDoug Turnbull has a neat solution. Tell the model to output tags without any details of the existing vocabulary, then use vector embeddings against the existing corpus to find the concrete tags that are closest to the ones the model imagined might fi",
+      "tags": [],
+      "title": "Don't classify. Hallucinate!",
+      "url": "https://simonwillison.net/2026/Aug/14/dont-classify-hallucinate/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "2024bc366264733d",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "gemini"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-13T19:37:34+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-gemini 0.33\n        It's been a while since the last llm-gemini release. This version of the plugin adds support for today's Gemini 3.7 Flash release, plus gemini-3.6-flash, gemini-3.5-flash-lite and two embedding models gemini-embedding-2 and gemini-embedding-001.\nThe plugin is also upgraded for compatibility with LLM 0.32, which means you can now see reasoning traces and you can also enable server-side tools using this pattern:\nllm -m gemini-3.7-flash -T CodeExecution \\\n  'use pyt",
+      "tags": [],
+      "title": "llm-gemini 0.33",
+      "url": "https://simonwillison.net/2026/Aug/13/llm-gemini/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "6f8368ac763b7373",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-13T11:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Responses API capabilities.",
+      "tags": [],
+      "title": "The builder’s guide to GPT‑5.6",
+      "url": "https://openai.com/index/builders-guide-to-gpt-5-6"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "c0986f6628d189a1",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-13T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it delivers up to 750 output tokens per second.",
+      "tags": [],
+      "title": "Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed",
+      "url": "https://openai.com/index/previewing-ultrafast"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "3302bba97b91540c",
+      "importance": "high",
+      "keyword_match": [
+        "gpt"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-12T19:51:30+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Release: alchemy-utils 0.1a0\n        I've long pondered what a database agnostic version of my sqlite-utils Python library and CLI utility might look like. This morning (literally a shower project) I tasked Codex and GPT-5.6 Sol Ultra with building a prototype:\n\nDo a research spike to see what it would take to build a library with the same core API as SQLite-utils - in particular the insert and upsert and insert_all and upsert_all and create and update methods, and the table introspection stuff ",
+      "tags": [],
+      "title": "alchemy-utils 0.1a0",
+      "url": "https://simonwillison.net/2026/Aug/12/alchemy-utils/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "46642bc6105696ed",
+      "importance": "high",
+      "keyword_match": [
+        "claude"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-12T15:08:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "But then users start to report a weird bug. It's the 4th time your team has been trying to fix it. I mean... asking AI to fix it. Unfortunately, it seems like not even Fable can figure it out.\nYou go talk to the person who worked on this feature.\n\"So where does the data come from?\"\n\"Hmm... actually I don't know. Let me ask Claude.\"\nYou sit next to each other watching an endless wall of text appear on the screen. Neither of you has any idea whether any of it is true but Claude seems very confiden",
+      "tags": [],
+      "title": "Quoting Florian Herrengt",
+      "url": "https://simonwillison.net/2026/Aug/12/florian-herrengt/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "e063daae6225e156",
+      "importance": "high",
+      "keyword_match": [
+        "openai",
+        "agentic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-12T06:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI research reveals how enterprises are adopting agentic AI, using ChatGPT and Codex, and how frontier firms are pulling ahead in AI adoption.",
+      "tags": [],
+      "title": "From assistance to execution: How enterprises put AI to work",
+      "url": "https://openai.com/index/how-enterprises-put-ai-to-work"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "4d017e94e1958835",
+      "importance": "high",
+      "keyword_match": [
+        "llama",
+        "agentic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-10T23:56:03+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing Muse Glimmer\nMeta are back in the open weights game! Muse Glimmer is a brand new 30B model under a clean Apache 2.0 license (a step up from the janky Llama licenses of old).\nThey claim to have optimized it for exactly the kind of things I'm looking for in a local model:\n\n\nEnd-to-end Agentic Task Completion. Muse Glimmer achieves strong success rates on full-task benchmarks including DeepSearch QA, MCP-Atlas, 𝛕-Bench and SWE-Bench, which measure its ability to work within scaffolds, w",
+      "tags": [],
+      "title": "Introducing Muse Glimmer",
+      "url": "https://simonwillison.net/2026/Aug/10/introducing-muse-glimmer/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "95f74aeac90a93bb",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-10T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Model ML uses GPT-5.6 Sol to carry finance work from research and analysis through editable, traceable PowerPoint decks and Excel workbooks.",
+      "tags": [],
+      "title": "Model ML completes finance work more efficiently with GPT-5.6 Sol",
+      "url": "https://openai.com/index/model-ml"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "081601c279be28d3",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-10T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Meet GPT-5.6-Cyber, OpenAI’s cybersecurity-specific model available through Daybreak Red for authorized vulnerability research, exploit validation, and security testing.",
+      "tags": [],
+      "title": "Expanding Daybreak as the Cyber Defense Window Narrows",
+      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "aace6aea2b81e019",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-09T23:31:39+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Claude Fable 5 and Claude Mythos 5 were first released on June 9, 2026. On June 12, 2026, Anthropic suspended access to both models to comply with U.S. Department of Commerce export controls; the Department lifted those controls on June 30, 2026, and Anthropic restored access on July 1, 2026 (Anthropic's statement: https://www.anthropic.com/news/fable-mythos-access). These events are after Claude's training-data cutoff, so Claude knows about them only from this notice. If asked, Claude confirms ",
+      "tags": [],
+      "title": "Quoting Claude Opus 5 system prompt",
+      "url": "https://simonwillison.net/2026/Aug/9/claude-opus-5-system-prompt/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "79efbb054d4af9fc",
+      "importance": "high",
+      "keyword_match": [
+        "llm"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-16T22:00:39+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Friday's big release was Qwen 3.8 27B, an Apache 2 licensed 27B parameter vision-capable LLM from Alibaba's Qwen research lab. I've been looking forward to this one: 27B is an excellent size for running a model on a reasonably specced laptop, and its predecessor Qwen 3.6 27B was impressive.\nQwen's self-reported benchmarks for this model are eye-opening. They show a boost from both Qwen 3.6 27B and the closed-weight Qwen 3.7-Plus, which was one of Qwen's strongest models of any size as recently a",
+      "tags": [],
+      "title": "Qwen 3.8 27B is excellent, but it defaults to wildly overthinking things",
+      "url": "https://simonwillison.net/2026/Aug/16/qwen-38-27b/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "e27bba9b0711b6a2",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-16T15:05:36+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "I do agree that the public has a negative view of AI (and that this is a big problem), but I don’t think it is primarily caused by me or any other AI leader warning about AI’s risks.  I think it is fundamentally a crisis of trust.  I think that ordinary people don’t trust companies, governments, or the tech industry and always suspect that we are cooking up some new way to screw them over.  The causes of this go back decades and AI is just the latest iteration of it.  I don’t think that a glitzy",
+      "tags": [],
+      "title": "Quoting Dario Amodei",
+      "url": "https://simonwillison.net/2026/Aug/16/dario-amodei/"
+    }
+  ],
+  "meta": {
+    "date": "2026-08-16",
+    "enriched": {},
+    "rendered": {
+      "2026-08-16": "sha256:2a43e6e330b25857"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 145,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 29,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 842,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1129,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 140,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
