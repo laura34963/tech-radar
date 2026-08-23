@@ -1,0 +1,838 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "2c11de2f1ab463c9",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-17T16:10:45.999000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "sidekiq"
+      ],
+      "summary": "New RubyGems release: sidekiq 8.1.7",
+      "tags": [],
+      "title": "sidekiq 8.1.7",
+      "url": "https://rubygems.org/gems/sidekiq/versions/8.1.7"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "0ae6f73551b79b7d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-20T16:22:54.571000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-eafeac09-20260819",
+      "tags": [],
+      "title": "react 0.0.0-experimental-eafeac09-20260819",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-eafeac09-20260819"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "0b754c020047c317",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T21:45:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "AWS Local Zone in Las Vegas, Nevada is now generally available. The new AWS Local Zone supports Amazon Elastic Compute Cloud (Amazon EC2) C7i, M7i, R7i, and C8gn instances, Amazon Elastic Block Store (Amazon EBS) volume types gp3, gp2, io1, sc1, and st1, Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), Application Load Balancer, and AWS Direct Connect. \nAWS Local Zones are AWS infrastructure deployments that extend core services, such as compute, sto",
+      "tags": [
+        "ec2"
+      ],
+      "title": "AWS announces the general availability of a new AWS Local Zone in Las Vegas, Nevada",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-local-zones-las-vegas-nevada/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "55661e6971a44865",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T18:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "Today, Amazon Elastic Kubernetes Service (Amazon EKS) announced certificate authority (CA) rotation, enabling customers to rotate their cluster's CA through a managed lifecycle with automated safeguards. Each Amazon EKS cluster has its own CA that allows encrypted connections to the cluster's Kubernetes API, and now you can rotate the CA before it expires to ensure your cluster remains operational and secure. \nAmazon EKS clusters created since launch in 2018 have CAs with a 10-year validity peri",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon EKS now supports certificate authority (CA) rotation with automated lifecycle management",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-eks-certificate-authority-ca-rotation-automated-lifecycle-management"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ff1350a75b2050cc",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-21T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Connect Customer now lets managers chat with their data in plain language and get back the answer, the evidence behind it, and the fix, in seconds. Managers have always had the data. What they haven’t had is the time to dig through dashboards, find what’s driving performance, and decide what to do next. Now Amazon Connect Customer does that work for them. It searches across more than 150 metrics spanning self-service, agent performance, and queue performance to find what matters, explain ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Connect Customer now lets managers chat with their data",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-connect-customer-ai-data-analytics"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "91c376a21a64e53a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Elastic Compute Cloud (Amazon EC2) C8gd, M8gd, and R8gd instances with up to 11.4 TB of local NVMe-based SSD block-level storage are now available in additional regions. C8gd instances are now available in Asia Pacific (Singapore), M8gd instances are available in Mexico (Central) and Asia Pacific (Melbourne), and R8gd instances are available in Europe (Zurich). These instances are powered by AWS Graviton4 processors, delivering up to 30% better performance over Graviton3-based instances. ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C8gd, M8gd and R8gd instances are now available in additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8gd-m8gd/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "7ac47062d65bb485",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T18:31:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Cloud Compute (Amazon EC2) P6-B300 instances are available in the Asia Pacific (Seoul) Region. P6-B300 instances provide 8xNVIDIA Blackwell Ultra GPUs with 2.1 TB high bandwidth GPU memory, 6.4 Tbps EFA networking, 300 Gbps dedicated ENA throughput, and 4 TB of system memory.  P6-B300 instances deliver 2x networking bandwidth, 1.5x GPU memory size, and 1.5x GPU TFLOPS (at FP4, without sparsity) compared to P6-B200 instances, making them well suited to train and dep",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 P6-B300 instances are now available in the Asia Pacific (Seoul) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-p6-b300/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "130bfcffd135668f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T18:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, customers can protect their origins using Amazon S3 Multi-Region Access Points (MRAP) by using CloudFront Origin Access Control (OAC) to only allow access from designated CloudFront distributions. \nCustomers use Amazon S3 MRAP with CloudFront to serve content from a single global endpoint that automatically routes to the closest available replicated bucket across regions during a cache miss, improving performance and resilience for globally distributed users. Previously, customer",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon CloudFront now supports Origin Access Control (OAC) for Amazon S3 Multi-Region Access Points",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-cloudfront-oac-s3-mrap"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "0e20ba5641767c72",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T17:45:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, we are launching the Amazon RDS Switchover Read Replica execution block in ARC Region switch, which automates recovery orchestration for Amazon RDS databases running Oracle Data Guard in multi-Region workloads. Amazon Application Recovery Controller (ARC) Region switch helps customers orchestrate the failover of their multi-Region applications to achieve a bounded recovery time in the event of a Regional impairment. \nTo recover an Amazon RDS database running Oracle Data Guard during a Reg",
+      "tags": [
+        "rds"
+      ],
+      "title": "ARC Region switch adds Amazon RDS Switchover Read Replica execution block",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/region-switch-rds-switchover-execution-block/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "dfd110500991f123",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-20T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Redshift now supports long-term retention for system table data through native integration with Amazon S3 Tables. With this feature, you can configure your Redshift system table data retention beyond the current 7-day limit to meet your compliance, auditing, and observability requirements. Once enabled, AWS automatically writes system table data to S3 Tables in Apache Iceberg format and manages partitioning, compaction, and retention. \nCustomers use Redshift system tables to monitor query",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon Redshift introduces long-term system table retention with Amazon S3 Tables integration",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/redshift-long-term-system-table-retention/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "dd76475dc4d4fe05",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-19T21:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 now supports creating Amazon Machine Images (AMIs) with local snapshots from instances running on AWS Outposts. This capability makes it easier for customers to create AMIs while storing snapshots directly on the Outpost to meet data residency requirements. \nCustomers can now create AMIs with snapshots stored either on the Outpost itself or in the parent AWS Region. When keeping data local, EC2 automatically determines the target Outpost from the instance's location — no need to manua",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 enables AMI creation with local snapshots from instances on Outposts",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/ec2-create-image-local-snapshot-outpost"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ebf9f0508f12e72b",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-19T20:13:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon CloudWatch pipelines now includes three new processors that parse and enrich log data as it's ingested: an Amazon RDS log parser, an XML parser and a GeoIP enrichment processor. CloudWatch pipelines is a fully managed service that ingests, transforms, and routes telemetry to CloudWatch without managing infrastructure. \nLog sources often produce data that isn't immediately queryable without reprocessing the data. RDS Aurora logs arrive in their native engine format, application logs carry ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon CloudWatch pipelines adds GeoIP, RDS, and XML processors",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/cloudwatch-geoip-rds-xml/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "d4e0ff4b870dec01",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-19T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS has added a fourth Availability Zone to the Europe (London) Region (eu-west-2), expanding infrastructure capacity to meet growing demand for cloud compute in the Region. The new Availability Zone delivers next-generation AI and ML capacity, including Amazon EC2, Trn3, and P6 accelerated instances, alongside general-purpose compute. The new Availability Zone gives AWS customers in eu-west-2 greater capacity for AI and ML workloads and additional fault isolation for building highly available, ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "AWS announces a new Availability Zone in the Europe (London) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-new-availability-zone-europe/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "9f520114c15b1a65",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-19T16:14:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda MicroVMs is now available in 5 additional AWS Regions: Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Europe (Frankfurt), and Europe (Stockholm). With this launch, you can use Lambda MicroVMs in a total of 10 AWS Regions. \nLambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI generated code.&nbsp; Developers can use Lambda MicroVMs to give each ",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda MicroVMs is now available in 5 additional AWS regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/lambda-microvms-5-additional-regions"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "1e2bcfa57b71e30b",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-19T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon WorkSpaces Applications now offers a native monitoring experience embedded directly in the service console. Administrators can now access real-time session-level metrics, instance-level resource data, and network performance metrics without requiring third-party monitoring tools or Amazon CloudWatch expertise. \nPreviously, enterprise customers managing large WorkSpaces Applications deployments relied on external solutions or built complex custom CloudWatch dashboards. Now, comprehensive m",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon WorkSpaces Applications now offers in-console monitoring capabilities",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-workspaces-applications-console-monitoring"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "9d4d8ec97681c191",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-19T07:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon EC2 R8a instances are now available in Asia Pacific (Taipei) Region. These instances, feature 5th Gen AMD EPYC processors (formerly code named Turin) with a maximum frequency of 4.5 GHz, deliver up to 30% higher performance, and up to 19% better price-performance compared to R7a instances. \nR8a instances deliver 45% more memory bandwidth compared to R7a instances, making these instances ideal for latency sensitive workloads. Compared to Amazon EC2 R7a instances, R8a instan",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R8a instances are now available in Asia Pacific (Taipei) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8a-asia-pacific-taipei/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "5825228945e5ef8e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-18T18:49:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon SageMaker Unified Studio now supports data profiling and anomaly detection, powered by AWS Glue Data Quality. Data stewards, engineers and analysts can generate statistical profiles of their data to understand its shape and completeness, and track how these statistics change over time. Anomaly detection helps identify when data points drift from historical patterns without requiring predefined thresholds or custom rules. These capabilities are available for both data at rest in catalog ta",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon SageMaker Unified Studio now supports data profiling and anomaly detection",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/05/smus-data-profiling"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "01bed0d17131f818",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-20T13:48:24+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Cybersecurity researchers have disclosed a critical security flaw in isolated-vm, a popular open-source sandbox with more than 2,900 stars and 190 forks on GitHub, that could allow attackers to escape the confines of the isolated environment.\n\nThe vulnerability (\"GHSA-864f-rcv7-6rh4\"), which has yet to be assigned a CVE identifier, impacts all versions of the library before and including 7.0.0.",
+      "tags": [],
+      "title": "Isolated-vm Flaw Lets Sandboxed JavaScript Escape to Host for Potential RCE",
+      "url": "https://thehackernews.com/2026/08/isolated-vm-flaw-lets-sandboxed.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "4d5f85c599ca2d94",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T13:45:26+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Author here. I audited NocoBase, Flowise, Langflow, Dify, Activepieces, Kestra, and Airflow and disclosed 14 findings. Every platform inherited the same assumption anyone who can touch a workflow is trusted to run code on the host, which is fine for a dev tool on your laptop but not fine for a multi-tenant HTTP service with an unauthenticated webhook. The chain I'd point people to first is the Flowise one (section 2.2): an unauthenticated request → prompt injection → LLM emits Python → a 38-patt",
+      "tags": [],
+      "title": "Hacking your life with AI can get you hacked: How AI orchestration platforms ship RCE by design",
+      "url": "https://www.reddit.com/r/netsec/comments/1vrpmr2/hacking_your_life_with_ai_can_get_you_hacked_how/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "77045d80f7ad69e1",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T12:38:20+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Cybersecurity researchers have disclosed details of a previously undocumented Python implant framework dubbed TWINLOOT.\n\n\"TWINLOOT is a modular, PyArmor-hardened Python implant designed to operate its entire command-and-control infrastructure inside trusted Microsoft services,\" Ontinue said in a technical report shared with The Hacker News. \"Tasking flows through SharePoint Online file",
+      "tags": [],
+      "title": "TWINLOOT Abuses SharePoint and Teams to Steal Credentials and Move Across Networks",
+      "url": "https://thehackernews.com/2026/08/twinloot-abuses-sharepoint-and-teams-to.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "c8f5936ef6e38497",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T06:34:20+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Monday added a critical flaw impacting Ray to its Known Exploited Vulnerabilities (KEV) catalog, citing evidence of active exploitation.\n\nRay is an open-source, Python-native distributed computing framework designed to scale artificial intelligence and machine learning workloads. As of writing, the GitHub project has more than",
+      "tags": [],
+      "title": "CISA Flags Actively Exploited Ray Flaw That Can Trigger Browser-Based RCE",
+      "url": "https://thehackernews.com/2026/08/cisa-flags-actively-exploited-ray-flaw.html"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "2948ba53feffa8c3",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-22T17:01:16+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Release: llm 0.33\n        My highlights from this release:\n\n\nUpgraded to the OpenAI Python library 3.x and switched the HTTP client dependency from httpx to httpx2. #1608, #1631\n\n\nI shipped a quick 0.32.1 fix for this yesterday, but this is the more comprehensive fix.\n\n\nllm embed and llm embed-multi now accept --key. The Python EmbeddingModel.embed(), EmbeddingModel.embed_multi(), Collection.embed() and Collection.embed_multi() methods accept key= too, passing the resolved per-call key to embedd",
+      "tags": [],
+      "title": "llm 0.33",
+      "url": "https://simonwillison.net/2026/Aug/22/llm/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "cf6af109a0ee1fd2",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-21T17:16:13+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Release: llm 0.32.1\n        Fresh installs of LLM stopped working the other day because the OpenAI Python library dropped its usage of httpx, and it turned out LLM depended on that library but only installed it via a transitive openai dependency.\nThis dot-release fixes that for the moment by pinning to openai&lt;3, and a soon-to-drop 0.33 release will switch from httpx to httpx2.\n    \n    \n        Tags: httpx, openai, llm",
+      "tags": [],
+      "title": "llm 0.32.1",
+      "url": "https://simonwillison.net/2026/Aug/21/llm/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "606747c020460cc9",
+      "importance": "high",
+      "keyword_match": [
+        "claude"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-19T23:16:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript",
+        "python"
+      ],
+      "summary": "Research: smolmachines / smolvm as a sandbox for untrusted Python &amp; JavaScript\n        I tasked Claude Fable 5 running in Claude Code for web with the following research task:\n\nPut https://smolmachines.com through its paces as a fast secure sandbox. Explore what it would take to use this to run untrusted Python and JavaScript code in a way that is limited in what RAM and CPU time it can take up (protection against \"while true\") with no network access and filesystem access only to designated ",
+      "tags": [],
+      "title": "smolmachines / smolvm as a sandbox for untrusted Python & JavaScript",
+      "url": "https://simonwillison.net/2026/Aug/19/smolmachines-untrusted-sandbox/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "c8cbe369112d07d9",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "gemini"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-20T23:57:32+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "ChatGPT search now uses the site:operator at scale\nPromptwatch is part of the emerging \"GEO\" space, for Generative Engine Optimization - the chatbot version of SEO, where companies offer tools and consulting to help your site increase its presence in replies to prompts inside tools like ChatGPT.\nThe Promptwatch product uses automation to track responses to prompts across end-user chat products like ChatGPT, Claude, and Gemini. They publish aggregate reports on this as part of their own content m",
+      "tags": [],
+      "title": "ChatGPT search now uses the site:operator at scale",
+      "url": "https://simonwillison.net/2026/Aug/20/chatgpt-search-now-uses-the-siteoperator-at-scale/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "2f00013902a29bc1",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-19T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Replit introduces Free Mode, powered by GPT-5.6 Luna, so anyone can turn ideas into working software without worrying about token costs.",
+      "tags": [],
+      "title": "Replit expands access to software creation with GPT-5.6 Luna",
+      "url": "https://openai.com/index/replit"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "99acd73254864f62",
+      "importance": "high",
+      "keyword_match": [
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-23T20:24:52+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Anthropic’s best AI model struggles to attract users as cheaper tools thrive\nA few interesting numbers in this FT story gathered from \"people with knowledge of the matter\":\n\nAnthropic's \"annualized revenue\" for July is up to $65bn - it was $47bn in May, and I collected more historic numbers here.\nAnthropic expect Q3 to be profitable according to the same model they used to declare Q2 profitable. \"It also told investors that it had 6,000 customers that spend $100,000 annually or more.\"\nAs for Ope",
+      "tags": [],
+      "title": "Anthropic’s best AI model struggles to attract users as cheaper tools thrive",
+      "url": "https://simonwillison.net/2026/Aug/23/anthropics-best-ai-model-struggles-to-attract-users-as-cheaper-t/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "866d80edbe878622",
+      "importance": "high",
+      "keyword_match": [
+        "llm"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-21T16:58:19+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-openrouter 0.7\n        Now that this plugin is compatible with LLM 0.32 it can display the reasoning traces for LLMs available through OpenRouter.\n\n\nUpdated for compatibility with LLM 0.32.\nModels now use OpenRouter's implementation of the Responses API.\nThree new server-side tools: Shell, WebFetch, and WebSearch. Enable these with options like -T WebSearch.\n\n\n    \n    \n        Tags: llm, openrouter",
+      "tags": [],
+      "title": "llm-openrouter 0.7",
+      "url": "https://simonwillison.net/2026/Aug/21/llm-openrouter/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "fc1a9abd82b35a9c",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-20T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing AI Futures, a new OpenAI blog exploring how transformative AI could reshape power, governance, the economy, and individual freedom.",
+      "tags": [],
+      "title": "Introducing AI Futures",
+      "url": "https://openai.com/index/introducing-ai-futures"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "ad89fb510e3c78c2",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-20T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "With a fixed deadline and design resources committed elsewhere, Stampli used Codex and ChatGPT Work to compress weeks of launch production into days.",
+      "tags": [],
+      "title": "Stampli cuts launch hours by 68% using ChatGPT Work",
+      "url": "https://openai.com/index/stampli"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "e0c0c7d06c2b5539",
+      "importance": "high",
+      "keyword_match": [
+        "claude"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-19T22:46:07+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Last week I recorded an episode of the Talking Postgres podcast with Claire Giordano on the subject of \"How AI is changing software development\". We had a really great conversation. Here are a couple of my highlights from a lightly edited transcript (prompt to Claude: \"very minor edits to remove disfluencies\").\nThis is the latest version of an argument I've been trying to build about why sometimes it does make sense to talk about lines of code as an indicator of productivity with coding agents, ",
+      "tags": [],
+      "title": "Conceptual integrity and counting lines of code",
+      "url": "https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "df8f12302a5b421a",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-19T19:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy.",
+      "tags": [],
+      "title": "Offering Zero Data Retention for frontier models",
+      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "8393c843a171d723",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T22:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.",
+      "tags": [],
+      "title": "ChatGPT Ads expands across Europe",
+      "url": "https://openai.com/index/chatgpt-ads-expands-across-europe"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "d82f5875badeb539",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T21:39:20+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Mojo🔥 is now open source\nThe Mojo programming language has been promising an open source release since May 2023. Last week they shipped their 1.0 and today they have followed through on that original promise, releasing the compiler and toolchain under an Apache 2 license.\nWhen Mojo first launched the stated goal was to produce a superset of Python, so existing Python code could be used to bootstrap their own ecosystem. That plan changed around August 2025:\n\nMojo may or may not evolve into a full",
+      "tags": [],
+      "title": "Mojo🔥 is now open source",
+      "url": "https://simonwillison.net/2026/Aug/18/mojo-is-now-open-source/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "f0aa91974e0ad6ca",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T19:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise.",
+      "tags": [],
+      "title": "Strengthening democratic oversight in national security",
+      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "6d4ec902c728a021",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-18T11:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI and CodeAI are partnering to help students build AI literacy, think critically about AI, and develop the skills to use and shape it responsibly.",
+      "tags": [],
+      "title": "Partnering with CodeAI to prepare the first AI generation",
+      "url": "https://openai.com/index/partnering-with-codeai"
+    }
+  ],
+  "meta": {
+    "date": "2026-08-23",
+    "enriched": {},
+    "rendered": {
+      "2026-08-23": "sha256:9f1472c7756f4d07"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 145,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 846,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1143,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 140,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
