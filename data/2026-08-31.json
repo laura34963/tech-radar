@@ -1,0 +1,1136 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "3dae9878438d2047",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-28T20:14:17.761000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-2dc7da79-20260828",
+      "tags": [],
+      "title": "react 0.0.0-experimental-2dc7da79-20260828",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-2dc7da79-20260828"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "357df43b848aecbc",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T19:46:21.940000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-29d9d318-20260826",
+      "tags": [],
+      "title": "react 0.0.0-experimental-29d9d318-20260826",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-29d9d318-20260826"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "6df6596f567f791f",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T16:39:59.482000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-a1124489-20260826",
+      "tags": [],
+      "title": "react 0.0.0-experimental-a1124489-20260826",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-a1124489-20260826"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "bddbbef2232b3008",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T08:20:14.517000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "New npm release: axios 1.20.0",
+      "tags": [],
+      "title": "axios 1.20.0",
+      "url": "https://www.npmjs.com/package/axios/v/1.20.0"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "08321261047af2a0",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-25T16:38:46.452000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-f789f203-20260825",
+      "tags": [],
+      "title": "react 0.0.0-experimental-f789f203-20260825",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-f789f203-20260825"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "ec7e942e243072d5",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-24T16:26:06.395000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-bd6ea412-20260824",
+      "tags": [],
+      "title": "react 0.0.0-experimental-bd6ea412-20260824",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-bd6ea412-20260824"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "7e23752d49c493da",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T13:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Today, AWS Lambda introduces managed runtimes in public preview, starting with Node.js 26 and Python 3.15. This gives customers, partners and upstream language communities the opportunity to try upcoming managed runtimes before their general availability (GA) release and to share their feedback with the Lambda team. \nPreviously, Lambda managed runtimes were launched directly as GA releases. Since the runtimes could immediately be used by production workloads, the Lambda team couldn’t make change",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda introduces managed runtimes in public preview for Node.js 26 and Python 3.15",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-lambda-node-js-python-public-preview/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "17b323e57b40764f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-28T22:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8gn instances, powered by the latest-generation AWS Graviton4 processors, are available in the AWS Europe (Paris) region. The C8gn instances provide up to 30% better compute performance than Graviton3-based Amazon EC2 C7gn instances. Amazon EC2 C8gn instances feature the latest 6th generation AWS Nitro Cards, and offer up to 600 Gbps network bandwidth, the highest network bandwidth among network optimized EC2 instances.&nbsp; \nTake advan",
+      "tags": [
+        "ec2",
+        "rds"
+      ],
+      "title": "Amazon EC2 C8gn instances are now available in AWS Europe (Paris) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8gn-europe-paris/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "802e193c8e0f7020",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-28T17:34:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Cloud Compute (Amazon EC2) P6-B300 instances are available in Asia Pacific (Hyderabad) and South America (Sao Paulo) Regions. P6-B300 instances provide 8xNVIDIA Blackwell Ultra GPUs with 2.1 TB high bandwidth GPU memory, 6.4 Tbps EFA networking, 300 Gbps dedicated ENA throughput, and 4 TB of system memory. \nP6-B300 instances deliver 2x networking bandwidth, 1.5x GPU memory size, and 1.5x GPU TFLOPS (at FP4, without sparsity) compared to P6-B200 instances, making th",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 P6-B300 instances are now available in additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-p6-b300-instances-available-additional-regions"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "dd2c3cae1508d395",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-27T22:41:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "NVIDIA's Cosmos3-Edge, Cosmos3-Nano, and Cosmos3-Super models are now available on Amazon SageMaker JumpStart, expanding the portfolio of foundation models available to AWS customers. These three models form the Cosmos 3 family of open, frontier omnimodal world models for physical AI, enabling customers to build robots, autonomous vehicles, and vision AI that perceive, reason, plan, and act in the physical world. \nThese models address different physical AI challenges with specialized capabilitie",
+      "tags": [
+        "s3"
+      ],
+      "title": "Cosmos3-Edge, Cosmos3-Nano, and Cosmos3-Super models now available on Amazon SageMaker JumpStart",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/01/cosmos3-edge-cosmos3-nano-cosmos3-super-on-sagemaker-jumpstart/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "dedbd4ecc91efe91",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-27T21:41:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Redshift &nbsp;now supports Amazon Kinesis Data Streams (KDS) record sizes up to 10 MiB—a 10x increase from the previous 1 MiB limit—fully matching the expanded maximum record size in Amazon KDS. This means you can stream significantly larger payloads directly into Amazon Redshift without splitting records, simplifying your ingestion pipelines and unlocking new use cases for high-volume, large-record workloads. \nAmazon Redshift support for 10MiB record size in Amazon KDS streams is now av",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Redshift streaming can now ingest 10MiB records from Amazon Kinesis Data Streams",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/redshift-streaming-supports-kds-10mib-records"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "229e674b983e7e8b",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-27T18:40:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) X8i instances are available in the Europe (Milan) and Europe (Spain) regions. These instances are powered by custom Intel Xeon 6 processors available only on AWS. X8i instances are SAP-certified and deliver the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. They deliver up to 43% higher performance, 1.5x more memory capacity (up to 6TB), and 3.3x more memory bandwidth compared to previous ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 X8i instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-x8i-europe-milan-spain/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "1ddbcb92c0510cf7",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-27T16:35:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, we're announcing that Amazon Elastic VMware Service (Amazon EVS) now supports the i7i.metal-48xl Amazon Elastic Cloud Compute (Amazon EC2) bare-metal instance type, offering a higher core-count option with a newer generation processor to help you realize cost-performance benefits for your VMware-based workloads on AWS. \nWith this release, you now have more options for running your virtual machines (VMs) on Amazon EVS environments and growing your cloud presence at your own pace, as your b",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EVS now supports i7i.metal-48xl Amazon EC2 instance type",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-evs-i7i-48xl"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8abdc6fe0d4bd30d",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-26T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Mountpoint for Amazon S3 can now limit memory usage, either automatically based on the environment it runs in or with a limit that you define. This lets you run Mountpoint alongside memory-intensive applications, for example, in machine learning training or analytics workloads where applications share a memory budget. \nPreviously, Mountpoint’s memory usage could expand over time based on usage patterns, potentially causing performance or stability issues when competing with other memory-intensiv",
+      "tags": [
+        "s3"
+      ],
+      "title": "Mountpoint for Amazon S3 adds memory usage controls",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/mountpoint-for-S3-adds-memory-usage-controls"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "b7277dc4d3e6b654",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Elastic Compute Cloud (Amazon EC2) R8id instances are now available in additional regions. R8id instances are now available in Asia Pacific (Mumbai, Malaysia, Sydney), Canada (Central), and Europe (Ireland, Stockholm). \nR8id instances feature up to 22.8TB of NVMe SSD local instance storage, 3x more than R6id, and provide up to 3.3x higher memory bandwidth, delivering up to 43% higher performance compared to R6id instances. They are ideal for memory-intensive workloads that benefit from hi",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R8id instances are now available in additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-r8id/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "c341098c215352f3",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Elastic Compute Cloud (Amazon EC2) C8id and M8id instances with up to 22.8 TB of local NVMe-based SSD block-level storage are now available in additional regions. C8id instances are now available in Asia Pacific (Sydney) and Canada (Central) and M8id instances are available in Asia Pacific (Mumbai) and Canada (Central). \nAmazon EC2 C8id and M8id instances offer 3 times more vCPUs, memory and local storage compared to previous sixth-generation instances. These instances deliver up to 43% h",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C8id and M8id instances are now available in additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-ec2-c8id-m8id-aws-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "36263c70ca6300f2",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T19:36:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Batch now supports Amazon ECS Managed Instances (ECS MI) as a new compute option, enabling you to run GPU-accelerated and compute-intensive batch workloads on AWS-managed infrastructure. With AWS Batch on ECS MI you can now access GPU-accelerated instances while AWS handles AMI updates, security patching,&nbsp;and instance lifecycle automatically, eliminating the operational overhead of customer-managed Amazon EC2 infrastructure.  To get started, create an AWS Batch on ECS MI compute environ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "AWS Batch now supports Amazon ECS Managed Instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/aws-batch-on-ecs-managed-instances/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "7358a05b9678cce3",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, you can add Amazon EC2 Capacity Blocks for ML and interruptible Capacity Reservations to Capacity Reservation Resource Groups. Amazon EC2 offers different reservation offerings such as On-Demand Capacity Reservations (ODCRs), interruptible Capacity Reservations, and Capacity Blocks for ML. Previously, a Capacity Reservation Resource Group could only include ODCRs. Now you can add any type of Capacity Reservation to a Capacity Reservation Resource Group, making it easier to launch",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Capacity Reservation Resource Groups now support Amazon EC2 Capacity Blocks and interruptible Capacity Reservations",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/capacity-reservation-resource-groups-ec2"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "415bd596b7a33725",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T16:34:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda MicroVMs now supports AWS PrivateLink, enabling private connectivity to Lambda MicroVMs directly from Amazon Virtual Private Cloud (VPC) resources without exposing traffic to the public internet. This launch helps regulated workloads in financial services, healthcare, and government meet strict network isolation requirements when building with Lambda MicroVMs.&nbsp; \nPrivateLink VPC Endpoints deliver private connectivity to AWS services from your VPC, ensuring that your traffic does n",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda MicroVMs now supports AWS PrivateLink",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/lambda-microvms-supports-privatelink"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "4eecd870c1dfeef4",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (RDS) for PostgreSQL now supports the latest minor versions 18.6, 17.11, 16.15, 15.19, and 14.24. We recommend that you upgrade to the latest minor versions to address Common Vulnerabilities and Exposures (CVEs) in prior versions of PostgreSQL, and to benefit from the bug fixes and improvements added by the PostgreSQL community. \nYou can upgrade your databases during scheduled maintenance windows using automatic minor version upgrades. To simplify operations at",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for PostgreSQL supports minor versions 18.6, 17.11, 16.15, 15.19, and 14.24",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-rds-postgresql-18-6-17-11-16-15-15-19-14-24/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "3db65e8f2cbd594a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-08-25T13:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon EC2 M8i and M8i-flex instances are now available in Canada West (Calgary) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The M8i and M8i-flex instances offer up to 15% better price-performance, and 2.5x more memory bandwidth compared to previous generation Intel-based instances. They deliver up to 20% better performa",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M8i and M8i-flex instances are now available in Canada West (Calgary) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/08/ec2-m8i-m8i-flex-canada-west/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "5c1665c62efb4019",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-28T07:04:13+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go",
+        "python"
+      ],
+      "summary": "During my last FOR610 session, a student asked me if I had some statistics in mind about the compilers used to generate malicious PE files&#x3f; A couple of months ago, I shared some stats about the trend in 64bits VS. 32bits malware&#x5b;1&#x5d;. Can we go a bit further&#x3f; I (vibe-)coded a Python script based on the pefile library&#x5b;2&#x5d; to extract some info from the PE headers. Indeed, the PE file format contains a lot of metadata&#x21; They can be accessed using a lot of tools, like ",
+      "tags": [],
+      "title": "Some Malicious PE Stats, (Thu, Aug 27th)",
+      "url": "https://isc.sans.edu/diary/rss/33292"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "468035db37f9e8fa",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T15:13:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next.js"
+      ],
+      "summary": "Credit:&nbsp;Hacktron\nVercel has released security patches for two critical-severity vulnerabilities in the Next.js web framework, both of which allow unauthenticated remote code execution, one exploitable via specially crafted AVIF image files and the other through a path traversal flaw affecting servers that use a Windows filesystem.\n\nThe Windows path traversal, tracked as&nbsp;CVE-2026-75604&",
+      "tags": [],
+      "title": "Next.js Patches Critical AVIF and Windows Flaws Enabling Unauthenticated RCE",
+      "url": "https://thehackernews.com/2026/08/nextjs-patches-critical-avif-and.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "d79a6a63818e5c3d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T10:00:27+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Learn the basics of what obfuscation is, why a researcher would try to reverse it, and several ways to approach the problem.",
+      "tags": [],
+      "title": "JavaScript obfuscation: From party trick to phishing kit",
+      "url": "https://blog.talosintelligence.com/javascript-obfuscation-from-party-trick-to-phishing-kit/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "d9ef3991b5f6a911",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T09:57:28+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "As I&#x27ve mentioned before in some of my diaries, from time to time, I like to go over phishing messages that get caught in my various spam traps or sent to us here at the Internet Storm Center.&#xd;",
+      "tags": [],
+      "title": "A polymorphic phishing page (that occasionally breaks itself), (Thu, Aug 27th)",
+      "url": "https://isc.sans.edu/diary/rss/33290"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "cb4f10f8a9c661e9",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T09:33:38+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Threat actors linked by Arctic Wolf to Dark Caracal with medium confidence deployed a previously undocumented Go-based malware framework, GoCaracal, during a June 2026 intrusion at an unnamed communications organization in Venezuela.\n\nGoCaracal provides operators with remote shell access and payload execution, while the extended profile adds browser data theft, keylogging, remote desktop control",
+      "tags": [],
+      "title": "GoCaracal Malware Uses Ethereum Smart Contract to Fetch Replacement C2 Address",
+      "url": "https://thehackernews.com/2026/08/gocaracal-malware-uses-ethereum-smart.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "068e176d4856a044",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:44.339773+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Integer Overflow or Wraparound in libxml2 affects Nokogiri",
+      "tags": [],
+      "title": "GHSA-cgx6-hpwq-fhv5: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-cgx6-hpwq-fhv5"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "f889c29129b42182",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:43.484849+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri updates packaged libxslt to v1.1.43 to resolve multiple CVEs",
+      "tags": [],
+      "title": "GHSA-mrxw-mxhj-p664: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-mrxw-mxhj-p664"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "0ffb535423a979a5",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:43.406266+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Vulnerable dependencies in Nokogiri",
+      "tags": [],
+      "title": "GHSA-fq42-c5rg-92c2: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-fq42-c5rg-92c2"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "60cc0eddc026c84e",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:42.680637+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri CSS selector tokenizer has regular expression backtracking",
+      "tags": [],
+      "title": "GHSA-c4rq-3m3g-8wgx: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-c4rq-3m3g-8wgx"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "f3de3950f6781b1e",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T13:59:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "The Hunt.io research team found an open directory staging the full toolkit behind an intrusion into a Philippine nuclear research agency and a naval contractor. The ownCloud path is the interesting part technically. CVE-2023-49105 lets you forge pre-signed WebDAV URLs when the signing secret is empty, which is the default state on a fresh install. Five custom Python scripts on the server implement this: the signing routine passes an empty bytes literal as the PBKDF2 salt, sets OC-Credential to t",
+      "tags": [],
+      "title": "☢️ Philippine Nuclear Agency and Naval Contractor Targeted by Suspected Chinese-Speaking Operator",
+      "url": "https://www.reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "dacbfce1c45ac975",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T06:06:26+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "ruby"
+      ],
+      "summary": "&#32; submitted by &#32;  /u/AnimalStrange   [link] &#32; [comments]",
+      "tags": [],
+      "title": "Ruby Marshal Kick-off Gadgets - elttam",
+      "url": "https://www.reddit.com/r/netsec/comments/1vyonto/ruby_marshal_kickoff_gadgets_elttam/"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "29a0271d508aed8a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T11:55:35.816797+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri updates packaged dependency on libxml2 from 2.9.10 to 2.9.12",
+      "tags": [],
+      "title": "GHSA-7rrm-v45f-jp64: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-7rrm-v45f-jp64"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "18aa02661e5bf8a7",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:44.538377+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri update packaged libxml2 to v2.12.5 to resolve CVE-2024-25062",
+      "tags": [],
+      "title": "GHSA-xc9x-jj77-9p9j: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-xc9x-jj77-9p9j"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "3f0ebe9e9ba89b52",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:44.354624+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri does not check the return value from xmlC14NExecute",
+      "tags": [],
+      "title": "GHSA-wx95-c6cv-8532: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-wx95-c6cv-8532"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "5680bd97ec0b590e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T04:10:44.290607+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri updates packaged libxml2 to v2.10.4 to resolve multiple CVEs",
+      "tags": [],
+      "title": "GHSA-pxvg-2qj5-37jq: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-pxvg-2qj5-37jq"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "49fca70a70651d4f",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "claude",
+        "openai",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-24T16:27:04+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Release: llm-anthropic 0.27\n        This release of the Anthropic plugin for LLM mainly provides compatibility with the recently released anthropic v1.0.0 Python library, which switches from httpx to httpx2. OpenAI made the same change in their v3.0.0 release two weeks ago.\nAnthropic provide this migration guide for upgrading to 1.0, so I prompted Fable 5 in Claude Code with:\n\nUpgrade to anthropic&gt;=1 - read https://raw.githubusercontent.com/anthropics/anthropic-sdk-python/refs/heads/main/MIGR",
+      "tags": [],
+      "title": "llm-anthropic 0.27",
+      "url": "https://simonwillison.net/2026/Aug/24/llm-anthropic/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "6ef15d8f5d40cbba",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "hugging face"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-29T23:53:13+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing Hy4 Preview\nNew open weight text input (no vision)  LLM from Chinese company Tencent today: 770B total parameters, 49B active parameters, 1M token context window, 1.56TB on Hugging Face.\nThis is a big size increase from their previous Hy3 in July, which was 295B, 21B active, 256,000 context, 598GB.\nI recently started using model chat templates to better understand their capabilities. Here's Hy4's  chat_template.jinja on Hugging Face, which includes this section:\n{%- if not reasoning_",
+      "tags": [],
+      "title": "Introducing Hy4 Preview",
+      "url": "https://simonwillison.net/2026/Aug/29/hy4/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "bc6639b3f24621f6",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T22:50:25+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Breaking Claude Code Opus 5 Auto Mode\nAnthropic are putting a great deal of faith in Claude Code's auto mode for protecting their coding agent users against prompt injection attacks. They recently made that the default and have made bold claims about its effectiveness.\nJohann Rehberger is one of the most credible prompt injection researchers active today. He found an attack against auto mode which he claims works 80% of the time, by tricking Claude Code into downloading and uncompressing a zip a",
+      "tags": [],
+      "title": "Breaking Claude Code Opus 5 Auto Mode",
+      "url": "https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "34e62ff4c7cf4def",
+      "importance": "high",
+      "keyword_match": [
+        "openai",
+        "hugging face"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI shares findings from the Hugging Face security incident and the steps we’re taking to strengthen AI model security, monitoring, and alignment.",
+      "tags": [],
+      "title": "The Hugging Face incident and the road ahead",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "abd52c9f1dde403e",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-24T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.",
+      "tags": [],
+      "title": "Advancing price-performance for developers with GPT‑5.6 in Kiro",
+      "url": "https://openai.com/index/gpt-5-6-in-kiro"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "ac6e7e3c37d7027f",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-30T23:59:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI announced ChatGPT Work on July 9th, and have been furiously iterating on it ever since. It is an extraordinarily confusing and very powerful product. Here's what I've figured out about it so far.\nChatGPT Work is actually two products\nThe more interesting version of ChatGPT Work is the one that runs in the cloud. This can be accessed via chatgpt.com or through the ChatGPT mobile apps. Let's call it Work Cloud.\nIf you install the ChatGPT desktop app - the app that used to be called Codex - ",
+      "tags": [],
+      "title": "Understanding ChatGPT Work",
+      "url": "https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "b42ac281ecaf56c0",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-28T06:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Our decision to wind down our contract providing OpenAI models to Cursor following its acquisition by SpaceX.",
+      "tags": [],
+      "title": "Our decision on Cursor following its acquisition by SpaceX",
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "cb1db0d5c74b6e9e",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-28T02:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI and Thailand’s MHESI launch an eight-week accelerator helping 10 health, wellness, and education startups turn AI prototypes into trusted products.",
+      "tags": [],
+      "title": "Supporting Thailand’s next generation of AI startups",
+      "url": "https://openai.com/index/supporting-next-generation-ai-startups-thailand"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "74b1125af8681de1",
+      "importance": "high",
+      "keyword_match": [
+        "gemini"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T16:11:32+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "",
+      "tags": [],
+      "title": "Gemini Omni 1.1 Flash lets you build with more control",
+      "url": "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "5c8d75ef9c12c059",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T09:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "A randomized study of more than 1,000 students examines ChatGPT, critical thinking, originality, and student performance on a real-world university assignment.",
+      "tags": [],
+      "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-thinking training",
+      "url": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "fe23f369e01db08d",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-27T03:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI is expanding its presence in Brazil, deepening engagement with developers, businesses, and communities to support AI adoption across the country.",
+      "tags": [],
+      "title": "Expanding OpenAI’s presence in Brazil",
+      "url": "https://openai.com/index/expanding-our-presence-in-brazil"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "ac6eb9276806c2f8",
+      "importance": "high",
+      "keyword_match": [
+        "gemini"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T17:01:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Now you can get more intelligent speech-to-text transcription with Gemini 3.5 Transcribe.",
+      "tags": [],
+      "title": "Intelligent transcription with Gemini 3.5 Transcribe",
+      "url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "832a12c8f33a104e",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
+      "tags": [],
+      "title": "Learning never stops: How AI makes learning continuous",
+      "url": "https://openai.com/index/learning-never-stops"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "fa2791fbc9af008f",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
+      "tags": [],
+      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": "source_fairness",
+      "id": "69963c113d8fc5e8",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-26T08:07:55+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "The fact that AI wrote 1M LOC and then refined it over the course of the next couple of months to produce a reliable piece of software that is currently running on millions of developer machines is absolutely mind blowing. And you can say, “well it’s not that impressive because they had an oracle to compare against, so it was simple to go from one language to another”, but I think that’s selling this entire thing short. If you can build a verification system and give proper direction, AI can pro",
+      "tags": [],
+      "title": "Quoting Paul Dix",
+      "url": "https://simonwillison.net/2026/Aug/26/paul-dix/"
+    }
+  ],
+  "meta": {
+    "date": "2026-08-31",
+    "enriched": {},
+    "rendered": {
+      "2026-08-31": "sha256:5550e7055080e420"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 145,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 34,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 852,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1157,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 140,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
