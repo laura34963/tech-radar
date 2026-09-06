@@ -1,0 +1,1125 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "5bcf26e2b1de4ca1",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-04T16:28:14.583000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-8425b691-20260904",
+      "tags": [],
+      "title": "react 0.0.0-experimental-8425b691-20260904",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-8425b691-20260904"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "0eef1f796f4884df",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T16:28:59.766000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-d9f4e76b-20260903",
+      "tags": [],
+      "title": "react 0.0.0-experimental-d9f4e76b-20260903",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-d9f4e76b-20260903"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "9572c395bce2d6f6",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-02T16:28:43.115000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-f4e439e1-20260902",
+      "tags": [],
+      "title": "react 0.0.0-experimental-f4e439e1-20260902",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-f4e439e1-20260902"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "fc60f86b6e606799",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T16:44:26.367000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-21c89c9f-20260901",
+      "tags": [],
+      "title": "react 0.0.0-experimental-21c89c9f-20260901",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-21c89c9f-20260901"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "89fd8d95c34bbb93",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-31T16:28:09.297000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-ff7445e6-20260831",
+      "tags": [],
+      "title": "react 0.0.0-experimental-ff7445e6-20260831",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-ff7445e6-20260831"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "737ac8069473e989",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Amazon SageMaker Unified Studio Workflows now supports PythonOperator and BashOperator, enabling you to run custom Python functions and shell commands directly in your serverless workflows without provisioning separate compute resources. This eliminates the need to offload custom logic to Lambda or ECS for tasks like data transformations or shell script execution.\nTo get started, open a serverless visual workflow in your SageMaker Unified Studio project, search for PythonOperator or BashOperator",
+      "tags": [
+        "lambda"
+      ],
+      "title": "Amazon SageMaker Unified Studio Workflows support Python and Bash operators",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-workflows-python-bash/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "95bed6462ad3a071",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-04T19:26:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 now enables AMI owners to define which instance types are compatible with their AMIs. Owners can specify supported instance types, unsupported instance types, or both — and any launch attempt on a non-permitted instance type is automatically blocked. \nAMI owners now have a built-in way to prevent launches on instances that are not compatible with their AMIs. This reduces the risk of failed launches due to incompatible instance-AMI pairings. By default, an AMI can be launched on any in",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 now supports specifying compatible instance types on AMIs",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-images-supported-instances"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "0aac097369f8887c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-04T16:31:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS Model Context Protocol Server (AWS MCP Server) added a serverless capability so that coding agents such as Claude Code and Kiro can efficiently diagnose issues with your Lambda functions. The serverless capability helps you troubleshoot your running Lambda functions and their connected resources. \nThe AWS MCP Server, available through the Agent Toolkit for AWS or as a standalone installation, is a managed service that gives AI coding agents secure access to AWS services. With the new ",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS MCP Server adds a serverless capability for AWS Lambda functions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-mcp-server-serverless/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "4a442f0114b5f2e3",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-04T14:06:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8g instances are available in AWS Asia Pacific (Taipei, New Zealand), and&nbsp;AWS GovCloud (US-East) regions. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 C8g instances are built for compute-intensive workloads, such as high performance computing (HPC), batch processing, gaming, video encoding, scientific modeling, distributed analy",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C8g instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-c8g-instances-additional-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "401f03a6b436af82",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-04T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon SageMaker AI now supports Amazon EC2 G6e instances for batch transform. Batch Transform enables you to run predictions on datasets stored in Amazon S3 and is suited for large datasets that do not require a persistent inference endpoint.\nAmazon EC2 G6e instances are powered by up to eight NVIDIA L40S Tensor Core GPUs with 48 GB of memory per GPU and third-generation AMD EPYC processors. G6e instances deliver improved performance for GPU-intensive workloads. With this launch, you can use G6",
+      "tags": [
+        "ec2",
+        "s3"
+      ],
+      "title": "Amazon SageMaker AI Batch Transform now supports G6e instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/sagemaker-batch-transform-g6e-instances/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ddcecb74f6c7fec0",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T23:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C9g and C9gd instances, powered by AWS Graviton5 processors, are available in the Asia Pacific (Tokyo) region. AWS Graviton5 processors are the fifth generation of custom-designed CPUs, delivering the best price performance for compute-intensive workloads running on Amazon EC2. \nC9g and C9gd instances deliver up to 25% better compute performance compared to AWS Graviton4-based C8g and C8gd instances. They are up to 30% faster for database",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C9g and C9gd instances are now available in Asia Pacific (Tokyo) region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-c9g-c9gd-asia-pacific-tokyo/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "09fe26f28a071c68",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T21:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) M9g and M9gd instances, powered by AWS Graviton5 processors, are available in Europe (Ireland) and Asia Pacific (Singapore, Sydney, Tokyo) regions. AWS Graviton5 processors are the fifth generation of custom-designed CPUs, delivering the best price performance for memory-intensive workloads running on Amazon EC2. \nM9g and M9gd instances deliver up to 25% better performance compared to AWS Graviton4-based M8g and M8gd instances. They are u",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M9g and M9gd instances are now available in four additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-m9g-m9gd-four-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e588cd13b6e85dd0",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T19:14:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) P6-B200 instances accelerated by NVIDIA Blackwell GPUs are available in the AWS Asia Pacific (Hyderabad) Region. These instances offer up to 2x performance compared to P5en instances for AI training and inference. \nP6-B200 instances feature 8 Blackwell GPUs with 1440 GB of high-bandwidth GPU memory and a 60% increase in GPU memory bandwidth compared to P5en, 5th Generation Intel Xeon processors (Emerald Rapids), and up to 3.2 terabits per",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 P6-B200 instances are now available in the AWS Asia Pacific (Hyderabad) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-p6-b200-instances-available-asia-pacific-hyderabad"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e110b39d9b062fbf",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T19:03:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Cloud Compute (Amazon EC2) P6-B300 instances are available in the AWS Asia Pacific (Jakarta) Region. P6-B300 instances provide 8xNVIDIA Blackwell Ultra GPUs with 2.1 TB high bandwidth GPU memory, 6.4 Tbps EFA networking, 300 Gbps dedicated ENA throughput, and 4 TB of system memory. \nP6-B300 instances deliver 2x networking bandwidth, 1.5x GPU memory size, and 1.5x GPU TFLOPS (at FP4, without sparsity) compared to P6-B200 instances, making them well suited to train a",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 P6-B300 instances are now available in the AWS Asia Pacific (Jakarta) Region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-p6-b300-instances-available-asia-pacific-jakarta"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "acb9ac28894019e9",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Aurora MySQL supports two new replication capabilities: multi-source replication and delayed replication. Multi-source replication lets a single Aurora MySQL cluster replicate from multiple source databases at the same time, making it easier to consolidate data from separate MySQL databases. This enables critical use-cases, such as merging shards or aggregating data from separate databases (e.g. regional or departmental instances) into a central location for operational wo",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Aurora MySQL now supports multi-source replication and delayed replication",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-aurora-mysql-multisourcerep-delayedrep/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ca84dc28de3e439c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-03T04:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 now supports AWS PrivateLink for endpoints that have been validated under the Federal Information Processing Standard (FIPS) 140-3 program.  Customers with security and compliance requirements can use FIPS-validated cryptographic modules when connecting to S3 while keeping their traffic within their Virtual Private Cloud (VPC). To get started, create a new or edit an existing interface VPC endpoint for S3 and configure it to use the FIPS S3 endpoint.  AWS PrivateLink support for FIPS S",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 now supports PrivateLink for FIPS endpoints",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-s3-privatelink-fips-endpoints"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ff88e844de202bcd",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-02T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Config now supports 60 additional AWS resource types across key services including Amazon Bedrock,&nbsp; Amazon EC2, Amazon SageMaker, and AWS Organizations. This expansion provides greater coverage over your AWS environment, enabling you to more effectively discover, assess, audit, and remediate an even broader range of resources. \nWith this launch, if you have enabled recording for all resource types, then AWS Config will automatically track these new additions. The newly supported resourc",
+      "tags": [
+        "ec2"
+      ],
+      "title": "AWS Config now supports 60 new resource types",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-config-new-resource-types/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "dd1bea49050d1910",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-02T09:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, AWS Lambda supports SnapStart for functions packaged as container images, reducing startup times from several seconds to as low as sub-second. Lambda SnapStart is an opt-in capability that makes it easier for you to build highly responsive and scalable applications without provisioning resources or implementing complex performance optimizations. \nCustomers deploy Lambda functions with container images to align with their organization's container-based deployment standards, or to ",
+      "tags": [
+        "lambda",
+        "rds"
+      ],
+      "title": "AWS Lambda now supports SnapStart for container image functions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-lambda-snapstart-container/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "938598892022e097",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-02T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for SQL Server&nbsp;supports 18 additional SQL trace flags that you can enable through database parameter groups. Trace flags are configuration switches that modify SQL Server engine behavior — such as query optimizer cardinality estimation, lock escalation, statistics management, and memory handling — to allow database administrators to fine-tune performance and address workload-specific challenges. With this expansion, you have greater flexibility to optimize and stabilize your SQL ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for SQL Server supports additional SQL trace flags",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/rds-sqlserver-supports-additional-trace-flags/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8bd9f94d2e25194e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-01T21:37:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Now generally available, Amazon Quick lets you build custom applications by simply describing them in natural language. Create project trackers, customer dashboards, and training portals in minutes instead of months. Whether you're a product manager, finance lead, HR partner, or ops analyst, you can now turn ideas into fully functional apps without writing any code. Tell Quick what you need, and it builds a live, connected application with real-time data from your existing business systems. \nQui",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Quick now lets you build custom apps with natural language  -",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-custom-apps-natural-language/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "9d1d25eb12ecc8ff",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T07:22:30+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "rails",
+        "ruby",
+        "python"
+      ],
+      "summary": "Threat actors are exploiting two critical flaws impacting Langflow and Ruby on Rails, according to new findings from VulnCheck.\n\nThe vulnerabilities in question are listed below -\n\n\n  CVE-2026-0768 (CVSS score: 9.8) - A lack of proper validation of a user-supplied input vulnerability that could be exploited to execute arbitrary Python code in the context of the root user.\n  CVE-2026-66066 aka",
+      "tags": [],
+      "title": "Attackers Exploit Critical Langflow and Rails Flaws in Credential-Probing and C2 Activity",
+      "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-langflow-and.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "49749711ba07df5a",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-04T07:18:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Google on Thursday released security updates to patch 12 vulnerabilities, including one that has come under active exploitation in the wild.\n\nThe high-severity vulnerability, tracked as CVE-2026-85046 (CVSS score: 8.8), has been described as a type confusion bug in V8, Chrome's JavaScript and WebAssembly engine.\n\n\"Type confusion in V8 in Google Chrome prior to 152.0.7977.82 allowed a remote",
+      "tags": [],
+      "title": "Google Releases Chrome Update to Patch Actively Exploited V8 Zero-Day",
+      "url": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "60cc0eddc026c84e",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-04T02:10:56.584053+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri CSS selector tokenizer has regular expression backtracking",
+      "tags": [],
+      "title": "GHSA-c4rq-3m3g-8wgx: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-c4rq-3m3g-8wgx"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "9d9736b815d582ed",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T15:26:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Cybersecurity researchers have disclosed details of a sophisticated Python-based Windows malware framework called BraZetsu that fuels an underground marketplace commercializing access to compromised hosts.\n\n\"Unlike the standard infostealer model, BraZetsu is a comprehensive master toolkit that empowers Initial Access Brokers (IABs) by turning compromised systems into highly valuable commercial",
+      "tags": [],
+      "title": "BraZetsu Malware Turns Compromised Windows Hosts Into Criminal Marketplace Inventory",
+      "url": "https://thehackernews.com/2026/09/brazetsu-malware-turns-compromised.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "0ffead6ad9f846a1",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T10:43:01+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Threat actors are leveraging the trusted Node.js JavaScript runtime in multiple cyber attacks as a way to deploy malicious payloads.\n\nAccording to a new report published by the Symantec Threat Hunter Team today, the attack method has been put to use in attacks targeting government departments, technology companies, and hotels since February 2026.\n\n\"The technique's appeal is that node.exe (the",
+      "tags": [],
+      "title": "Attackers Turn Trusted Node.js Runtime Into Malware Delivery Tool in Targeted Attacks",
+      "url": "https://thehackernews.com/2026/09/attackers-turn-trusted-nodejs-runtime.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "7b6143d7907f22cc",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T02:10:52.508818+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+      "tags": [],
+      "title": "GHSA-gcfj-64vw-6mp9: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-gcfj-64vw-6mp9"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "f2b086ba2c40ae9b",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-02T03:55:57.696663+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "axios Inefficient Regular Expression Complexity vulnerability",
+      "tags": [],
+      "title": "GHSA-cph5-m8f7-6c5x: axios",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-3749"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "2e1433965ded5055",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T14:07:20+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Cybersecurity researchers have identified a set of 13 malicious Composer theme packages on Packagist that are designed to inject JavaScript into Vietnamese movie and comic streaming sites that install those libraries and initiate the deployment of spyware aimed at unpatched iOS devices.\n\n\"The injected code runs two operations against a site's visitors: a mobile ad-fraud and gambling-redirect",
+      "tags": [],
+      "title": "13 Malicious Packagist Packages Target Unpatched iPhones to Steal Crypto Wallet Seeds",
+      "url": "https://thehackernews.com/2026/09/13-malicious-packagist-packages-target.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "733c36767b10aa78",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T13:08:58+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "The Iranian Nimbus Manticore hacking group has been attributed to two previously undocumented malware families that highlight the continued evolution of its toolset and likely expand its targeting footprint to infect Linux and Apple macOS systems using cross-platform remote access trojans (RATs) developed using Node.js and JavaScript.\n\nRussian cybersecurity company Kaspersky is tracking the",
+      "tags": [],
+      "title": "Iranian Hackers Pose as Recruiters to Deliver Cross-Platform RATs Through Coding Tests",
+      "url": "https://thehackernews.com/2026/09/iranian-hackers-pose-as-recruiters-to.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "46defbbddb217e9f",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-31T13:50:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "The boring parts caused most of the trouble.\n\nA router shipped ready to listen. A fake check turned the user into the installer. Trusted systems collected traffic and passwords, then cleaned the logs. Old bugs formed new attack chains. Even an AI agent decided its assigned task was optional.\n\nElsewhere, fake apps, helpful support calls, cheap banking kits, exposed systems, and weak defaults kept",
+      "tags": [],
+      "title": "⚡ Weekly Recap: Chinese Spy Proxy, AI Agents Go Off-Task, Router Backdoors and More",
+      "url": "https://thehackernews.com/2026/08/weekly-recap-chinese-spy-proxy-ai.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "30ab622a84849d63",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-05T18:25:56.166181+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Prototype pollution auth subfields can inject Basic auth",
+      "tags": [],
+      "title": "GHSA-xj6q-8x83-jv6g: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-xj6q-8x83-jv6g"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "3f0ebe9e9ba89b52",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-04T02:10:56.544191+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri does not check the return value from xmlC14NExecute",
+      "tags": [],
+      "title": "GHSA-wx95-c6cv-8532: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-wx95-c6cv-8532"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "9a80a2f67705424a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-04T02:10:56.442118+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "nokogiri"
+      ],
+      "summary": "Nokogiri XSLT transform has a memory leak",
+      "tags": [],
+      "title": "GHSA-v2fc-qm4h-8hqv: nokogiri",
+      "url": "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-v2fc-qm4h-8hqv"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "6b8bfc0a4bb7996c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T02:10:52.495384+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: HTTP/2 streamed uploads bypass `maxBodyLength`",
+      "tags": [],
+      "title": "GHSA-mwf2-3pr3-8698: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-mwf2-3pr3-8698"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "bdf7a3b172275997",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T02:10:52.462787+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+      "tags": [],
+      "title": "GHSA-jqh4-m9w3-8hp9: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-jqh4-m9w3-8hp9"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "9c15d28a330d5e62",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "claude",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T20:18:41+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT‑6 Astra\nGPT-6 Astra is \"rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API and AWS\" - I've not tried it yet myself, so I don't have a great deal to say about it yet.\nIt's going to be API priced at the same rate as Claude Fable 5 and 5.1: $10/million input and $50/million output. This is clearly OpenAI's Fable competitor, and appears to score higher than ",
+      "tags": [],
+      "title": "GPT‑6 Astra",
+      "url": "https://simonwillison.net/2026/Sep/3/gpt6-astra/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "6cb14383ff4a603d",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "claude",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T23:57:28+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Today is Claude Fable (and Mythos) 5.1 day. Anthropic say that Fable 5.1 \"sets a new standard for coding, knowledge work, and long-running problem-solving tasks\". Their announcement spends a notable amount of time on scientific research, boasting of a 52.6% score on the brand new Terminal-Bench-Science 0.1 benchmark (first announced on August 27th), up from 24.7% for Fable 5, 29.0% for Opus 5 and 22.4% for GPT-5.6 Sol. Other benchmarks show slightly improved scores, but none as impressive as the",
+      "tags": [],
+      "title": "Claude Fable 5.1 made me a really nice animated pelican",
+      "url": "https://simonwillison.net/2026/Sep/1/claude-fable-5-1/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "41ed31a9044de949",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-04T17:38:48+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Here we go again... Discovery of a new OpenAI agent message board by Sydney Von Arx, Cormac Slade Byrd, Spencer Kitts, and Thomas Larsen describes the latest accidental cyberattack by models being trained by OpenAI. This time it was agents engaged in some sort of web research benchmark, so they had (supposedly) controlled access to the Web. The agents figured out they could update public Wikis and spent weeks exchanging thousands of messages with each other to collaborate on the benchmark.\nThis ",
+      "tags": [],
+      "title": "OpenAI's rogue agents were caught communicating via public wikis",
+      "url": "https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "9281d6906e8350b6",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflow.",
+      "tags": [],
+      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
+      "url": "https://openai.com/index/legora-financial-statement-review-with-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "325e9dcd840a97e9",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
+      "tags": [],
+      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
+      "url": "https://openai.com/index/playco-game-prototyping-with-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "039a4975e102cb53",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T11:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
+      "tags": [],
+      "title": "GPT-6 Astra: A new generation of intelligence",
+      "url": "https://openai.com/index/gpt-6-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "39210f987919e80e",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-03T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT-6 Astra is our most capable broadly deployed model and our first to reach the Critical level of cybersecurity capability under our Preparedness Framework.",
+      "tags": [],
+      "title": "Safety overview: GPT-6 Astra",
+      "url": "https://openai.com/index/safety-overview-gpt-6-astra"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "18c439efc6c9e049",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "gemini"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-02T16:39:38+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-gemini 0.34\n        \n\nNew model gemini-3.8-flash for Gemini 3.8 Flash, with low, medium and high thinking levels. #146\nFixed async responses failing to record the resolved model version. Thanks, Charlie Tonneslan. #137\n\n\nGoogle released Gemini 3.8 Flash (and 3.8 Flash Cyber, but that's available to \"trusted defenders\" only) today.\nHere are the pelicans for high, medium, and low. This is high:\n\nFor comparison, here are the same pelicans generated using Gemini 3.7 Flash.\nSomething I a",
+      "tags": [],
+      "title": "llm-gemini 0.34",
+      "url": "https://simonwillison.net/2026/Sep/2/llm-gemini/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "2557b479477d51f3",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-02T14:16:42+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Anthropic publish the system prompts for their Claude consumer applications (Claude.ai and the Claude mobile apps - sadly not for Claude Cowork or Claude Code). I love that they do this, and that they share not just the current prompts but historic changes to their prompts as well.\n\nThey used to keep all of the prompts on a single page, but when I checked today I noticed they had re-arranged those prompts into an index page and then a page per model - here's the page for Haiku 4.5 for example, w",
+      "tags": [],
+      "title": "Claude's new system prompt really doesn't want to reproduce song lyrics",
+      "url": "https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "86d3bc7092b6e9c6",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T19:03:01+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "I was poking around in my ~/.cache/ folder using OmniDiskSweeper when I spotted something interesting. The OpenAI Codex desktop app (since rebranded to just ChatGPT) has 1.7GB of stuff in there in a folder called codex-primary-runtime, including a full Python installation, a full Node.js installation, and native binaries for Poppler, git, and the LibreOffice open source office suite (which forked from OpenOffice.org in 2010):\n\nThe ~/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-prim",
+      "tags": [],
+      "title": "Codex bundles LibreOffice",
+      "url": "https://simonwillison.net/2026/Sep/1/codex-libreoffice/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "20b040f8e58f31e9",
+      "importance": "high",
+      "keyword_match": [
+        "gemini",
+        "agentic"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-01T17:08:51+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "",
+      "tags": [],
+      "title": "Introducing agentic video understanding with Gemini",
+      "url": "https://deepmind.google/blog/introducing-agentic-video-in-gemini/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "0b5a688ac44522d6",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-08-31T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Polimill uses OpenAI GPT models and Codex to help municipalities search and use administrative knowledge while accelerating development.",
+      "tags": [],
+      "title": "Polimill builds Japan's next-generation public AI infrastructure",
+      "url": "https://openai.com/index/polimill"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "e0f75446731d598c",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-06T09:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination.",
+      "tags": [],
+      "title": "An Alien Mind",
+      "url": "https://openai.com/index/an-alien-mind"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "3784d7aba9718af9",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-06T08:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Inside OpenAI, coding agents are reshaping AI research. Explore early data on agent usage, experiment velocity, task complexity, and research acceleration.",
+      "tags": [],
+      "title": "Research acceleration: The view inside OpenAI",
+      "url": "https://openai.com/index/research-acceleration-view-inside-openai"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "9f6de6a442ea3eb6",
+      "importance": "high",
+      "keyword_match": [
+        "gpt"
+      ],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-05T23:27:48+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing GPT-6 Astra for developers\nBlink and you'll miss it, but there's a familiar creature at 1m59s:\n\nAcross the board, Astra has more attention to detail, better understanding of the user's prompt, and can build more sophisticated outputs. In particular, it excels at building 3D models. I've seen it make incredible renderings of gardens, shipyards, animals, cityscapes, even Dyson spheres.\n\n\nAstra really does believe in putting a red neckerchief on a pelican riding a bicycle.\n\n    Via Hack",
+      "tags": [],
+      "title": "Introducing GPT-6 Astra for developers",
+      "url": "https://simonwillison.net/2026/Sep/5/introducing-gpt-6-astra-for-developers/"
+    }
+  ],
+  "meta": {
+    "date": "2026-09-06",
+    "enriched": {},
+    "rendered": {
+      "2026-09-06": "sha256:1a5eb4ba40a7135b"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 155,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 31,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 859,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1172,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 140,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
