@@ -223,9 +223,9 @@ min_points = 100
 
 [llm]
 enabled = true
-provider = "openai_compatible"       # openai_compatible | anthropic | gemini | ollama | cli
-base_url = "https://api.openai.com/v1"
-model = "gpt-4o-mini"
+provider = "gemini"
+base_url = "https://generativelanguage.googleapis.com"
+model = "gemini-flash-latest"
 api_key_env = "RADAR_LLM_API_KEY"
 max_items_to_enrich = 40
 # Enrichment batching: cap items per LLM call so large categories can't hit the
@@ -236,6 +236,11 @@ enrich_concurrency = 4   # max concurrent LLM calls
 #   provider = "gemini"
 #   base_url = "https://generativelanguage.googleapis.com"   # optional; this is the default
 #   model = "gemini-2.5-flash"
+#   api_key_env = "RADAR_LLM_API_KEY"
+# OpenAI example:
+#   provider = "openai_compatible"
+#   base_url = "https://api.openai.com/v1"   # optional; this is the default
+#   model = "gpt-4o-mini"
 #   api_key_env = "RADAR_LLM_API_KEY"
 # CLI example (route through a locally-authenticated LLM CLI; no API key needed).
 # The prompt is piped on stdin; use a {prompt} token if the CLI takes it as an arg.
