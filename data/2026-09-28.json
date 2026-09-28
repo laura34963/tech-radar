@@ -1,0 +1,1034 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "b5e39dbe7ae9b946",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "優化了未指定自訂分隔符號規則時 number_to_delimited 的執行效能，並修復 ActiveSupport::Inflector.humanize 處理非 ASCII 國際化字元的大小寫轉換問題。同時消除了搭配 Dalli 4.0+ 使用 MemCacheStore 時所噴出的警告日誌。",
+        "recommended_action": "在 Gemfile 中將 Rails 鎖定至 7.2.4 並執行 bundle update rails。",
+        "summary": "Rails 7.2.4 針對 Active Support 進行效能微調與語系字元轉換修正。",
+        "why_it_matters": "可降低高頻格式化數值時的運算負擔，改善 Memcached 快取日誌的整潔度，並確保多語系字串格式化的正確性。"
+      },
+      "provider": null,
+      "published": "2026-09-24T16:28:35+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "rails",
+        "ruby"
+      ],
+      "summary": "## Active Support\r\n\r\n*   Improve `number_to_delimited` performance when `delimiter_pattern` is not specified.\r\n\r\n    *Shinichi Maeshima*\r\n\r\n*   Silence Dalli 4.0+ warning when using `ActiveSupport::Cache::MemCacheStore`.\r\n\r\n    *zzak*\r\n\r\n*   Fix `ActiveSupport::Inflector.humanize` with international characters.\r\n\r\n    ```ruby\r\n    ActiveSupport::Inflector.humanize(\"áÉÍÓÚ\")  # => \"Áéíóú\"\r\n    ActiveSupport::Inflector.humanize(\"аБВГДЕ\") # => \"Абвгде\"\r\n    ```\r\n\r\n    *Jose Luis Duran*\r\n\r\n\r\n## Activ",
+      "tags": [],
+      "title": "rails/rails v7.2.4",
+      "url": "https://github.com/rails/rails/releases/tag/v7.2.4"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "5ee6255a77dec5a1",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "此發布為 7.2 維護分支的穩定修補版本，整合了框架底層累積的 Bug 修復與效能改善。",
+        "recommended_action": "",
+        "summary": "Rails 7.2.4 版本已正式推播發布至 RubyGems 套件庫。",
+        "why_it_matters": "團隊已可直接透過 RubyGems 取得 7.2.4 的更新依賴，維持既有專案環境的穩定性。"
+      },
+      "provider": null,
+      "published": "2026-09-24T19:09:02.272000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "New RubyGems release: rails 7.2.4",
+      "tags": [],
+      "title": "rails 7.2.4",
+      "url": "https://rubygems.org/gems/rails/versions/7.2.4"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "fb18c2de9ddb2bd1",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "包含 Rails 8.1 分支最新的核心元件補丁，針對 JSON 解析相容性與除錯介面進行了維護。",
+        "recommended_action": "",
+        "summary": "Rails 8.1.4 釋出並於 RubyGems 套件庫開放下載。",
+        "why_it_matters": "讓處於 Rails 8.1 版本的專案能夠即時取得最新的相容性與穩定度修補。"
+      },
+      "provider": null,
+      "published": "2026-09-24T14:22:14.180000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "New RubyGems release: rails 8.1.4",
+      "tags": [],
+      "title": "rails 8.1.4",
+      "url": "https://rubygems.org/gems/rails/versions/8.1.4"
+    },
+    {
+      "board": "tech",
+      "category": "backend",
+      "demoted": null,
+      "id": "3116871dce78aec9",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "number_to_human_size 現已支援 petabyte、exabyte 與 zettabyte 單位，防止超過 1TB 時引發例外崩潰。同時修復了多行 SyntaxError 錯誤頁面渲染問題、Range#sole 在未事先載入 Enumerable 擴充時的 NoMethodError，以及相容未來的 json 3.0 gem。",
+        "recommended_action": "若系統有涉及大容量檔案或儲存空間換算，應更新至此版本以防邊界條件引發未預期異常。",
+        "summary": "Rails 8.1.4 修復極大檔案容量計算 crash 問題，並提早相容 json 3.0。",
+        "why_it_matters": "避免在儲存用量統計或巨量日誌匯總等場景下因超出 TB 級距導致服務噴錯，並降低未來升級底層相依套件時的潛在阻礙。"
+      },
+      "provider": null,
+      "published": "2026-09-24T14:19:52+00:00",
+      "severity": null,
+      "source_type": "github",
+      "stack_match": [
+        "rails"
+      ],
+      "summary": "## Active Support\r\n\r\n*   Fix the debug error page rendering for `SyntaxError`s with multi-line messages.\r\n\r\n    *Marco Roth*\r\n\r\n*   Make `ActiveSupport::JSON.decode` compatible with the upcoming `json` 3.0 gem.\r\n\r\n    *Earlopain*\r\n\r\n*   Fix `number_to_human_size` crashing for sizes above a terabyte by supporting\r\n    petabyte, exabyte, and zettabyte storage units.\r\n\r\n    *Kenta Ishizaki*\r\n\r\n*   Fix `Range#sole` raising `NoMethodError` when the enumerable core extension\r\n    isn't already loaded.",
+      "tags": [],
+      "title": "rails/rails v8.1.4",
+      "url": "https://github.com/rails/rails/releases/tag/v8.1.4"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "7f4696f625d31b29",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "此版本為 React 官方 CI 自動產生的 snapshot 快照，主要用於先行驗證 main 分支上的底層架構改動與新功能原型。",
+        "recommended_action": "維持現有穩定版本相依性，除非需要針對 canary 生態系進行前瞻性相容測試，否則無需更新。",
+        "summary": "React 發布 experimental 實驗性建置版本 0.0.0-experimental-d083ec1d-20260922。",
+        "why_it_matters": "對於使用 React 與 Next.js 的團隊，實驗版本可能包含不穩定 API 與未記錄的行為變更，切勿在正式環境中使用。"
+      },
+      "provider": null,
+      "published": "2026-09-23T16:29:09.454000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-d083ec1d-20260922",
+      "tags": [],
+      "title": "react 0.0.0-experimental-d083ec1d-20260922",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-d083ec1d-20260922"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "876deff1b2958763",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "接續前次發布的 CI 自動化建置，反映核心團隊在 React 及 react-dom 程式碼庫內部的最新 commit 修正與快速迭代。",
+        "recommended_action": "",
+        "summary": "React 發布後續 experimental 實驗性建置版本 0.0.0-experimental-8b0da1c6-20260922。",
+        "why_it_matters": "頻繁的 experimental 發布通常預示著上游框架（如 Next.js canary）即將進行整合驗證，但對目前穩定線的業務開發無直接衝擊。"
+      },
+      "provider": null,
+      "published": "2026-09-22T16:27:49.101000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-8b0da1c6-20260922",
+      "tags": [],
+      "title": "react 0.0.0-experimental-8b0da1c6-20260922",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-8b0da1c6-20260922"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "1e01d0a377f9a1e1",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-25T18:40:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon EC2 M8i and M8i-flex instances are now available in the AWS European Sovereign Cloud (Germany) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The M8i and M8i-flex instances offer up to 15% better price-performance, and 2.5x more memory bandwidth compared to previous generation Intel-based instances. They deliver up t",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 M8i and M8i-flex instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-ec2-m8i-m8i-flex-thf/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "7a1dd282b714bca3",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-25T18:37:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8i and R8i-flex instances are available in the AWS European Sovereign Cloud (Germany) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. The R8i and R8i-flex instances offer up to 15% better price-performance, and 2.5x more memory bandwidth compared to previous generation Intel-based i",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R8i and R8i-flex instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/ec2-r8i-r8i-flex-thf/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "14d7f0287826dc9e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-25T18:09:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8i and C8i-flex instances are available in the AWS European Sovereign Cloud (Germany) region. These instances are powered by custom Intel Xeon 6 processors, available only on AWS, delivering the highest performance and fastest memory bandwidth among comparable Intel processors in the cloud. These C8i and C8i-flex instances offer up to 15% better price-performance, and 2.5x more memory bandwidth compared to previous generation Intel-based",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C8i and C8i-flex instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/c8i-c8i-flex-thf-september-2026/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "1a062b1306fe1060",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-24T18:29:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda durable functions are now available in the AWS European Sovereign Cloud. Lambda durable functions enable developers to build reliable multi-step applications and AI workflows within the Lambda developer experience.\nLambda durable functions extend the Lambda programming model with new primitives in your event handler, such as \"step\" and \"wait\", allowing you to checkpoint progress, automatically recover from failures, and pause executions without incurring compute charges for on-demand ",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda durable functions are now available in AWS European Sovereign Cloud region",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/durablefunctions-european-sovereign-cloud/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "b122e873640c870c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-24T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (RDS) for MySQL announces Amazon RDS Extended Support minor versions 5.7.44-rds.20260902 and 8.0.46-rds.20260908.\nAmazon RDS Extended Support provides up to three additional years of fixes for critical Common Vulnerabilities and Exposures (CVE) and bugs beyond a major version's end of standard support date, giving you more time to upgrade to a new major version.\n \n \n You can upgrade your database using Amazon RDS Blue/Green Deployments, in-place upgrade, or res",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for MySQL announces Extended Support minor versions 5.7.44-rds.20260902 and 8.0.46-rds.20260908",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-mysql-extended-support-minor-5744-8046-rds/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "2c740aca1bf99ed2",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-24T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon RDS for PostgreSQL 19 Beta 4 is available in the Amazon RDS Database Preview Environment, allowing you to evaluate the pre-release of PostgreSQL 19 on Amazon RDS for PostgreSQL.\nPostgreSQL 19 Beta 4 refines the query performance and autovacuum management capabilities introduced in earlier releases and includes bug fixes and stability improvements since Beta 3. Fixes include pg_stat_autovacuum_scores view reporting for TOAST tables and corrected freeze-score scaling so you ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for PostgreSQL now supports PostgreSQL 19 Beta 4 in the Amazon RDS Database Preview Environment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/postgresql-19-beta-4-amazon-rds-database-preview-environment/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "bf1a643cdd22594e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-24T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon RDS for PostgreSQL introduces support for post-quantum TLS (PQ-TLS) key exchange, providing you with post-quantum cryptography options for encrypting your data in-transit.\nRDS for PostgreSQL versions 18 and higher support modification of the ssl_groups parameter. You can select cryptographic groups from the RDS for PostgreSQL allow list to align with your organization's security standards.\nAmazon RDS for PostgreSQL makes it simple to set up, operate, and scale PostgreSQL d",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for PostgreSQL now supports post-quantum TLS key exchange",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/postgresql-post-quantum-tls-key-exchange/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "78c734bf10bda873",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-24T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports Multi-AZ deployments using Always On Availability Groups for SQL Server Developer Edition. Multi-AZ deployments maintain a synchronous standby replica in a different Availability Zone and provide automatic failover during infrastructure failure. You can use this capability to build and test high availability configurations in non-production environments using Developer Edition, which includes all the functionality of Ent",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS supports Multi-AZ for SQL Server Developer Edition",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-sql-server-multi-az-developer-edition/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "d11052ec1c1ed9d3",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-23T22:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Kinesis Data Streams now supports service-managed partition keys for On-Demand Standard and On-Demand Advantage streams, automatically distributing records across shards without requiring customers to specify partition keys to publish data. This capability simplifies data ingestion for workloads where record ordering is not required, eliminating hot partition keys and reducing time to production for streaming workloads.\nAmazon Kinesis Data Streams is a serverless streaming data service th",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Kinesis Data Streams announces Service-Managed Partition Keys for simplified data ingestion",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/kinesis/service-managed-partition-keys"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "f43438a562c51adb",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-22T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Route 53 Resolver is now generally available on second-generation AWS Outposts, providing local, managed recursive DNS resolution directly on your Outpost. DNS queries from workloads running on your Outpost are resolved locally, reducing latency and eliminating the need to traverse the Service Link to reach the parent AWS Region. Route 53 Resolver maintains cached DNS records during Service Link disconnections, ensuring continuous DNS resolution even during connectivity interruptions. Rou",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Route 53 Resolver is now generally available on second-generation AWS Outposts racks",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/route-53-resolver-gen2-outposts/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "c04ff49de64cfc16",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-22T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EMR 7.14 is now available with new features across Amazon EMR on EC2, Amazon EMR on EKS, and Amazon EMR Serverless, along with version upgrades for additional applications. This release also upgrades Apache Spark to 3.5.8 and Apache Iceberg to 1.10.1.\nApache Iceberg materialized views now refresh faster on tables with updates and deletes, using change data capture to read only the data files affected by a change. On Amazon EMR on EKS, clusters now support Spark Connect endpoints for inter",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EMR 7.14 is now available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-emr-7-14-available/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "38f3bbb961940de2",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-22T07:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) Custom for SQL Server now supports the latest Cumulative Updates (CU) for Microsoft SQL Server. This release includes support for SQL Server 2022 CU26 KB5093420 (RDS version 16.00.4265.3.v1).\n \n \n For additional information on the improvements and fixes included in these updates, see Microsoft documentation for KB5093420. You can upgrade your Amazon RDS Custom for SQL Server instances to apply these recommended updates using Amazon RDS Management C",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS Custom now supports the latest CU for Microsoft SQL Server",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-rds-custom-supports-latest-cu-gdr-microsoft-sql-server/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "344fcd62c82a77ff",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "受影響套件包含 @memtensor/memos-cloud-openclaw-plugin 等版本，攻擊者在安裝流程中夾帶針對 Windows、Linux 與 macOS 的 Go 編譯二進位檔，用以搜刮開發者本機環境與敏感 Token。",
+        "recommended_action": "清查專案 package.json 與 requirements.txt 是否引入 MemTensor 相關套件，並於相依套件快取或私有 registry 封鎖相關雜湊。",
+        "summary": "攻擊者竄改 npm 與 PyPI 上的合法 MemTensor 套件，散布以 Go 撰寫的跨平台憑證竊取程式 sckit。",
+        "why_it_matters": "團隊核心依賴 npm 與 PyPI 生態系，若工程師本機或 CI/CD 建置流水線抓取到受污染套件，將導致儲存的雲端憑證與程式碼倉庫存取權限全數外洩。"
+      },
+      "provider": null,
+      "published": "2026-09-23T13:52:46+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go",
+        "python"
+      ],
+      "summary": "Unknown threat actors have managed to compromise two legitimate MemTensor packages across the npm and Python Package Index (PyPI) repositories to push a platform-specific Go-based implant dubbed sckit designed for Windows, Linux, and macOS.\n\nAccording to reports from Aikido, SafeDep, Socket, and StepSecurity, the libraries in question below -\n\n\n  @memtensor/memos-cloud-openclaw-plugin versions",
+      "tags": [],
+      "title": "Compromised MemTensor Packages Deliver sckit Credential Stealer via npm and PyPI",
+      "url": "https://thehackernews.com/2026/09/compromised-memtensor-packages-deliver.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "6a065a37d388c898",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "涵蓋 KubeRay、vLLM、LiteLLM 與 Qdrant 等 Chart，發現如 LiteLLM 資料庫遷移 Job 直接將密碼以明文寫入容器環境變數，且多數 Pod 預設未配置 NetworkPolicy 與最小權限，極易形成未授權 RCE 後的跳板。",
+        "recommended_action": "覆寫 AI 相關 Helm values，將密碼改以 Kubernetes Secret 物件注入，並為所有 AI 工作負載配置嚴格的 NetworkPolicy ingress/egress 規則。",
+        "summary": "針對 15 款主流 AI 服務 Helm Chart 的資安稽核顯示，預設配置普遍存在明文機密與橫向移動風險。",
+        "why_it_matters": "若在現有 Kubernetes 叢集中以預設值部署開源 AI 服務，一旦單一 Pod 遭入侵，攻擊者將輕易藉由內部網路未隔離特性橫向滲透核心 Rails/Go 後端與資料庫。"
+      },
+      "provider": null,
+      "published": "2026-09-27T01:11:18+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "A technical audit evaluating the security defaults of 15 official Helm charts used for AI serving, vector databases, and Model Context Protocol (MCP) agents (including KubeRay, vLLM, LiteLLM, Qdrant, Weaviate, and Flux159 MCP). Key findings from static manifest analysis and live single-pod lateral movement probes on a test cluster:  Plaintext Secret Handling: LiteLLM database migration Job embeds raw database passwords in container environment variables (F-13). Unauthenticated Remote Code Execut",
+      "tags": [],
+      "title": "AI on Kubernetes: Default Helm Chart Security Configurations and Lateral Movement Risks",
+      "url": "https://www.reddit.com/r/netsec/comments/1wr6wxx/ai_on_kubernetes_default_helm_chart_security/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "4731c385479bc82a",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "新版本延續利用 JavaScript for Automation (JXA) 作為 Dropper，但移除了本機內嵌解密金鑰，改由伺服器端握手完成記憶體內動態解密，藉此規避靜態特徵偵測並竊取系統憑證。",
+        "recommended_action": "在開發端點配置 MDM 政策以限制未簽署 JXA 與 AppleScript 執行，並針對 LaunchAgents 等 macOS 常駐路徑啟用告警監控。",
+        "summary": "macOS 惡意程式 PamStealer 釋出新變種，改採 C2 即時動態解密主酬載並建立多層次常駐機制。",
+        "why_it_matters": "全端與前端開發人員普遍採用 macOS 開發機，若因社交工程或釣魚執行該腳本，本機存放的 SSH Keys、.env 檔案及瀏覽器 Session 將在防毒軟體無告警下遭竊取。"
+      },
+      "provider": null,
+      "published": "2026-09-25T13:18:06+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "Cybersecurity researchers have flagged a new version of PamStealer that ensures that the main payload can only be recovered using a server-side decryption chain.\n\nThe latest artifacts, per Jamf Threat Labs, continue to rely on the same JavaScript for Automation (JXA) dropper mechanism, but modify the lure and the delivery method.\n\n\"Where earlier variants embedded their payload key material",
+      "tags": [],
+      "title": "PamStealer macOS Malware Adds Live C2 Payload Decryption and Multi-Layer Persistence",
+      "url": "https://thehackernews.com/2026/09/pamstealer-macos-malware-adds-live-c2.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "d1ccb5f32ae97e15",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "研究人員發現包含 gocommunity-io/dockerd 在內的惡意 Terraform Providers 與 Go 模組，誘使開發者在執行基礎設施初始化或引用依賴時自動下載並執行惡意程式碼。",
+        "recommended_action": "強制將 .terraform.lock.hcl 納入版本控制以校驗 Provider 雜湊，並限制 Terraform 僅能自 HashiCorp 官方與經內部驗證的 Namespace 抓取外掛。",
+        "summary": "攻擊者首度利用 HashiCorp Terraform Registry 與 Go Modules 散布惡意 Go 二進位酬載。",
+        "why_it_matters": "團隊若使用 Go 開發或以 Terraform 管理 Docker 與 Kubernetes 等雲端架構，一旦引用到偽冒的 Provider，將使 IaC 流水線直接淪為惡意程式的執行跳板。"
+      },
+      "provider": null,
+      "published": "2026-09-23T18:06:30+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Cybersecurity researchers have disclosed Go-based malware distributed via two Go Modules and two Terraform providers, marking the first time threat actors are using the centralized repository hosted by HashiCorp as a distribution vector for malicious payloads.\n\nAccording to Aikido, the list of Terraform providers and Go modules is below -\n\n\n  gocommunity-io/dockerd (222 downloads)\n  kreuzwenker/",
+      "tags": [],
+      "title": "Attackers Use Malicious Terraform Providers to Deliver Go Malware via HashiCorp Registry",
+      "url": "https://thehackernews.com/2026/09/attackers-use-malicious-terraform.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "cda8fee2780106d9",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-23T07:04:40+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next.js"
+      ],
+      "summary": "A new security vulnerability in Next.js could allow attackers to run code on a server via&nbsp;ImageResponse, the feature that generates Open Graph and other social preview images, Vercel said.\n\nThe risk applies when an app puts values an attacker controls, such as text read from the request URL, into the image. Vercel, which develops Next.js,&nbsp;fixed the flaw&nbsp;on September 22 in version",
+      "tags": [],
+      "title": "Critical Next.js ImageResponse Flaw Can Lead to Server Code Execution via Crafted SVG Input",
+      "url": "https://thehackernews.com/2026/09/critical-nextjs-imageresponse-flaw-can.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "a94b0a5ed1ae3c20",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-22T18:03:10+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "WordPress has fixed a critical flaw in its core software that lets an attacker with no account make a site load a PHP file from outside its theme folders.\n\nOn some servers, that can go further, allowing the attacker to run their own code. The fix shipped on September 22 in WordPress 7.1.2, with fixes for every branch the project still supports, back to 4.7, and WordPress is telling site owners",
+      "tags": [],
+      "title": "WordPress Issues Patch for Critical Flaw That Can Enable Code Execution on Some Servers",
+      "url": "https://thehackernews.com/2026/09/wordpress-issues-patch-for-critical.html"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "6d6d661c684a6428",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "claude",
+        "openai",
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "OpenAI 推出 GPT-6 Sol 與 GPT-6 Luna，官方定價相較於先前的 GPT-5.6 同級模型直接砍半；Anthropic 則同步發表旗艦級 Claude Opus 5.5。這波更新顯示前線大型語言模型在提升邏輯推論之際，推理成本正大幅下降。",
+        "recommended_action": "在測試環境配置 GPT-6 Luna API Key，針對現有使用 GPT-5.6 的功能進行回歸測試與延遲評估。",
+        "summary": "Anthropic 與 OpenAI 分別釋出 Claude Opus 5.5 及 GPT-6 Sol、GPT-6 Luna，引發新一波模型降價潮。",
+        "why_it_matters": "後端服務（如 Rails 或 Go 搭配 Sidekiq）執行大量 LLM 批次任務或對話生成時，若轉移至 GPT-6 Luna 可直接降低 50% 的 API 支出，同時享有次世代推論效能。"
+      },
+      "provider": null,
+      "published": "2026-09-22T23:46:41+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Yesterday was Grok 4.7 (pelicans) and MiMo v2.6 Flash/Pro (more pelicans). Today Anthropic released Claude Opus 5.5, and around an hour later OpenAI released GPT-6 Sol and GPT-6 Luna. It's going to take a while to get a good read on all of these new models, but here are my impressions so far.\nGPT-6 Sol and Luna are half the price of their GPT-5.6 equivalents\nGPT-5.6 Luna was already my favorite model for building applications against, because it combined excellent performance with being really c",
+      "tags": [],
+      "title": "Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna, and a new price war",
+      "url": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "2e8a5e66791ed507",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "新版本新增對 gpt-6-sol 與 gpt-6-luna 的支援，並允許外掛透過 supports_conversation = False 限制模型僅接收單輪 Prompt，若帶入歷史紀錄則會主動拋出 llm.ConversationNotSupported。此外，Markdown 輸出現在可顯示推論思維鏈（reasoning traces）。",
+        "recommended_action": "執行 pip install --upgrade llm 更新本機工具，以便驗證 GPT-6 系列模型的輸出表現。",
+        "summary": "CLI 工具 llm 發布 0.36 版，支援 OpenAI 新模型並加入單輪對話限制機制。",
+        "why_it_matters": "內部 Python 自動化腳本或開發者本機排查 prompt 時，能第一時間呼叫新模型，並透過思維鏈追蹤快速除錯複雜的 reasoning 流程。"
+      },
+      "provider": null,
+      "published": "2026-09-22T18:48:37+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm 0.36\n        \n\nNew OpenAI models: gpt-6-sol for GPT-6 Sol and gpt-6-luna for GPT-6 Luna. #1702\nModel plugins can now declare supports_conversation = False for models that only accept single-turn prompts. LLM raises llm.ConversationNotSupported when these models receive assistant or tool history, and llm chat rejects them before starting a session. See Models that do not support conversations. The first plugin to use this is llm-typesafe. #1692\nReasoning traces in the Markdown output",
+      "tags": [],
+      "title": "llm 0.36",
+      "url": "https://simonwillison.net/2026/Sep/22/llm/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "8f820c2b26f6994a",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "claude",
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "此更新為 Simon Willison 開發的 llm CLI 工具補齊了 Anthropic 最新旗艦模型 claude-opus-5.5 的介接能力。",
+        "recommended_action": "執行 llm install -U llm-anthropic 更新外掛。",
+        "summary": "llm-anthropic 發布 0.29 版，新增 Claude Opus 5.5 支援。",
+        "why_it_matters": "讓依賴 Python 腳本或命令列進行多模型評測的團隊，能以同一套工作流橫向比對 Claude 與 OpenAI 最新模型的回答品質。"
+      },
+      "provider": null,
+      "published": "2026-09-22T17:14:55+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-anthropic 0.29\n        Adds support for Claude Opus 5.5:\nllm -m claude-opus-5.5 \"prompt goes here\"\n\n    \n    \n        Tags: llm, anthropic",
+      "tags": [],
+      "title": "llm-anthropic 0.29",
+      "url": "https://simonwillison.net/2026/Sep/22/llm-anthropic/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "9de028fbe46cac8b",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "Proaction 結合 Codex、GPT-Live-1 與 GPT-6 Astra，加速其軟體開發生命週期、車隊管理自動化營運以及業務銷售流程。",
+        "recommended_action": "",
+        "summary": "車隊管理平台 Proaction 運用 Codex 與 GPT-6 Astra 提升 60% 營收並節省 75 小時以上工時。",
+        "why_it_matters": "證明將程式碼生成與最新型 LLM 深度整合進日常產品維運流程，能實質縮短內部開發週期並帶動業務指標增長。"
+      },
+      "provider": null,
+      "published": "2026-09-25T19:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster.",
+      "tags": [],
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "url": "https://openai.com/index/proaction"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "e47986333e4f6766",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "gemini"
+      ],
+      "llm": {
+        "detail": "Google 發表 gemini-3.8-flash-tts 與 gemini-3.8-flash-lite-tts，內建超過 2,000 種音色，並支援使用 30 秒語音樣本進行客製聲音複製。該 Playground 利用 Gemini API 支援 CORS 的特性，直接由前端網頁以 BYOK（自備金鑰）形式呼叫。",
+        "recommended_action": "前往該 Playground 測試 30 秒聲音克隆效果與輸出延遲，評估是否可導入至產品的語音反饋功能中。",
+        "summary": "社群釋出 Gemini 3.8 TTS Playground，展示 Google 最新語音合成模型能力。",
+        "why_it_matters": "若前端專案（React/Next.js）需要語音播報或即時語音克隆，可善用其開放的 CORS 設定直接由用戶端整合，免去後端額外架設音訊轉發 Proxy 的工作。"
+      },
+      "provider": null,
+      "published": "2026-09-23T17:12:27+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Tool: Gemini 3.8 TTS Playground\n        Google released two new Gemini text-to-speech models today - gemini-3.8-flash-tts and gemini-3.8-flash-lite-tts.\nThey come with a library of over 2,000 voices, plus the ability to create a custom voice with \"just a 30-second audio sample of your voice or a voice you have the rights to use\".\nI vibe coded this bring-your-own-key playground interface with GPT-6 Astra, taking advantage of the open CORS policy of the underlying Gemini API.\n\nA notable feature of",
+      "tags": [],
+      "title": "Gemini 3.8 TTS Playground",
+      "url": "https://simonwillison.net/2026/Sep/23/gemini-tts-playground/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "52b80abd4e046c04",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "法律科技產品 Harvey 透過 GPT-6 Astra 的長文本脈絡理解能力，協助律師產出更具結構性、更符合作業規範的合約與法律文件草案。",
+        "recommended_action": "",
+        "summary": "Harvey 導入 GPT-6 Astra，提升複雜法律文件的結構化起草能力。",
+        "why_it_matters": "展示次世代模型在高度嚴謹的垂直領域應用中，能更精準處理長篇專業文本並維持格式穩定度。"
+      },
+      "provider": null,
+      "published": "2026-09-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT-6 Astra produces more structured, context-aware legal documents, freeing lawyers to focus on strategy.",
+      "tags": [],
+      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+      "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "f2ff7f7605612041",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "invideo 將 GPT-6 Astra 套用於影像編輯規劃，使色彩校正與調色精準度提高 3 倍，並實現單日內產生 50 款自訂視效的處理速度。",
+        "recommended_action": "",
+        "summary": "影音平台 invideo 藉由 GPT-6 Astra 將調色與後製規劃效率提升 3 倍。",
+        "why_it_matters": "驗證 LLM 不僅能處理自然語言，亦能有效理解影像參數並參與多媒體資料處理管線的自動化控制。"
+      },
+      "provider": null,
+      "published": "2026-09-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "With GPT‑6 Astra, invideo plans edits with greater precision, improves color correction and grading threefold, and produces 50 custom effects in one day.",
+      "tags": [],
+      "title": "How invideo improves color grading 3x with GPT‑6 Astra",
+      "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "4e56c7312349a760",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "Ringg 透過 GPT-5.6 在語音通話、即時聊天與 WhatsApp 上構建多通路的 AI 代理人，相較於過去採用 GPT-4.1，在大幅降本的同時達成六成五的客服完全自動化率。",
+        "recommended_action": "",
+        "summary": "Ringg 採用 GPT-5.6 打造多語系客服 Agent，自主解決 65% 進線並減少 90% 費用。",
+        "why_it_matters": "對於後端以 Rails/Sidekiq 串接通訊軟體（如 WhatsApp Webhook）的客服系統，提供了評估代理架構導入成效與降低推論成本的具體數據參考。"
+      },
+      "provider": null,
+      "published": "2026-09-23T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Using GPT-5.6, Ringg powers multilingual agents across voice, chat, WhatsApp, and web for 90% less cost vs. GPT-4.1.",
+      "tags": [],
+      "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
+      "url": "https://openai.com/index/ringg"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "0765deb144589280",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "Airbnb 透過內部平台開放高階模型存取權限，協助工程師進行複雜除錯、系統架構設計以及加速功能交付。這項舉措展現大型科技團隊如何系統化將前沿模型整合至日常軟體工程生命週期中。",
+        "recommended_action": "評估團隊目前在內部開發流程與架構審查中導入前沿 LLM 工具的可行性與安全規範。",
+        "summary": "Airbnb 擴大在內部工程團隊導入 GPT-6 Astra 等 OpenAI 前沿模型。",
+        "why_it_matters": "為 Rails 與 Next.js 全端團隊提供了將前沿模型嵌入 CI/CD、程式碼審查與系統設計流程的實務範例，有助於提高複雜專案的開發效率。"
+      },
+      "provider": null,
+      "published": "2026-09-23T01:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how Airbnb is expanding access to GPT-6 Astra and OpenAI frontier models to help engineering teams solve bugs, design systems, and ship faster.",
+      "tags": [],
+      "title": "Airbnb widens access to GPT-6 Astra and OpenAI frontier models",
+      "url": "https://openai.com/index/airbnb-gpt-6-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "5ab590850491008e",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "雙方聯手發起「GO Forward with AI」區域倡議，鎖定外送員、司機及小型商戶等生態系夥伴，提供實用的生成式 AI 工具操作訓練。該計畫旨在縮小數位落差，使非技術人員也能受惠於自動化與生產力工具。",
+        "recommended_action": "",
+        "summary": "Grab 與 OpenAI 合作推出培育計畫，助東南亞三萬名夥伴建立實務 AI 技能。",
+        "why_it_matters": ""
+      },
+      "provider": null,
+      "published": "2026-09-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "OpenAI and Grab launch GO Forward with AI, a regional programme helping 30,000 partners build practical AI skills across Southeast Asia.",
+      "tags": [],
+      "title": "Grab and OpenAI bring practical AI skills to Southeast Asia",
+      "url": "https://openai.com/index/grab-openai-ai-skills-southeast-asia"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "f9027d80e820682e",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "新版本大幅提升快取命中率，並開放 explicit breakpoints 讓開發者精準劃分快取區塊。新增的診斷工具能即時監控快取利用狀況，進一步壓低推論延遲與 API 調用成本。",
+        "recommended_action": "檢視 Python 或 TypeScript 專案中的 LLM 呼叫架構，為靜態 system prompts 與長文本加入快取斷點以優化成本。",
+        "summary": "GPT-6 升級 Prompt Caching 機制，加入明確斷點與診斷控制工具。",
+        "why_it_matters": "在 Rails (Sidekiq) 背景批次任務或 Next.js API Routes 中呼叫大型 Prompt 時，精準快取靜態 Context 可大幅降低 API 開銷並縮短使用者等待時間。"
+      },
+      "provider": null,
+      "published": "2026-09-22T21:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how GPT-6 improves prompt caching with higher cache hit rates, new diagnostics, explicit breakpoints, and controls that reduce latency and costs.",
+      "tags": [],
+      "title": "Better prompt caching for GPT-6",
+      "url": "https://openai.com/index/better-prompt-caching-for-gpt-6"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "73461b3e97af0d93",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "GPT-6 Sol 與 Luna 分別鎖定不同工作情境，在極致運算效能與日常營運成本之間提供差異化的配置選擇。此架構使企業能夠根據任務複雜度彈性調度最適合的推論模型。",
+        "recommended_action": "查閱 GPT-6 Sol 與 Luna 的定價及 benchmark，評估是否能將現有產線中的高成本模型進行階層化替換。",
+        "summary": "OpenAI 發表 GPT-6 Sol 與 Luna 兩款兼顧效能與成本特性的新模型。",
+        "why_it_matters": "全端應用可依場景分流：前端 React/Next.js 的即時互動可選用輕量的 Luna 降低延遲，後端複雜的業務邏輯處理則交由 Sol。"
+      },
+      "provider": null,
+      "published": "2026-09-22T18:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Meet GPT-6 Sol and Luna, two models that bring frontier intelligence to everyday work with different balances of capability and cost.",
+      "tags": [],
+      "title": "Introducing GPT-6 Sol and Luna",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "3fcefd9c665fb2c2",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "Parallel 將 GPT-6 Astra 導入其自主 Agent 架構中，用於爬取、統整與分析勞動力市場資訊。相較前代模型，Astra 展現出更高的多步驟推論效率與更低的 Token 開銷。",
+        "recommended_action": "針對內部複雜的多階段資料分析工作流，進行概念驗證測試以評估以高階推論模型替代複雜 Prompt 鏈條的投報率。",
+        "summary": "Parallel 採用 GPT-6 Astra 將勞動市場數據研究的時間與成本降低 50%。",
+        "why_it_matters": "使用 Python 或 Go 構建資料萃取管線（結合 Nokogiri、爬蟲及 Agent 工作流）的團隊，可藉由進階模型大幅減少後處理與格式重試成本。"
+      },
+      "provider": null,
+      "published": "2026-09-22T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT‑6 Astra allowed Parallel’s agents to research and synthesize labor-market data in half the time and at half the cost vs. prior models.",
+      "tags": [],
+      "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
+      "url": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "8fe4474fdbb9c4c4",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "該公司利用 GPT-6 Astra 加速演算法與功能的整合，協助中小型企業能更快速製作影片廣告。模型強大的推論與程式碼產出能力大幅壓縮了新功能從原型到正式環境的週期。",
+        "recommended_action": "",
+        "summary": "Higgsfield AI 借助 GPT-6 Astra 於單日內完成新影片功能上線。",
+        "why_it_matters": "突顯了高階 LLM 輔助開發能極大化全端與多媒體應用團隊的 feature shipping 速度。"
+      },
+      "provider": null,
+      "published": "2026-09-21T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "With GPT-6 Astra, Higgsfield AI makes video ad creation easier for small businesses and brings new creative tools to market faster.",
+      "tags": [],
+      "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+      "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "669d8cd0cb0cb12c",
+      "importance": "high",
+      "keyword_match": [
+        "claude"
+      ],
+      "llm": {
+        "detail": "作者在 WeAreDevelopers 演講中分享，直接將三張紐西蘭鴞鸚鵡（Kākāpō）照片作為多模態輸入，Prompt Claude Opus 5.5 成功生成像素藝術風格的動態畫面。這展示了模型在理解真實圖像並轉譯為像素視覺資產上的優異能力。",
+        "recommended_action": "在前端需要輕量圖形效果或趣味彩蛋時，嘗試提供參考圖檔給 Claude 提示生成 Web Canvas 或 CSS 動畫程式碼。",
+        "summary": "開發者運用 Claude Opus 5.5 將真實照片轉化為像素風格動畫工具。",
+        "why_it_matters": "前端 React 與 Next.js 工程師在缺乏設計資源時，可利用多模態模型直接快速產出 Canvas、SVG 或 CSS 像素動畫原型以豐富互動體驗。"
+      },
+      "provider": null,
+      "published": "2026-09-26T23:39:06+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Tool: Kākāpō Party\n        I presented a closing keynote for the WeAreDevelopers World Congress North America yesterday. As a STAR moment I decided to weave in references to the record breaking kākāpō breeding season we had in 2026.\nFor my closing slide I wanted to celebrate, and I had seen some buzz around how good Claude Opus 5.5 was at creating pixel art animations. So I rounded up three Kakapo photos from Google image search and dropped them into Claude with this prompt:\n\nHere are some photo",
+      "tags": [],
+      "title": "Kākāpō Party",
+      "url": "https://simonwillison.net/2026/Sep/26/kakapo-party/"
+    }
+  ],
+  "meta": {
+    "date": "2026-09-28",
+    "enriched": {
+      "ai": true,
+      "backend": true,
+      "frontend": true,
+      "security": true
+    },
+    "rendered": {
+      "2026-09-28": "sha256:d236919b31474d32"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 156,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 28,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 868,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1230,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 140,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
