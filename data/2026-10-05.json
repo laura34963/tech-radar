@@ -1,0 +1,1199 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "23219cf3bc86a099",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "此版本包含 React 核心團隊最新的內部架構調整與先期功能原型，通常用於配合 Next.js canary 或 React Compiler 進行底層驗證。該版本不保證 API 穩定性，隨時可能在後續 commit 中調整行為。",
+        "recommended_action": "維持現有 stable 或正式 canary 依賴，無須升級。",
+        "summary": "React 發布最新 experimental 實驗性建置版本。",
+        "why_it_matters": "團隊若有專案採用 Next.js canary 嘗試最新 Server Components 或 Actions 特性，此更新可能影響本機除錯行為；生產環境應嚴格避免安裝 experimental 版號。"
+      },
+      "provider": null,
+      "published": "2026-10-02T17:46:45.775000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-278794d7-20261002",
+      "tags": [],
+      "title": "react 0.0.0-experimental-278794d7-20261002",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-278794d7-20261002"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "d8b7cd792952d28f",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該版本屬於主幹分支早期的自動化建置產物，包含渲染管線與 hooks 排程機制的局部變更。其生命週期已被後續實驗版本取代，主要供核心維護者進行回溯比對。",
+        "recommended_action": "",
+        "summary": "React 釋出前期 experimental 日常快照。",
+        "why_it_matters": "由於後續已有更新的 experimental 發布，此過期版本缺乏測試價值，對現有 React 與 Next.js 專案無實質影響。"
+      },
+      "provider": null,
+      "published": "2026-09-29T16:44:51.132000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-7c6ac13e-20260929",
+      "tags": [],
+      "title": "react 0.0.0-experimental-7c6ac13e-20260929",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-7c6ac13e-20260929"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "6eefa9451145d6eb",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-02T03:35:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS announces that Amazon GuardDuty Runtime Monitoring is now included in the AWS Security Hub Threat Analytics plan. Runtime Monitoring inspects operating system, network, and file activity to surface threats such as container escapes, privilege escalation, and cryptomining on Amazon EC2 instances, Amazon EKS clusters, and Amazon ECS tasks on AWS Fargate. Security Hub now bills this coverage through streamlined pricing.\nIf you have Security Hub enabled in an account and region, you no lo",
+      "tags": [
+        "ec2"
+      ],
+      "title": "GuardDuty Runtime Monitoring is now included in the AWS Security Hub Threat Analytics plan",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-security-hub-runtime-monitoring/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "7ff673f445315877",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-01T18:41:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Redshift now supports querying Amazon S3 data lake tables located in a different AWS Region. With enhanced VPC routing, data lake query traffic between Amazon S3 and Amazon Redshift stays within your own VPC.&nbsp;Both capabilities are powered by the integrated data lake query engine that runs directly on the compute of RG provisioned and Serverless clusters. These features are aimed at enterprises with globally distributed data and at security-sensitive customers who need tight control o",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon Redshift now supports cross-Region queries for your data lake",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/redshift-cross-Region-queries-for-data-lake"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "12007389b55d0645",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-01T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon DynamoDB now supports filtered export for tables. Export to Amazon S3 allows you to export your table data for analytics, data sharing, and other offline uses, as either a full export or an incremental export over a time window. Filtered export enables you to specify exactly which items and attributes to export, producing a dataset that contains only the data relevant to your use case.\n \nWith filtered export, you use a key condition expression on a key attribute and a filter expression on",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon DynamoDB introduces filtered export to Amazon S3",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-dynamodb-introduces-filtered-export/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e72e56274b07b3cf",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-01T13:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Object Lock support for variable retention with event holds is now available in AWS GovCloud (US-East) and AWS GovCloud (US-West).\nAmazon S3 Object Lock variable retention allows you to apply write-once-read-many (WORM) protection to objects whose required retention period starts with a future event, such as a contract closing or an audit completing. You place an event hold with a retention duration on an object and S3 protects the object while the hold is in place. When you release th",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 Object Lock variable retention with event holds is now available in AWS GovCloud (US) Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/s3-object-lock-variable-retention-event-holds-aws-govcloud/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8fb0078603131ef0",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-01T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg Version 3 (V3) tables. With these new capabilities, you can automatically maintain V3 tables, optimize them for query performance, and discover them in Amazon S3.\nWith table optimization, you can compact V3 tables using binpack, sort, or z-order strategies to improve query performance, and remove expired snapshots and orphan files to reduce storage costs. These optimizations support V3 data types, ",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Glue Data Catalog now supports table optimization, statistics, and crawlers for Apache Iceberg V3",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-glue-iceberg-v3-optimization/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8a3226e74c00a567",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-01T04:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account, increased from 10. This allows you to create up to 1 million tables per AWS Region in an AWS account. With a higher table bucket allowance, you can create a separate table bucket for each dataset, workload, or team, and apply table bucket-level settings such as encryption, access policies, and replication to each. The higher quota applies by default to all accounts at no additional cost.\nS3 Tables deliver the ",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 Tables now support up to 100 table buckets per AWS Region in an AWS account",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-tables-table-bucket-increase"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "6ce286e85f91da33",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T21:19:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS announces system-managed materialized views for Apache Iceberg. Materialized views let you precompute an expensive query once and reuse the result across engines. Because this result is an open Iceberg table in your data lake, anyone with write access can change it, either through the catalog or by writing to the files in Amazon S3. System-managed materialized views close this gap by only allowing AWS Glue to write the materialized view's data and definition, so the result stays exact",
+      "tags": [
+        "s3"
+      ],
+      "title": "Apache Iceberg materialized views now support system-managed write protection",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/system-managed-iceberg-materialized-views"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "a44e8c09624c839e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T20:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Vectors now supports pre-filtering, which evaluates metadata filters before running similarity search, returning up to 5x more of the matching vectors when your filter is selective. S3 Vectors also adds a prefix match operator ($startsWith) for filtering on values like paths and URLs. Together, these improvements give your retrieval-augmented generation (RAG), agentic, and semantic-search applications more complete results when you filter, so your applications return more relevant answ",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 Vectors introduces metadata pre-filtering for up to 5x higher recall on filtered search",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/s3-vectors-introduces-metadata-pre-filtering/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "d963ae9dad49fcd1",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T19:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Managed Grafana now supports creating new workspaces with Grafana version 13.2. This release brings features from open-source Grafana versions 13.0 to 13.2, including Git Sync for dashboards, dynamic dashboards, and PromQL query support in the Amazon CloudWatch data source plugin.\nWith Git Sync, you can treat dashboards as code by linking a workspace to a Git repository, enabling version control for tracking, reviewing, and reverting dashboard modifications. Dynamic dashboards provide a m",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Managed Grafana now supports creating Grafana 13.2 workspaces",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-managed-grafana-now-supports-creating-grafana-13-2-workspaces"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "d51b97b800b17d53",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T19:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Parallel Computing Service (AWS PCS) now supports scaling logs, which record how AWS PCS scales the compute node groups in your cluster. Each log entry records one state transition for one compute node—for example, an instance launch, a node registration, a scale-down, or a launch failure with its reason. Using scaling logs, you can more easily troubleshoot scaling issues. For example, you can determine why a compute node group did not reach its target size, which launches failed for capacit",
+      "tags": [
+        "rds"
+      ],
+      "title": "AWS Parallel Computing Service now supports scaling logs",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aws-pcs-scaling-logs/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "f75cec8eaaf1a243",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Aurora and Amazon RDS now support R8a database instances powered by 5th generation AMD EPYC processors, expanding the choice available for your database workloads. Each vCPU in R8a database instances corresponds to a physical CPU core, which delivers consistent per-core performance. For workloads with high I/O requirements, R8a instances provide up to 75 Gbps of network bandwidth and 60 Gbps of Amazon EBS bandwidth. All R8a instances are built on the AWS Nitro System using sixth-generatio",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Aurora and RDS now support AMD-based R8a instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aurora-rds-amd-r8a/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "d1dea0f53125cc03",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon RDS for PostgreSQL, MySQL, and MariaDB now support M8a database instances powered by 5th generation AMD EPYC processors, expanding the choice available for your database workloads. Each vCPU in M8a database instances corresponds to a physical CPU core, which delivers consistent per-core performance. For workloads with high I/O requirements, M8a instances provide up to 75 Gbps of network bandwidth and 60 Gbps of Amazon EBS bandwidth. All instances are built on the AWS Nitro System using si",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS now supports AMD-based M8a instances",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/aurora-rds-amd-m8a/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "4f7626c4d953839c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T16:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon RDS for MySQL 26.7 is available in the Amazon RDS Database Preview Environment, allowing you to evaluate the pre-release of MySQL 26.7 on Amazon RDS for MySQL.\nMySQL 26.7 is the first Innovation release to adopt the new YY.M (Year.Month) calendar versioning model. It includes bug fixes, security patches, and new features such as Change Stream Applier, a modular replication applier that improves apply throughput and backlog recovery in test workloads. For more details, refe",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for MySQL supports MySQL 26.7 in Amazon RDS Database Preview Environment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/rds-mysql-26-7-preview-environment/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ed1e779b239e3a7f",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Redshift now makes it easier to troubleshoot and audit queries on data protected by federated permissions with fine-grained access control (FGAC). Using the new DEBUG permission, data owners can let specific identities see unredacted secure logging records across multiple Redshift data warehouses.\nWith Amazon Redshift federated permissions, you define data permissions once, and Redshift enforces them automatically across every Redshift warehouse in your AWS account. When a query accesses ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Redshift simplifies access to secure logging with federated permissions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/redshift-secure-logging-permissions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "3336d101150545a4",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-09-30T04:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Tables add support for geometry, geography, unknown, and nanosecond timestamp data types, along with column default values, as defined in the Apache Iceberg Version 3 (V3) specification. You can now store geospatial coordinates and nanosecond-precision event times natively instead of encoding them in strings or integers. This helps simplify data architecture while improving storage efficiency and performance. With this launch, S3 Tables support all data types introduced in V3, adding t",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 Tables now support all Apache Iceberg V3 data types",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-s3-tables-iceberg-v3-data-types"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "5f13530361d7760b",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "問題出在 csm-authorization-storage 的 gRPC 服務端點缺乏身分驗證機制（CVE-2026-63688，CVSS 10.0）。遠端未經身分識別的攻擊者可直接發送管理指令控制儲存卷，並在受影響的叢集節點上提升至 root 權限。",
+        "recommended_action": "清查 Kubernetes 叢集中是否安裝 Dell CSM，並立即套用 Dell 原廠發布的安全性修補更新。",
+        "summary": "Dell Container Storage Modules (CSM) 存在未授權漏洞，攻擊者可藉此取得 Kubernetes 節點 root 權限。",
+        "why_it_matters": "若團隊在 Kubernetes 叢集中掛載 Dell 儲存設備並採用 CSM 進行存取控制，此漏洞將導致整座叢集的工作節點被突破並接管底層主機。"
+      },
+      "provider": null,
+      "published": "2026-10-02T17:02:12+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "Dell has released security updates to address multiple critical security flaws in Dell Container Storage Modules (CSM) that could be exploited by bad actors to take over susceptible systems.\n\nThe vulnerabilities are listed below -\n\n\n  CVE-2026-63688 (CVSS score: 10.0) - A missing authentication for critical function vulnerability in the csm-authorization-storage gRPC server that an",
+      "tags": [],
+      "title": "Dell CSM Flaws Enable Unauthenticated Admin Access and Root on Kubernetes Nodes",
+      "url": "https://thehackernews.com/2026/10/dell-csm-flaws-enable-unauthenticated.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "982dfb28a983c323",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "當應用程式存在其他 prototype pollution 漏洞時，axios 的 Node.js HTTP adapter 會讀取受污染的 Object.prototype.createConnection 屬性。攻擊者可覆寫底層建立 socket 的行為，進而將傳出請求導向惡意主機以攔截機敏連線與憑證。",
+        "recommended_action": "升級專案中的 axios 至最新修復版本，並檢視後端物件合併邏輯以防範原型污染。",
+        "summary": "Axios 的 Node HTTP adapter 存在原型污染利用鏈，可能導致請求通訊端遭劫持。",
+        "why_it_matters": "若團隊在 Node.js 或 Next.js 後端使用 axios 呼叫第三方或內部微服務，此利用鏈會將原本單純的屬性污染升級為連線劫持與 SSRF。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:46:18.253717+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Node HTTP adapter prototype-pollution gadget allows request socket hijack via inherited createConnection",
+      "tags": [],
+      "title": "GHSA-m8m8-qj5v-23w3: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-m8m8-qj5v-23w3"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "813d1f6c42f21026",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "在基於原生 fetch 的執行環境中，axios 的 fetch adapter 忽略了禁止重新導向的設定。這會讓原本預期不跟隨 3xx 回應的請求自動重定向，繞過呼叫端的網路防護限制。",
+        "recommended_action": "更新 axios 至已修正 fetch adapter 行為的版本，或在過渡期間改用自訂攔截器阻擋重定向。",
+        "summary": "Axios 在 fetch adapter 下未強制套用 maxRedirects: 0，容易導致重新導向型 SSRF。",
+        "why_it_matters": "Next.js App Router 或瀏覽器環境中若透過 maxRedirects: 0 作為防止 SSRF 的防線，該機制將無預警失效。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:45:41.466464+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: maxRedirects: 0 is not enforced by the fetch adapter, allowing redirect-based SSRF",
+      "tags": [],
+      "title": "GHSA-r4gj-5m52-g5wh: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-r4gj-5m52-g5wh"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "602045f217e4783d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "啟用 HTTP/2 adapter 時，axios 未將使用者配置的 lookup 函式與 proxy 選項傳遞到底層連線處理程序。這導致連線不會經過預期的代理伺服器或自訂網域名稱解析邏輯。",
+        "recommended_action": "將 axios 升級至最新修補版本，若尚未更新前應暫時避免在需要 proxy 的環境中啟用 HTTP/2 adapter。",
+        "summary": "Axios 的 HTTP/2 adapter 會繞過自訂 DNS lookup 與 Proxy 代理設定。",
+        "why_it_matters": "倚賴內部專用代理或特定 DNS 解析規則來存取外網的 Node.js/TypeScript 服務，其網路隔離與審計機制將被繞過。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:15:04.067807+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: HTTP/2 adapter bypasses configured DNS lookup and proxy controls",
+      "tags": [],
+      "title": "GHSA-3pq3-5fj3-cg6v: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-3pq3-5fj3-cg6v"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "1a3d5ea57cd11069",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "fromDataURI 函式內部的正規表達式在處理特製的長字串時會產生災難性回溯（catastrophic backtracking）。攻擊者傳入惡意構造的 data: URL 會耗盡 CPU 運算資源，導致單執行緒的 Node.js 完全停止回應其他請求。",
+        "recommended_action": "更新 axios 套件，並在呼叫請求前針對使用者輸入的 URI 長度與格式加上嚴格驗證。",
+        "summary": "Axios 解析 data: URI 時存在 ReDoS 漏洞，可能造成 Node.js 事件循環凍結。",
+        "why_it_matters": "後端若有端點接受使用者輸入的 URL 或包含 Base64 的 URI 並交由 axios 處理，極易遭到低成本的 DoS 阻斷服務攻擊。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:15:04.064301+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: ReDoS in fromDataURI data: URL parser freezes the Node event loop (DoS)",
+      "tags": [],
+      "title": "GHSA-c29m-xwm3-cm6r: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-c29m-xwm3-cm6r"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "ba3bccddc51810cb",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "當使用 HTTP/2 adapter 時，若 ClientHttp2Session 初始化期間遭遇連線失敗或交握中斷，未被捕捉的 error 事件會直接向上拋出。在 Node.js 預設行為下，未捕捉的例外會直接導致整體應用程式 process 終止。",
+        "recommended_action": "升級 axios 至修正版本，並確保應用程式具有未捕捉例外的全域保護機制以防行程中斷。",
+        "summary": "Axios 初始化 HTTP/2 session 時未處理 error 事件，會引發 Node.js 行程崩潰。",
+        "why_it_matters": "這會讓使用 axios 發起 HTTP/2 請求的 Next.js 或 Node.js 伺服器容器因短暫的外部網路異常而反覆崩潰重啟。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:15:04.061469+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Denial of Service via Unhandled 'error' Event in HTTP/2 ClientHttp2Session Initialization",
+      "tags": [],
+      "title": "GHSA-542g-h47m-68v8: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-542g-h47m-68v8"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "64e407d8cb127d99",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "在將物件轉換為 FormData 的遞迴解析過程中，axios 未嚴格防範 Object.prototype 相關屬性。若搭配應用程式既有的屬性注入漏洞，攻擊者可藉此利用鏈竄改表單結構或注入非預期的欄位值。",
+        "recommended_action": "升級專案中的 axios 版本，並避免將未經驗證的使用者輸入物件直接丟入 toFormData。",
+        "summary": "Axios 的 toFormData 序列化選項存在原型污染利用鏈。",
+        "why_it_matters": "前端 React 與後端 Node.js 常依賴 axios 序列化複雜表單資料進行上傳，原型污染可能破壞傳輸資料的完整性。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:15:04.052506+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Prototype Pollution Gadget in axios toFormData Options",
+      "tags": [],
+      "title": "GHSA-x97p-jq2g-jp4f: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-x97p-jq2g-jp4f"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "f51e81fb53639f2d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "函式內部使用的正規表達式效率不佳，比對時具有平方級時間複雜度。當應用程式設定了 Proxy 且請求被重新導向至包含大量特製字元的 Location 標頭時，該比對邏輯會大量消耗 CPU 週期造成服務阻塞。",
+        "recommended_action": "升級 axios 至最新修復版本以取得已最佳化的正規表達式實作。",
+        "summary": "Axios 在 shouldBypassProxy 主機規範化邏輯中存在 O(N²) ReDoS 漏洞。",
+        "why_it_matters": "當 Node.js/Next.js 服務透過代理伺服器爬取或存取不受信任的外部網址時，惡意伺服器回傳的重定向回應可能癱瘓後端服務。"
+      },
+      "provider": null,
+      "published": "2026-09-30T15:15:04.048176+00:00",
+      "severity": "high",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: ReDoS (O(N²)) in shouldBypassProxy host normalization, reachable via untrusted redirect Location",
+      "tags": [],
+      "title": "GHSA-mghh-pgcx-3jjj: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-mghh-pgcx-3jjj"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "bc79cae6ce073715",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該漏洞存在於 NetScaler 處理 DTLS 握手協定的邏輯中，未經身分驗證的遠端攻擊者可透過特製封包觸發記憶體緩衝區溢位。此問題可導致設備崩潰引發阻斷服務（DoS），在特定條件下甚至具備遠端代碼執行（RCE）的潛在風險。",
+        "recommended_action": "盤點對外暴露的 Citrix NetScaler 設備，確認 DTLS 服務設定並立即套用官方發布之安全性更新。",
+        "summary": "watchTowr 揭露 Citrix NetScaler 的 DTLS 預先驗證記憶體溢位漏洞技術細節。",
+        "why_it_matters": "若基礎架構前端使用 Citrix ADC/NetScaler 作為 Kubernetes 叢集或 Nginx/Rails 反向代理的邊界入口，攻擊者可藉此攻破第一道防線並橫向滲透內部網路。"
+      },
+      "provider": null,
+      "published": "2026-09-29T13:57:34+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "&#32; submitted by &#32;  /u/dx7r__   [link] &#32; [comments]",
+      "tags": [],
+      "title": "Here We Go Again (Citrix NetScaler DTLS Preauth Memory Overflow CVE-2026-88772) - watchTowr Labs",
+      "url": "https://www.reddit.com/r/netsec/comments/1wtattu/here_we_go_again_citrix_netscaler_dtls_preauth/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "38eee0fda711c206",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "許多部署於 Kubernetes 上的第三方 Operator 預設要求過度寬鬆的 ClusterRole 權限，容易成為提權與逃逸攻擊跳板。OperTraitor 可自動化分析非人身分（Non-Human Identities）的 ServiceAccount 與權限邊界，標示出潛在的高風險提權路徑。",
+        "recommended_action": "在 CI/CD 或叢集定期稽核流程中執行 OperTraitor，檢視既有 Helm Charts 與 Operator 的 RBAC 清單並縮減非必要權限。",
+        "summary": "Unit 42 釋出開源工具 OperTraitor，專門審計 Kubernetes Operator 的過度 RBAC 權限。",
+        "why_it_matters": "團隊在 K8s 上運行 Rails、Sidekiq 與 Next.js 應用時，常依賴各類 Operator 管理資料庫或快取；過大的 Controller 權限會破壞叢集的多租戶隔離與最小權限原則。"
+      },
+      "provider": null,
+      "published": "2026-09-29T10:00:48+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "kubernetes"
+      ],
+      "summary": "We introduce OperTraitor, a tool to audit privileges of Kubernetes operators, identify excessive RBAC risks, and secure non-human identities.\nThe post OperTraitors: How Kubernetes Operators Betray Your Security Posture appeared first on Unit 42.",
+      "tags": [],
+      "title": "OperTraitors: How Kubernetes Operators Betray Your Security Posture",
+      "url": "https://unit42.paloaltonetworks.com/agentic-ai-kubernetes-operator-risks/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "c401e28ae2c1d695",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "受影響的 SDK 版本在與 MCP 伺服器互動時，會將用戶端的 Client Secret、Authorization Code 及 PKCE 驗證金鑰轉發給攻擊者控制的 Token 端點。官方已釋出 1.30.0 版本修正此憑證洩漏問題。",
+        "recommended_action": "立即檢視專案內 PyPI 依賴套件清單，將 `mcp` SDK 強制升級至 1.30.0 或更新版本。",
+        "summary": "官方 MCP Python SDK 存在身分驗證缺陷，惡意伺服器可竊取 OAuth 機敏憑證。",
+        "why_it_matters": "若後端採用 Python 開發整合 LLM 的 AI Agent 或 MCP 工具鏈，攻擊者可誘使系統連線惡意端點並完全奪取串接之第三方服務的 OAuth 存取權限。"
+      },
+      "provider": null,
+      "published": "2026-09-29T06:08:25+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "A malicious MCP server could trick an application built on the official&nbsp;MCP Python SDK&nbsp;into handing over the OAuth credentials it uses to log in to a real service, the SDK's maintainers said in a security advisory.\n\nAffected versions sent the client secret, the authorization code, and the PKCE proof key to a token endpoint the attacker controlled. The fix is in versions 1.30.0 and",
+      "tags": [],
+      "title": "Official MCP Python SDK Flaw Can Let Malicious Servers Steal OAuth Credentials",
+      "url": "https://thehackernews.com/2026/09/official-mcp-python-sdk-flaw-can-let.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "92a47b18db9bbe47",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "攻擊者搶先註冊多個常被開發者用作測試與佔位符的網域名稱，藉此向未變更預設值的專案派送惡意負載或進行釣魚。此外，弱服務帳號配置與 AI Agent 失控執行高風險操作亦為近期主要威脅焦點。",
+        "recommended_action": "使用靜態代碼掃描工具搜尋代碼庫中硬編碼的測試域名與 URL，確保所有環境變數與預設端點均由團隊完全掌控。",
+        "summary": "資安週報揭露約 1,700 個開源儲存庫因佔位符網域遭惡意註冊而面臨供應鏈風險。",
+        "why_it_matters": "團隊若在 Rails 或 React/Next.js 範本專案中殘留未替換的 placeholder URL，或於 Dockerfile/K8s 注入測試設定，可能導致應用程式主動連線至攻擊者伺服器。"
+      },
+      "provider": null,
+      "published": "2026-09-28T14:00:53+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "A domain used as harmless placeholder text showed up in roughly 1,700 repositories. Then somebody registered it and started serving malicious lures. That is the kind of week this was: forgotten assumptions turning into live attack surface.\n\nElsewhere, weak service accounts, old bugs, exposed systems, phishing kits, and strangely easy exploit paths kept doing useful work for attackers. Nothing",
+      "tags": [],
+      "title": "⚡ Weekly Recap: $387M Crypto Hack, Citrix Exploits, AI Agents Go Off-Script, and More Threats",
+      "url": "https://thehackernews.com/2026/09/weekly-recap-387m-crypto-hack-citrix.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": "source_fairness",
+      "id": "a2739f1e6c8ad489",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-28T11:46:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "Cybersecurity researchers have disclosed details of a new botnet malware called Carbonato that's targeting exposed Docker daemons to deploy an open-source artificial intelligence (AI) agent framework called Hermes Agent.\n\n\"The implant installs the framework unchanged, then overwrites its SOUL.md persona file,\" ThreatDown said. \"The 39-line prompt directs it to execute tasks received through",
+      "tags": [],
+      "title": "Carbonato Botnet Compromises Docker Hosts to Deploy Telegram-Controlled Hermes AI Agent",
+      "url": "https://thehackernews.com/2026/09/carbonato-botnet-compromises-docker.html"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "7ee216358fb3299c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-30T15:46:18.108444+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Header Injection via Inherited headers After Minimal Interceptor",
+      "tags": [],
+      "title": "GHSA-j8rh-479h-cp32: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-j8rh-479h-cp32"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "6e84c6d959143be7",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-09-30T15:46:17.701967+00:00",
+      "severity": "medium",
+      "source_type": "security",
+      "stack_match": [
+        "axios"
+      ],
+      "summary": "Axios: Fetch Adapter Header Injection via Inherited FormData getHeaders",
+      "tags": [],
+      "title": "GHSA-4hqw-qxg8-jxx2: axios",
+      "url": "https://github.com/axios/axios/security/advisories/GHSA-4hqw-qxg8-jxx2"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "c38af6e5cae43e23",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "內容涵蓋依任務需求評估模型選型、動態配置推論運算量（reasoning effort）、整合多工具鏈（tool calling），以及針對生產環境最佳化提示詞與降低延遲的工程實務。",
+        "recommended_action": "檢視現有非同步工作流程中耗時的複雜 LLM 任務，評估是否能透過動態調整 reasoning effort 參數來平衡產出品質與執行成本。",
+        "summary": "OpenAI 發布針對新創團隊的 GPT-6 系列模型導入與架構調校指南。",
+        "why_it_matters": "對於在 Rails/Sidekiq 後端或 Python 微服務整合 LLM 的架構，合理配置 reasoning effort 能顯著降低 API 延遲與呼叫費用，避免背景批次作業超時中斷。"
+      },
+      "provider": null,
+      "published": "2026-10-02T16:15:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how startups can choose GPT-6 models, tune reasoning effort, improve prompts and skills, coordinate tools, and prepare workflows for production.",
+      "tags": [],
+      "title": "A model guide for the GPT-6 family",
+      "url": "https://openai.com/index/practical-guide-building-gpt-6"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "882596cbc7639eb4",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "該機構將金融領域專業規則融入客製化自動化管線，成功將單筆交易驗證時間由 30 分鐘大幅壓縮至 4 分鐘內，大幅提升資本市場作業效率。",
+        "recommended_action": "盤點系統內人工介入比重過高的資料校驗環節，設計以 LLM 輔助的前置自動化審核管線原型進行可行性驗證。",
+        "summary": "Chatham Financial 導入 Codex 與 GPT-5.6 重塑交易驗證流程，耗時縮減逾八成。",
+        "why_it_matters": "證明在複雜業務邏輯與高度監管的系統中，以 LLM 作為前置資料驗證與異常檢測層，能有效減輕 Rails 或 Go 核心交易伺服器的即時運算負擔。"
+      },
+      "provider": null,
+      "published": "2026-10-02T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Chatham Financial uses Codex and GPT-5.6 to build technology and redesign workflows, cutting trade validation from 30 minutes to under 4.",
+      "tags": [],
+      "title": "Chatham scales its capital markets expertise with OpenAI",
+      "url": "https://openai.com/index/chatham-financial"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "c48f1ff5058b49fc",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "在 100 項隨機二進制漏洞利用測試中，Claude Mythos Preview 達成 6% 成功率，GLM-5.3 達 4%，相較於前代模型（如 Claude Opus 4.6 與 GLM-5.2 的 0%）呈現質的突破。",
+        "recommended_action": "檢視 K8s 叢集與 Docker 映像檔的 Seccomp/AppArmor 安全設定，並確保在 CI/CD 流程中自動化掃描與修補底層二進制依賴漏洞。",
+        "summary": "Anthropic 紅隊測試指出 GLM-5.3 與 Claude Mythos Preview 已具備二進制控制流劫持攻擊能力。",
+        "why_it_matters": "攻擊者利用先進 AI 自動化挖掘並利用 C/Go 底層二進制漏洞的風險劇增，對 Linux 主機、Docker 容器逃逸防護與 Kubernetes 基礎設施安全帶來嚴峻挑戰。"
+      },
+      "provider": null,
+      "published": "2026-09-29T22:20:28+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "We evaluate several models on 100 tasks from the [internal Binary Exploitation benchmark] (selected at random), and find that GLM-5.3 develops full control flow hijacks in 4% of the trials; Claude Mythos Preview did so in 6%. Although GLM-5.3 performs below Claude Mythos Preview here, a meaningful threshold has clearly been crossed: earlier models, like Claude Opus 4.6 and GLM-5.2, do not succeed in any of them.\n&mdash; Anthropic Frontier Red Team, GLM-5.3 and the spread of advanced cyber capabi",
+      "tags": [],
+      "title": "Quoting Anthropic Frontier Red Team",
+      "url": "https://simonwillison.net/2026/Sep/29/anthropic-frontier-red-team/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "41625591abfe53de",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "測試聚焦於程式碼與 SVG 生成等實際產出，結果顯示其在多數常規開發任務上表現相當穩健，並提供極具競爭力的 API 輸入/輸出計費定價。",
+        "recommended_action": "在現有以 Axios 封裝的 LLM Client 抽象層加入 Feature Flag，針對部分非核心端點試跑 GPT 6.1 Sol 比較性價比。",
+        "summary": "Simon Willison 評測 GPT 6.1 Sol，指其具備接近旗艦 GPT-6 Astra 的能力但成本僅五分之一。",
+        "why_it_matters": "若系統內部大量依賴外部 API 處理文字或程式碼生成，換用該模型可直接將 Node.js/TypeScript 或 Python 服務的 LLM 營運成本降低約 80%。"
+      },
+      "provider": null,
+      "published": "2026-09-29T18:27:48+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "My comment on GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price &mdash; Hacker News.I'm a bit late with the pelicans because I was live-blogging the keynote: https://simonwillison.net/2026/Sep/29/openai-devday-2026-liv...\nHere they are for GPT-6.1-Sol: https://tools.simonwillison.net/markdown-svg-renderer?url=ht...\nThey're not notably different from the GPT-6 family pelicans: https://static.simonwillison.net/static/2026/gpt-pelicans-gr...\n    \n    \n        Tags: ai, openai, generativ",
+      "tags": [],
+      "title": "GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price",
+      "url": "https://simonwillison.net/2026/Sep/29/hn-49898129/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "6071f63e21f64254",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "大會聚焦於提升開發者生產力，重點包含 GPT-6 Astra 旗艦模型正式上線、加強程式生成與編輯能力的 Codex，以及配套的安全機制與工作流管理 API。",
+        "recommended_action": "指派團隊成員研讀 DevDay 2026 的 API 異動清單，確認現有 SDK 版本相容性與潛在升級路徑。",
+        "summary": "OpenAI DevDay 2026 發布逾 20 項更新，涵蓋 GPT-6 Astra、Codex 升級及全新開發者工具。",
+        "why_it_matters": "新一代 API 功能與工具鏈將深層改變前端（React/Next.js）與後端微服務的程式碼自動化建置、單元測試補全與持續整合流程。"
+      },
+      "provider": null,
+      "published": "2026-09-29T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Explore more than 20 announcements from OpenAI DevDay 2026, including GPT-6 Astra, ChatGPT, Codex, APIs, security, and new tools for builders.",
+      "tags": [],
+      "title": "DevDay 2026 Recap",
+      "url": "https://openai.com/index/devday-2026-recap"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "d6b9f5e651b1891e",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "該模型定價僅為 Astra 的五分之一，針對撰寫程式碼、跨視窗電腦操作及複雜代理人（Agent）工作流進行專項優化，兼顧高智能與規模化部署的經濟性。",
+        "recommended_action": "在預備環境（Staging）配置 GPT-6.1 Sol 跑自動化 PR 程式碼 Review 測試，比對其準確率與既有高階模型的差異。",
+        "summary": "OpenAI 推出 GPT-6.1 Sol，專為程式開發、Computer Use 與專業工作打造且成本顯著降低。",
+        "why_it_matters": "適合用於大規模 CI 程式碼審查機器人或需長時間維持 Context 的 Sidekiq 背景批次工作，在有限預算內大幅擴展自動化場景。"
+      },
+      "provider": null,
+      "published": "2026-09-29T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Meet GPT-6.1 Sol: near-Astra intelligence for coding, computer use, and professional work at one-fifth of Astra’s standard API input and output token prices.",
+      "tags": [],
+      "title": "Introducing GPT-6.1 Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "64e27cc1872ee838",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "維持與 Sonnet 5 相同的定價結構但實際運行成本降低高達 30%，不過在深度思考模式（thinking effort）設為最大時可能觸發消耗 128,000 tokens 的邊界問題。",
+        "recommended_action": "在應用程式呼叫 Claude API 的 Payload 中明確指定 thinking 的 budget_tokens 上限，防止極端情況下耗盡 Token 額度。",
+        "summary": "Anthropic 釋出 Claude Sonnet 5.5，推論速度提升 30% 以上且全面超越前代基準表現。",
+        "why_it_matters": "作為主流的高效能程式開發與推理模型，若未在呼叫時嚴格限制 thinking token 預算，可能在背景批次（如 Sidekiq）作業中因耗盡 token 預算而拋出例外。"
+      },
+      "provider": null,
+      "published": "2026-09-28T22:07:38+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Claude Sonnet 5.5\nNew Sonnet model from Anthropic today. They say it \"runs 30%+ faster, and costs up to 30% less for most work\" - it's priced the same as Sonnet 5 but appears to beat it on every benchmark, and should be cheaper to run as well.\nHere are some pelicans riding bicycles. Sonnet 5.5 suffered from the same bug as Opus 5.5: the \"max\" thinking effort pelican thought for 128,000 tokens (at a cost of $1.28) before running out of tokens and failing to produce an SVG.\nHere's the pelican it g",
+      "tags": [],
+      "title": "Claude Sonnet 5.5",
+      "url": "https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "b8087b88cb63ae7f",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "技術發展的實質推進往往受制於大量重複性與繁瑣的執行細節，AI 的普及將加速消化這些繁重流程，使技術創新的變現與落地週期大幅縮短。",
+        "recommended_action": "",
+        "summary": "論述先進 AI 作為關鍵互補品，其最大價值在於承擔突破性構想背後的繁重常規工作。",
+        "why_it_matters": "軟體團隊應策略性將 LLM 部署於撰寫規格書、自動補齊 React 元件單元測試或遷移舊版 Rails 程式碼等例行公事，釋放資深工程師專注於系統架構優化。"
+      },
+      "provider": null,
+      "published": "2026-10-01T17:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress.",
+      "tags": [],
+      "title": "The eternal complement",
+      "url": "https://openai.com/index/the-eternal-complement"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "637d3dfa247fa816",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "該零售巨頭結合企業版模型與內部工作流程，用於改善門市庫存調度、客服回覆與行銷文案生成。這展示了傳統大型企業如何透過合規的企業方案將生成式 AI 落地於高乘載業務情境。",
+        "recommended_action": "評估現有微服務架構中，哪些非核心資料流程可直接串接 OpenAI API 減少自建內部微服務的成本。",
+        "summary": "Albertsons 導入 ChatGPT Enterprise 與 OpenAI API 加速內部營運與零售顧客體驗。",
+        "why_it_matters": "若在 Rails 或 Next.js 電商架構中規劃 AI 助理或客服管線，此案提供了結合後端 API 與現成企業權限控管的落地參考架構。"
+      },
+      "provider": null,
+      "published": "2026-10-01T16:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Albertsons Cos. is using ChatGPT Enterprise and the OpenAI API to help teams work faster and make grocery shopping easier for millions of customers.",
+      "tags": [],
+      "title": "How Albertsons Companies is reimagining retail from the inside out",
+      "url": "https://openai.com/index/albertsons-reimagining-retail"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "2167384f51e2a446",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "The Den 將原本耗時數日的酒牌申請與政府補助文書作業縮減至數小時以內。此案例著重於非技術團隊如何善用 LLM 處理複雜且格式嚴格的法律與行政文件。",
+        "recommended_action": "",
+        "summary": "實體社交俱樂部透過 ChatGPT 撰寫行政許可與補助申請，節省大量行政工時。",
+        "why_it_matters": "對於開發內部管理系統（如 Rails 管理後台）的團隊，顯示出在審批流程或表單預填模組中整合 LLM 提示詞能大幅降低內部行政阻力。"
+      },
+      "provider": null,
+      "published": "2026-10-01T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "As it opens a new location, the social club prepares grant applications in 2 hours instead of 3 days and liquor-license materials in 3 hours instead of 4 days.",
+      "tags": [],
+      "title": "The Den frees up 10-15 hours a week to grow with ChatGPT Work",
+      "url": "https://openai.com/index/the-den-family-social"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "ce56aa83d0064ef1",
+      "importance": "high",
+      "keyword_match": [
+        "gemini"
+      ],
+      "llm": {
+        "detail": "該模型聚焦於更強的多模態推理、長文本上下文理解及高階程式碼生成能力。作為 Google 新一代主力架構，預期將提升邊緣推論與高難度軟體工程自動化任務的基準表現。",
+        "recommended_action": "待官方 API 上線後，在測試環境中以現有的評測基準（eval harness）比對 Gemini 4 Argon 與現行模型的產出表現與 token 成本。",
+        "summary": "Google 發布新世代前沿旗艦模型 Gemini 4 Argon。",
+        "why_it_matters": "當團隊在 Python/Go 服務中仰賴多模態 LLM API 時，新模型可能帶來更高的推論準確度與更低的延遲競爭優勢。"
+      },
+      "provider": null,
+      "published": "2026-09-30T20:01:45+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "",
+      "tags": [],
+      "title": "Gemini 4 Argon: our next era of frontier intelligence",
+      "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "90249c2a3882c6d3",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "攻擊者企圖藉由自動化大量請求系統性地榨取模型的推理鏈（reasoning tokens）以訓練自有模型。OpenAI 透過異常流量分析與帳號行為指紋辨識瓦解了此攻擊，並強化對抗惡意蒸餾的風控檢測。",
+        "recommended_action": "檢視對外暴露的 API Gateway（如 Nginx、K8s Ingress）是否具備足夠的速率限制（rate limiting）與行為異常檢測機制。",
+        "summary": "OpenAI 成功阻截針對其模型的協同蒸餾（model distillation）攻擊並加強防禦機制。",
+        "why_it_matters": "使用 Python 或 Go 開發 LLM 應用程式的團隊需警惕自身系統若暴露 API，亦可能面臨競爭對手進行提示詞或資料蒸餾的爬蟲威脅。"
+      },
+      "provider": null,
+      "published": "2026-09-30T10:30:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
+      "tags": [],
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "061338e668ed6974",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "合作計畫旨在消弭小型組織對新興技術的導入門檻，並公布了中小型團隊如何實際運用 AI 提升營運效率的研究報告。內容著重於低程式碼工具串接與基礎提示工程實戰。",
+        "recommended_action": "",
+        "summary": "OpenAI 攜手 America’s SBDC 提供中小企業 AI 實務培訓與落地支援。",
+        "why_it_matters": "反映出終端客戶對 AI 輔助功能的需求增加，B2B SaaS 產品需加速提供開箱即用的 AI 整合體驗以維持市場吸引力。"
+      },
+      "provider": null,
+      "published": "2026-09-30T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI is partnering with America’s SBDC to expand hands-on AI training and local support for small businesses, alongside a new report on how small teams are using AI.",
+      "tags": [],
+      "title": "Helping small businesses put AI to work",
+      "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "023d364db8b33fc2",
+      "importance": "high",
+      "keyword_match": [
+        "gpt"
+      ],
+      "llm": {
+        "detail": "該實驗工具採用 Google MediaPipe C++ 函式庫編譯為 WebAssembly（透過 @mediapipe/tasks-vision），搭配 BlazeFace 模型直接在前端進行即時人臉偵測與遮蔽。所有影像處理均在 client 端完成，無需將照片上傳至後端伺服器。",
+        "recommended_action": "評估前端專案中是否有影像預處理或去識別化需求，嘗試引入 @mediapipe/tasks-vision 模組以減輕伺服器運算負載。",
+        "summary": "Photo Scrubber 利用 WebAssembly 在瀏覽器端實現本機人臉模糊與 EXIF 中繼資料清除。",
+        "why_it_matters": "對於 React / Next.js 前端開發團隊，這展示了如何在不依賴 Python/Ruby 後端運算資源（如 MiniMagick 或 OpenCV）的情況下，於瀏覽器端卸載高負載影像處理任務並保障隱私。"
+      },
+      "provider": null,
+      "published": "2026-09-29T16:45:27+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Tool: Photo Scrubber — local face blur &amp; metadata removal\n        I took a photograph of some protesters, then thought about how I don't like sharing photographs of strangers with identifiable faces. I had GPT-6 Astra build this experimental tool that would identify faces and automatically blur them out.\nIt uses Google's MediaPipe C++ library, compiled to WebAssembly via @mediapipe/tasks-vision, plus the BlazeFace face detection model.\n    \n    \n        Tags: photography, tools",
+      "tags": [],
+      "title": "Photo Scrubber — local face blur & metadata removal",
+      "url": "https://simonwillison.net/2026/Sep/29/photo-scrubber/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "d3b185d971abc0ea",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "活動現場重點展示了自主編程代理（Coding Agents）的最新進展與工作流程演進。開發者社群持續關注 API 降價、上下文窗口擴展以及工具呼叫（Tool Calling）可靠性的升級細節。",
+        "recommended_action": "關注現場演講公佈的 API 更新文件，檢查新版 Tool Calling 或 Agent SDK 是否能簡化現有 Rails/Go 系統的自動化管線。",
+        "summary": "OpenAI DevDay 2026 現場直擊，聚焦新一代編程代理（Coding Agents）與模型升級。",
+        "why_it_matters": "開發團隊若廣泛使用 AI 輔助開發（如 Cursor/Copilot）或正在建構自動化 CI/CD Agent，DevDay 發布的代理能力將直接影響開發工作流程與工具鏈選擇。"
+      },
+      "provider": null,
+      "published": "2026-09-29T15:55:13+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "I'm at OpenAI DevDay today, in Fort Mason, San Francisco. Same as last year I'll be live blogging the keynote and some other notes during the day.\n\nOpenAI gave me a free ticket and a seat in the \"creator\" area for the keynote.\n    \n        Tags: ai, openai, generative-ai, llms, coding-agents, live-blog, openai-devday",
+      "tags": [],
+      "title": "OpenAI DevDay 2026 live blog",
+      "url": "https://simonwillison.net/2026/Sep/29/openai-devday-2026-live-blog/"
+    }
+  ],
+  "meta": {
+    "date": "2026-10-05",
+    "enriched": {
+      "ai": true,
+      "frontend": true,
+      "security": true
+    },
+    "rendered": {
+      "2026-10-05": "sha256:703d7d54ac334a2a"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 168,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 27,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 873,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1245,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 152,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
