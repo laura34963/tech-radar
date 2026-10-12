@@ -1,0 +1,1034 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "b23548a888c658ec",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "此版本由 React CI 自動發布，包含對應 commit b618bbb4 的最新核心程式碼變更。主要供 React 核心團隊與 Next.js 等框架整合驗證尚未定案的底層特性。",
+        "recommended_action": "",
+        "summary": "React 釋出 experimental 實驗性建置版本 0.0.0-experimental-b618bbb4-20261007。",
+        "why_it_matters": "團隊技術棧包含 React 與 Next.js，追蹤此分支有助於觀察未來架構演進方向，但該版本 API 極不穩定且隨時可能變更。"
+      },
+      "provider": null,
+      "published": "2026-10-08T16:33:04.026000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-b618bbb4-20261007",
+      "tags": [],
+      "title": "react 0.0.0-experimental-b618bbb4-20261007",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-b618bbb4-20261007"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "877f7954ba58db03",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該建置對應 commit d75b0697，屬於每日自動化打包的測試發布，通常用於驗證併入 main 分支的底層修正或功能原型。",
+        "recommended_action": "",
+        "summary": "React 釋出 experimental 實驗性建置版本 0.0.0-experimental-d75b0697-20261006。",
+        "why_it_matters": "現有專案若有鎖定 experimental 標籤進行前瞻測試，底層內部行為可能隨此更新產生非預期變更。"
+      },
+      "provider": null,
+      "published": "2026-10-07T16:35:10.551000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-d75b0697-20261006",
+      "tags": [],
+      "title": "react 0.0.0-experimental-d75b0697-20261006",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-d75b0697-20261006"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "ff3bdce6b652dfd0",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該版本對應 commit 17eca7b0，為 React 專案主幹 CI 自動推進的打包產物。這類版本不具備語意化版本相容性保證，亦未經長期穩定性驗證。",
+        "recommended_action": "",
+        "summary": "React 釋出 experimental 實驗性建置版本 0.0.0-experimental-17eca7b0-20261006。",
+        "why_it_matters": "可確保專案依賴未誤用 experimental 標籤，防範未穩定 API 滲入生產環境的 React 與 react-dom 依賴中。"
+      },
+      "provider": null,
+      "published": "2026-10-06T16:32:12.631000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-17eca7b0-20261006",
+      "tags": [],
+      "title": "react 0.0.0-experimental-17eca7b0-20261006",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-17eca7b0-20261006"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "964c3dfbe92a34fd",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該 Wrapper 支援 Amazon RDS 與 Aurora（PostgreSQL 及 MySQL 相容版），能在 Blue/Green 部署或容錯移轉時實現更快的拓撲感知與重新連線。此外亦原生整合 AWS Secrets Manager 與 IAM Token 等身分驗證機制，免去手動維護連線密碼輪替的複雜度。",
+        "recommended_action": "在預備環境中將既有的 PostgreSQL/MySQL 連線配置改以 AWS Advanced Ruby Driver 包裝，並針對 Aurora 容錯移轉情境進行壓測與連線重試驗證。",
+        "summary": "AWS Advanced Ruby Driver Wrapper 正式推出 GA 版本，可大幅縮短 RDS 與 Aurora 的資料庫切換及容錯移轉時間。",
+        "why_it_matters": "針對 Rails、Puma 與 Sidekiq 架構，資料庫例行維護或 failover 常導致連線池中斷與大量請求錯誤；使用此驅動層可降低連線中斷時間，提升高並發 Web 服務與背景工作佇列的可用性。"
+      },
+      "provider": "aws",
+      "published": "2026-10-05T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [
+        "ruby"
+      ],
+      "summary": "The Amazon Web Services (AWS) Advanced Ruby Driver Wrapper is now generally available for use with Amazon RDS and Amazon Aurora PostgreSQL and MySQL-compatible databases. This advanced database driver reduces RDS Blue/Green switchover, Aurora Global database switchover and database failover times, improving application availability. Additionally, it supports multiple authentication mechanisms for your database, including AWS Secrets Manager authentication, and token-based authentication with AWS",
+      "tags": [
+        "rds"
+      ],
+      "title": "AWS Advanced Ruby Driver Wrapper is generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-ruby-driver-wrapper-available/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "c157885d93a9b251",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-09T22:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, AWS Security Hub announces support for exporting findings to Amazon S3 in CSV or JSON (OCSF) format. Security teams that need findings outside the console for use cases such as compliance reporting and audit evidence can now export findings from every findings page in the Security Hub console, including Threats, Exposure, Vulnerabilities, Posture Management, Sensitive Data, and All Findings, without building and maintaining their own extraction pipelines.\nWith this launch, you can start a",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Security Hub now exports findings to S3 in CSV or JSON format",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/security-hub-exports-s3-csv-json/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e3f201256b6bbece",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-09T19:29:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Elastic Compute Cloud (Amazon EC2) R8gd instances are available in AWS European Sovereign Cloud (Germany) region. These instances feature up to 11.4 TB of local NVMe-based SSD block-level storage and are powered by AWS Graviton4 processors, delivering up to 30% better performance over Graviton3-based instances. These instances are built on the AWS Nitro System and are a great fit for applications that need access to high-speed, low latency local storage.&nbsp;\n \n &nbsp;\n \n R8gd instances ",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R8gd instances are now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-r8gd-thf/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "3638492d7528f5a2",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-09T19:19:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) R8g instances are available in the AWS European Sovereign Cloud (Germany) region. These instances are powered by AWS Graviton4 processors and deliver up to 30% better performance compared to AWS Graviton3-based instances. Amazon EC2 R8g instances are ideal for memory-intensive workloads such as databases, in-memory caches, and real-time big data analytics. These instances are built on the AWS Nitro System, which offloads CPU virtualizatio",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 R8g instances now available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-r8g-instances-thf/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "e9f1e800bc9632e5",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-09T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 Vectors metadata pre-filtering is now available in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. Pre-filtering evaluates metadata filters before running similarity search, returning up to 5x more of the matching vectors when your filter is selective. S3 Vectors also adds a prefix match operator ($startsWith) for filtering on values like paths and URLs. Together, these improvements give your retrieval-augmented generation (RAG), agentic, and semantic-search applications",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 Vectors metadata pre-filtering is now available in AWS GovCloud (US) Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/s3-vectors-metadata-pre-filtering-in-govcloud-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "57b08d26f16e27b9",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-09T16:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda now supports OAuth authentication for self-managed Apache Kafka event source mappings (ESM), including&nbsp;Kafka clusters that customers run themselves and managed offerings such as Confluent Cloud, Aiven, and Redpanda. With this launch, customers can authenticate their Lambda Kafka consumers through their enterprise identity provider, helping them meet the security and compliance requirements for their Kafka applications.\nCustomers building event-driven Kafka workloads for use cases",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda supports OAuth authentication for self-managed Apache Kafka event sources",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-Lambda-supports-oauth-kafka-esm/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "30a70daa76122a6e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-09T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon SageMaker Unified Studio now supports custom Tooling blueprints, giving domain administrators the ability to define the foundation of every project by using their own AWS CloudFormation templates. Administrators can tailor project environments to meet organization-specific requirements, such as IAM role names that comply with company naming standards or custom permissions boundaries instead of AWS managed policies.\nAmazon SageMaker Unified Studio administrators start by authoring a CloudF",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon SageMaker Unified Studio now supports custom Tooling blueprints",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/sagemaker-custom-tooling-blueprints/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "79b9278b077f6913",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-08T18:51:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Cost Explorer, AWS Budgets, and AWS Cost Management Dashboards now let you analyze Amazon Bedrock costs by product attributes, a new dimension that breaks down Bedrock cost by model, model provider, inference type, and feature. In Cost Explorer and Dashboards, you can group and filter costs by these attributes. In Budgets, you can filter budgets by the same attributes.\nWith this launch, finance and platform teams get a direct view of which models and workloads drive their Bedrock spend, and ",
+      "tags": [
+        "rds"
+      ],
+      "title": "AWS Cost Explorer, Budgets, and Dashboards now support Amazon Bedrock product attributes",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-bedrock-attributes-in-cost-explorer/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "b0ef00d0bcfd4f84",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-08T18:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for Oracle now lets you run a minor version upgrade precheck yourself, before you start an upgrade or before your scheduled maintenance window. RDS for Oracle now also emits a new event during patching that tells you when your DB instance is accepting connections again. With this event, you can bring your applications back while the remaining maintenance tasks are still in progress, which can reduce your application downtime during patching.\nAt the",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for Oracle now supports minor version upgrade prechecks and a new RDS event to help reduce patching downtime",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-oracle-minor-version-upgrade-precheck-new-patching-rds-event/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "44d38a39a8bd0519",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-08T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon GuardDuty announces an expansion of RDS Protection that extends threat detection beyond login anomalies to identify data exfiltration and data destruction attacks targeting Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL databases. Available as RDS Protection for data activity, this new capability uses machine learning (ML)-based anomaly detection and integrated threat intelligence to continuously monitor database query patterns, helping you detect unusual data activity without req",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon GuardDuty RDS Protection now detects data exfiltration and destruction in Aurora and RDS databases",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/guardduty-rds-data-exfiltration/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "5c74af27a32ac829",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-07T18:26:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon Elastic Compute Cloud (Amazon EC2) C8gb instances, powered by the latest-generation AWS Graviton4 processors, are available in the US East (Ohio), US West (N. California), EU (Frankfurt, Ireland, Paris, Stockholm), and Africa (Cape Town) regions. The new instances provide up to 30% better compute performance than AWS Graviton3-based EC2 instances. At up to 300 Gbps EBS bandwidth and 1600K IOPS, C8gb instances offer higher EBS performance compared to same-sized equivalent G",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 C8gb instances now generally available in additional regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-c8gb/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8d0ee44f104d8870",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-07T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Config now supports 77 additional AWS resource types across key services including Amazon EC2, Amazon S3 Files, and Amazon Q Business. This expansion provides greater coverage over your AWS environment, enabling you to more effectively discover, assess, audit, and remediate an even broader range of resources.\nWith this launch, if you have enabled recording for all resource types, then AWS Config will automatically track these new additions. The newly supported resource types are also availab",
+      "tags": [
+        "ec2",
+        "s3"
+      ],
+      "title": "AWS Config now supports 77 new resource types",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-config-new-resource-types"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "2dfda2be7880d22a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-05T21:57:18+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Redshift now supports the creation and refresh of Apache Iceberg materialized views. Materialized views pre-compute expensive joins and aggregations once and store the results in an Apache Iceberg table in Amazon S3 or Amazon S3 table buckets, registered in the AWS Glue Data Catalog. Materialized views are created using familiar SQL — CREATE MATERIALIZED VIEW ... USING ICEBERG and the results are instantly queryable by any Iceberg-compatible engine, including Amazon Athena, Apache Spark o",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon Redshift adds support for creating and refreshing Apache Iceberg materialized views",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/redshift-iceberg-materialized-views"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "99e73e6c2448470d",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-05T20:33:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, Amazon EC2 Hpc8a instances are available in&nbsp;Asia Pacific (Singapore) region. These instances are powered by 5th Gen AMD EPYC processors (formerly code named Turin). With a maximum frequency of 4.5GHz, Hpc8a instances deliver up to 40% higher performance and up to 25% better price performance compared to Hpc7a instances, helping customers accelerate compute-intensive workloads while optimizing costs. Compared to Hpc7a instances, Hpc8a instances also provide up to 42% higher m",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 Hpc8a instances are now available in Asia Pacific (Singapore)",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-ec2-hpc8a-asia-pacific/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "db9826c876d8ac11",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-05T17:28:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon EC2 now supports AMI tag sharing, a new feature that lets AMI owners make selected tags visible to all AWS accounts an AMI is shared with. Whether an AMI is shared with an account, across an organization, or made public, a shared tag is automatically shared alongside the AMI, eliminating the need to build and maintain custom tag replication workflows.\nAMI owners simply add the 'ec2:SharedTag/' prefix to any tag key, and every account the AMI is shared with can immediately see it. This rem",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon EC2 introduces shared tags for Amazon Machine Images",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/ec2-ami-shared-tags"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "44670923e2afcdff",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該問題涉及特定 HTTP POST 請求觸發伺服器端未妥善處理的非同步邏輯或無窮迴圈，阻塞 Node.js 事件迴圈（Event Loop）並造成阻斷服務。受影響的伺服器行程將無法處理後續的任何連線。",
+        "recommended_action": "在邊界 Nginx 或反向代理層加強對異常 POST 請求格式的過濾，並密切關注 Next.js 官方版本更新釋出以儘速升級。",
+        "summary": "攻擊者可透過單一惡意 POST 請求導致 Next.js 伺服器完全停止回應。",
+        "why_it_matters": "Next.js 為團隊核心前端與 SSR 框架，此阻斷服務弱點可能導致線上前端節點集體凍結，造成服務無預警中斷。"
+      },
+      "provider": null,
+      "published": "2026-10-08T16:17:23+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "next.js"
+      ],
+      "summary": "&#32; submitted by &#32;  /u/TradeGold6317   [link] &#32; [comments]",
+      "tags": [],
+      "title": "A Single POST Freezes Any Next.js Server",
+      "url": "https://www.reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/"
+    },
+    {
+      "board": "tech",
+      "category": "security",
+      "demoted": null,
+      "id": "f532cb6d30f4cc03",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "漏洞涉及 CVE-2026-104629 等多個項目，影響版本包含 2.9.482 與 2.8.585 之前的版本及相關 Docker 映像檔，主要用於電力系統相量數據集中管理架構。",
+        "recommended_action": "",
+        "summary": "Grid Protection Alliance 針對 openPDC 與 openHistorian 釋出多項安全修補。",
+        "why_it_matters": ""
+      },
+      "provider": null,
+      "published": "2026-10-08T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker"
+      ],
+      "summary": "View CSAF\nSummary\nThe following versions of Grid Protection Alliance openPDC and openHistorian are affected:\n\nopenPDC &lt;2.9.477, &lt;2.9.482 (CVE-2026-104629, CVE-2026-100730, CVE-2026-105281, CVE-2026-85479, CVE-2026-101022)\nopenPDC (Docker image) &lt;2.9.477, &lt;2.9.482 (CVE-2026-104629, CVE-2026-100730, CVE-2026-105281, CVE-2026-85479, CVE-2026-101022, CVE-2026-105278)\nopenHistorian &lt;2.8.580, &lt;2.8.585 (CVE-2026-104629, CVE-2026-100730, CVE-2026-105281, CVE-2026-85479, CVE-2026-101022",
+      "tags": [],
+      "title": "Grid Protection Alliance openPDC and openHistorian",
+      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-02"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "a947937fc68c594b",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "惡意版本 0.5.144 包含混淆程式碼，會在安裝與執行時搜集環境變數與敏感憑證、建立持久化連線並允許遠端執行任意程式碼。",
+        "recommended_action": "檢查專案的 package.json 與 lockfile 是否引入 tensorlake，並在 CI 流程中啟用相依套件雜湊驗證與安全掃描。",
+        "summary": "npm 套件 tensorlake 遭供應鏈攻擊植入 Shai-Hulud 竊密蠕蟲。",
+        "why_it_matters": "團隊廣泛使用 npm 與 TypeScript 開發，若 CI/CD 流程或本機開發者環境拉取到受害版本，將導致雲端基礎設施金鑰直接外洩。"
+      },
+      "provider": null,
+      "published": "2026-10-08T05:46:20+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "typescript"
+      ],
+      "summary": "The npm package known as \"tensorlake,\" a TypeScript software development kit (SDK) for Tensorlake applications, sandboxes, and cloud services, was compromised as part of a ChainDrop / Shai-Hulud supply chain attack.\n\nThe malicious version 0.5.144 \"contains obfuscated malware that harvests credentials, exfiltrates secrets, establishes persistence, and executes remotely supplied code,\" Socket said",
+      "tags": [],
+      "title": "Tensorlake npm Package Compromised to Deliver Shai-Hulud Credential-Stealing Worm",
+      "url": "https://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "7745de2da25cb435",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該手法透過改寫 V8 引擎內部堆疊處理機制 Error.prepareStackTrace，並搭配 Function 建構子與原型鏈注入，繞過僅依賴括號語法比對的安全沙盒與 WAF 規則。",
+        "recommended_action": "檢視後端程式中物件深層合併（deep merge）與使用者輸入解析的實作，並使用 Object.freeze 防止全域原型物件遭竄改。",
+        "summary": "研究人員揭露利用 Error.prepareStackTrace 與原型鏈污染在無括號下呼叫 JavaScript 函式的新手法。",
+        "why_it_matters": "本團隊使用 Node.js、React 與 Next.js，此技術提升了 Prototype Pollution 弱點的危害層級，可能讓原本僅能竄改屬性的漏洞升級為遠端程式碼執行（RCE）。"
+      },
+      "provider": null,
+      "published": "2026-10-08T05:38:09+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "It turns out you can overwrite the Error.prepareStackTrace method with the function constructor. Then, using prototype pollution, you can inject valid JavaScript code to generate arbitrary functions and invoke it using the usual tricks.   &#32; submitted by &#32;  /u/DrAdalbbert   [link] &#32; [comments]",
+      "tags": [],
+      "title": "I found yet another way to invoke JavaScript functions without parentheses",
+      "url": "https://www.reddit.com/r/netsec/comments/1x0iuul/i_found_yet_another_way_to_invoke_javascript/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "3836fc91e22e5487",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "駭客集團 UAC-0277 竄改合法網站的前端 JavaScript，展示假的驗證流程誘導使用者複製並執行指令，進而植入竊取瀏覽器帳密與金鑰的惡意程式。",
+        "recommended_action": "提醒團隊防範要求「複製貼上終端機指令」的偽造驗證畫面，並在端點強制啟用多因素認證與開發憑證加密保護。",
+        "summary": "逾百個網站遭植入惡意腳本，偽造 Cloudflare 驗證頁面散布 LunexStealer 竊密軟體。",
+        "why_it_matters": "團隊成員於開發除錯或搜尋資料時若造訪遭滲透網站並受騙執行指令，開發機上的 SSH Key、AWS 憑證及 Git 存取權限將面臨外洩風險。"
+      },
+      "provider": null,
+      "published": "2026-10-07T06:57:54+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "javascript"
+      ],
+      "summary": "The Computer Emergency Response Team of Ukraine (CERT-UA) has identified more than 100 compromised websites that have been injected with malicious JavaScript to serve an information-stealing malware called LunexStealer (aka Psychedelic Stealer).\n\nThe activity, which was observed by the agency in September 2026, has been attributed to a threat cluster dubbed UAC-0277. It did not disclose who the",
+      "tags": [],
+      "title": "100+ Compromised Websites Use Fake Cloudflare Checks to Deliver LunexStealer",
+      "url": "https://thehackernews.com/2026/10/100-compromised-websites-use-fake.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "0b1fb37b29c25d4c",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "自 10 月 1 日起，包含 Go 語言、Angular 與 Protocol Buffers 等專案的程式碼層級漏洞不再發放獎金，僅保留供應鏈威脅相關通報獎勵。",
+        "recommended_action": "維持後端 Go 執行環境與相依套件的常態性定期升級排程，避免過度依賴外部大型漏洞預警機制。",
+        "summary": "Google 因無效自動化回報激增，宣布暫停旗下開源專案的漏洞賞金計畫。",
+        "why_it_matters": "Go 是團隊主力後端語言之一，第三方安全研究人員回報底層標準函式庫漏洞的動機可能降低，未來需要更主動監控官方社群的修補與安全討論。"
+      },
+      "provider": null,
+      "published": "2026-10-06T09:21:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Google has stopped accepting product vulnerability reports through its bug bounty program for its open-source software.\n\nThe change, in effect since October 1, means researchers can no longer submit security flaws in the code of projects such as Go, Angular, and Protocol Buffers there for a reward. Reports about supply chain compromises are still accepted, and reports filed before October 1 are",
+      "tags": [],
+      "title": "Google Pauses OSS Product Bug Bounty Rewards After Surge in Invalid Automated Reports",
+      "url": "https://thehackernews.com/2026/10/google-pauses-oss-product-bug-bounty.html"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "6218e0219f6856f2",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "gpt",
+        "claude",
+        "gemini",
+        "mistral"
+      ],
+      "llm": {
+        "detail": "現有公開基準測試對最新前沿模型鑑別度降低，開發者轉向使用極端冷門且具空間結構的提示詞（如火星上穿網襪的犰狳）來驗證模型極限。透過 llm CLI 工具，實測各家模型在幾何理解與 SVG 代碼生成上的細節掌握度。",
+        "recommended_action": "在團隊評估多模態與代碼生成模型的測試集中，加入非典型結構化代碼生成測試以提升評測準確度。",
+        "summary": "社群探討前沿模型評測飽和現象，並實測 Mistral Large 4 等模型生成複雜 SVG 的能力。",
+        "why_it_matters": "在評估將 LLM 整合進 Rails 或 Next.js 進行前端向量圖與視覺代碼生成時，傳統 NLP 評測指標已無法反映幾何推理真實品質，需要設計專屬的代碼驗收案例。"
+      },
+      "provider": null,
+      "published": "2026-10-06T18:20:58+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "My comment on Mistral Large 4 &mdash; Hacker News.\nwren6991: The benchmark is saturated. Frontier models are tested with an armadillo in fishnet tights jaywalking on Mars.\n\nOK well I couldn't resist this one:\nllm -m claude-opus-5.5 'Generate an SVG of an armadillo in fishnet tights jaywalking on Mars'\nllm -m gpt-6.1-sol 'Generate an SVG of an armadillo in fishnet tights jaywalking on Mars'\nllm -m gemini-3.8-flash 'Generate an SVG of an armadillo in fishnet tights jaywalking on Mars'\nllm -m mistr",
+      "tags": [],
+      "title": "Mistral Large 4",
+      "url": "https://simonwillison.net/2026/Oct/6/hn-49982139/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "231befe88d753d02",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "claude",
+        "openai",
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "相比前代 Haiku 4.5，新版在 100,000 tokens 內的定價下調至每百萬 tokens 輸入 $0.10、輸出 $0.50，直接對齊競品。但需特別注意階梯定價：超過 100k tokens 門檻後，計費費用將直接激增 5 倍。",
+        "recommended_action": "檢查後端 API 呼叫設定，將 context 需求低於 100k tokens 的工作遷移至 Claude Haiku 5.5 並加上長度防護機制。",
+        "summary": "Anthropic 推出輕量模型 Claude Haiku 5.5，小於 100k tokens 區間大幅降價對標 GPT-6 Luna。",
+        "why_it_matters": "掛載於 Sidekiq 背景工作處理文字分類或小規模摘要等短 context 任務時，可省下約 90% 的 API 支出；但若有長文件或爬蟲內容需特別限制 context 上限以防費用暴增。"
+      },
+      "provider": null,
+      "published": "2026-10-07T20:56:21+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "As previously promised, here's Anthropic's new fast, low cost model: Introducing Claude Haiku 5.5.\nThe previous Haiku, 4.5, was very much showing its age. It came out almost a year ago, and was priced at $1/million input and $5/million output - relatively expensive even back then, and a full 10x the price of OpenAI's GPT-6 Luna, released last month.\n\nThe new Haiku exactly matches the price of GPT-6 Luna - $0.10/$0.50 - up to 100,000 tokens. Beyond 100,000 tokens the price increases 5x to $0.50/$",
+      "tags": [],
+      "title": "Claude Haiku 5.5",
+      "url": "https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "f60f92689e069107",
+      "importance": "high",
+      "keyword_match": [
+        "transformer",
+        "machine learning"
+      ],
+      "llm": {
+        "detail": "訪談探討視覺特效流程早期就廣泛應用機器學習，從卷積神經網絡逐步演進到能高度平行運算的 Transformer 架構。這說明機器學習與自動化腳本已深入傳統創意與影視製作流程多年。",
+        "recommended_action": "",
+        "summary": "班·艾佛列克分享運用 Python 腳本與 CNN/Transformer 架構參與影視特效的工作經驗。",
+        "why_it_matters": "非純軟體工程的領域專家撰寫 Python 腳本與自動化管線已成常態，後端系統在提供 API 與資料管道時需考慮非專業工程師的協作界面。"
+      },
+      "provider": null,
+      "published": "2026-10-07T23:14:58+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "I've always been kind of into computers since I was young. And then when film started to move from analog film to digital, I became more interested in that aspect of it. And the visual effects workflow for many years has included machine learning.\nSo I can write like pretty shitty Python scripts and stuff like that because with convolutional neural networks, which were the sort of precursors to what the transformer can do, which is just much more computation simultaneously, you would do things l",
+      "tags": [],
+      "title": "Quoting Ben Affleck",
+      "url": "https://simonwillison.net/2026/Oct/7/ben-affleck/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "62c509640c5df97d",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "該外掛支援 gpt-6-luna decision 模型，同時接受文字與圖片輸入，專門用於決策判斷任務。此 API 採用僅針對輸入計費（每百萬 tokens $0.10）而輸出免費的計費方式，顯著降低結構化判斷的邊際成本。",
+        "recommended_action": "評估將現有以通用模型實作的內容分類與圖片驗證邏輯，改寫為原生 Decisions API 或相應外掛整合架構。",
+        "summary": "Simon Willison 發布 llm-openai-decisions 0.1a0，支援 OpenAI 新推出的 Decisions API 與多模態決策模式。",
+        "why_it_matters": "若後端系統使用 Rails 或 Go 執行大規模內容審查、圖片合規檢查或布林決策，採用此類僅收輸入費用的專用模型能大幅壓縮背景任務開銷。"
+      },
+      "provider": null,
+      "published": "2026-10-06T23:04:13+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-openai-decisions 0.1a0\n        OpenAI released their new Jev-style Decisions API, as previously announced at last week's DevDay.\nSince I already have an llm-typesafe plugin for talking to Jev, I had GPT-6 Astra read the new OpenAI API documentation and build an llm-openai-decisions plugin inspired by llm-typesafe.\nUnlike Jev, the new gpt-6-luna decision model supports image input in addition to text. Both models charge for input it and not for output: OpenAI's is 10 cents per millio",
+      "tags": [],
+      "title": "llm-openai-decisions 0.1a0",
+      "url": "https://simonwillison.net/2026/Oct/6/llm-openai-decisions/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "9bf93d58cc35db99",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "Asana 在其瀏覽器自動化 Agent 流程中採用 GPT-6 Astra，透過更具針對性的模型推論顯著縮減測試回合時間。在大幅壓縮成本的同時，也讓端到端自動化測試的執行效率獲得實質改善。",
+        "recommended_action": "檢視前端 React 應用的自動化測試流程，評估引入專屬代碼 Agent 模型替代傳統端到端測試維護的可行性。",
+        "summary": "Asana 藉由 GPT-6 Astra 與 Codex 最佳化瀏覽器 Agent，將測試成本降低 76 倍且速度提升 5 倍。",
+        "why_it_matters": "若團隊在 CI/CD 或 Docker 環境中運行由 Agent 驅動的瀏覽器端自動化測試，選用針對程式碼與網頁 DOM 操作優化的模型可顯著縮短 pipeline 等待時間。"
+      },
+      "provider": null,
+      "published": "2026-10-09T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.",
+      "tags": [],
+      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+      "url": "https://openai.com/index/asana-browser-agent"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "4531aaeb11d6a46b",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "作者在升級工具時發現預設 tokenizer 仍停留在舊版，因此將預設設定切換為新一代模型的分詞體系並正式發行 1.0。此變更依據社群實驗結果，確保在計算輸入 token 量時與當前主流模型對齊。",
+        "recommended_action": "在開發環境執行 uv tool upgrade ttok，並驗證管線中依賴 token 限制計算的腳本邏輯。",
+        "summary": "CLI 工具 ttok 正式發布 1.0，預設分詞器從 GPT-4 切換至 GPT-5/GPT-6 架構。",
+        "why_it_matters": "若在 Python 腳本或 Docker 建置管線中依賴 ttok 預先計算 prompt 大小以防 context 溢出，切換分詞器會直接影響邊界條件與切詞精準度。"
+      },
+      "provider": null,
+      "published": "2026-10-09T00:34:43+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: ttok 1.0\n        I released ttok 0.4, ran uv tool upgrade ttok, piped a file into the new version... and realized that it was defaulting to the GPT-4 tokenizer when it should very clearly default to GPT-5/GPT-6 instead!\nI figured switching the default was a reasonable excuse to finally ship a 1.0.\nOpenAI haven't actually confirmed that GPT-6 uses the same tokenizer as the GPT-5 family yet - there's an angry issue about it - but I found this commit by William Liu which reports on an expe",
+      "tags": [],
+      "title": "ttok 1.0",
+      "url": "https://simonwillison.net/2026/Oct/9/ttok/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "855092fba1df7e8a",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "該產品透過鏈結文字推理模型與新一代圖像生成模型，將創意概念自動化轉換為高解析度圖片與動態影像廣告。展示了如何將多個模型協同封裝為高附加價值的垂直領域 SaaS 服務。",
+        "recommended_action": "",
+        "summary": "Pollo AI 串聯 GPT-5.6、GPT-6 Astra 及 GPT-Image-2.5 建立行銷素材與影片廣告生成平台。",
+        "why_it_matters": "對於使用 Next.js 與 Rails 建構生成式 AI 應用的團隊而言，這示範了將多模態 API 拆解分工並透過後端非同步佇列組織輸出的典型微服務架構。"
+      },
+      "provider": null,
+      "published": "2026-10-08T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "With GPT-5.6, GPT-6 Astra, and GPT‑Image‑2.5, Pollo AI helps creators turn bold ideas into detailed images and cinematic video ads.",
+      "tags": [],
+      "title": "Pollo AI turns creative ideas into campaigns with OpenAI",
+      "url": "https://openai.com/index/pollo-ai"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "a097ef0d441a7216",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "新版本跳脫傳統純文字輸出模式，結合 Intelligent UI 讓模型能直接回傳具備互動能力的視覺化元件。這意味著 AI 介面正從靜態 Markdown 渲染快速邁向動態伺服器端元件化應用。",
+        "recommended_action": "研究動態 UI 協議與 Generative UI 整合方案，評估既有 React 前端架構對模型驅動介面的承載能力。",
+        "summary": "OpenAI 於 ChatGPT 全球推出 GPT-6，並導入支援即時視覺互動的 Intelligent UI。",
+        "why_it_matters": "前端架構（React/Next.js）未來勢必面臨更多與 LLM 動態產生的 UI 互動之整合需求，需提前考量動態元件渲染安全性（XSS 防範）與 Design System 對接。"
+      },
+      "provider": null,
+      "published": "2026-10-07T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "GPT‑6 is rolling out globally in ChatGPT with Intelligent UI, delivering faster responses with visuals and interactive experiences you can explore and use directly.",
+      "tags": [],
+      "title": "GPT-6 and Intelligent UI for everyone",
+      "url": "https://openai.com/index/gpt-6-for-everyone"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "1244a96b60ce1871",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "mistral"
+      ],
+      "llm": {
+        "detail": "新版本主要整合了最新釋出的 Mistral Large 4 等具備 Reasoning 能力的模型。開發者可透過 Simon Willison 的 llm 命令列生態系，直接調用這類進階邏輯思考模型進行推論任務。",
+        "recommended_action": "若本機有使用 llm CLI 工具，可執行 `llm install -U llm-mistral` 更新外掛並驗證 Mistral Large 4。",
+        "summary": "llm-mistral 外掛釋出 0.16 版，支援 Mistral 推理模型架構。",
+        "why_it_matters": "團隊在 Python 後端或本機自動化流程中評估 Mistral 推理模型時，可大幅降低整合與 prompt 測試門檻。"
+      },
+      "provider": null,
+      "published": "2026-10-06T21:32:34+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: llm-mistral 0.16\n        Adds support for reasoning models, such as the newly released Mistral Large 4.\n    \n    \n        Tags: llm, mistral, llm-reasoning",
+      "tags": [],
+      "title": "llm-mistral 0.16",
+      "url": "https://simonwillison.net/2026/Oct/6/llm-mistral/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "d43019accfd19e1e",
+      "importance": "high",
+      "keyword_match": [
+        "claude",
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "舊版 Cowork 採用雲端模型推論搭配使用者電腦上的本機 VM 執行工具呼叫，雖然兼顧沙盒安全與資料隔離，卻造成嚴重的磁碟、電池耗損，且闔上筆電即中斷任務。新版本將著重於改善這些本機執行資源與生命週期限制。",
+        "recommended_action": "在規劃內部 AI 執行沙盒時，優先評估雲端隔離容器（如 Docker on ECS/K8s）方案，避免過度依賴用戶端運算資源。",
+        "summary": "Felix Rieseberg 探討 Anthropic Cowork 架構從本機 VM 轉移至雲端的考量。",
+        "why_it_matters": "開發 AI Agent 服務時，工具執行環境的部署位置（Client-side VM vs Server-side Worker）直接影響效能與使用者體驗，團隊在架構設計上需權衡資源消耗與資料隱私邊界。"
+      },
+      "provider": null,
+      "published": "2026-10-05T23:56:47+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "The \"old\" version of Cowork runs model inference in the cloud, executing tool calls in an Anthropic-provided VM we shipped to your computer. We added the VM for capability, safety, and security reasons - mapping in just the data you explicitly added to your session. People loved what they were able to do with Claude but didn't love the disk, battery, and performance cost of running the VM locally. Also, people didn't love that closing your laptop means the work stops.\nThe \"new\" version of Cowork",
+      "tags": [],
+      "title": "Quoting Felix Rieseberg",
+      "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "a2dbc26766a3bd99",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "開發者現在可以在 GitHub Actions 的矩陣測試（matrix）中直接設定 `python-version: \"3.15\"`。這讓開源專案與企業 CI/CD 能在新版本釋出第一時間進行相容性測試。",
+        "recommended_action": "在專案 CI 的 test matrix 中新增 3.15 進行實驗性構建（可設為 `continue-on-error: true`），提早監控相容性狀況。",
+        "summary": "GitHub Actions 官方 python-versions 支援清單已正式加入 Python 3.15.0。",
+        "why_it_matters": "有助於團隊的 Python 服務提早進行相容性回歸測試，及早發現依賴套件在最新直譯器上的潛在 breaking changes。"
+      },
+      "provider": null,
+      "published": "2026-10-10T23:58:04+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Python 3.15.0 added to actions/python-versions\nBit of a niche link, but I've been waiting for this for a couple of days - I even told ChatGPT to check for it:\n\nClone https://github.com/actions/python-versions  and git pull once an hour until they add the stable  3.15 - then tell me about it\n\nNow that this has landed, you can add \"3.15\" to a GitHub Actions testing matrix to run tests against the new Python 3.15.0 release.\n\n\n    Tags: github, python, github-actions, chatgpt",
+      "tags": [],
+      "title": "Python 3.15.0 added to actions/python-versions",
+      "url": "https://simonwillison.net/2026/Oct/10/python-actions/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "5af1a93eb20fb54c",
+      "importance": "high",
+      "keyword_match": [
+        "anthropic"
+      ],
+      "llm": {
+        "detail": "雖然 Anthropic 先前曾公開討論旗下自主 Agent 的網頁操作活動，但報導指出這些 Agent 實際在國務院網站自動填寫並送出了 20 份簽證申請表，最終因內容不完整未被處理。此事件突顯了具備外部操作能力的 Agent 在未受控時可能產生的非預期互動風險。",
+        "recommended_action": "檢視內部 AI Agent 的 External API 及 Web 自動化權限，對涉及資料送出（POST/Submit）的操作加入 Human-in-the-loop 人工確認機制。",
+        "summary": "紐約時報披露 Anthropic AI Agent 曾自動向美國國務院提交未完成的簽證申請表。",
+        "why_it_matters": "團隊在生產環境建構具備 Web 瀏覽與 Form 提交能力的 Agent 時，若缺乏嚴格的 Tool Call 審批機制，可能引發法律或合規風波。"
+      },
+      "provider": null,
+      "published": "2026-10-10T02:04:12+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Anthropic detailed the activity of its A.I. agents in a blog post on Friday, without naming the targeted websites. But two sources with knowledge of the incidents said Anthropic’s A.I. agents had submitted 20 visa applications through a form available on the State Department’s website. All the applications were incomplete and were not processed, they said.\n&mdash; The New York Times, Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website\n\n    Tags: accidental-cyberattacks, anthropi",
+      "tags": [],
+      "title": "Quoting The New York Times",
+      "url": "https://simonwillison.net/2026/Oct/10/the-new-york-times/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "570fe3204556675e",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "透過 OpenAI 的 Daybreak 架構，Sophos 在託管偵測與回應（MDR）案例中達成 52% 案件自動化處理，同時保留資安分析師的人工審查機制，在提升回應速度之際兼顧準確度。",
+        "recommended_action": "評估在內部 Datadog 或 CloudWatch 告警管線中，引入 LLM 對常見錯誤日誌進行前置彙整與第一層分類。",
+        "summary": "Sophos 導入 OpenAI Daybreak，將資安威脅調查時間大幅縮短 96%。",
+        "why_it_matters": "對於需處理大量系統日誌與告警的維運及 SRE 團隊，證明 LLM 在分流告警與輔助事故調查上有極高的落地價值。"
+      },
+      "provider": null,
+      "published": "2026-10-09T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
+      "tags": [],
+      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
+      "url": "https://openai.com/index/sophos"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "f242adb232a8919d",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "ttok 基於 OpenAI 的 tiktoken 函式庫開發，新版支援 `--list-models` 查看目前支援的模型，並改善了 CI 與相依套件警告。此工具支援透過 `uvx ttok` 快速在終端機管線中統計文字的 Token 數量。",
+        "recommended_action": "在開發測試腳本中加入 `cat prompt.txt | uvx ttok`，以便在送出高成本 API 請求前預估 Token 數。",
+        "summary": "CLI 記號計算工具 ttok 釋出 0.4 版，新增模型清單指令並修復 Click 警告。",
+        "why_it_matters": "前端與後端在串接 LLM API 前，可直接在開發環境使用此工具快速預估 Prompt 的 Token 消耗量與計費成本，且免全域安裝即可執行。"
+      },
+      "provider": null,
+      "published": "2026-10-08T23:34:28+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: ttok 0.4\n        ttok is my CLI tool for counting tokens, using OpenAI's open source tiktoken library.\nIt hasn't been in updated in a couple of years, but I finally fixed a Click warning, updated CI, and added a --list-models command to list available models.\nIt works with uvx, so you can count tokens in anything like this:\ncat file.txt | uvx ttok\n\n    \n    \n        Tags: projects, ai, openai, generative-ai, llms, tokenization",
+      "tags": [],
+      "title": "ttok 0.4",
+      "url": "https://simonwillison.net/2026/Oct/8/ttok/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "db7b9e6fe248e314",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "Oracle 將專家知識沉澱為可重複運行的流程，涵蓋招募、工程研發到營運，使以往需耗時數天的工作能在數分鐘內完成，加速組織內部自動化節奏。",
+        "recommended_action": "",
+        "summary": "Oracle 透過 ChatGPT Work 與 Codex 加速內部跨部門工作流程。",
+        "why_it_matters": "展示了大型軟體企業在內部營運與開發流程中全面導入 AI 工具的範例，有助於評估組織內部的生產力工具投資。"
+      },
+      "provider": null,
+      "published": "2026-10-08T16:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Across recruiting, engineering, and operations, Oracle turns specialist knowledge into fast, repeatable workflows with ChatGPT Work and Codex.",
+      "tags": [],
+      "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+      "url": "https://openai.com/index/oracle"
+    }
+  ],
+  "meta": {
+    "date": "2026-10-12",
+    "enriched": {
+      "ai": true,
+      "cloud": true,
+      "frontend": true,
+      "security": true
+    },
+    "rendered": {
+      "2026-10-12": "sha256:813916f432aff61b"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 168,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 35,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 876,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1287,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 152,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
