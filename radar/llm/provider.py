@@ -175,5 +175,11 @@ def make_provider(llm_cfg: dict, *, client: httpx.Client) -> LLMProvider | None:
         project_id, location = llm_cfg.get("project_id", ""), llm_cfg.get("location", "")
         if not project_id or not location:
             return None
-        return Vertex(base_url, project_id, location, model, key, client)
+        try:
+            return Vertex(base_url, project_id, location, model, key, client)
+        except (ValueError, KeyError, TypeError) as e:
+            # Exception text is omitted: it can echo fragments of the secret key.
+            log.warning("llm: vertex key in %s is not a valid service-account JSON (%s)",
+                        llm_cfg.get("api_key_env"), type(e).__name__)
+            return None
     return OpenAICompatible(base_url, model, key, client)

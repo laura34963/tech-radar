@@ -1,4 +1,5 @@
 import httpx
+import pytest
 from radar.llm.provider import make_provider
 
 
@@ -162,6 +163,19 @@ def test_vertex_missing_project_or_location_returns_none(monkeypatch):
 
 def test_vertex_missing_key_returns_none(monkeypatch):
     monkeypatch.delenv("RADAR_LLM_API_KEY", raising=False)
+    cfg = {"enabled": True, "provider": "vertex", "api_key_env": "RADAR_LLM_API_KEY",
+           "project_id": "my-proj", "location": "us-central1", "model": "gemini-2.5-flash"}
+    assert make_provider(cfg, client=httpx.Client()) is None
+
+
+@pytest.mark.parametrize("bad_key", [
+    "not-json",
+    '["a", "list"]',
+    '{"private_key": "pem-only"}',
+    '{"client_email": "email-only@test.iam.gserviceaccount.com"}',
+])
+def test_vertex_malformed_key_returns_none(monkeypatch, bad_key):
+    monkeypatch.setenv("RADAR_LLM_API_KEY", bad_key)
     cfg = {"enabled": True, "provider": "vertex", "api_key_env": "RADAR_LLM_API_KEY",
            "project_id": "my-proj", "location": "us-central1", "model": "gemini-2.5-flash"}
     assert make_provider(cfg, client=httpx.Client()) is None
