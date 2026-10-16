@@ -237,6 +237,13 @@ enrich_concurrency = 4   # max concurrent LLM calls
 #   base_url = "https://generativelanguage.googleapis.com"   # optional; this is the default
 #   model = "gemini-2.5-flash"
 #   api_key_env = "RADAR_LLM_API_KEY"
+# Vertex AI example (service-account auth, no gcloud CLI needed):
+#   provider = "vertex"
+#   base_url = "https://us-central1-aiplatform.googleapis.com"   # optional; derived from `location` if omitted
+#   model = "gemini-2.5-flash"
+#   project_id = "my-gcp-project"
+#   location = "us-central1"
+#   api_key_env = "RADAR_LLM_API_KEY"        # env var holds the FULL service-account JSON key, not a plain key
 # OpenAI example:
 #   provider = "openai_compatible"
 #   base_url = "https://api.openai.com/v1"   # optional; this is the default

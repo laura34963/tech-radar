@@ -140,6 +140,10 @@ introduces any of these, add the corresponding section and re-scope this guide.
 - **New dependencies are a design decision.** The spec caps runtime deps at
   `feedparser` + `httpx` + `Jinja2` and forbids vendor LLM SDKs (the provider layer is
   plain `httpx`). Adding one contradicts a spec constraint — get sign-off first.
+  `PyJWT[crypto]` is the one approved exception: the `vertex` provider needs it to sign
+  its own OAuth2 JWT-bearer token exchange (service-account auth) without a vendor SDK
+  or a `gcloud` CLI dependency. Don't treat this as license to add further dependencies
+  without the same sign-off.
 
 ---
 

@@ -50,13 +50,15 @@ content are recorded for display only and are **never re-fetched** (SSRF guardra
 | Package registries (npm / PyPI / RubyGems) | `adapters/registry.py` | HTTPS GET | `registry.npmjs.org/{pkg}`, `pypi.org/pypi/{pkg}/json`, `rubygems.org/api/v1/versions/{gem}.json` | Recent releases for configured `packages` | none | timeout 20s; per-package isolated |
 | LLM provider | `llm/provider.py` | HTTPS POST | configured `base_url` (`/chat/completions`, `/v1/messages`, `:generateContent`, or `/api/chat`) | Enrich items (summary/detail/why/action) | `RADAR_LLM_API_KEY` (or none for ollama) | timeout 60–120s; item keeps rule-based fields on failure |
 
-**LLM provider dialects** (all in `llm/provider.py`, plain `httpx` — no vendor SDKs):
+**LLM provider dialects** (all in `llm/provider.py`, plain `httpx` — no vendor SDKs; `vertex`
+additionally uses `PyJWT` to sign its own OAuth2 token exchange, no `gcloud`/vendor SDK):
 
 | `provider` | Path appended to `base_url` | Auth header |
 |---|---|---|
 | `openai_compatible` | `/chat/completions` | `Authorization: Bearer <key>` |
 | `anthropic` | `/v1/messages` | `x-api-key: <key>` + `anthropic-version` |
 | `gemini` | `/v1beta/models/{model}:generateContent` | `x-goog-api-key: <key>` |
+| `vertex` | `/v1/projects/{project_id}/locations/{location}/publishers/google/models/{model}:generateContent` | `Authorization: Bearer <access token>` (minted from the service-account JSON in `RADAR_LLM_API_KEY` via a signed JWT exchanged at `https://oauth2.googleapis.com/token`; cached in memory until near expiry) |
 | `ollama` | `/api/chat` | none (local) |
 | `cli` | local subprocess — runs a configured CLI (`claude -p`, `gemini`, …), prompt on stdin, result from stdout | none (the CLI handles its own auth) |
 

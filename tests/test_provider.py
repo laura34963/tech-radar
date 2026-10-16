@@ -88,6 +88,85 @@ def test_gemini_missing_key_returns_none(monkeypatch):
     assert make_provider(cfg, client=httpx.Client()) is None
 
 
+def _fake_sa_key_json():
+    import json as _json
+    from cryptography.hazmat.primitives import serialization
+    from cryptography.hazmat.primitives.asymmetric import rsa
+    key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+    pem = key.private_bytes(
+        encoding=serialization.Encoding.PEM,
+        format=serialization.PrivateFormat.PKCS8,
+        encryption_algorithm=serialization.NoEncryption(),
+    ).decode()
+    return _json.dumps({
+        "client_email": "test@test.iam.gserviceaccount.com",
+        "private_key": pem,
+        "token_uri": "https://oauth2.googleapis.com/token",
+    })
+
+
+def test_vertex_completes(monkeypatch):
+    monkeypatch.setenv("RADAR_LLM_API_KEY", _fake_sa_key_json())
+    cap = {"token_calls": 0}
+
+    def handler(req):
+        import json
+        if str(req.url) == "https://oauth2.googleapis.com/token":
+            cap["token_calls"] += 1
+            return httpx.Response(200, json={"access_token": "vtok", "expires_in": 3600})
+        cap["url"] = str(req.url)
+        cap["auth"] = req.headers.get("authorization")
+        cap["body"] = json.loads(req.content)
+        return httpx.Response(200, json={"candidates": [
+            {"content": {"parts": [{"text": "hi from vertex"}]}}]})
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = {"enabled": True, "provider": "vertex", "api_key_env": "RADAR_LLM_API_KEY",
+           "project_id": "my-proj", "location": "us-central1", "model": "gemini-2.5-flash"}
+    provider = make_provider(cfg, client=client)
+    assert provider.complete("sys", "usr") == "hi from vertex"
+    assert cap["url"] == ("https://us-central1-aiplatform.googleapis.com/v1/projects/my-proj"
+                           "/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent")
+    assert cap["auth"] == "Bearer vtok"
+    assert cap["body"]["systemInstruction"]["parts"][0]["text"] == "sys"
+    assert cap["body"]["contents"][0]["parts"][0]["text"] == "usr"
+    assert cap["token_calls"] == 1
+
+
+def test_vertex_caches_access_token(monkeypatch):
+    monkeypatch.setenv("RADAR_LLM_API_KEY", _fake_sa_key_json())
+    cap = {"token_calls": 0}
+
+    def handler(req):
+        if str(req.url) == "https://oauth2.googleapis.com/token":
+            cap["token_calls"] += 1
+            return httpx.Response(200, json={"access_token": "vtok", "expires_in": 3600})
+        return httpx.Response(200, json={"candidates": [
+            {"content": {"parts": [{"text": "x"}]}}]})
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    cfg = {"enabled": True, "provider": "vertex", "api_key_env": "RADAR_LLM_API_KEY",
+           "project_id": "my-proj", "location": "us-central1", "model": "gemini-2.5-flash"}
+    provider = make_provider(cfg, client=client)
+    provider.complete("s", "u")
+    provider.complete("s", "u")
+    assert cap["token_calls"] == 1
+
+
+def test_vertex_missing_project_or_location_returns_none(monkeypatch):
+    monkeypatch.setenv("RADAR_LLM_API_KEY", _fake_sa_key_json())
+    cfg = {"enabled": True, "provider": "vertex", "api_key_env": "RADAR_LLM_API_KEY",
+           "project_id": "", "location": "us-central1", "model": "gemini-2.5-flash"}
+    assert make_provider(cfg, client=httpx.Client()) is None
+
+
+def test_vertex_missing_key_returns_none(monkeypatch):
+    monkeypatch.delenv("RADAR_LLM_API_KEY", raising=False)
+    cfg = {"enabled": True, "provider": "vertex", "api_key_env": "RADAR_LLM_API_KEY",
+           "project_id": "my-proj", "location": "us-central1", "model": "gemini-2.5-flash"}
+    assert make_provider(cfg, client=httpx.Client()) is None
+
+
 def test_cli_provider_pipes_prompt_via_stdin():
     # `cat` echoes stdin back -> verifies prompt is piped and stdout captured
     from radar.llm.provider import CliProvider

@@ -50,12 +50,14 @@ It is a standalone tool in the `kdan_tools` monorepo, alongside `ticket-sync`,
 | HTML templating | `Jinja2` (autoescape on) |
 | Config format | TOML (`config/radar.toml`), parsed with stdlib `tomllib` |
 | Snapshot / state | JSON files on disk (per-day) |
-| LLM access | Provider-agnostic plain HTTP via `httpx` (no vendor SDKs) |
+| LLM access | Provider-agnostic plain HTTP via `httpx` (no vendor SDKs); `vertex` additionally uses `PyJWT[crypto]` to sign its own OAuth2 token exchange |
 | Tests | `pytest` + `respx` (test-only) |
 | CLI | stdlib `argparse` |
 | Automation | GitHub Actions (scheduled) + GitHub Pages |
 
-Runtime dependencies are deliberately capped at `feedparser`, `httpx`, and `Jinja2`.
+Runtime dependencies are deliberately capped at `feedparser`, `httpx`, `Jinja2`, and
+`PyJWT[crypto]` (approved exception for the `vertex` provider's token signing — see
+[`ai-development-guide.md` §3](ai-development-guide.md#3-project-specific-pitfalls)).
 
 ---
 
@@ -83,8 +85,8 @@ filter logic is centralized and unit-tested offline.
                         │
    ┌──────────────── enrich (optional) ─────────┐
    │  LLM provider (openai_compatible/anthropic/ │
-   │  ollama) → per-category batch → JSON fields │
-   │  written back into each Item.llm            │
+   │  gemini/vertex/ollama/cli) → per-category   │
+   │  batch → JSON fields written into Item.llm  │
    └───────────────────┬─────────────────────────┘
                         ▼
    ┌──────────────── render ───────────────────┐
