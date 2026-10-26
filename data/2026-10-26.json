@@ -1,0 +1,1128 @@
+{
+  "digest_summary": null,
+  "items": [
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "6248f237c7310d39",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該建置由 React 團隊 main 分支自動派送至 npm，主要提供下游框架生態系搶先整合與驗證核心引擎改動。此類版本不包含語意化版本保證，隨時可能調整內部架構。",
+        "recommended_action": "",
+        "summary": "React 釋出基於 commit a6b912fb 的 experimental 測試版本",
+        "why_it_matters": "團隊現有的 Next.js 與 React 正式產線若混用 experimental 版本，容易引入未修復的 edge cases 並破壞型別定義相容性。"
+      },
+      "provider": null,
+      "published": "2026-10-23T16:30:48.191000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-a6b912fb-20261023",
+      "tags": [],
+      "title": "react 0.0.0-experimental-a6b912fb-20261023",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-a6b912fb-20261023"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "46246a106fd866a7",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "此更新同步了 React 儲存庫近期的日常 commit，通常涵蓋底層排程或編譯器實驗特性的變更。版本發布並未附帶正式 release notes，僅供前瞻測試使用。",
+        "recommended_action": "",
+        "summary": "React 發布對應 commit 9ffcb463 的 experimental 自動建置版",
+        "why_it_matters": "未定案的 API 變更會增加日後升級穩定版的維護成本，對追求高可用性的前端架構帶來不必要的依賴風險。"
+      },
+      "provider": null,
+      "published": "2026-10-22T17:13:15.386000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-9ffcb463-20261021",
+      "tags": [],
+      "title": "react 0.0.0-experimental-9ffcb463-20261021",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-9ffcb463-20261021"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": null,
+      "id": "a43cbad4084fd321",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該版本屬於 nightly/experimental 推進節點，專門用於追蹤 Server Components 或並發模式等深層功能的研發進度。",
+        "recommended_action": "檢查 package.json 與 lockfile，確認 react 及 react-dom 的相依版本皆鎖定於官方正式發布版本。",
+        "summary": "React experimental 頻道釋出 commit ab0d927f 建置套件",
+        "why_it_matters": "若專案依賴管理未鎖定穩定 release，可能會誤載入此版本，導致 CI/CD 建置流程出現非預期的相依性衝突。"
+      },
+      "provider": null,
+      "published": "2026-10-21T16:27:22.154000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-ab0d927f-20261020",
+      "tags": [],
+      "title": "react 0.0.0-experimental-ab0d927f-20261020",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-ab0d927f-20261020"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "e40428f43c9fef8b",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-10-20T16:29:00.848000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-a6792708-20261019",
+      "tags": [],
+      "title": "react 0.0.0-experimental-a6792708-20261019",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-a6792708-20261019"
+    },
+    {
+      "board": "tech",
+      "category": "frontend",
+      "demoted": "source_fairness",
+      "id": "c3e4a8c3c0d6a6ef",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": null,
+      "provider": null,
+      "published": "2026-10-19T16:41:34.626000+00:00",
+      "severity": null,
+      "source_type": "registry",
+      "stack_match": [
+        "react"
+      ],
+      "summary": "New npm release: react 0.0.0-experimental-ba39b32a-20261019",
+      "tags": [],
+      "title": "react 0.0.0-experimental-ba39b32a-20261019",
+      "url": "https://www.npmjs.com/package/react/v/0.0.0-experimental-ba39b32a-20261019"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "3826a48501d2914c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-22T20:54:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon OpenSearch Serverless now offers intelligent ingestion, a fully managed feature that turns logs and documents stored in Amazon S3 into searchable content in Amazon OpenSearch Serverless (NextGen) collections . With intelligent ingestion, you can set up ingestion with a few clicks in the AWS Management Console or a single API call, with no ingestion infrastructure to manage. Intelligent ingestion supports observability logs and structured data in JSON, NDJSON, and JSON array formats, and u",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon OpenSearch Service introduces intelligent ingestion for logs and documents in Amazon S3",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-opensearch-intelligent-ingestion-logs-documents-s3"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ad7fb05705bfe09b",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-22T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon MSK Connect (Amazon Managed Streaming for Apache Kafka Connect) now supports pausing and resuming connectors, letting you temporarily pause a connector from processing records and resume it later. This is useful when you need to stop data flow during maintenance on a source database or a sink target, or to pause processing while you investigate an upstream or downstream issue. \nAmazon MSK Connect is a fully managed service that allows you to deploy, monitor, and scale Apache Kafka Connect",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon MSK Connect now supports pausing and resuming connectors",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-msk-connect-pause-resume"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "32218284dc151d1e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-22T07:06:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Lambda MicroVMs is now available in 4 additional AWS Regions: Asia Pacific (Hong Kong), Asia Pacific (Malaysia), Asia Pacific (Thailand), and Europe (Spain). With this launch, you can use Lambda MicroVMs in a total of 14 AWS Regions. \nLambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI generated code.&nbsp; Developers can use Lambda MicroVMs to give each user or job their ow",
+      "tags": [
+        "lambda"
+      ],
+      "title": "AWS Lambda MicroVMs is now available in 4 additional AWS regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/lambda-microvms-4-additional-regions"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "42fc41d9c5050e55",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-21T19:10:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Migration assessments in AWS Transform now evaluate on-premises storage for migration to AWS. Instead of manually analyzing thousands of volumes across protocols, capacity, and performance, you upload a storage inventory and AWS Transform does the mapping for you. It matches each workload to the best-fit service, sizes the recommendation, and projects costs to produce a total cost of ownership business case. Bring NAS shares, SAN LUNs, direct-attached disks, or backup repositories via a NetApp D",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Transform adds storage migration assessments for Amazon S3, EBS, EFS, and FSx",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/transform-assess-s3-ebs-efs-fsx/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "581006f1a06b726a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-21T17:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Starting today, you can reserve compute capacity for your Amazon Aurora and Amazon RDS DB instances in one or more Availability Zones for as long as you need it. Reserving capacity helps ensure that DB instance create, restore, scale-compute, and start operations don't fail because of insufficient capacity. \nOn-Demand Capacity Reservations are designed for workloads that need assurance that specific DB instance capacity will be available when they need it for business-critical events, such as mi",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon Aurora and Amazon RDS now support On-Demand Capacity Reservations",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-aurora-rds-on-demand-capacity-reservations/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "77e451cf3233d8a9",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-21T15:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Neuron 2.33 is now available, introducing TorchNeuron, the native PyTorch backend for AWS Trainium, in public beta. You can run models written with the standard PyTorch APIs on Amazon EC2 Trn2 and Trn3 instances, in eager mode or with torch.compile. This release also introduces Neuron Observer in public beta, which detects Trainium health issues in under a second and identifies the affected node or device. \nThe vLLM Neuron plugin upgrades to vLLM 0.29.0, and the vLLM Omni Neuron plugin for W",
+      "tags": [
+        "ec2"
+      ],
+      "title": "AWS Neuron 2.33 adds native PyTorch support, Neuron Observer, and other new features",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-announce-neuron-2-33-0"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "330497d6011ac3dc",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-21T13:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon S3 server access log delivery to Amazon CloudWatch Logs is now available in the AWS GovCloud (US) Regions, AWS European Sovereign Cloud, and AWS China Regions. With your access logs in CloudWatch Logs, you can query them as they arrive, set alarms, and encrypt them with AWS Key Management Service (AWS KMS) keys. This new delivery path complements the existing delivery of server access logs to S3 general purpose buckets, giving you more flexibility in how you monitor and analyze access to ",
+      "tags": [
+        "s3"
+      ],
+      "title": "Amazon S3 server access log delivery to Amazon CloudWatch Logs now available in five additional AWS Regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-s3-server-access-logs-cloudwatch-logs-regions/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "97df10d57302713e",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-20T23:26:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS announces Amazon Elastic Container Service (Amazon ECS) Gateway, a new resource that simplifies ingress networking for containerized applications by dynamically provisioning and managing Application Load Balancers (ALBs) and their supporting resources directly in your account. \nWith ECS Gateway, platform teams define organizational networking standards once on a gateway and associate it with one or more clusters, giving organizations a centralized way to govern how traffic reaches their ECS ",
+      "tags": [
+        "rds"
+      ],
+      "title": "Announcing Amazon ECS Gateway, a managed ingress solution for your ECS services",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/announcing-amazon-ecs-gateway/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ca78df6cf0779a7c",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-20T12:23:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "AWS Clean Rooms now supports Databricks as a data source, so collaboration members and their partners can securely analyze data managed in Databricks without moving or revealing the source data. Members query a Databricks table shared through Delta Sharing directly in a collaboration. Databricks joins AWS Glue, Snowflake, and Amazon Athena as supported data sources in AWS Clean Rooms. \nPreviously, members with data in Databricks had to export or replicate it into Amazon S3 to use it as a table i",
+      "tags": [
+        "s3"
+      ],
+      "title": "AWS Clean Rooms now supports Databricks as a data source",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/aws-clean-rooms-supports-databricks"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "ff46e383a68a9879",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-20T08:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Today, Amazon CloudWatch announces support for including alarm tags in action payloads and Amazon EventBridge events, enabling customers to route and filter alarm notifications by tag without additional lookups. When enabled on an alarm, CloudWatch adds the alarm tags to the messages it sends to Amazon SNS, AWS Lambda, and Amazon EventBridge each time the alarm changes state. This option is designed for customers who route many alarms through a shared notification pipeline and need to identify t",
+      "tags": [
+        "lambda"
+      ],
+      "title": "Amazon CloudWatch Alarms now supports tags in alarm actions payload",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-tags-on-alarm-actions-payload"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "228d96f5cd199bfd",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-20T07:00:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon ElastiCache Serverless for Valkey now supports online migration from self-managed Valkey and Redis OSS on Amazon EC2 with zero downtime. Zero downtime means zero Errors returned to the client during migration, measured the same way the ElastiCache SLA measures availability. Your application continues reading and writing through cutover, and you do not need third-party replication tools. \nOnline migration runs in three steps. You prepare the migration, start the data sync, and complete the",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon ElastiCache Serverless for Valkey now supports online migration with zero downtime",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-elasticache-serverless-valkey-online-migration/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "86d2468e6a81409a",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-19T17:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "EC2 Image Builder now supports using existing instances from an Auto Scaling Group (ASG) for building images, enabling faster builds by eliminating the time spent in launching and bootstrapping new instances and reusing already running EC2 instances. \nWith this feature, you can provide an ASG in your Image Builder infrastructure configuration. Instead of launching a new instance at the build time, Image Builder selects an already-running instance from this ASG, applies your build components, and",
+      "tags": [
+        "ec2"
+      ],
+      "title": "EC2 Image Builder now integrates with ASG for faster image builds",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/ec2-image-builder-asg-faster-builds/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "aec9bf9fa3d07132",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-19T16:01:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon GuardDuty now supports optional detection rules for Runtime Monitoring. You can enable more than 50 Runtime Monitoring rules that help detect process, file, and network activity that might be routine in one environment but a sign of compromise in another, such as modifying sudoers files or disabling audit logging. \nThe new rules provide detections for Amazon EC2 instances, Amazon EKS, and Amazon ECS on both EC2 and AWS Fargate, and span 13 finding types mapped to MITRE ATT&amp;CK® tactics",
+      "tags": [
+        "ec2"
+      ],
+      "title": "Amazon GuardDuty adds optional threat detection rules for Runtime Monitoring",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/guardduty-runtime-optional-detection-rules/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "11a05fa89ca364ec",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-19T07:30:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) Custom for SQL Server now supports the latest Cumulative Updates (CU) and General Distribution Release (GDR) updates for Microsoft SQL Server. This release includes support for SQL Server 2019 CU32+GDR KB5122772(RDS version 15.00.4490.9.v1) and SQL Server 2022 CU26 + GDR KB5122768 (RDS version 16.00.4275.2.v1).  For additional information on the improvements and fixes included in these updates, see Microsoft documentation for KB5122772 and KB512276",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS Custom now supports the latest Cumulative Update and GDR updates for Microsoft SQL Server",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-rds-custom-supports-latest-cumulative-update-gdr-microsoft-sql-server/"
+    },
+    {
+      "board": "tech",
+      "category": "cloud",
+      "demoted": null,
+      "id": "8fafd43f1ef74f11",
+      "importance": "medium",
+      "keyword_match": [],
+      "llm": null,
+      "provider": "aws",
+      "published": "2026-10-19T07:01:00+00:00",
+      "severity": null,
+      "source_type": "cloud",
+      "stack_match": [],
+      "summary": "Amazon Relational Database Service (Amazon RDS) for SQL Server now supports creating DB snapshots directly on read replica instances. Previously, you could create snapshots only on standalone and primary DB instances. You can now snapshot a read replica without promoting it first, giving you more flexibility in your backup and disaster recovery (DR) workflows. \nPreviously, enabling Multi-AZ on a promoted read replica meant waiting for an initial full snapshot to finish before the conversion coul",
+      "tags": [
+        "rds"
+      ],
+      "title": "Amazon RDS for SQL Server now supports snapshots on read replicas",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/rds-sqlserver-supports-snapshots-on-read-replicas"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "89c43e5d413adbb4",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "攻擊者突破多層獨立防禦，於 1.107.0 版本的 Docker Hub 映像檔與 PyPI 套件中植入憑證竊取器與後門。官方初步調查指出發布憑證外洩可能與日誌管理不當直接相關。",
+        "recommended_action": "檢查專案鎖定檔與容器部屬紀錄是否包含 LiteLLM 1.107.0，並立即輪替生產環境相關雲端與 API 金鑰。",
+        "summary": "LiteLLM 疑似因 AI Gateway 日誌外洩 GitHub Token 導致 release pipeline 遭劫持並釋出惡意版本。",
+        "why_it_matters": "若 Python 或 Kubernetes 服務中有依賴 LiteLLM 串接 LLM，在受害時間窗口內拉取最新套件的環境可能已被植入後門並流出敏感設定。"
+      },
+      "provider": null,
+      "published": "2026-10-22T08:28:48+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker",
+        "python"
+      ],
+      "summary": "LiteLLM on Wednesday disclosed that threat actors compromised \"multiple independent security controls\" to push a malicious version of the Python package containing a credential stealer and a backdoor.\n\nOn October 21, 2026, LiteLLM's release pipeline was compromised to push 1.107.0 to the Docker Hub registry and the Python Package Index (PyPI) repository. The incident took place around 4:00 a.m.",
+      "tags": [],
+      "title": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
+      "url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "d9304dd4f7f5ae5d",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "多家資安機構報告指出該惡意版本夾帶環境變數與敏感資訊搜刮模組，影響範圍涵蓋 PyPI wheels 與官方 Docker 映像檔。目前套件管理平台已介入防堵，但已下載者需自行處置。",
+        "recommended_action": "強制將 LiteLLM 版本降級或鎖定至已知安全的 release（如 1.106.x），並稽核 CI/CD pipeline 的快取與建置歷程。",
+        "summary": "LiteLLM 1.107.0 遭軟體供應鏈攻擊植入後門，PyPI 官方已緊急將該版本隔離下架。",
+        "why_it_matters": "採用自動建置流程拉取最新版 Python 依賴的系統，可能已在無意間將竊密木馬部署進內部伺服器或容器群組中。"
+      },
+      "provider": null,
+      "published": "2026-10-21T18:01:57+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "docker",
+        "python"
+      ],
+      "summary": "The popular LiteLLM Python package has been compromised as part of a software supply chain attack that delivered a credential stealer and a backdoor, according to reports from SafeDep, Socket, StepSecurity, and Upwind.\n\nThe compromise affects LiteLLM 1.107.0, distributed through PyPI wheels and Docker images. The Python package has since been quarantined on Python Package Index (PyPI), and the",
+      "tags": [],
+      "title": "LiteLLM Compromised in Supply Chain Attack Delivering Credential Stealer and Backdoor",
+      "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "4e4bb89d13ae226a",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "該分析探討 Model Context Protocol (MCP) 在 AWS 託管 Python 執行環境中的邊界隔離弱點。研究展示如何繞過現有安全限制與受限命名空間，取得底層主機未經授權的系統執行權限。",
+        "recommended_action": "檢視現行 Python 沙箱邊界配置，考慮採用 gVisor 或微虛擬化（MicroVM）架構提供強隔離層。",
+        "summary": "資安研究員揭露針對 AWS MCP Python 沙箱環境的逃逸技術分析。",
+        "why_it_matters": "團隊若正在評估或導入 MCP 架構執行動態產生的 Python 腳本，預設沙箱防護可能無法有效抵禦特權提升或逃逸攻擊。"
+      },
+      "provider": null,
+      "published": "2026-10-25T07:02:31+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "https://xplo1t-sec.github.io/posts/breaking-the-aws-mcp-python-sandbox/  &#32; submitted by &#32;  /u/sn1ped_u   [link] &#32; [comments]",
+      "tags": [],
+      "title": "Breaking the AWS MCP Python Sandbox",
+      "url": "https://www.reddit.com/r/netsec/comments/1xevj5i/breaking_the_aws_mcp_python_sandbox/"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "a64123d828297872",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "此漏洞源於解壓縮特製數據時會發生緩衝區越界覆寫，進而破壞記憶體狀態導致崩潰甚至 RCE。除了 Node.js 之外，Python 的 brotli 與 brotlicffi 套件以及 Envoy 等中介軟體均存在相同風險。",
+        "recommended_action": "全面盤點專案與環境中的 brotli 和 brotlicffi 依賴版本，並盡速升級至整合上游安全修補的最新版本。",
+        "summary": "Google Brotli 解碼器記憶體損毀漏洞（CVE-2026-111497）波及 Python、Bun 與代理伺服器。",
+        "why_it_matters": "團隊若在 Python 爬蟲、API Client 或反向代理層啟用 Brotli 自動解壓縮外部未過濾流量，可能面臨服務阻斷或遠端執行風險。"
+      },
+      "provider": null,
+      "published": "2026-10-24T11:09:29+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "A memory-corruption flaw in Google's Brotli decoder sits in many programs that unpack Brotli-compressed data, among them Bun, the Python&nbsp;Brotli&nbsp;and&nbsp;brotlicffi&nbsp;packages, and Envoy proxies set up to decompress Brotli.\n\nTracked as&nbsp;CVE-2026-111497, the flaw allows crafted compressed data to overwrite past the end of a buffer and corrupt a program's memory, potentially",
+      "tags": [],
+      "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely Used Software",
+      "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "c2f353f11fcac607",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "官方說明早在 2026 年 5 月底，一組 Agent Platform 的主金鑰即不慎被提交至公開的 lite-harness 專案中。攻擊者以此金鑰長期潛伏並竊取內部 GitHub Token，最終掌握了 PyPI 與 Docker Hub 的發布特權。",
+        "recommended_action": "在團隊各儲存庫全面導入 git-secrets 或 TruffleHog 等預先攔截工具，禁止任何敏感憑證進入版本控制系統。",
+        "summary": "LiteLLM 坦承因在公開 GitHub 儲存庫誤傳 Master Key，導致發布管道全面失守。",
+        "why_it_matters": "這起事件展示了憑證洩漏如何引發下游廣泛的供應鏈災難，凸顯自動化部署管線與憑證分離管理的重要性。"
+      },
+      "provider": null,
+      "published": "2026-10-24T11:03:33+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "LiteLLM on Friday revealed that an Agent Platform master key accidentally published to a public GitHub repository in late May 2026 ultimately allowed the threat actor to push a malicious version of the popular Python package.\n\n\"On May 27, 2026, a configuration file was committed to the public LiteLLM-Labs/lite-harness repository which inadvertently contained the master key to a deployment of",
+      "tags": [],
+      "title": "Leaked LiteLLM Master Key Let Attackers Steal GitHub Tokens and Hijack Release Pipeline",
+      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "14b4c9cf953f428c",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "Ruby 4.0.9、3.4.12 與 3.3.13 解決了正則表達式編譯時發生的記憶體損毀問題。攻擊者若能控制或傳入精心設計的正則表達式，可直接在運行 Ruby 直譯器的伺服器上執行任意程式碼。",
+        "recommended_action": "立即將生產環境伺服器與 Docker 基礎映像檔中的 Ruby 升級至 3.3.13、3.4.12 或更新版本。",
+        "summary": "Ruby 正式釋出安全性更新，修復內建 Onigmo 正則引擎中導致 GitLab RCE 的三項漏洞。",
+        "why_it_matters": "Rails 與 Sidekiq 服務若包含使用者自訂正則或未過濾動態輸入編譯 regex 的邏輯，整個底層服務與資料庫憑證均可能暴露於被接管的高風險中。"
+      },
+      "provider": null,
+      "published": "2026-10-23T17:54:08+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "ruby"
+      ],
+      "summary": "Ruby has released versions 4.0.9, 3.4.12, and 3.3.13 to fix three bugs in Onigmo, the regular expression engine built into the language. The bugs lie behind four critical security flaws that GitLab patched over the past month.\n\nGitLab found that a specially crafted pattern could corrupt memory while Ruby compiles it, potentially leading to code execution on its own servers.\n\nRuby says any",
+      "tags": [],
+      "title": "Ruby Fixes Three Regex Engine Bugs Responsible for Four Critical GitLab RCE Flaws",
+      "url": "https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "cadd6afddac3d48e",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "資安監控機構表示先前引發高度戒備的 PHP 緊急漏洞已獲得多數廠商修補與社群掌握，當前威脅態勢已趨於平穩，維運團隊可重回標準監控流程。",
+        "recommended_action": "",
+        "summary": "SANS ISC 宣布將 PHP 相關威脅警報等級調降回正常狀態（Infocon Green）。",
+        "why_it_matters": "因技術棧以 Ruby、Go、Python 與 Node.js 為主，此 PHP 威脅警報解除對目前核心架構無直接技術影響。"
+      },
+      "provider": null,
+      "published": "2026-10-23T13:43:20+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "This morning, we returned to Infocon Green. As usual, we are raising the Infocon to alert you to emerging situations requiring immediate attention. PHP fit that description. By now, you either know about it, or you probably never will, so it is time to go back to \"business as usual\".&#xd;",
+      "tags": [],
+      "title": "PHP Vulnerability Wrap-Up, (Fri, Oct 23rd)",
+      "url": "https://isc.sans.edu/diary/rss/33450"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "e21e419ebac57752",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "缺陷存在於處理 EPS 向量圖檔的邏輯，Pillow 在呼叫外部 Ghostscript 轉譯像素時未對傳入的檔名做嚴格驗證與跳脫處理，導致作業系統層級的命令注入。",
+        "recommended_action": "更新 Pillow 套件至修復版本，或在應用程式中明確拒絕處理 EPS 格式並自主機移除 Ghostscript。",
+        "summary": "Python 圖像處理庫 Pillow 爆發重大漏洞（CVE-2026-112900），處理特製圖檔可引發指令執行。",
+        "why_it_matters": "若後端 Python API 允許用戶上傳圖片並透過 Pillow 進行縮圖或格式驗證，攻擊者可藉由惡意命名檔名直接取得後台主機 shell 權限。"
+      },
+      "provider": null,
+      "published": "2026-10-23T09:36:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "python"
+      ],
+      "summary": "Pillow, the most widely used image library for Python, can be made to run operating system commands on a server by specifying the name of a file it is told to open.\n\nThe flaw,&nbsp;CVE-2026-112900, is in the way Pillow handles EPS images, which it opens by passing the file's name to Ghostscript, a separate program it runs to turn the image into pixels, without checking the name first.",
+      "tags": [],
+      "title": "Critical Flaw in Python’s Popular Pillow Image Library Allows Code Execution via a Crafted Image",
+      "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html"
+    },
+    {
+      "board": "news",
+      "category": "security",
+      "demoted": null,
+      "id": "6f676746f765de6e",
+      "importance": "high",
+      "keyword_match": [],
+      "llm": {
+        "detail": "攻擊者在此次 ConnectWise Cloud Backup 事件中利用 ARTEX 進行自動化滲透測試與環境探測，顯著縮短了橫向移動的時間。該工具具備自主代理能力，先前曾被用於針對南韓金融機構的攻擊，隨後已轉為封閉原始碼，顯示國家級駭客正積極將 AI 工具武器化。",
+        "recommended_action": "盤點基礎設施中所有第三方備份與管理代理程式，並在主機端透過 EDR 阻擋未簽署的 Go 執行檔執行與異常外連行為。",
+        "summary": "微軟揭露中國駭客組織 Storm-0940 滲透 ConnectWise 供應鏈，並導入 Go 語言開發的 ARTEX AI Agent 加速攻擊流程。",
+        "why_it_matters": "雲端備份與維運管理軟體通常在主機或 Kubernetes 節點具備極高權限，一旦供應鏈失守且遭遇 AI Agent 自動化滲透，攻擊者能在幾分鐘內橫向擴展至關鍵容器或內部服務。"
+      },
+      "provider": null,
+      "published": "2026-10-22T04:21:26+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [
+        "go"
+      ],
+      "summary": "Microsoft on Wednesday disclosed that a China state-aligned actor dubbed Storm-0940 was behind the recent supply chain compromise of the ConnectWise Cloud Backup application.\n\nDuring the incident, Storm-0940 used ARTEX, a Go-based agentic AI penetration testing framework that was made closed-source in the wake of its abuse in cyber attacks targeting South Korean financial institutions, to speed",
+      "tags": [],
+      "title": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "9e0308113d32ae3f",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "claude"
+      ],
+      "llm": {
+        "detail": "新模型提供常規版與快 2 至 3 倍的 Highspeed 版本，定價為輸入每百萬 token 2 美元、輸出 10 美元（快顯命中價格相同），成本約為 Claude Opus 5.5 的一半。",
+        "recommended_action": "在現有的 LLM 整合層中，針對非敏感性分析與批次處理任務進行 Kimi API 的延遲與準確度基準測試。",
+        "summary": "Moonshot 推出 Kimi K3.1 Pro 模型 API，並承諾於 2026 年底前釋出完整模型權重。",
+        "why_it_matters": "為現有依賴 OpenAI 或 Anthropic 的後端（如 Python/Go 服務）提供更具成本效益的長文本推理替代方案，降低大量批次任務的 API 開銷。"
+      },
+      "provider": null,
+      "published": "2026-10-23T19:40:54+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Introducing Kimi K3.1 Pro\nKimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot  promise \"Full model weights will be released by Nov 4, 2026\".\nThey're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same).\nThe US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5.\nMoonshot's own benchmarks show ",
+      "tags": [],
+      "title": "Introducing Kimi K3.1 Pro",
+      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "95dedf578de78f3e",
+      "importance": "high",
+      "keyword_match": [
+        "gemini",
+        "openai"
+      ],
+      "llm": {
+        "detail": "企業用戶未來可直接透過 Google Cloud 既有結算帳號與環境調用 OpenAI 基礎模型與程式碼生成功能，免去額外的跨供應商商務與網路設定。",
+        "recommended_action": "檢視目前 GCP 組織帳號的 Marketplace 採購權限，評估是否將既有 OpenAI API 調用切換為 Google Cloud 集中結算以利預算控管。",
+        "summary": "OpenAI 尖端模型與 Codex 工作流程即將登陸 Google Cloud Marketplace 與 Model Garden。",
+        "why_it_matters": "若後端服務（如 Rails 或 Go）已部署於 GKE (Kubernetes)，可簡化跨雲連線架構並集中管理雲端 IAM 權限與 API 計費合約。"
+      },
+      "provider": null,
+      "published": "2026-10-21T12:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI and Google Cloud are bringing frontier models and Codex workflows to Gemini’s Model Garden, available through Google Cloud Marketplace.",
+      "tags": [],
+      "title": "OpenAI models are coming to Google Cloud",
+      "url": "https://openai.com/index/openai-models-google-cloud"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "ea92da5c121ecb45",
+      "importance": "high",
+      "keyword_match": [
+        "llm",
+        "openai"
+      ],
+      "llm": {
+        "detail": "該架構即時解析用戶查詢的語意脈絡，在確保核心回答生成不受干擾的前提下，完成大規模高相關性的廣告推薦派送。",
+        "recommended_action": "研讀該架構中關於意圖解析與核心生成解耦的管線設計，套用至內部需混合商業推薦的對話流程中。",
+        "summary": "OpenAI 揭露 ChatGPT 廣告架構如何運用 LLM 理解意圖，並嚴格隔離廣告與回答機制。",
+        "why_it_matters": "為全端產品（Next.js/React 前端搭配後端 API）提供了實作生成式商業化推薦時，如何維護資料隔離與用戶信任的架構參考。"
+      },
+      "provider": null,
+      "published": "2026-10-21T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how OpenAI built ChatGPT’s LLM-powered ad stack to understand conversational intent, keep ads separate from answers, and deliver relevant ads at scale.",
+      "tags": [],
+      "title": "How we built ChatGPT’s novel ad stack for user trust and relevance",
+      "url": "https://openai.com/index/building-chatgpt-ad-stack"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "aa8847d44cbae332",
+      "importance": "high",
+      "keyword_match": [
+        "gpt",
+        "openai"
+      ],
+      "llm": {
+        "detail": "系統透過專屬 Eval Agent 依據嚴格準則對產出評分，成功將基金投資規範的偏離偵測率提升 25%。",
+        "recommended_action": "在現有基於 LLM 的後端流程中加入獨立的 Evaluation Agent，利用具體評分指標取代單一 Prompt 的產出審查。",
+        "summary": "投資分析平台 Terminal X 運用 GPT-6.1 Sol 建立 54 項指標評估機制，與資深投資人決策吻合度達 88.6%。",
+        "why_it_matters": "展示了利用結構化 Rubric 結合專用 Agent 進行嚴謹商業規則審查（Eval-driven validation）的具體可行性，適合在後端強化資料檢驗。"
+      },
+      "provider": null,
+      "published": "2026-10-20T07:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Terminal X’s Eval Agent grades outputs against a 54-criterion rubric, catching 25% more deviances from a fund’s mandate with GPT-6.1 Sol.",
+      "tags": [],
+      "title": "Terminal X matches senior investor judgment 88.6% with GPT-6.1",
+      "url": "https://openai.com/index/terminal-x"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "d1879513a33727bd",
+      "importance": "high",
+      "keyword_match": [
+        "claude"
+      ],
+      "llm": {
+        "detail": "模型自動實作了具備四方旋轉對稱性的 Compass Rose 地圖，並擴充原本雙人的 WebSocket 通訊協定以支援四人連線與 AI 補位機制。",
+        "recommended_action": "在進行前端即時通訊或複雜互動邏輯的重構時，嘗試提供結構化對稱規格以評估模型自動擴充狀態機的能力。",
+        "summary": "開發者透過 Claude Opus 5.5 單一 Prompt 成功為 Battledrones 新增四人對戰地圖與 WebSocket 網路同步。",
+        "why_it_matters": "突顯高階 LLM 在處理前端 Canvas 幾何邏輯與即時網路同步協定重構的能力，能顯著加速 React/TypeScript 專案的原型建置。"
+      },
+      "provider": null,
+      "published": "2026-10-24T03:59:57+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Release: battledrones v14: Compass Rose, a four player map\n        I added four player online mode to Battledrones - previous maps were limited to two.\nHere's the initial prompt I used: \n\nAdd a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI)\n\nClaude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer net",
+      "tags": [],
+      "title": "battledrones v14: Compass Rose, a four player map",
+      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
+    },
+    {
+      "board": "news",
+      "category": "ai",
+      "demoted": null,
+      "id": "1560ea04dee0e58a",
+      "importance": "high",
+      "keyword_match": [
+        "claude"
+      ],
+      "llm": {
+        "detail": "該前端 Artifact 由 Claude Opus 5.5 生成，完全依靠原生 JavaScript 與 Canvas API 實作 Sobel 邊緣偵測與筆觸演算法，除字型外無第三方套件。",
+        "recommended_action": "評估現有前端影像處理管線，將非核心依賴替換為基於 Canvas/Web Worker 的原生演算法實作。",
+        "summary": "實驗性工具 Quick Study 透過 Canvas 與 Sobel 濾鏡，在無外部相依下將照片即時轉化為模擬筆刷繪畫。",
+        "why_it_matters": "證明現代模型已能可靠生成純原生的電腦視覺演算法，有助於 React/Next.js 前端減少影像處理相關的 npm 套件體積。"
+      },
+      "provider": null,
+      "published": "2026-10-23T21:35:13+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Tool: Quick Study\n        Prompt to Claude Opus 5.5 High:\n\nBuild an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush\n\nSee also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js.\n\nQuick Study uses Sobel edge detection, with no external libraries beyond Google Fonts.\n    \n    \n        Tags: tools",
+      "tags": [],
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "ee4c22366ef7e7ab",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "架構著重於嚴密的多租戶資源隔離與分層快取同步策略，在高併發狀態下大幅緩解熱點資料對分散式資料庫的讀寫壓力。",
+        "recommended_action": "檢視現有生產環境的快取架構（如 Nginx、Redis 到持久層），評估導入分層快取以降低後端資料庫的讀取熱點壓力。",
+        "summary": "OpenAI 透過 Habitat 儲存架構、全域快取與 Azure Cosmos DB，為 10 億 ChatGPT 用戶提速 12 倍讀取效能。",
+        "why_it_matters": "對於運行於 Kubernetes 上的大規模 API（如 Rails 或 Go 服務），其多層快取與租戶隔離實踐可作為架構擴展的優化範本。"
+      },
+      "provider": null,
+      "published": "2026-10-23T17:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.",
+      "tags": [],
+      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "f8c156dba7886826",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "透過實體網路切斷、嚴格的容器特權限制與自動化對抗測試，防範訓練階段的模型權重洩漏及算力資源遭到未授權接管。",
+        "recommended_action": "審查 Kubernetes 叢集中批次運算 Pod 的 NetworkPolicy 與 PodSecurityStandard，確保訓練與推理任務具備必要的網路隔離。",
+        "summary": "OpenAI 公開尖端模型訓練環境的隔離防護策略，涵蓋離線網路封裝與高算力紅隊演練。",
+        "why_it_matters": "為以 Docker/Kubernetes 託管模型微調或機敏批次運算任務（如 Sidekiq/Python worker）的團隊提供了零信任環境的建置標準。"
+      },
+      "provider": null,
+      "published": "2026-10-23T10:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
+      "tags": [],
+      "title": "Securing our frontier model training environment",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "1a543055a02f9816",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "雙方將針對模型防護機制、關鍵基礎設施防護及資安威脅偵測展開技術合作。此舉有助於歐盟地區更具體建立數位韌性與合規框架。",
+        "recommended_action": "持續關注歐盟相關 AI 安全與法規標準演進，現階段無需調整現有系統架構。",
+        "summary": "OpenAI 與波蘭國家研究機構 NASK 合作推進 AI 安全與資安防護研究。",
+        "why_it_matters": "面向歐盟市場的產品在架構規劃上需密切注意資料隱私與 AI 安全法規的演進，尤其是於 Kubernetes 上運作且依賴 OpenAI 服務的系統。"
+      },
+      "provider": null,
+      "published": "2026-10-23T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
+      "tags": [],
+      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "891b7e0bbf66f86d",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "該 API 專門針對條件判斷、請求路由以及分類任務最佳化，省去完整文字生成流程以極大化縮短 TTFT。相較於調用通用 Chat Completion 模型，能顯著降低推論成本與 API 回應時間。",
+        "recommended_action": "盤點現有後端與 Next.js 應用中使用 axios 或 OpenAI SDK 進行純分類/決策的端點，評估遷移至 Decisions API 的可行性。",
+        "summary": "OpenAI 推出 Decisions API，提供低延遲、低成本的快速決策與分類推論能力。",
+        "why_it_matters": "在 Rails (Sidekiq) 背景排程或 Go 微服務中，若有使用 OpenAI API 進行內容過濾、意圖路由或標籤分類，改用此 API 可有效縮短處理等待時間並降低帳單費用。"
+      },
+      "provider": null,
+      "published": "2026-10-22T19:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Fast, focused, low-cost decisions for any application.",
+      "tags": [],
+      "title": "Build more responsive apps with the Decisions API",
+      "url": "https://openai.com/index/decisions-api"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "6400feb681472530",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "FDE 結合全端架構能力與前線顧問模式，直接協助大型企業將先端模型整合進其既有的生產級系統中。文章闡述了如何克服企業環境中的大規模即時資料存取、隔離邊界與客製化工具鏈建構挑戰。",
+        "recommended_action": "檢視內部 AI 落地專案的架構，確保模型調用周圍具備足夠的 Observability、重試機制與安全邊界防護。",
+        "summary": "OpenAI 介紹 Forward Deployed Engineering (FDE) 團隊的角色與實踐方式。",
+        "why_it_matters": "團隊在推動內部 GenAI 解決方案時，可借鏡其將模型深度嵌入既有系統的架構模式，強調資料治理與企業內部整合而非單純的 API 包裝。"
+      },
+      "provider": null,
+      "published": "2026-10-22T06:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "What forward deployed engineering means at OpenAI",
+      "tags": [],
+      "title": "What FDE means at OpenAI",
+      "url": "https://openai.com/index/forward-deployed-engineering-means"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "eda525050cea8fce",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "導入範圍涵蓋市場研究、資料分析、報表製作與複雜工作流處理。這展現了超大規模跨國科技企業在確保企業數據不被拿去訓練模型的安全前提下，全面普及生成式 AI 的案例。",
+        "recommended_action": "評估內部團隊對企業級 AI 席位的需求與資訊安全規範，制定對應的內部資料存取政策。",
+        "summary": "Uber 全面為逾三萬名員工導入 ChatGPT Work，加速日常工作流程自動化。",
+        "why_it_matters": "大型企業加速採用標準化工作區方案，有助於內部工程與營運團隊標準化 AI 工具鏈，並提升跨職能協作的開發與產出效率。"
+      },
+      "provider": null,
+      "published": "2026-10-22T00:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.",
+      "tags": [],
+      "title": "Uber brings ChatGPT Work to all employees with OpenAI",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "3f1a11956436b167",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "說明 OpenAI 如何透過經銷商與雲端通路落實統一的安全防護措施，確保跨平台存取均遵循相同的信任與安全標準。同時針對合作夥伴明確規範了濫用防制與違規執行的機制。",
+        "recommended_action": "在應用層檢視並補強終端使用者的輸入過濾與異常行為偵測機制，確保呼叫端符合 OpenAI 最新 Usage Policies。",
+        "summary": "OpenAI 強化與通路合作夥伴的一致安全標準與 Usage Policies 規範。",
+        "why_it_matters": "若透過第三方雲端供應商或經銷通路使用 OpenAI API，在 Rails/Devise 的多租戶系統架構下，需更嚴格防範終端用戶違規行為導致整個帳號或 API Key 遭封鎖。"
+      },
+      "provider": null,
+      "published": "2026-10-21T21:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies.",
+      "tags": [],
+      "title": "Broad access through consistent standards",
+      "url": "https://openai.com/index/broad-access-through-consistent-standards"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "94a5f6526eada9bc",
+      "importance": "high",
+      "keyword_match": [
+        "machine learning"
+      ],
+      "llm": {
+        "detail": "該方案利用圖神經網路 (GNN) 與 Relational Foundation Models，直接在多表結構上運作並捕捉拓撲關聯。大幅省去傳統特徵工程與模型微調的高昂成本，推論表現超越現有監督式學習模型。",
+        "recommended_action": "關注 NVIDIA 與 Kumo 的開源與 SDK 釋出進度，評估其與既有 RDBMS 資料表結構結合的可能性。",
+        "summary": "NVIDIA 與 Kumo 推出 Kumo Relational，無需針對關聯式資料進行傳統機器學習訓練即可獲得高精準度。",
+        "why_it_matters": "團隊的 PostgreSQL 或 MySQL 多表交易資料庫，未來可望直接串接此類模型進行預測分析，大幅簡化 Python 數據分析管線與相關 Docker/K8s 運算叢集的維護負擔。"
+      },
+      "provider": null,
+      "published": "2026-10-21T18:26:30+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "",
+      "tags": [],
+      "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational"
+    },
+    {
+      "board": "tech",
+      "category": "ai",
+      "demoted": null,
+      "id": "39cad894cdd240fb",
+      "importance": "high",
+      "keyword_match": [
+        "openai"
+      ],
+      "llm": {
+        "detail": "該團隊透過將內部法務知識庫與 LLM 結合，實現了法務進案 (intake) 的智慧化自動分流與判斷擴展。大幅降低律師處理例行事務的耗時，同時確保敏感合約資料受到嚴格控管。",
+        "recommended_action": "在規劃內部 RAG 或問答工具時，參考其「結構化進案＋初步審查分流」的模式來設計後端流程。",
+        "summary": "AT&T 透過 OpenAI 建構 LegalEdge 平台，重構內部法務諮詢與案件分流架構。",
+        "why_it_matters": "為內部企業級工具的架構設計提供了具體範例，對於使用 Rails 或 Next.js 開發內部知識管理、客服或審查系統的團隊具有高度參考價值。"
+      },
+      "provider": null,
+      "published": "2026-10-21T17:00:00+00:00",
+      "severity": null,
+      "source_type": "rss",
+      "stack_match": [],
+      "summary": "AT&amp;T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment.",
+      "tags": [],
+      "title": "How AT&T is rethinking in-house legal work with OpenAI",
+      "url": "https://openai.com/index/att-legal"
+    }
+  ],
+  "meta": {
+    "date": "2026-10-26",
+    "enriched": {
+      "ai": true,
+      "frontend": true,
+      "security": true
+    },
+    "rendered": {
+      "2026-10-26": "sha256:6ab4e591ee7e82a5"
+    },
+    "schema_version": 1,
+    "sources": {
+      "ghsa": {
+        "count": 168,
+        "status": "ok"
+      },
+      "hn:ai:LLM OR GPT OR Claude OR OpenAI OR Anthropic": {
+        "count": 7,
+        "status": "ok"
+      },
+      "hn:frontend:react OR frontend": {
+        "count": 20,
+        "status": "ok"
+      },
+      "https://aws.amazon.com/about-aws/whats-new/recent/feed/": {
+        "count": 31,
+        "status": "ok"
+      },
+      "https://azure.microsoft.com/en-us/updates/feed/": {
+        "count": 0,
+        "status": "ok"
+      },
+      "https://blog.talosintelligence.com/rss/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://deepmind.google/blog/rss.xml": {
+        "count": 100,
+        "status": "ok"
+      },
+      "https://feeds.feedburner.com/TheHackersNews": {
+        "count": 50,
+        "status": "ok"
+      },
+      "https://huggingface.co/blog/feed.xml": {
+        "count": 890,
+        "status": "ok"
+      },
+      "https://isc.sans.edu/rssfeed_full.xml": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://krebsonsecurity.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://openai.com/blog/rss.xml": {
+        "count": 1318,
+        "status": "ok"
+      },
+      "https://simonwillison.net/atom/everything/": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://thedfirreport.com/feed/": {
+        "count": 10,
+        "status": "ok"
+      },
+      "https://unit42.paloaltonetworks.com/feed/": {
+        "count": 15,
+        "status": "ok"
+      },
+      "https://www.cisa.gov/cybersecurity-advisories/all.xml": {
+        "count": 30,
+        "status": "ok"
+      },
+      "https://www.reddit.com/r/netsec/.rss": {
+        "count": 25,
+        "status": "ok"
+      },
+      "npm:frontend:react,axios": {
+        "count": 20,
+        "status": "ok"
+      },
+      "osv": {
+        "count": 152,
+        "status": "ok"
+      },
+      "rails/rails": {
+        "count": 10,
+        "status": "ok"
+      },
+      "reddit:frontend:reactjs": {
+        "error": "Client error '403 Blocked' for url 'https://www.reddit.com/r/reactjs/new.json?limit=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "status": "failed"
+      },
+      "rubygems:backend:rails,sidekiq": {
+        "count": 20,
+        "status": "ok"
+      }
+    }
+  }
+}
